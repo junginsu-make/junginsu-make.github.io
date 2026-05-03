@@ -39,3 +39,13 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# 자료 (copy script가 채움 — 대용량)
+public/photos/teaching/
+public/photos/profile-hero.png
+public/photos/profile-hero.jpg
+public/saas-folders/
+public/captured/
+public/cropped/
+public/automation/
+capture.log
