@@ -12,7 +12,7 @@ export const GITHUB_CATEGORIES: GithubCategory[] = [
   {
     id: "A",
     name: "대표 시스템 (AI Agent / 마케팅 / 금융 / 영상 / 이미지 / 문서)",
-    count: 35,
+    count: 36,
     examples: [
       "synapse-platform",
       "propintel-ai",
@@ -41,7 +41,7 @@ export const GITHUB_CATEGORIES: GithubCategory[] = [
   {
     id: "C",
     name: "Frontend Stack 큐레이션 (학습용 fork)",
-    count: 16,
+    count: 17,
     examples: [
       "shadcn-landing-page",
       "next-shadcn-dashboard-starter",
@@ -55,7 +55,7 @@ export const GITHUB_CATEGORIES: GithubCategory[] = [
   {
     id: "D",
     name: "외부 도구·학습 fork",
-    count: 6,
+    count: 7,
     examples: [
       "hwp-open-source",
       "NAVER_NESS",
@@ -79,8 +79,8 @@ export const GITHUB_CATEGORIES: GithubCategory[] = [
   },
   {
     id: "NEW",
-    name: "신규 추가 (gh 직접 보강 필요)",
-    count: 3,
+    name: "신규 추가 (2026-05-01 이후, gh 직접 보강 필요)",
+    count: 7,
     examples: [],
   },
 ];
