@@ -79,3 +79,32 @@
 
 /* 마우스 커서 (마그네틱 wrapper에서 활성화) */
 .cursor-magnetic { cursor: pointer; transition: transform 0.4s var(--ease-default); }
+
+/* View Transitions — 컬러 스윕 페이지 전환 */
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-old(root) {
+  animation: sweep-out 320ms cubic-bezier(0.85, 0, 0.15, 1) forwards;
+}
+
+::view-transition-new(root) {
+  animation: sweep-in 320ms cubic-bezier(0.85, 0, 0.15, 1) forwards;
+}
+
+@keyframes sweep-out {
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes sweep-in {
+  from {
+    transform: translateX(100%);
+  }
+}
+
+::view-transition-group(root) {
+  background: var(--color-orange);
+}
