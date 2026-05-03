@@ -6,6 +6,7 @@ const fraunces = Fraunces({
   subsets: ["latin"],
   variable: "--font-fraunces",
   axes: ["SOFT", "WONK", "opsz"],
+  weight: "variable",
   display: "swap",
 });
 
@@ -25,6 +26,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="ko" className={`${fraunces.variable} ${jetbrains.variable}`} suppressHydrationWarning>
       <head>
         {/* Pretendard Variable (dynamic-subset) — next/font/google에 없어 CDN 링크로 로드 */}
+        <link
+          rel="preload"
+          href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"
+          as="style"
+          crossOrigin="anonymous"
+        />
         <link
           rel="stylesheet"
           href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"
