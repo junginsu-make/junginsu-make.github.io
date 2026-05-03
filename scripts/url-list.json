@@ -1,0 +1,10 @@
+[
+  { "slug": "tickpoint/home", "url": "https://tickpoint.co.kr/" },
+  { "slug": "lumio/home", "url": "https://lumio-video.vercel.app/" },
+  { "slug": "os-agent/home", "url": "http://43.201.237.25:3010/" },
+  { "slug": "mkt-automation/home", "url": "https://frontend-three-smoky-68.vercel.app/" },
+  { "slug": "propintel/home", "url": "https://propintel-ai-beta.vercel.app/" },
+  { "slug": "architect/home", "url": "https://architect-portfolio-lake.vercel.app/" },
+  { "slug": "github/profile", "url": "https://github.com/junginsu-make" },
+  { "slug": "blog/sbcyberpass", "url": "https://blog.naver.com/sbcyberpass" }
+]

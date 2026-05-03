@@ -1,0 +1,98 @@
+[
+  {
+    "slug": "tickpoint/home/desktop",
+    "url": "https://tickpoint.co.kr/",
+    "capturedAt": "2026-05-03T17:35:48.486Z",
+    "ok": true
+  },
+  {
+    "slug": "tickpoint/home/mobile",
+    "url": "https://tickpoint.co.kr/",
+    "capturedAt": "2026-05-03T17:35:54.576Z",
+    "ok": true
+  },
+  {
+    "slug": "lumio/home/desktop",
+    "url": "https://lumio-video.vercel.app/",
+    "capturedAt": "2026-05-03T17:35:59.197Z",
+    "ok": true
+  },
+  {
+    "slug": "lumio/home/mobile",
+    "url": "https://lumio-video.vercel.app/",
+    "capturedAt": "2026-05-03T17:36:02.764Z",
+    "ok": true
+  },
+  {
+    "slug": "os-agent/home/desktop",
+    "url": "http://43.201.237.25:3010/",
+    "capturedAt": "2026-05-03T17:36:06.450Z",
+    "ok": true
+  },
+  {
+    "slug": "os-agent/home/mobile",
+    "url": "http://43.201.237.25:3010/",
+    "capturedAt": "2026-05-03T17:36:10.082Z",
+    "ok": true
+  },
+  {
+    "slug": "mkt-automation/home/desktop",
+    "url": "https://frontend-three-smoky-68.vercel.app/",
+    "capturedAt": "2026-05-03T17:36:16.204Z",
+    "ok": true
+  },
+  {
+    "slug": "mkt-automation/home/mobile",
+    "url": "https://frontend-three-smoky-68.vercel.app/",
+    "capturedAt": "2026-05-03T17:36:20.393Z",
+    "ok": true
+  },
+  {
+    "slug": "propintel/home/desktop",
+    "url": "https://propintel-ai-beta.vercel.app/",
+    "capturedAt": "2026-05-03T17:36:23.770Z",
+    "ok": true
+  },
+  {
+    "slug": "propintel/home/mobile",
+    "url": "https://propintel-ai-beta.vercel.app/",
+    "capturedAt": "2026-05-03T17:36:27.880Z",
+    "ok": true
+  },
+  {
+    "slug": "architect/home/desktop",
+    "url": "https://architect-portfolio-lake.vercel.app/",
+    "capturedAt": "2026-05-03T17:36:31.610Z",
+    "ok": true
+  },
+  {
+    "slug": "architect/home/mobile",
+    "url": "https://architect-portfolio-lake.vercel.app/",
+    "capturedAt": "2026-05-03T17:36:35.002Z",
+    "ok": true
+  },
+  {
+    "slug": "github/profile/desktop",
+    "url": "https://github.com/junginsu-make",
+    "capturedAt": "2026-05-03T17:36:39.334Z",
+    "ok": true
+  },
+  {
+    "slug": "github/profile/mobile",
+    "url": "https://github.com/junginsu-make",
+    "capturedAt": "2026-05-03T17:36:43.027Z",
+    "ok": true
+  },
+  {
+    "slug": "blog/sbcyberpass/desktop",
+    "url": "https://blog.naver.com/sbcyberpass",
+    "capturedAt": "2026-05-03T17:36:46.719Z",
+    "ok": true
+  },
+  {
+    "slug": "blog/sbcyberpass/mobile",
+    "url": "https://blog.naver.com/sbcyberpass",
+    "capturedAt": "2026-05-03T17:36:51.428Z",
+    "ok": true
+  }
+]
