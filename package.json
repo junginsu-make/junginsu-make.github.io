@@ -5,7 +5,11 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "capture": "tsx scripts/capture-urls.ts",
+    "optimize": "tsx scripts/optimize-images.ts"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.15",
