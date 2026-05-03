@@ -13,9 +13,11 @@ export function SweepLink({ href, children, ...rest }: SweepLinkProps) {
   function handleClick(e: React.MouseEvent) {
     if (typeof href !== "string") return;
     e.preventDefault();
-    if (typeof document !== "undefined" && "startViewTransition" in document) {
-      // @ts-expect-error - View Transitions API not yet in lib.dom
-      document.startViewTransition(() => router.push(href));
+    const doc = document as Document & {
+      startViewTransition?: (cb: () => void) => void;
+    };
+    if (typeof document !== "undefined" && typeof doc.startViewTransition === "function") {
+      doc.startViewTransition(() => router.push(href));
     } else {
       router.push(href);
     }
