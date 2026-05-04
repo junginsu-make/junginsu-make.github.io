@@ -106,7 +106,6 @@ export type BuildTrack = {
   number: string;
   title: string;
   subtitle: string;
-  glyph: string;
   bullets: string[];
   metric: { value: string; label: string };
   color: "fg" | "accent";
@@ -118,7 +117,6 @@ export const BUILD_TRACKS: BuildTrack[] = [
     number: "01",
     title: "Vibe Coding",
     subtitle: "직접 코드를 쓴다",
-    glyph: "{ }",
     bullets: [
       "Cursor · Claude Code · Codex CLI 멀티 에이전트 페어 프로그래밍",
       "Next.js · React 19 · TypeScript 5 · Tailwind v4 · Vite 풀 프론트엔드",
@@ -126,7 +124,7 @@ export const BUILD_TRACKS: BuildTrack[] = [
       "Multi-LLM 라우팅 (Claude · GPT · Gemini · Perplexity)",
       "shadcn/ui · Recharts · React Flow · Radix · Zustand · Dexie",
     ],
-    metric: { value: "43", label: "GITHUB PUBLIC" },
+    metric: { value: "43", label: "GitHub 공개 저장소" },
     color: "fg",
   },
   {
@@ -134,7 +132,6 @@ export const BUILD_TRACKS: BuildTrack[] = [
     number: "02",
     title: "Make.com 자동화",
     subtitle: "노코드로 시스템을 짠다",
-    glyph: "→ →",
     bullets: [
       "12+ AI 도구 통합 워크플로우 (Make.com이 허브)",
       "정부지원사업 크롤링·사업계획서·10X 콘텐츠·계약서+GA4·뉴스레터 4 핵심",
@@ -142,7 +139,7 @@ export const BUILD_TRACKS: BuildTrack[] = [
       "JSON2Video로 영상 자동 제작 (텍스트→이미지→음성→릴스)",
       "n8n 백업 자동화 + Webhook + 조건 분기 + 스케줄링",
     ],
-    metric: { value: "81", label: "TOTAL SYSTEMS · 4 CORE" },
+    metric: { value: "81", label: "make.com 시스템 (4 핵심 메인 + 77 인벤토리)" },
     color: "accent",
   },
 ];

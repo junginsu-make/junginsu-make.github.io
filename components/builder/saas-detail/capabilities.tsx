@@ -1,4 +1,5 @@
 "use client";
+import { motion } from "framer-motion";
 import { MaskReveal } from "@/components/motion/mask-reveal";
 import { ScrollReveal } from "@/components/motion/scroll-reveal";
 import { cn } from "@/lib/utils";
@@ -15,7 +16,7 @@ export function SaasCapabilities({ saas, galleryImages }: Props) {
       id="capabilities"
       className="px-6 md:px-10 lg:px-16 py-24 md:py-32"
     >
-      <div className="flex items-baseline justify-between mb-16 md:mb-24">
+      <div className="flex items-baseline justify-between mb-12 md:mb-16">
         <p className="text-meta opacity-60 tracking-[0.2em]">
           <MaskReveal>CAPABILITIES · 능력 풀</MaskReveal>
         </p>
@@ -24,62 +25,92 @@ export function SaasCapabilities({ saas, galleryImages }: Props) {
         </span>
       </div>
 
-      <div className="space-y-24 md:space-y-32">
+      {/* 인트로 — 라이브 사이트 콘텐츠 안내 */}
+      <ScrollReveal>
+        <p className="text-body-lg opacity-75 leading-[1.6] mb-16 md:mb-24 max-w-[820px]">
+          {saas.name}이 실제로 무엇을 하는지 — 각 능력은 라이브 사이트에서
+          하나의 화면 또는 워크플로우 단위. 텍스트 설명만으로 안 닿는다면 우측
+          상단 LIVE 버튼으로 직접 살펴보세요.
+        </p>
+      </ScrollReveal>
+
+      <div className="space-y-20 md:space-y-28">
         {saas.capabilities.map((c, i) => {
           const isReversed = i % 2 === 1;
-          const matchedImage = galleryImages[i] ?? galleryImages[i % galleryImages.length];
+          const matchedImage =
+            galleryImages[i] ?? galleryImages[i % galleryImages.length];
           return (
             <article
               key={i}
-              className={cn(
-                "grid md:grid-cols-12 gap-8 md:gap-12 items-center border-t border-[var(--line)] pt-12 md:pt-16",
-              )}
+              className="grid md:grid-cols-12 gap-8 md:gap-14 items-center border-t border-[var(--line)] pt-12 md:pt-16"
             >
               <div
                 className={cn(
-                  "md:col-span-6 order-2",
+                  "md:col-span-7 order-2",
                   isReversed ? "md:order-2" : "md:order-1",
                 )}
               >
-                <p className="text-display-md md:text-display-lg font-display opacity-15 leading-none tabular-nums">
-                  {(i + 1).toString().padStart(2, "0")}
-                </p>
+                <div className="flex items-baseline gap-5">
+                  <p className="text-display-md md:text-display-lg font-display opacity-15 leading-none tabular-nums shrink-0">
+                    {(i + 1).toString().padStart(2, "0")}
+                  </p>
+                  <motion.div
+                    initial={{ scaleX: 0 }}
+                    whileInView={{ scaleX: 1 }}
+                    viewport={{ once: true, margin: "-10% 0px" }}
+                    transition={{
+                      duration: 0.6,
+                      delay: 0.15,
+                      ease: [0.6, 0.05, 0.3, 0.95],
+                    }}
+                    className="h-px bg-current opacity-30 flex-1 origin-left mt-3"
+                  />
+                  <span className="text-meta opacity-50 shrink-0 tracking-[0.15em]">
+                    FEATURE
+                  </span>
+                </div>
 
-                <h3 className="mt-6 text-display-md font-display leading-[1.05] tracking-[-0.02em] max-w-[520px]">
+                <h3 className="mt-8 text-display-md md:text-display-lg font-display leading-[1.1] tracking-[-0.02em]">
                   <MaskReveal>{c.title}</MaskReveal>
                 </h3>
 
                 <ScrollReveal delay={0.15}>
-                  <p className="mt-6 text-body opacity-80 leading-[1.7] max-w-[560px]">
+                  <p className="mt-8 text-body-lg opacity-85 leading-[1.7] max-w-[760px]">
                     {c.description}
                   </p>
-                </ScrollReveal>
-
-                <ScrollReveal delay={0.25}>
-                  <div className="mt-8 flex items-center gap-3 text-meta opacity-50">
-                    <span className="h-px w-8 bg-current" />
-                    <span>FEATURE {(i + 1).toString().padStart(2, "0")}</span>
-                  </div>
                 </ScrollReveal>
               </div>
 
               <div
                 className={cn(
-                  "md:col-span-6 order-1",
+                  "md:col-span-5 order-1",
                   isReversed ? "md:order-1" : "md:order-2",
                 )}
               >
                 <ScrollReveal delay={0.1}>
-                  <div className="relative aspect-[16/10] overflow-hidden border border-[var(--line)] bg-[color-mix(in_oklab,var(--fg)_4%,transparent)]">
+                  <div className="relative aspect-[16/10] overflow-hidden border border-[var(--line)] bg-[color-mix(in_oklab,var(--fg)_4%,transparent)] group">
                     {matchedImage ? (
                       <picture>
-                        <source srcSet={matchedImage.replace(/\.(jpe?g|png|webp)$/i, ".avif")} type="image/avif" />
-                        <source srcSet={matchedImage.replace(/\.(jpe?g|png)$/i, ".webp")} type="image/webp" />
+                        <source
+                          srcSet={matchedImage.replace(
+                            /\.(jpe?g|png|webp)$/i,
+                            ".avif",
+                          )}
+                          type="image/avif"
+                        />
+                        <source
+                          srcSet={matchedImage.replace(
+                            /\.(jpe?g|png)$/i,
+                            ".webp",
+                          )}
+                          type="image/webp"
+                        />
                         <img
                           src={matchedImage}
                           alt={`${saas.name} — ${c.title}`}
                           loading="lazy"
-                          className="h-full w-full object-cover transition-transform duration-700 hover:scale-[1.04]"
+                          decoding="async"
+                          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
                         />
                       </picture>
                     ) : (
@@ -88,12 +119,19 @@ export function SaasCapabilities({ saas, galleryImages }: Props) {
                       </div>
                     )}
 
-                    {/* 인덱스 오버레이 — backdrop-blur로 가독성 안전 확보 */}
                     <div
                       className="absolute top-4 left-4 px-3 py-1.5 text-meta tracking-[0.2em] text-[#F4F0E6] backdrop-blur-sm bg-black/30 border border-white/10"
                       style={{ textShadow: "0 1px 4px rgba(0,0,0,0.6)" }}
                     >
                       {saas.name.toUpperCase()}
+                    </div>
+
+                    <div
+                      className="absolute bottom-4 right-4 px-2.5 py-1 text-meta tracking-[0.15em] text-[#F4F0E6] backdrop-blur-sm bg-black/40 border border-white/10"
+                      style={{ textShadow: "0 1px 4px rgba(0,0,0,0.6)" }}
+                    >
+                      {(i + 1).toString().padStart(2, "0")} /{" "}
+                      {saas.capabilities.length.toString().padStart(2, "0")}
                     </div>
                   </div>
                 </ScrollReveal>

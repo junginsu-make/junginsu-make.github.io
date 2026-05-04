@@ -44,21 +44,10 @@ export function BuildTracks() {
                 : "hover:bg-[color-mix(in_oklab,var(--fg)_4%,var(--bg))]",
             )}
           >
-            {/* Header */}
-            <div className="flex items-baseline justify-between mb-8">
+            {/* Header — TRACK 번호만 (glyph 제거) */}
+            <div className="mb-8">
               <span className="text-meta opacity-50 tracking-[0.2em] tabular-nums">
                 TRACK · {t.number}
-              </span>
-              <span
-                className={cn(
-                  "font-mono text-display-md leading-none transition-colors duration-500",
-                  t.color === "accent"
-                    ? "text-[var(--accent)] opacity-30 group-hover:opacity-100"
-                    : "opacity-15 group-hover:opacity-40",
-                )}
-                aria-hidden
-              >
-                {t.glyph}
               </span>
             </div>
 
@@ -106,17 +95,31 @@ export function BuildTracks() {
               ))}
             </ul>
 
-            {/* Metric */}
-            <div className="mt-10 pt-6 border-t border-[var(--line)]">
+            {/* Metric — value 더 크게 + label 가독성 개선 */}
+            <div
+              className={cn(
+                "mt-10 pt-8 border-t-2",
+                t.color === "accent"
+                  ? "border-[var(--accent)]/60"
+                  : "border-[var(--fg)]/30",
+              )}
+            >
               <p
                 className={cn(
-                  "text-display-md font-display leading-none tabular-nums",
-                  t.color === "accent" ? "text-[var(--accent)]" : "",
+                  "text-display-lg md:text-display-xl font-display leading-none tracking-[-0.04em] tabular-nums",
+                  t.color === "accent"
+                    ? "text-[var(--accent)]"
+                    : "text-[var(--fg)]",
                 )}
               >
                 {t.metric.value}
               </p>
-              <p className="text-meta opacity-60 mt-3 tracking-[0.15em]">
+              <p
+                className={cn(
+                  "text-body-lg font-medium mt-4 tracking-[0.05em] leading-[1.4]",
+                  t.color === "accent" ? "" : "opacity-90",
+                )}
+              >
                 {t.metric.label}
               </p>
             </div>
