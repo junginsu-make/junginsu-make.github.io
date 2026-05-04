@@ -1,12 +1,13 @@
 import sharp from "sharp";
 import { mkdir } from "node:fs/promises";
 
-const SAAS_CAPTURES = [
+// 6 SaaS 모자이크 — 사용자 정정에 따라 Lumio (2026-05-04 10.45.53) + PropIntel (14.14.21) 신규 적용
+const SAAS_SOURCES = [
   "public/captured/tickpoint/home/desktop.jpg",
-  "public/captured/lumio/home/desktop.jpg",
+  "public/saas-folders/lumio/Screenshot 2026-05-04 at 10.45.53.JPG",
   "public/captured/os-agent/home/desktop.jpg",
   "public/captured/mkt-automation/home/desktop.jpg",
-  "public/captured/propintel/home/desktop.jpg",
+  "public/saas-folders/propintel/Screenshot 2026-05-03 at 14.14.21.JPG",
   "public/captured/architect/home/desktop.jpg",
 ];
 
@@ -18,9 +19,8 @@ const ROWS = 3;
 async function main() {
   await mkdir("public/ai-builder", { recursive: true });
 
-  // 각 캡처를 600x375 thumbnail로 cover-fit 리사이즈
   const thumbs = await Promise.all(
-    SAAS_CAPTURES.map((src) =>
+    SAAS_SOURCES.map((src) =>
       sharp(src)
         .resize(TILE_W, TILE_H, { fit: "cover", position: "top" })
         .toBuffer(),
@@ -48,7 +48,6 @@ async function main() {
     .jpeg({ quality: 88 })
     .toFile("public/ai-builder/saas-mosaic.jpg");
 
-  // webp + avif 파생본 생성
   await sharp("public/ai-builder/saas-mosaic.jpg")
     .webp({ quality: 85 })
     .toFile("public/ai-builder/saas-mosaic.webp");
@@ -58,7 +57,7 @@ async function main() {
     .toFile("public/ai-builder/saas-mosaic.avif");
 
   console.log(
-    `Mosaic done: ${width}x${height} (${COLS} x ${ROWS} = ${SAAS_CAPTURES.length} SaaS)`,
+    `Mosaic done: ${width}x${height} (${COLS} x ${ROWS} = ${SAAS_SOURCES.length} SaaS)`,
   );
 }
 
