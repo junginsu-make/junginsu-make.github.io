@@ -31,11 +31,24 @@ export function SaasCycle() {
               i === idx ? "opacity-100" : "opacity-0 pointer-events-none"
             }`}
           >
-            <img
-              src={`/captured/${s.capturedSlug}/home/desktop.jpg`}
-              alt={s.name}
-              className="w-full h-full object-cover"
-            />
+            <picture>
+              <source
+                srcSet={`/captured/${s.capturedSlug}/home/desktop.avif`}
+                type="image/avif"
+              />
+              <source
+                srcSet={`/captured/${s.capturedSlug}/home/desktop.webp`}
+                type="image/webp"
+              />
+              <img
+                src={`/captured/${s.capturedSlug}/home/desktop.jpg`}
+                alt={s.name}
+                loading={i === 0 ? "eager" : "lazy"}
+                fetchPriority={i === 0 ? "high" : "auto"}
+                decoding="async"
+                className="w-full h-full object-cover"
+              />
+            </picture>
           </SweepLink>
         ))}
         <div className="absolute bottom-10 left-6 md:left-10 lg:left-16 text-paper-dark mix-blend-difference pointer-events-none">

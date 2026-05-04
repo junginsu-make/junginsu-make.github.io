@@ -1,12 +1,24 @@
 "use client";
 import { SweepLink } from "@/components/motion/color-sweep";
 
-const CATEGORIES = [
+type Category = {
+  href: string;
+  number: string;
+  label: string;
+  img: string;
+  imgWebp: string;
+  imgAvif: string;
+  caption: string;
+};
+
+const CATEGORIES: Category[] = [
   {
     href: "/career",
     number: "01",
     label: "경력 · 자격",
     img: "/photos/profile-hero.png",
+    imgWebp: "/photos/profile-hero.webp",
+    imgAvif: "/photos/profile-hero.avif",
     caption: "17년 마케팅 + AI 강의 + 풀사이클 빌더",
   },
   {
@@ -14,6 +26,8 @@ const CATEGORIES = [
     number: "02",
     label: "마케팅",
     img: "/photos/teaching/IMG_1187.JPG",
+    imgWebp: "/photos/teaching/IMG_1187.webp",
+    imgAvif: "/photos/teaching/IMG_1187.avif",
     caption: "KOICA · 광고 운영 10년 · 31 강의처",
   },
   {
@@ -21,6 +35,8 @@ const CATEGORIES = [
     number: "03",
     label: "AI Builder",
     img: "/captured/tickpoint/home/desktop.jpg",
+    imgWebp: "/captured/tickpoint/home/desktop.webp",
+    imgAvif: "/captured/tickpoint/home/desktop.avif",
     caption: "GitHub 84 · make.com 4 핵심 · 6 라이브 SaaS",
   },
 ];
@@ -39,11 +55,17 @@ export function ThreeCategories() {
             href={c.href}
             className="group relative block aspect-[3/4] overflow-hidden border border-[var(--line)]"
           >
-            <img
-              src={c.img}
-              alt={c.label}
-              className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-90 transition-opacity duration-700 ease-out"
-            />
+            <picture>
+              <source srcSet={c.imgAvif} type="image/avif" />
+              <source srcSet={c.imgWebp} type="image/webp" />
+              <img
+                src={c.img}
+                alt={c.label}
+                loading="lazy"
+                decoding="async"
+                className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-90 transition-opacity duration-700 ease-out"
+              />
+            </picture>
             <div className="relative h-full flex flex-col justify-between p-6 md:p-8 group-hover:text-paper-dark group-hover:mix-blend-difference transition-all duration-700">
               <p className="text-meta opacity-50">{c.number}</p>
               <div>
