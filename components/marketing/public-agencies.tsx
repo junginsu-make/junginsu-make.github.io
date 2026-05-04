@@ -29,7 +29,10 @@ export function PublicAgencies() {
   );
 
   return (
-    <section className="px-6 md:px-10 lg:px-16 py-24 md:py-32 border-t border-[var(--line)]">
+    <section
+      id="public-sector"
+      className="px-6 md:px-10 lg:px-16 py-24 md:py-32 border-t border-[var(--line)]"
+    >
       <div className="flex items-baseline justify-between mb-12 md:mb-16">
         <p className="text-meta opacity-60 tracking-[0.2em]">
           <MaskReveal>PUBLIC SECTOR · CLIENTS</MaskReveal>
@@ -49,9 +52,9 @@ export function PublicAgencies() {
       </h2>
 
       <ScrollReveal delay={0.2}>
-        <p className="text-body-lg opacity-75 max-w-[820px] leading-[1.6] mb-16">
-          제안서 작성·PT 발표·과업 총괄 PM·소셜미디어 운영·AI 강의까지 — 모든 형태로
-          공공 영역과 협업한 이력. 카테고리별 색 구분으로 한눈에.
+        <p className="text-body-lg opacity-75 leading-[1.6] mb-16 lg:whitespace-nowrap">
+          제안서·PT 발표·과업 총괄 PM·소셜미디어 운영·AI 강의까지 — 모든 형태로
+          공공 영역과 협업한 이력.
         </p>
       </ScrollReveal>
 

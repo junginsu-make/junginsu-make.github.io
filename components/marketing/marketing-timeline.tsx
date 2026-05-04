@@ -33,9 +33,9 @@ export function MarketingTimeline() {
       </h2>
 
       <ScrollReveal delay={0.2}>
-        <p className="mt-6 text-body-lg opacity-75 max-w-[920px] leading-[1.6] mb-20 md:mb-24">
-          17년 마케팅 영역의 진화를 회사·역할·임팩트 기준으로 정리. 각 시기별로
-          어떤 채널·도구·스케일을 다뤘는지 — 이력서에 흩어진 디테일을 한 흐름으로.
+        <p className="mt-6 text-body-lg opacity-75 leading-[1.6] mb-20 md:mb-24 lg:whitespace-nowrap">
+          17년 마케팅 영역의 진화를 회사·역할·임팩트 기준으로 정리 — 이력서에
+          흩어진 디테일을 한 흐름으로.
         </p>
       </ScrollReveal>
 

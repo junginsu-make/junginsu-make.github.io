@@ -12,32 +12,38 @@ import { AiClients } from "@/components/marketing/ai-clients";
 export const metadata = {
   title: "Marketing — 정인수",
   description:
-    "17년 마케팅 진화 6 milestone + TMON ROAS 7,404% 검증 + 마케팅 강의 7년 6개월 + 마케팅 전문 분야 6 영역 + 공공기관 12 + Owned/Paid 멀티채널 9 + Content Op 7+ + Capsule PM 20+. 17년 마케팅 임팩트.",
+    "17년 마케팅 진화 6 milestone + TMON ROAS 7,404% 검증 + 마케팅 강의 7년 6개월 + 마케팅 전문 분야 6 영역 + 공공기관 12 + Owned/Paid 멀티채널 9 + Content Op 7+. 17년 마케팅 임팩트.",
 };
 
-function getFirstTeachingPhoto(): string | undefined {
+/** 강의 사진을 5장 균등 샘플링 (앞쪽 5장은 동일 행사일 가능성 높음) */
+function getTeachingCarouselPhotos(count = 5): string[] {
   try {
     const dir = path.join(process.cwd(), "public", "photos", "teaching");
     const files = fs
       .readdirSync(dir)
       .filter((f) => /\.webp$/i.test(f))
       .sort();
-    return files[0]
-      ? `/photos/teaching/${encodeURIComponent(files[0])}`
-      : undefined;
+    if (files.length === 0) return [];
+    // 균등 샘플링 — 다른 행사 사진 다양성 확보
+    const step = Math.max(1, Math.floor(files.length / count));
+    const sampled: string[] = [];
+    for (let i = 0; i < count && i * step < files.length; i++) {
+      sampled.push(files[i * step]);
+    }
+    return sampled.map((f) => `/photos/teaching/${encodeURIComponent(f)}`);
   } catch {
-    return undefined;
+    return [];
   }
 }
 
 export default function Marketing() {
-  const heroPhoto = getFirstTeachingPhoto();
+  const teachingPhotos = getTeachingCarouselPhotos(5);
   return (
     <>
       <MarketingHero />
       <MarketingTimeline />
       <TmonCase />
-      <TeachingPreview heroPhoto={heroPhoto} />
+      <TeachingPreview photos={teachingPhotos} />
       <MarketingSpecialties />
       <PublicAgencies />
       <AdChannels />
