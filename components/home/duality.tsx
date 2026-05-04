@@ -68,7 +68,7 @@ export function Duality() {
                 } ${
                   bg.isPdf
                     ? "object-contain bg-white p-4 md:p-8"
-                    : "object-cover opacity-60"
+                    : "object-cover"
                 }`}
                 style={
                   i === leftIdx && !bg.isPdf
@@ -78,15 +78,17 @@ export function Duality() {
               />
             </picture>
           ))}
-          {/* 오버레이 — 카피 */}
-          <div className="relative h-full flex flex-col justify-end p-8 md:p-16 text-[var(--color-ink)] mix-blend-difference">
+          {/* 텍스트 영역 그라디언트 오버레이 (가독성 보호) */}
+          <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black/85 via-black/55 to-transparent pointer-events-none" />
+          {/* 오버레이 — 카피 (mix-blend-difference 제거, 그라디언트로 가독 확보) */}
+          <div className="relative h-full flex flex-col justify-end p-8 md:p-16 text-white">
             <ScrollReveal delay={0.2}>
-              <p className="text-meta opacity-60">A 면</p>
+              <p className="text-meta opacity-80">A 면</p>
             </ScrollReveal>
-            <h3 className="text-display-md font-display mt-2">
+            <h3 className="text-display-md font-display mt-2 drop-shadow-lg">
               <MaskRevealStagger text="마케터" startDelay={0.4} />
             </h3>
-            <div className="text-body-lg mt-4 max-w-md space-y-1">
+            <div className="text-body-lg mt-4 max-w-md space-y-1 drop-shadow-md">
               <ScrollReveal delay={0.6}>
                 <p>
                   TMON ROAS{" "}
@@ -99,7 +101,7 @@ export function Duality() {
               </ScrollReveal>
             </div>
             <ScrollReveal delay={1.0}>
-              <p className="text-meta opacity-50 mt-6">
+              <p className="text-meta opacity-80 mt-6">
                 sbcyberpass@naver.com · junginsuai@gmail.com
               </p>
             </ScrollReveal>
