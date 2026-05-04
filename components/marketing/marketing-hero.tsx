@@ -67,11 +67,19 @@ export function MarketingHero() {
             delay={i * 0.1}
             className="border-t border-[var(--line)] pt-6"
           >
-            <p className="text-display-xl md:text-display-mega font-display leading-none tracking-[-0.04em] glow-pulse">
+            {/* number와 suffix 분리 — number 큰 폰트, suffix 작은 폰트 → 줄바꿈 방지 */}
+            <p className="font-display leading-none tracking-[-0.04em] glow-pulse flex items-baseline gap-1 flex-wrap">
               {k.prefix && (
-                <span className="text-[var(--accent)]">{k.prefix}</span>
+                <span className="text-[var(--accent)] text-display-md md:text-display-lg">
+                  {k.prefix.trim()}
+                </span>
               )}
-              <Counter to={k.to} suffix={k.suffix} />
+              <span className="text-display-lg md:text-display-xl tabular-nums">
+                <Counter to={k.to} />
+              </span>
+              <span className="text-display-md md:text-display-lg opacity-90">
+                {k.suffix}
+              </span>
             </p>
             <p className="text-meta opacity-70 mt-5 tracking-[0.1em]">
               {k.label}

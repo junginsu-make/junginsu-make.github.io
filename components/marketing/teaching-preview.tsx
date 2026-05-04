@@ -4,7 +4,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Counter } from "@/components/motion/counter";
 import { MaskReveal } from "@/components/motion/mask-reveal";
 import { ScrollReveal } from "@/components/motion/scroll-reveal";
-import { SweepLink } from "@/components/motion/color-sweep";
 import { WordHighlight } from "@/components/motion/word-highlight";
 import { TIER1, TIER2, TIER3 } from "@/lib/data/teaching";
 
@@ -240,21 +239,6 @@ export function TeachingPreview({ photos }: Props) {
             </div>
           </ScrollReveal>
 
-          {/* CTA → /marketing/teaching */}
-          <ScrollReveal delay={0.5}>
-            <SweepLink
-              href="/marketing/teaching"
-              className="group inline-flex items-baseline gap-3 text-body-lg border-b border-[var(--fg)] pb-1.5 hover:border-[var(--accent)] hover:text-[var(--accent)] transition-colors duration-300"
-            >
-              <span>56장 강의 사진 + Tier 02·03 풀 리스트</span>
-              <span
-                aria-hidden
-                className="transition-transform group-hover:translate-x-1"
-              >
-                →
-              </span>
-            </SweepLink>
-          </ScrollReveal>
         </div>
       </div>
     </section>
