@@ -42,7 +42,7 @@ export function Chapters() {
   return (
     <section className="px-6 md:px-10 lg:px-16 py-32 bg-[var(--bg)] text-[var(--fg)]">
       <p className="text-meta opacity-50 mb-8">5 CHAPTERS</p>
-      <h2 className="text-display-md font-display mb-24 max-w-2xl">
+      <h2 className="text-display-md font-display mb-24 lg:whitespace-nowrap">
         한 사람의 궤적은 우연히 그려지지 않는다.
       </h2>
       <div className="space-y-32 md:space-y-40">
@@ -62,10 +62,10 @@ export function Chapters() {
               <p className="text-meta opacity-60 mt-3">{c.period}</p>
             </div>
             <div className="md:col-span-10">
-              <h3 className="text-display-md font-display mb-6 max-w-3xl">
+              <h3 className="text-display-md font-display mb-6 lg:whitespace-nowrap">
                 {c.title}
               </h3>
-              <p className="text-body-lg max-w-prose opacity-90 leading-relaxed">
+              <p className="text-body-lg opacity-90 leading-relaxed">
                 {c.body}
               </p>
             </div>

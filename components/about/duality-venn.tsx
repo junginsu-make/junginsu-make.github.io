@@ -4,7 +4,7 @@ export function DualityVenn() {
   return (
     <section className="px-6 md:px-10 lg:px-16 py-32 border-t border-[var(--line)] bg-[var(--bg)] text-[var(--fg)]">
       <p className="text-meta opacity-50 mb-8">DUALITY</p>
-      <h2 className="text-display-md font-display mb-16 max-w-2xl">
+      <h2 className="text-display-md font-display mb-16 lg:whitespace-nowrap">
         한 사람, 두 면 — 그리고 그 교집합.
       </h2>
       <div className="max-w-5xl mx-auto">
