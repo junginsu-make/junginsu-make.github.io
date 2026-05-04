@@ -129,11 +129,11 @@ export function Duality() {
         {/* 우: AI 빌더 */}
         <div className="relative bg-[var(--color-ink-dark)] text-[var(--color-paper-dark)]">
           <picture>
-            <source srcSet="/ai-builder/os-agent-detail.avif" type="image/avif" />
-            <source srcSet="/ai-builder/os-agent-detail.webp" type="image/webp" />
+            <source srcSet="/ai-builder/saas-mosaic.avif" type="image/avif" />
+            <source srcSet="/ai-builder/saas-mosaic.webp" type="image/webp" />
             <img
-              src="/ai-builder/os-agent-detail.jpg"
-              alt="OS Agent — HR Agent 워크플로우 시각화 (휴가 자동 시스템 데모 실행)"
+              src="/ai-builder/saas-mosaic.jpg"
+              alt="6 라이브 SaaS 모자이크 — Lumio · OS Agent · Propintel · Tickpoint · Architect · MKT-Auto"
               loading="lazy"
               decoding="async"
               className="absolute inset-0 w-full h-full object-cover object-center opacity-50"
@@ -142,8 +142,8 @@ export function Duality() {
           <div className="relative h-full flex flex-col justify-end p-8 md:p-16">
             <p className="text-meta opacity-60">B 면</p>
             <h3 className="text-display-md font-display mt-2">AI 빌더</h3>
-            <p className="text-body-lg mt-4 max-w-md">
-              GitHub 43 · 6 라이브 SaaS · make.com 81 시스템 (4 핵심)
+            <p className="text-body-lg mt-4 whitespace-nowrap">
+              GitHub 43 · 6 라이브 SaaS · Make.com 81
             </p>
             <p className="text-meta opacity-50 mt-6">9843ohs@gmail.com</p>
           </div>
