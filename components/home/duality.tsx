@@ -129,11 +129,11 @@ export function Duality() {
         {/* 우: AI 빌더 */}
         <div className="relative bg-[var(--color-ink-dark)] text-[var(--color-paper-dark)]">
           <picture>
-            <source srcSet="/ai-builder/os-agent-hr.avif" type="image/avif" />
-            <source srcSet="/ai-builder/os-agent-hr.webp" type="image/webp" />
+            <source srcSet="/ai-builder/os-agent-detail.avif" type="image/avif" />
+            <source srcSet="/ai-builder/os-agent-detail.webp" type="image/webp" />
             <img
-              src="/ai-builder/os-agent-hr.jpg"
-              alt="OS Agent — HR Agent 자연어 채팅 + 휴가 신청서 PDF 자동 생성"
+              src="/ai-builder/os-agent-detail.jpg"
+              alt="OS Agent — HR Agent 워크플로우 시각화 (휴가 자동 시스템 데모 실행)"
               loading="lazy"
               decoding="async"
               className="absolute inset-0 w-full h-full object-cover object-center opacity-50"
