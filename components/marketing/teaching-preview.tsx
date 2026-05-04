@@ -6,6 +6,7 @@ import { MaskReveal } from "@/components/motion/mask-reveal";
 import { ScrollReveal } from "@/components/motion/scroll-reveal";
 import { WordHighlight } from "@/components/motion/word-highlight";
 import { TIER1, TIER2, TIER3 } from "@/lib/data/teaching";
+import { cn } from "@/lib/utils";
 
 type Props = {
   photos: string[];
@@ -178,6 +179,37 @@ export function TeachingPreview({ photos }: Props) {
                 <polyline points="8,4 14,10 8,16" />
               </svg>
             </button>
+          </div>
+
+          {/* 썸네일 strip — 8장 직접 이동 */}
+          <div
+            className="mt-3 flex gap-2 overflow-x-auto pb-1"
+            style={{ scrollbarWidth: "none" }}
+            onMouseEnter={() => setPaused(true)}
+            onMouseLeave={() => setPaused(false)}
+          >
+            {photos.map((src, i) => (
+              <button
+                key={src}
+                type="button"
+                onClick={() => setIdx(i)}
+                className={cn(
+                  "flex-shrink-0 w-16 md:w-20 aspect-[16/10] overflow-hidden border transition-all duration-300",
+                  i === idx
+                    ? "border-[var(--accent)] opacity-100 scale-[1.04]"
+                    : "border-[var(--line)] opacity-50 hover:opacity-100 hover:border-[var(--accent)]/60",
+                )}
+                aria-label={`강의 사진 ${i + 1}로 이동`}
+              >
+                <img
+                  src={src}
+                  alt=""
+                  loading="lazy"
+                  decoding="async"
+                  className="h-full w-full object-cover object-top"
+                />
+              </button>
+            ))}
           </div>
         </ScrollReveal>
 

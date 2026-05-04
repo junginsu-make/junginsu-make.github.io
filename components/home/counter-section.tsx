@@ -5,7 +5,7 @@ import { COUNTERS, TECH_STACK } from "@/lib/data/home";
 
 export function CounterSection() {
   return (
-    <section className="min-h-screen flex flex-col justify-center px-6 md:px-10 lg:px-16 py-32">
+    <section className="px-6 md:px-10 lg:px-16 py-20 md:py-24">
       <ScrollReveal>
         <p className="text-meta opacity-50 mb-16 tracking-[0.2em]">BY THE NUMBERS</p>
       </ScrollReveal>

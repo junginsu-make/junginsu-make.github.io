@@ -8,7 +8,7 @@ export function Cta() {
   const [hoverIdx, setHoverIdx] = useState<number | null>(null);
 
   return (
-    <section className="min-h-screen bg-[var(--color-ink-dark)] text-[var(--color-paper-dark)] flex flex-col items-center justify-center px-6 md:px-10 lg:px-16 py-32 text-center">
+    <section className="bg-[var(--color-ink-dark)] text-[var(--color-paper-dark)] flex flex-col items-center justify-center px-6 md:px-10 lg:px-16 py-20 md:py-24 text-center">
       <ScrollReveal>
         <p className="text-meta opacity-60 mb-8">{CTA_QUOTE}</p>
       </ScrollReveal>
