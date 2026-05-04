@@ -118,3 +118,22 @@
     transform: scale(1.1) translate(-2%, -1%);
   }
 }
+
+/* === 텍스트 임팩트 === */
+@keyframes glow-pulse {
+  0%, 100% { text-shadow: 0 0 0 var(--accent); }
+  50% { text-shadow: 0 0 24px var(--accent), 0 0 48px var(--accent); }
+}
+
+.glow-pulse {
+  animation: glow-pulse 2.4s ease-in-out 1.6s 1; /* 1회만 */
+}
+
+@keyframes wave-letter {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.wave-letter:hover .wave-char {
+  animation: wave-letter 0.6s ease-in-out;
+}
