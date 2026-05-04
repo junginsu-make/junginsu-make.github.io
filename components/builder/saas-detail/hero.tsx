@@ -29,6 +29,8 @@ export function SaasHero({ saas }: { saas: SaaSDetail }) {
           alt={`${saas.name} 라이브 화면`}
           className="absolute inset-0 h-full w-full object-cover object-top scale-[1.02]"
           loading="eager"
+          fetchPriority="high"
+          decoding="async"
         />
       </picture>
 

@@ -49,6 +49,7 @@ export function TmonPortfolio() {
                 src={TMON_PORTFOLIO_SOURCE}
                 alt="TMON ROAS 운영 보고서 차트 (정인수 직접 작성, 2023.03)"
                 loading="lazy"
+                decoding="async"
                 className="absolute inset-0 h-full w-full object-contain object-center transition-transform duration-700 group-hover:scale-[1.02]"
               />
             </picture>

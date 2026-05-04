@@ -39,6 +39,9 @@ export function TeachingHero({ photos }: { photos: string[] }) {
               src={photos[idx]}
               alt={`강의 사진 ${idx + 1}`}
               className="absolute inset-0 h-full w-full object-cover ken-burns-slow"
+              fetchPriority={idx === 0 ? "high" : undefined}
+              loading={idx === 0 ? "eager" : "lazy"}
+              decoding="async"
             />
           </motion.picture>
         )}
