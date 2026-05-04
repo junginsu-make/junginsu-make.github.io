@@ -252,3 +252,119 @@ export const AD_BUDGET_HIGHLIGHTS = [
   { label: "월 광고비 절감", value: "3,000만", source: "퍼스트 아카데미 시기" },
   { label: "상위 1% 개인 블로그", value: "6개", source: "자체 보유 운영" },
 ];
+
+/**
+ * 마케팅 경력 진화 — 6 milestone (자료: 정인수 이력서.pdf 페이지 2-5)
+ * /career 임팩트 스트림과 다른 각도 — 시간순 + 회사별 마케팅 케이스 디테일
+ */
+export type MarketingMilestone = {
+  number: string;
+  period: string;
+  era: string;
+  company: string;
+  role: string;
+  highlight: string;
+  scale?: string;
+  bullets: string[];
+};
+
+export const MARKETING_TIMELINE: MarketingMilestone[] = [
+  {
+    number: "01",
+    period: "2017.06 ~ 2020.05 · 3년",
+    era: "입학·홍보 마케팅",
+    company: "글로리아교육재단 ㈜",
+    role: "입학관리처 팀장 3년차",
+    highlight:
+      "한국항공/국제호텔전문 — 디지털 채널 풀스택 + B2B/B2C 통합 운영",
+    bullets: [
+      "온라인 디지털마케팅 — 블로그·지식인·파워링크·파워컨텐츠 풀세트",
+      "B2B — 전국 고교·학원 방문 홍보 (오프라인 채널 직접 운영)",
+      "B2C — 입학상담·유치 직접 담당",
+      "개인 블로그 + 홈페이지 운영 관리",
+    ],
+  },
+  {
+    number: "02",
+    period: "2020.06 ~ 2021.03 · 10개월",
+    era: "평생교육 입학 총괄",
+    company: "중앙대학교 사회교육처",
+    role: "실장",
+    highlight:
+      "평생교육원 입학·홍보 모집 총괄 + 광고대행사 관리 + DA·네이버 애널리틱스 운영",
+    bullets: [
+      "입학 관련 전 과정 신규 기획 + 리딩",
+      "신규 DB / 등록생 / 재학생 관리 + 실무자",
+      "DA · 네이버 애널리틱스 분석 및 활용",
+      "홈페이지 및 홍보물 리뉴얼 + 신규 제작",
+      "광고대행사 관리 + 자체 온·오프라인 홍보 전략 기획·실무",
+    ],
+  },
+  {
+    number: "03",
+    period: "2021.03 ~ 2022.05 · 1년 3개월",
+    era: "프랜차이즈 마케팅 총괄",
+    company: "퍼스트 아카데미 본사",
+    role: "마케팅 총괄팀장",
+    highlight:
+      "전국 30지점·카페 4지점 마케팅 총괄 — 연 20억+ 광고비",
+    scale: "월 1억+ 검색광고 · 월 1억+ SNS · 월 3,000만 절감",
+    bullets: [
+      "월 3,000만원 광고비 절감 + 광고 효과·신규 고객 유입 상승",
+      "마케팅 비용 연 20억원 이상 집행·관리",
+      "네이버 검색광고 (월 1억원+) 기본 세팅·운영·분석",
+      "SNS (월 1억원+) 광고 집행 관리 + 페이스북·인스타그램 비즈니스",
+      "네이버 VIEW (2일간 약 100건+ 포스팅) 상위노출 성공",
+      "상위 1% 개인 블로그 6개 자체 보유 → 즉시 활용 가능",
+    ],
+  },
+  {
+    number: "04",
+    period: "2022.05 ~ 2022.08 · 4개월",
+    era: "광고대행사 전략실",
+    company: "프랜차이즈산업연구원",
+    role: "마케팅 책임연구원 / 실장",
+    highlight: "광고대행사 마케팅 전략 총괄 실장",
+    bullets: [
+      "광고대행사 마케팅 전략실 운영",
+      "퍼포먼스디자인 합류 직전 단기 시기",
+    ],
+  },
+  {
+    number: "05",
+    period: "2022.08 ~ 2023.04 · 9개월",
+    era: "이커머스 광고대행 운영총괄",
+    company: "퍼포먼스디자인",
+    role: "전략마케팅1실·소셜바이럴팀 운영총괄실장",
+    highlight:
+      "이커머스 티몬 공식 대행사 + 화장품·가전·성형외과 + 나라장터(공공)",
+    scale: "TMON 연 40~60억 광고비 총괄 · ROAS 7,404% 달성",
+    bullets: [
+      "이커머스 티몬 공식 광고대행사, 연 40~60억 광고비 총괄 운영관리",
+      "화장품·가전제품·성형외과 등 제안서 작성 + 제안 PT 발표",
+      "나라장터 (서울관광공사·연수구청·NGO 등) 제안서 작성·PT 발표",
+      "Search Engine Optimization (Web · Naver Blog · Place · Shopping)",
+      "Search Ad (Google · Naver · Kakao) + Display Ad + DSP",
+      "Viral Marketing + Review Marketing + Analysis (Naver · Google · App)",
+      "광고 운영 결과 보고서 + 광고주·광고대행사 관리",
+    ],
+  },
+  {
+    number: "06",
+    period: "2023.04 ~ 재직중",
+    era: "AI Builder + 마케팅 융합",
+    company: "팔레트 ㈜",
+    role: "Agent 본부 팀장 · AI팀장",
+    highlight:
+      "마케팅 17년 + AI Builder — 풀사이클로 콘텐츠·자동화·데이터를 한 명이",
+    scale: "AI SaaS PL 4건 · Content Op 7+ · Capsule PM 20+",
+    bullets: [
+      "Vibe Coding으로 100+ 자체 시스템 1인 개발",
+      "Make.com · n8n으로 콘텐츠 자동화·데이터 수집·웹스크랩 시스템 구축",
+      "AI Prompt SEO + 멀티 LLM 통합 (Claude · GPT · Gemini · Perplexity)",
+      "AI SaaS PL 4건 — 호반·서울법무법인·아주그룹·Palette OS Agent",
+      "AI Content Operation 7+ 클라이언트 — 성동청년이룸·고려대기술지주·시스트란 외",
+      "Capsule Media 종합홍보 PM — 농림축산·조달청·한국벤처투자·창업진흥원 + 14건",
+    ],
+  },
+];
