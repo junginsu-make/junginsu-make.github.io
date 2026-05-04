@@ -53,7 +53,7 @@ export function ThreeCategories() {
           <SweepLink
             key={c.href}
             href={c.href}
-            className="group relative block aspect-[3/4] overflow-hidden border border-[var(--line)]"
+            className="group relative block aspect-[3/4] overflow-hidden border border-[var(--line)] transition-shadow duration-500 hover:shadow-2xl"
           >
             <picture>
               <source srcSet={c.imgAvif} type="image/avif" />
@@ -63,10 +63,10 @@ export function ThreeCategories() {
                 alt={c.label}
                 loading="lazy"
                 decoding="async"
-                className="absolute inset-0 w-full h-full object-cover opacity-30 blur-sm group-hover:opacity-90 group-hover:blur-0 transition-all duration-700 ease-out"
+                className="absolute inset-0 w-full h-full object-cover opacity-40 grayscale blur-sm scale-105 group-hover:opacity-100 group-hover:grayscale-0 group-hover:blur-0 group-hover:scale-100 transition-all duration-500 ease-out"
               />
             </picture>
-            <div className="relative h-full flex flex-col justify-between p-6 md:p-8 group-hover:text-paper-dark group-hover:mix-blend-difference transition-all duration-700">
+            <div className="relative h-full flex flex-col justify-between p-6 md:p-8 group-hover:text-paper-dark group-hover:mix-blend-difference transition-all duration-500">
               <p className="text-meta opacity-50">{c.number}</p>
               <div>
                 <h3 className="text-display-md font-display">{c.label}</h3>
