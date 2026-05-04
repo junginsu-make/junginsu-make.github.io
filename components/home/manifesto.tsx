@@ -17,7 +17,7 @@ export function Manifesto() {
                 AI 시대를 만난{" "}
               </MaskReveal>
               <MaskReveal delay={0.4} duration={1.0}>
-                <WordHighlight delay={1.4}>17년 Marketer</WordHighlight>가,
+                17년 <WordHighlight delay={1.4}>Marketer</WordHighlight>가,
               </MaskReveal>
             </span>
             {/* 2행 */}
