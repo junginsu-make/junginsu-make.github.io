@@ -3363,3 +3363,73 @@ git tag v3.0.0
 **2. Inline Execution** — 이 세션에서 task 일괄 실행 + 체크포인트 리뷰
 
 어느 방식?
+
+---
+
+## 인계 노트 (2026-05-04 세션 종료 시점)
+
+### 실제 빌드 결과 (Phase 6 holed의 차이점)
+
+Phase 6 plan의 코드 그대로가 아니라 사용자 시각 검증 후 **다수 fix 라운드** 적용됨. 핵심 변경:
+
+1. **Manifesto 카피 한영 혼용** — "AI 시대를 만난 17년 Marketer가, AI Builder로 다시 태어났다" (영문 강조 단어). KineticText + MaskReveal stagger + WordHighlight (Marketer/AI Builder만, 17년은 일반 텍스트).
+2. **HERO_META 메타** — "정인수 / 1983 / 서울" 까지만 (Palette 본부장 텍스트 X).
+3. **TECH_STACK** — 9개 → **6 카테고리 60+ 항목** grid (AI 모델/워크플로우/데이터/발행/문서/인프라).
+4. **SaasCycle 200vh** — 좌하단 캡션 + 우하단 ‹ n/N › 수동 버튼. captured/{lumio,os-agent,propintel}/home/desktop.* 가 사용자 지정 자료로 덮어써짐 (Lumio 2026-05-04 10.45.53 / OS Agent 13.37.06 / PropIntel 14.14.21).
+5. **3-categories** — opacity-0 → opacity-50 + grayscale + blur-sm + scale-105 호버 전. 호버 시 inline `style={{ filter: ... }}` 로 grayscale-0 + blur-0 + scale-100 + opacity-100 + shadow-2xl. AI Builder 카드 (#3) = `/ai-builder/os-agent-detail.*` (HR Agent 13.38.09).
+6. **Duality 좌측** — 5초 자동 cycle (PDF 차트 → 20201112 → DSC01363) + 좌측 prev/next < > + mix-blend-difference 제거 + 그라디언트 오버레이 + text-white + drop-shadow + opacity-60 강제 제거. 메일 줄 (sbcyberpass·junginsuai) 삭제.
+7. **Duality 우측** — `/ai-builder/saas-mosaic.jpg` (6 SaaS 2×3 모자이크). 카피 "GitHub 43 · 6 라이브 SaaS · Make.com 81" 한 줄 (whitespace-nowrap).
+8. **CTA 메일** — 글자별 hover wave (-12/-8/-4px stagger + ±1 orange).
+9. **Nav** — `mix-blend-difference text-white` 폐기. `backdrop-blur-md bg-[var(--bg)]/70 border-b` + `text-[var(--fg)]`. 좌상단 "Jung In su" (한글 정인수 X).
+10. **Footer** — github 링크 + KOICA 줄 삭제. mailto + 이력서 PDF만.
+
+### 추가된 모션 primitives (Phase 3 plan에 없던 것)
+
+- `components/motion/mask-reveal.tsx` — MaskReveal + MaskRevealStagger
+- `components/motion/word-highlight.tsx` — 강조 단어 (orange + underline draw + shimmer)
+- `components/motion/scroll-reveal.tsx` — viewport 진입 fade-up wrapper
+
+`app/globals.css` 추가 키프레임: `glow-pulse`, `wave-letter`, `ken-burns-slow`.
+
+### 추가된 자료 + 스크립트
+
+- `public/marketing-portfolio/page-01.{png,jpg,webp,avif}` (TMON ROAS 차트, PDF 변환)
+- `public/ai-builder/saas-mosaic.{jpg,webp,avif}` (6 SaaS 2×3 모자이크)
+- `public/ai-builder/os-agent-detail.{jpg,webp,avif}` (HR Agent 13.38.09)
+- `scripts/recapture-tickpoint.ts` (모달 닫고 hero 재캡처)
+- `scripts/build-ai-builder-mosaic.ts` (sharp composite)
+- `scripts/convert-portfolio-pdf.ts` (pdf-to-img + sharp)
+
+### 데이터 정정 (Phase 1 plan과 차이)
+
+- `lib/data/github.ts` — GITHUB_TOTAL **84 → 43** (실제 public_repos). 카테고리 합 25+6+8+2+2 = 43.
+- `lib/data/marketing.ts` — `CompanyAdBudget.metrics?` (roas/gr/bu/cpbu) 추가. 퍼포먼스디자인 4 메트릭 풀.
+- `lib/data/home.ts` — MANIFESTO 한영 혼용. COUNTERS = 17년/43/81/6.
+- `tests/data/marketing.test.ts` — TMON ROAS 7,404% 허용 (PDF 검증). NGO 마음하나는 여전히 X.
+- `tests/data/github.test.ts` — GITHUB_TOTAL 43 + 합계 정확 검증.
+- `tests/data/home.test.ts` — MANIFESTO 영문 카피 어설션.
+
+### 다음 세션 시작 시 체크리스트
+
+1. 메모리 4개 + 자료 폴더 5 문서 풀 정독
+2. `git log --oneline | head -50` 으로 실제 빌드 흐름 파악
+3. `pnpm dev` 띄워 홈 + /about 시각 검증
+4. Phase 12 `/builder` 인덱스부터 시작 (가장 임팩트 큼)
+5. spec §8 페이지별 명세 + memory feedback_portfolio-v3-design-rules.md 룰 동시 준수
+6. 새 페이지 빌드 시 라이트+다크 둘 다 시각 검증 + 텍스트 임팩트 (MaskReveal/WordHighlight) 활용
+
+### Tickpoint 라이브 캡처 주의
+
+라이브 사이트가 비로그인 상태에서 회원가입 모달 + 검정 화면 노출. `scripts/recapture-tickpoint.ts` 가 ESC + close-button selectors 로 모달 닫고 viewport 1440×900 hero 만 캡처. 모자이크와 holed SaaS 사이클은 그 결과 사용.
+
+### 최종 commit 시점 git log (참고)
+
+```
+c1e1796 fix(home): manifesto '17년' 텍스트 효과 제거 — Marketer만 WordHighlight 강조
+8cfaecd fix(home): manifesto 한영 혼용 ('17년 Marketer + AI Builder') + duality 좌측 메일 줄 삭제
+f2e5c93 fix(home): 양면성 좌측 cycle opacity 충돌 제거 + 마케터 텍스트 가독성 + OS Agent 13.37.06
+0d23ab4 fix(home): SaasCycle OS Agent = 13.36.42 (이후 13.37.06으로 재교체)
+054a143 fix(home): 양면성 좌측 cycle prev/next 클릭 후 자동 cycle 영구 정지 버그 수정
+```
+
+(전체 60+ commits — 실제 git log 참조)
