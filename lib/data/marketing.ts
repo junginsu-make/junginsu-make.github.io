@@ -71,6 +71,33 @@ export const COMPANY_AD_BUDGET: CompanyAdBudget[] = [
 export const TMON_PORTFOLIO_PERIOD = "2022.07 중순 ~ 2023.02.20";
 export const TMON_PORTFOLIO_SOURCE = "/marketing-portfolio/page-01.jpg";
 
+/**
+ * TMON 월별 ROAS 12개월 추이 — 막대 차트용
+ * 자료: 정인수_정인수_포토폴리오-23.03.03.pdf (정인수 본인 작성)
+ * 운영 시작: 2022.07 / 정점: 2023.02
+ */
+export type TmonMonthly = {
+  month: string;
+  roas: number;
+  phase: "이전" | "운영 시작" | "운영" | "정점";
+  highlight?: boolean;
+};
+
+export const TMON_ROAS_MONTHLY: TmonMonthly[] = [
+  { month: "2022.03", roas: 1084, phase: "이전" },
+  { month: "2022.04", roas: 1085, phase: "이전" },
+  { month: "2022.05", roas: 1985, phase: "이전" },
+  { month: "2022.06", roas: 3301, phase: "이전" },
+  { month: "2022.07", roas: 3516, phase: "운영 시작", highlight: true },
+  { month: "2022.08", roas: 4335, phase: "운영" },
+  { month: "2022.09", roas: 6648, phase: "운영" },
+  { month: "2022.10", roas: 6529, phase: "운영" },
+  { month: "2022.11", roas: 5930, phase: "운영" },
+  { month: "2022.12", roas: 6494, phase: "운영" },
+  { month: "2023.01", roas: 6822, phase: "운영" },
+  { month: "2023.02", roas: 7404, phase: "정점", highlight: true },
+];
+
 /** TMON 비포/애프터 정량 메트릭 — 직접 컴포넌트로 시각화 */
 export const TMON_BEFORE_AFTER = [
   {
