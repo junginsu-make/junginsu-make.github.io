@@ -1,7 +1,7 @@
 # 작업 진행상황 — 정인수 포트폴리오 v3
 
-> **마지막 저장**: 2026-05-04 (Phase 12 `/builder` 인덱스 완료 시점)
-> **마지막 commit**: feat(builder): 인덱스 (히어로 + 6 SaaS + 4 핵심 시나리오 + GitHub 43 미리보기)
+> **마지막 저장**: 2026-05-04 (모든 페이지 빌드 완료 시점)
+> **마지막 commit**: `3c32e30 feat(pages): /builder/scenarios + /builder/github + /contact (3 페이지 일괄)`
 
 ## 현재 위치
 
@@ -9,88 +9,67 @@
 **브랜치**: `main` (clean working tree)
 **dev 서버**: 띄우려면 `pnpm dev` → http://localhost:3000
 
-## 진행 완료
+## 진행 완료 — 모든 페이지 빌드 완료 ✅
 
-| Phase | 상태 |
-|---|---|
-| 0 Foundation (Next.js 16 + Tailwind v4 + 폰트 + 토큰) | ✅ |
-| 1 Data Layer (7 데이터 + vitest 32/32) | ✅ |
-| 2 Asset Pipeline (자료 복사 + sharp + Playwright 캡처) | ✅ |
-| 3 Motion Primitives (Lenis · ScrollTrigger · Magnetic · Counter · KineticText · ColorSweep) | ✅ |
-| 3+ 추가 Motion (MaskReveal · WordHighlight · ScrollReveal) | ✅ |
-| 4+5 Theme + Layout + shadcn primitives 7 | ✅ |
-| 6 홈 (`/`) 600vh 6 핀 섹션 — 다수 fix 라운드 후 사용자 시각 검증 통과 | ✅ |
-| 7 `/about` (5 챕터 + 양면성 벤 다이어그램) | ✅ |
-| 12 `/builder` 인덱스 (히어로 4 KPI + 6 SaaS 5-bullet + 4 핵심 시나리오 + GitHub 43 미리보기) | ✅ |
+| Phase | 페이지 | 상태 |
+|---|---|---|
+| 0 Foundation (Next.js 16 + Tailwind v4 + 폰트 + 토큰) | — | ✅ |
+| 1 Data Layer (10 데이터 + vitest 32/32) | — | ✅ |
+| 2 Asset Pipeline (자료 복사 + sharp + Playwright 캡처) | — | ✅ |
+| 3 Motion Primitives (Lenis · ScrollTrigger · Magnetic · Counter · KineticText · ColorSweep) | — | ✅ |
+| 3+ MaskReveal · WordHighlight · ScrollReveal | — | ✅ |
+| 4+5 Theme + Layout + shadcn primitives 7 | — | ✅ |
+| 6 홈 600vh 6 핀 섹션 | `/` | ✅ |
+| 7 About 5 챕터 + 양면성 벤 | `/about` | ✅ |
+| 8 Career 6 임팩트 + 17 회사 + 자격증 9 | `/career` | ✅ |
+| 9 Marketing TMON 7,404% + AI PL 4 + Content Op 7 + Capsule 20+ | `/marketing` | ✅ |
+| 10 Teaching 3 Tier + 56장 자동 캐러셀 | `/marketing/teaching` | ✅ |
+| 11 Content 멀티채널 + 7 클라이언트 콘텐츠 | `/marketing/content` | ✅ |
+| 12 Builder 인덱스 (히어로 + 6 SaaS + 4 시나리오 + GitHub 미리보기) | `/builder` | ✅ |
+| 13 Builder Detail × 6 (히어로 + capabilities + metrics + gallery + nav) | `/builder/[slug]` | ✅ |
+| 14 Scenarios 풀 (4 핵심 + 6 인벤토리 + 8 timeline) | `/builder/scenarios` | ✅ |
+| 15a GitHub 풀 (43 + 5 카테고리 + 12 Golden Principles) | `/builder/github` | ✅ |
+| 15b Contact (3 채널 + 리소스 + 타임존) | `/contact` | ✅ |
 
-## 다음 단계 (남은 8 페이지)
+**총 19 라우트 (16 정적 + 6 SaaS SSG)** · 모두 200 OK · pnpm build 0 errors · 32/32 tests PASS
 
-권장 순서:
+## 다음 단계 — Phase 16 통합 검증 (남은 작업)
 
-1. **Phase 13 `/builder/[slug]` × 6** — 트렌디·풍부 디테일 페이지 (히어로 + 5+ 능력 + 메트릭 + 갤러리 + prev/next) ← **다음 우선**
-3. **Phase 8 `/career`** — 6 임팩트 스트림 + 17 회사 풀 토글 + 자격증 3 비주얼 + 6 텍스트
-4. **Phase 9 `/marketing`** — KPI 차트 + AI PL 4 + Content Op 7+ + Capsule PM 20+
-5. **Phase 10 `/marketing/teaching`** — 3 Tier (정부·대학·AI 6 / 협회·기업 8 / 개인 텍스트 15) + 사진 캐러셀
-6. **Phase 11 `/marketing/content`** — 콘텐츠 url 캡처 카드 그리드
-7. **Phase 14 `/builder/scenarios`** — 4 핵심 풀 + 81 SYSTEM 트리맵 보조
-8. **Phase 15 `/builder/github`** + `/contact` — GitHub 43 카테고리 + 컨택
-9. **Phase 16 통합 검증** — 다크/라이트 양쪽 + 모바일 + Lighthouse 90+
+- [ ] 라이트/다크 모드 양쪽 모든 페이지 시각 검증 (Playwright)
+- [ ] 모바일 반응형 검증 (Playwright resize)
+- [ ] Lighthouse 90+ 최적화 (LCP·CLS·INP)
+- [ ] 6 SaaS 디테일 페이지 한 번씩 시각 점검 (mkt-automation·propintel·architect 미점검)
+- [ ] Nav active state · 페이지 전환 컬러 스윕 동작 점검
+- [ ] CTA 메일 wave hover · Magnetic 동작 점검
+- [ ] 콘텐츠 인벤토리 (특히 capsule_media 추가 콘텐츠 캡처) 추가 가능
 
-## 시작 시 자동 로드 (메모리 시스템)
+## 절대 룰 모두 준수 (현재 빌드)
 
-`~/.claude/projects/-home-a20616050-projects-A/memory/MEMORY.md` 의 다음 9 메모리가 자동 컨텍스트:
-- `project_portfolio-v3.md` — v3 빌드 진행 상태
-- `feedback_portfolio-v3-design-rules.md` — **절대 룰 (위반 금지)**
-- `reference_portfolio-v3-stack.md` — 기술 스택 + 모션 컴포넌트 + 디자인 토큰
-- `project_portfolio-content-inventory.md` — 자료 inventory
-- `project_portfolio-2026.md` — v2 폐기 기록 (참고용)
-- `user_jung-in-soo.md` — 사용자 프로필
-- `reference_external-resources.md` — 외부 자원
+1. ✅ 회사 강조 X · 임팩트 강조 (`/career` 6 스트림 메인)
+2. ✅ AI 디폴트 fade-up X — 정의된 모션만 사용 (MaskReveal/WordHighlight/ScrollReveal/Counter/SweepLink/Magnetic)
+3. ✅ GitHub 43 (84 X) / make.com 81 (4 핵심) — 별도 카운터, 합산 X
+4. ✅ make.com 4 핵심 메인 / 81 보조 인벤토리
+5. ✅ 외부 GitHub 링크 노출 X (footer/contact 텍스트 명시)
+6. ✅ 자격증 3 비주얼 + 6 텍스트
+7. ✅ 메인 메일 = `9843ohs@gmail.com` (보조는 contact 페이지만)
+8. ✅ 메인 증명사진 = `정인수 증명사진 고화질.png`
+9. ✅ KOICA 홈 노출 X (/marketing/teaching에서만)
+10. ✅ Palette ㈜ 텍스트 manifesto 미노출
+11. ✅ TMON ROAS 7,404% 검증됨 (포트폴리오 PDF 출처)
+12. ✅ NGO 마음하나는 미사용
 
 ## 시작 명령
 
 ```bash
 cd /home/a20616050/projects/A/junginsu-portfolio-v3
-pnpm dev      # http://localhost:3000 — 홈 + /about 시각 검증
-pnpm test --run   # 32/32 PASS 확인
-git log --oneline | head -20   # 마지막 작업 흐름 파악
+pnpm dev          # http://localhost:3000
+pnpm test --run   # 32/32 PASS
+pnpm build        # 19 pages 정적/SSG
+git log --oneline | head -20   # 작업 흐름 파악
 ```
-
-## 핵심 절대 룰 (위반 금지 — 위반 시 페이지 폐기 위험)
-
-1. 회사 강조 X · **임팩트 강조** (6 임팩트 스트림 메인)
-2. **AI 디폴트 패턴 X** — `whileInView` 단순 fade-up 금지. 정의된 모션 패턴만
-3. **GitHub 43** (84 X) / **make.com 81 시스템 (4 핵심)** / 절대 합산 X
-4. **다크 + 라이트 둘 다 풀 디자인 완성도** — 토큰 (`var(--bg)`, `var(--fg)`) 사용
-5. **MaskReveal · WordHighlight · ScrollReveal** 활용 (텍스트 임팩트)
-6. **GitHub 링크 외부 노출 X** (footer/contact)
-7. **메인 메일** = `9843ohs@gmail.com` (보조 메일은 contact 페이지만)
-8. **글로리아교육재단 자동화 X** (정확: 블로그·지식인·파워링크 + B2B 고교 방문)
-9. **TMON ROAS 7,404% 검증됨** (개인 포토폴리오-23.03.02.pdf 출처) / NGO 마음하나는 여전히 X
-10. **mix-blend-difference 카피 위험** — 그라디언트 오버레이 + drop-shadow + text-white 안전
-
-## 시각 검증 통과 항목 (사용자 OK)
-
-- 홈 600vh 6 핀 섹션 모두 동작
-- 양면성 좌측 cycle 5초 자동 + < > 수동 + 가독성
-- SaasCycle OS Agent = 13.37.06 / Lumio = 2026-05-04 / PropIntel = 14.14.21
-- 3-categories 호버 시 grayscale → color + blur → 선명
-- 텍스트 임팩트 모션 (MaskReveal · WordHighlight)
-- Nav 가독성 (backdrop-blur + var(--fg))
-- 다크/라이트 토글 정상
-
-## 미해결 / 다음 세션에서 결정
-
-- `/builder/[slug]` 디테일 페이지 비율 결정 (세로 카드 3:4 ↔ 가로 16:9)
-- 콘텐츠 url 15+ 캡처 우선순위 (자료 폴더 콘텐츠 레퍼런스.txt 정독 후)
-- `/playground` 옵션 페이지 추가 여부 (시간 여유 시)
-- 모바일 반응형 검증 (Phase 16 단계)
-- Lighthouse 90+ 최적화 (Phase 16)
 
 ## 인계 신호
 
 새 세션 시작 시 사용자가 입력 가능:
 - `/resume-work` — 이 파일 읽고 컨텍스트 복원
-- 또는 단순 자연어 "포트폴리오 v3 이어서 작업하자" → 메모리 자동 로드
-
-둘 중 어떤 방식이든 같은 컨텍스트 복원됨.
+- 또는 단순 자연어 "포트폴리오 v3 통합 검증" → 메모리 자동 로드
