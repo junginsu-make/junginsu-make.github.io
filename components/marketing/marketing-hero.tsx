@@ -82,10 +82,14 @@ export function MarketingHero() {
       </div>
 
       <ScrollReveal delay={0.6} className="mt-12">
-        <p className="text-meta opacity-50 leading-[1.6] max-w-[680px]">
-          ※ 출처: 정인수 본인 작성 「개인 포토폴리오-23.03.02.pdf」 — TMON
-          공식 광고대행 운영총괄실장 (2022.07~2023.02) 시점 ROAS·GR·BU·CPBU
-          공식 데이터.
+        <p className="text-body opacity-70 leading-[1.6] max-w-[760px]">
+          <span className="text-[var(--accent)] mr-2">✓</span>
+          출처: 정인수 본인 작성{" "}
+          <span className="font-mono text-meta opacity-90">
+            「개인 포토폴리오-23.03.02.pdf」
+          </span>{" "}
+          — TMON 공식 광고대행 운영총괄실장 (2022.07~2023.02) 시점
+          ROAS·GR·BU·CPBU 공식 데이터.
         </p>
       </ScrollReveal>
     </section>

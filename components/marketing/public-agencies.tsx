@@ -7,7 +7,7 @@ import { WordHighlight } from "@/components/motion/word-highlight";
 import { PUBLIC_AGENCIES } from "@/lib/data/marketing";
 
 const CATEGORY_GLYPH = {
-  "정부 부처": "🏛",
+  "정부 부처": "★",
   공공기관: "▲",
   공기업: "◆",
   지자체: "■",
