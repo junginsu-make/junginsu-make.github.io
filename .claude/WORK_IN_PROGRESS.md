@@ -1,7 +1,7 @@
 # 작업 진행상황 — 정인수 포트폴리오 v3
 
-> **마지막 저장**: 2026-05-04 (홈 페이지 마무리 + /about 완료 시점)
-> **마지막 commit**: `0d2b9b7 docs(plan): 인계 노트 — Phase 6 실제 빌드 결과 + 다수 fix 라운드`
+> **마지막 저장**: 2026-05-04 (Phase 12 `/builder` 인덱스 완료 시점)
+> **마지막 commit**: feat(builder): 인덱스 (히어로 + 6 SaaS + 4 핵심 시나리오 + GitHub 43 미리보기)
 
 ## 현재 위치
 
@@ -21,13 +21,13 @@
 | 4+5 Theme + Layout + shadcn primitives 7 | ✅ |
 | 6 홈 (`/`) 600vh 6 핀 섹션 — 다수 fix 라운드 후 사용자 시각 검증 통과 | ✅ |
 | 7 `/about` (5 챕터 + 양면성 벤 다이어그램) | ✅ |
+| 12 `/builder` 인덱스 (히어로 4 KPI + 6 SaaS 5-bullet + 4 핵심 시나리오 + GitHub 43 미리보기) | ✅ |
 
-## 다음 단계 (남은 9 페이지)
+## 다음 단계 (남은 8 페이지)
 
 권장 순서:
 
-1. **Phase 12 `/builder` 인덱스** — 6 SaaS 5-bullet 카드 + 4 핵심 시나리오 + GitHub 43 미리보기 (가장 임팩트, 첫 우선)
-2. **Phase 13 `/builder/[slug]` × 6** — 트렌디·풍부 디테일 페이지 (히어로 + 5+ 능력 + 메트릭 + 갤러리 + prev/next)
+1. **Phase 13 `/builder/[slug]` × 6** — 트렌디·풍부 디테일 페이지 (히어로 + 5+ 능력 + 메트릭 + 갤러리 + prev/next) ← **다음 우선**
 3. **Phase 8 `/career`** — 6 임팩트 스트림 + 17 회사 풀 토글 + 자격증 3 비주얼 + 6 텍스트
 4. **Phase 9 `/marketing`** — KPI 차트 + AI PL 4 + Content Op 7+ + Capsule PM 20+
 5. **Phase 10 `/marketing/teaching`** — 3 Tier (정부·대학·AI 6 / 협회·기업 8 / 개인 텍스트 15) + 사진 캐러셀
