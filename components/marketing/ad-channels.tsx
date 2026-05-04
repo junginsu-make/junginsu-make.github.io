@@ -26,11 +26,11 @@ export function AdChannels() {
           <p className="text-meta opacity-60 mb-6 tracking-[0.2em]">
             OWNED MEDIA · {AD_CHANNELS.owned.length}
           </p>
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap gap-2.5">
             {AD_CHANNELS.owned.map((ch) => (
               <span
                 key={ch}
-                className="text-meta md:text-body border border-[var(--line)] px-4 py-2 hover:border-[var(--accent)] hover:text-[var(--accent)] transition-colors duration-300"
+                className="text-body border border-[var(--line)] px-5 py-2.5 hover:border-[var(--accent)] hover:text-[var(--accent)] transition-colors duration-300"
               >
                 {ch}
               </span>
@@ -42,11 +42,11 @@ export function AdChannels() {
           <p className="text-meta opacity-60 mb-6 tracking-[0.2em]">
             PAID MEDIA · {AD_CHANNELS.paid.length}
           </p>
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap gap-2.5">
             {AD_CHANNELS.paid.map((ch) => (
               <span
                 key={ch}
-                className="text-meta md:text-body border border-[var(--line)] px-4 py-2 hover:border-[var(--accent)] hover:text-[var(--accent)] transition-colors duration-300"
+                className="text-body border border-[var(--line)] px-5 py-2.5 hover:border-[var(--accent)] hover:text-[var(--accent)] transition-colors duration-300"
               >
                 {ch}
               </span>
@@ -55,38 +55,35 @@ export function AdChannels() {
         </ScrollReveal>
       </div>
 
-      {/* 회사별 광고비 운영 규모 */}
+      {/* 회사별 광고비 운영 규모 (TMON 디테일은 위 섹션에서 시각화) */}
       <ScrollReveal delay={0.3} className="mt-20 md:mt-24">
         <p className="text-meta opacity-60 mb-8 tracking-[0.2em]">
           광고비 운영 규모 (확정·검증)
         </p>
 
-        <div className="border-t border-[var(--line)]">
+        <div className="grid md:grid-cols-2 gap-px bg-[var(--line)] border border-[var(--line)]">
           {COMPANY_AD_BUDGET.map((b, i) => (
             <div
               key={b.company}
-              className="grid grid-cols-12 gap-x-4 gap-y-3 py-8 border-b border-[var(--line)]"
+              className="bg-[var(--bg)] p-7 md:p-8 group"
             >
-              <span className="col-span-2 md:col-span-1 text-meta opacity-50 tabular-nums">
+              <p className="text-meta opacity-50 mb-4 tabular-nums">
                 {(i + 1).toString().padStart(2, "0")}
-              </span>
-              <span className="col-span-10 md:col-span-5">
-                <p className="text-body-lg font-medium">{b.company}</p>
-                <p className="text-meta opacity-60 mt-2">{b.note}</p>
-              </span>
-              <span className="col-span-12 md:col-span-6">
-                <p className="text-display-md font-display leading-none tracking-[-0.02em]">
-                  {b.budget}
+              </p>
+              <p className="text-display-md font-display leading-none tracking-[-0.03em] mb-5">
+                {b.budget}
+              </p>
+              <p className="text-body-lg font-medium leading-[1.4]">
+                {b.company}
+              </p>
+              <p className="text-meta opacity-60 mt-3 leading-[1.55]">
+                {b.note}
+              </p>
+              {b.metrics && (
+                <p className="mt-4 text-meta opacity-50 leading-[1.55]">
+                  ↑ 자세한 KPI는 상단 「TMON CASE」 섹션 참조
                 </p>
-                {b.metrics && (
-                  <ul className="mt-4 space-y-1.5 text-meta opacity-70">
-                    {b.metrics.roas && <li>ROAS: {b.metrics.roas}</li>}
-                    {b.metrics.gr && <li>GR: {b.metrics.gr}</li>}
-                    {b.metrics.bu && <li>BU: {b.metrics.bu}</li>}
-                    {b.metrics.cpbu && <li>CPBU: {b.metrics.cpbu}</li>}
-                  </ul>
-                )}
-              </span>
+              )}
             </div>
           ))}
         </div>

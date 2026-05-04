@@ -1,17 +1,21 @@
 import { describe, expect, it } from "vitest";
 import {
-  AI_PL_CLIENTS,
   AI_CONTENT_OP_CLIENTS,
   CAPSULE_PM_PROJECTS,
   AD_CHANNELS,
   COMPANY_AD_BUDGET,
 } from "@/lib/data/marketing";
+import { AI_SAAS_PL_CLIENTS } from "@/lib/data/builder-clients";
 
 describe("Marketing Data", () => {
-  it("AI PL 클라이언트 4건 진행 중", () => {
-    expect(AI_PL_CLIENTS).toHaveLength(4);
-    expect(AI_PL_CLIENTS).toContain("호반그룹");
-    expect(AI_PL_CLIENTS).toContain("서울법무법인");
+  it("AI SaaS PL 클라이언트 4건 — AI 빌더 영역 (마케팅 X)", () => {
+    expect(AI_SAAS_PL_CLIENTS).toHaveLength(4);
+    expect(AI_SAAS_PL_CLIENTS.map((c) => c.name)).toContain("호반그룹");
+    expect(AI_SAAS_PL_CLIENTS.map((c) => c.name)).toContain("서울법무법인");
+    expect(AI_SAAS_PL_CLIENTS.map((c) => c.name)).toContain("아주그룹");
+    expect(AI_SAAS_PL_CLIENTS.map((c) => c.name)).toContain(
+      "Palette OS Agent",
+    );
   });
 
   it("AI Content Operation 7+ 클라이언트", () => {
