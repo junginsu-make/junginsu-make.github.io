@@ -9,7 +9,7 @@ export function GithubPreview() {
     <section className="px-6 md:px-10 lg:px-16 py-24 md:py-32 border-t border-[var(--line)]">
       <div className="flex items-baseline justify-between mb-12 md:mb-16">
         <p className="text-meta opacity-60 tracking-[0.2em]">
-          바이브코딩 · PUBLIC INVENTORY
+          VIBE CODING · PUBLIC INVENTORY
         </p>
         <span className="text-meta opacity-40">2026-05-04</span>
       </div>

@@ -382,7 +382,7 @@ export const SAAS_LIST: SaaSDetail[] = [
       {
         title: "결과물 5탭",
         description:
-          "로드맵 (3개월 캘린더 + 27 스프린트 + GitHub·Terraform·Docker·CI/CD) / 아키텍처 (Mermaid 시퀀스) / 구현 / 문서 / UI 설계 (페이지 흐름도 + 와이어프레임 4종 + 디자인 토큰).",
+          "로드맵 (3개월 캘린더 + 27 스프린트 + Vibe Coding·Terraform·Docker·CI/CD) / 아키텍처 (Mermaid 시퀀스) / 구현 / 문서 / UI 설계 (페이지 흐름도 + 와이어프레임 4종 + 디자인 토큰).",
       },
       {
         title: "클라이언트용 / 개발자용 뷰 토글",

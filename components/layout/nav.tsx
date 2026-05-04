@@ -70,9 +70,9 @@ export function Nav() {
         <a
           href="/정인수 이력서_260505.pdf"
           download="정인수 이력서.pdf"
-          className="hidden md:inline-flex items-center gap-2 h-10 px-5 rounded-full bg-[var(--accent)] text-[var(--bg)] text-[13px] tracking-[0.1em] uppercase font-mono font-semibold shadow-[0_0_0_2px_color-mix(in_oklab,var(--accent)_30%,transparent)] hover:shadow-[0_0_0_6px_color-mix(in_oklab,var(--accent)_25%,transparent)] hover:-translate-y-0.5 transition-all duration-300"
+          className="hidden md:inline-flex items-center gap-2 h-10 px-5 rounded-full bg-[var(--accent)] text-[var(--bg)] text-meta font-semibold shadow-[0_0_0_2px_color-mix(in_oklab,var(--accent)_30%,transparent)] hover:shadow-[0_0_0_6px_color-mix(in_oklab,var(--accent)_25%,transparent)] hover:-translate-y-0.5 transition-all duration-300"
         >
-          이력서 다운로드 ↓
+          이력서 ↓
         </a>
         <ThemeToggle />
 

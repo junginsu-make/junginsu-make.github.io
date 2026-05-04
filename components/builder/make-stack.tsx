@@ -15,7 +15,7 @@ export function MakeStackVisualization() {
     <section className="px-6 md:px-10 lg:px-16 py-24 md:py-32 border-t border-[var(--line)]">
       <div className="flex items-baseline justify-between mb-12 md:mb-16">
         <p className="text-meta opacity-60 tracking-[0.2em]">
-          <MaskReveal>MAKE.COM STACK · 12 INTEGRATIONS</MaskReveal>
+          <MaskReveal>자동화 시나리오 STACK · 12 INTEGRATIONS</MaskReveal>
         </p>
         <span className="text-meta opacity-40 tabular-nums">
           <Counter to={MAKE_STACK_TOOLS.length} /> TOOLS · 1 HUB
@@ -33,7 +33,7 @@ export function MakeStackVisualization() {
 
       <ScrollReveal delay={0.2}>
         <p className="text-body-lg opacity-75 max-w-[820px] leading-[1.6] mb-16">
-          Make.com 시나리오 화면 캡처는 정보 밀도가 낮아요. 대신 — 어떤 도구를
+          자동화 시나리오 화면 캡처는 정보 밀도가 낮아요. 대신 — 어떤 도구를
           어떤 역할로 연동했는지 직접 시각화. 호버하면 사용 맥락이 펼쳐집니다.
         </p>
       </ScrollReveal>

@@ -21,7 +21,7 @@ export const IMPACT_STREAMS: ImpactStream[] = [
     number: "01",
     title: "AI Builder · 풀사이클 자동화",
     bullets: [
-      "100+ Vibe Coding 자체 시스템 1인 개발 + 바이브코딩 43 공개 저장소",
+      "100+ Vibe Coding 자체 시스템 1인 개발 + Vibe Coding 43 공개 저장소",
       "자동화 시나리오 4 핵심 (정부지원사업·10X 콘텐츠·계약서+GA4·뉴스레터/웹 크롤링) + n8n",
       "데이터 크롤링·OCR·웹스크랩·자동 발행 + AI Prompt SEO",
       "멀티 LLM 통합 (Claude · GPT · Gemini · Perplexity)",

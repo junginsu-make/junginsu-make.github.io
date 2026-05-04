@@ -65,3 +65,89 @@ export const FEATURED_BLOG = {
 };
 
 export const CONTENT_REFS_PLACEHOLDER: ContentRef[] = [];
+
+/* ============================================================
+ * AI Builder 페이지용 — MKT Automation 자동화 시스템 결과 콘텐츠
+ * (SNS 카드 시리즈 / 블로그 데스크탑 / YouTube shorts)
+ * 자료: 포토폴리오-260503/github-vibe coding/MKT Automation/콘텐츠 레퍼런스/
+ * ============================================================ */
+export type BuilderContentRef =
+  | {
+      type: "sns";
+      slug: string;
+      title: string;
+      caption: string;
+      slides: number;
+      ext: "jpg" | "png";
+    }
+  | {
+      type: "blog-google";
+      slug: string;
+      title: string;
+      caption: string;
+      capture: string;
+    }
+  | {
+      type: "blog-naver";
+      slug: string;
+      title: string;
+      caption: string;
+      capture: string;
+      url: string;
+    }
+  | {
+      type: "shorts";
+      slug: string;
+      title: string;
+      caption: string;
+      videoId: string;
+    };
+
+export const BUILDER_CONTENT_REFS: BuilderContentRef[] = [
+  {
+    type: "sns",
+    slug: "kbeauty-tips",
+    title: "K-Beauty Manufacturing Tips",
+    caption: "K-Beauty 카드뉴스 시리즈 · 6 슬라이드",
+    slides: 6,
+    ext: "jpg",
+  },
+  {
+    type: "sns",
+    slug: "black-gloves",
+    title: "검은색 요리장갑",
+    caption: "이커머스 제품 카드뉴스 · 6 슬라이드",
+    slides: 6,
+    ext: "jpg",
+  },
+  {
+    type: "sns",
+    slug: "yeogigogi",
+    title: "여기고기",
+    caption: "F&B 카드뉴스 시리즈 · 4 슬라이드",
+    slides: 4,
+    ext: "png",
+  },
+  {
+    type: "blog-google",
+    slug: "google-kbeauty",
+    title: "2025 K-beauty Global Trend",
+    caption: "Google Blog · SEO 최적화 2,780 word",
+    capture: "/content-refs/blogs/google.png",
+  },
+  {
+    type: "blog-naver",
+    slug: "naver-onedmedia",
+    title: "온드미디어마케팅 브랜드 성장에 꼭 필요한 이유",
+    caption: "Naver Blog · 솔찍한인쌤",
+    capture: "/content-refs/blogs/naver.png",
+    url: "https://blog.naver.com/wjddlstn486/224105931120",
+  },
+  {
+    type: "shorts",
+    slug: "shorts-travel-korea",
+    title: "Travel Korea without the weight",
+    caption: "YouTube Shorts · 9:16",
+    videoId: "SmtY7-8JpOk",
+  },
+];

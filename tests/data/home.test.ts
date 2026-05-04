@@ -14,11 +14,11 @@ describe("Home Data", () => {
     );
   });
 
-  it("COUNTERS 4개 — 바이브코딩 43 + 자동화 시나리오 81 분리 표기", () => {
+  it("COUNTERS 4개 — Vibe Coding 43 + 자동화 시나리오 81 분리 표기", () => {
     expect(COUNTERS).toHaveLength(4);
     const labels = COUNTERS.map((c) => c.label);
     expect(labels).toContain("Career");
-    expect(labels.some((l) => l.includes("바이브코딩"))).toBe(true);
+    expect(labels.some((l) => l.includes("Vibe Coding"))).toBe(true);
     expect(labels.some((l) => l.includes("자동화 시나리오"))).toBe(true);
     expect(labels.some((l) => l.includes("Live SaaS"))).toBe(true);
     // 합산 라벨 (예: "Total Systems") 금지
@@ -27,8 +27,8 @@ describe("Home Data", () => {
     );
   });
 
-  it("COUNTERS — 바이브코딩 = 43, 자동화 시나리오 = 81", () => {
-    const vibe = COUNTERS.find((c) => c.label.includes("바이브코딩"));
+  it("COUNTERS — Vibe Coding = 43, 자동화 시나리오 = 81", () => {
+    const vibe = COUNTERS.find((c) => c.label.includes("Vibe Coding"));
     expect(vibe?.value).toBe("43");
     const auto = COUNTERS.find((c) => c.label.includes("자동화 시나리오"));
     expect(auto?.value).toBe("81");

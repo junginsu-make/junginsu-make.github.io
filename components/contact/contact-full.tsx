@@ -149,7 +149,7 @@ export function ContactFull() {
         {/* FOOTNOTE */}
         <ScrollReveal delay={0.4} className="mt-24 md:mt-32 max-w-[680px]">
           <p className="text-meta opacity-50 leading-[1.7]">
-            ※ 외부 바이브코딩 저장소 링크는 노출하지 않습니다.
+            ※ 외부 Vibe Coding 저장소 링크는 노출하지 않습니다.
           </p>
         </ScrollReveal>
       </div>
