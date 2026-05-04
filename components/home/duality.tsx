@@ -1,6 +1,9 @@
 "use client";
 import { useEffect, useState } from "react";
 import { PinSection } from "@/components/motion/pin-section";
+import { ScrollReveal } from "@/components/motion/scroll-reveal";
+import { MaskRevealStagger } from "@/components/motion/mask-reveal";
+import { WordHighlight } from "@/components/motion/word-highlight";
 
 type LeftBg = {
   src: string;
@@ -77,21 +80,29 @@ export function Duality() {
           ))}
           {/* 오버레이 — 카피 */}
           <div className="relative h-full flex flex-col justify-end p-8 md:p-16 text-[var(--color-ink)] mix-blend-difference">
-            <p className="text-meta opacity-60">A 면</p>
-            <h3 className="text-display-md font-display mt-2">마케터</h3>
+            <ScrollReveal delay={0.2}>
+              <p className="text-meta opacity-60">A 면</p>
+            </ScrollReveal>
+            <h3 className="text-display-md font-display mt-2">
+              <MaskRevealStagger text="마케터" startDelay={0.4} />
+            </h3>
             <div className="text-body-lg mt-4 max-w-md space-y-1">
-              <p>
-                TMON ROAS{" "}
-                <span className="text-[var(--color-orange)] font-medium">
-                  7,404%
-                </span>{" "}
-                · 광고운영 79억+
-              </p>
-              <p>티몬 광고대행 연 40~60억 · 31 강의처</p>
+              <ScrollReveal delay={0.6}>
+                <p>
+                  TMON ROAS{" "}
+                  <WordHighlight delay={1.2}>7,404%</WordHighlight> · 광고운영
+                  79억+
+                </p>
+              </ScrollReveal>
+              <ScrollReveal delay={0.8}>
+                <p>티몬 광고대행 연 40~60억 · 31 강의처</p>
+              </ScrollReveal>
             </div>
-            <p className="text-meta opacity-50 mt-6">
-              sbcyberpass@naver.com · junginsuai@gmail.com
-            </p>
+            <ScrollReveal delay={1.0}>
+              <p className="text-meta opacity-50 mt-6">
+                sbcyberpass@naver.com · junginsuai@gmail.com
+              </p>
+            </ScrollReveal>
           </div>
           {/* 우하단 cycle 인디케이터 + 수동 prev/next 버튼 */}
           <div className="absolute bottom-4 right-4 flex items-center gap-3 mix-blend-difference text-[var(--color-ink)]">
@@ -138,19 +149,34 @@ export function Duality() {
             />
           </picture>
           <div className="relative h-full flex flex-col justify-end p-8 md:p-16">
-            <p className="text-meta opacity-60">B 면</p>
-            <h3 className="text-display-md font-display mt-2">AI 빌더</h3>
-            <p className="text-body-lg mt-4 whitespace-nowrap">
-              GitHub 43 · 6 라이브 SaaS · Make.com 81
-            </p>
-            <p className="text-meta opacity-50 mt-6">9843ohs@gmail.com</p>
+            <ScrollReveal delay={0.2}>
+              <p className="text-meta opacity-60">B 면</p>
+            </ScrollReveal>
+            <h3 className="text-display-md font-display mt-2">
+              <MaskRevealStagger text="AI 빌더" startDelay={0.4} />
+            </h3>
+            <ScrollReveal delay={0.6}>
+              <p className="text-body-lg mt-4 whitespace-nowrap">
+                GitHub <WordHighlight delay={1.0}>43</WordHighlight> ·{" "}
+                <WordHighlight delay={1.3}>6</WordHighlight> 라이브 SaaS ·
+                Make.com <WordHighlight delay={1.6}>81</WordHighlight>
+              </p>
+            </ScrollReveal>
+            <ScrollReveal delay={1.0}>
+              <p className="text-meta opacity-50 mt-6">9843ohs@gmail.com</p>
+            </ScrollReveal>
           </div>
         </div>
         {/* 중앙 캡슐 */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
           <div className="bg-[var(--color-orange)] text-white px-10 py-6 md:px-14 md:py-8 rounded-full shadow-2xl">
             <p className="text-display-md font-display whitespace-nowrap">
-              한 사람, 두 면
+              <MaskRevealStagger
+                text="한 사람, 두 면"
+                startDelay={1.2}
+                duration={0.8}
+                letterDelay={0.05}
+              />
             </p>
           </div>
         </div>
