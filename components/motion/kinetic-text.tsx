@@ -6,7 +6,7 @@ export function KineticText({
   children,
   className = "",
 }: {
-  children: string;
+  children: React.ReactNode;
   className?: string;
 }) {
   const ref = useRef<HTMLSpanElement>(null);
