@@ -93,9 +93,37 @@ export function Duality() {
               sbcyberpass@naver.com · junginsuai@gmail.com
             </p>
           </div>
-          {/* 우하단 cycle 인디케이터 */}
-          <div className="absolute bottom-4 right-4 text-meta opacity-60 mix-blend-difference text-[var(--color-ink)] tabular-nums">
-            {leftIdx + 1} / {LEFT_BG_CYCLE.length}
+          {/* 우하단 cycle 인디케이터 + 수동 prev/next 버튼 */}
+          <div className="absolute bottom-4 right-4 flex items-center gap-3 mix-blend-difference text-[var(--color-ink)]">
+            <button
+              type="button"
+              onClick={(e) => {
+                e.stopPropagation();
+                setPaused(true);
+                setLeftIdx(
+                  (i) => (i - 1 + LEFT_BG_CYCLE.length) % LEFT_BG_CYCLE.length,
+                );
+              }}
+              className="w-9 h-9 rounded-full border border-current/40 hover:bg-current/10 transition-colors flex items-center justify-center text-base leading-none"
+              aria-label="이전 이미지"
+            >
+              ‹
+            </button>
+            <span className="text-meta opacity-60 tabular-nums">
+              {leftIdx + 1} / {LEFT_BG_CYCLE.length}
+            </span>
+            <button
+              type="button"
+              onClick={(e) => {
+                e.stopPropagation();
+                setPaused(true);
+                setLeftIdx((i) => (i + 1) % LEFT_BG_CYCLE.length);
+              }}
+              className="w-9 h-9 rounded-full border border-current/40 hover:bg-current/10 transition-colors flex items-center justify-center text-base leading-none"
+              aria-label="다음 이미지"
+            >
+              ›
+            </button>
           </div>
         </div>
         {/* 우: AI 빌더 */}
@@ -121,7 +149,7 @@ export function Duality() {
             <p className="text-meta opacity-60">B 면</p>
             <h3 className="text-display-md font-display mt-2">AI 빌더</h3>
             <p className="text-body-lg mt-4 max-w-md">
-              GitHub 84 · 6 라이브 SaaS · make.com 4 핵심 시나리오
+              GitHub 43 · 6 라이브 SaaS · make.com 81 시스템 (4 핵심)
             </p>
             <p className="text-meta opacity-50 mt-6">9843ohs@gmail.com</p>
           </div>
