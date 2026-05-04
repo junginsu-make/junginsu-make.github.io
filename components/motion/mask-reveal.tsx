@@ -7,20 +7,21 @@ export function MaskReveal({
   delay = 0,
   duration = 0.9,
   className = "",
-  as: Tag = "span",
 }: {
   children: React.ReactNode;
   delay?: number;
   duration?: number;
   className?: string;
-  as?: keyof React.JSX.IntrinsicElements;
 }) {
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true, margin: "-15% 0px" });
 
   // 위에서 아래로 reveal: y 110% → 0
   return (
-    <Tag ref={ref as any} className={`inline-block overflow-hidden ${className}`}>
+    <span
+      ref={ref}
+      className={`inline-block overflow-hidden ${className}`}
+    >
       <motion.span
         initial={{ y: "110%" }}
         animate={inView ? { y: 0 } : {}}
@@ -29,7 +30,7 @@ export function MaskReveal({
       >
         {children}
       </motion.span>
-    </Tag>
+    </span>
   );
 }
 
