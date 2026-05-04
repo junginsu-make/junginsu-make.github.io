@@ -38,17 +38,38 @@ export type CompanyAdBudget = {
   company: string;
   budget: string;
   note: string;
+  metrics?: {
+    roas?: string;
+    gr?: string;
+    bu?: string;
+    cpbu?: string;
+  };
 };
 
 export const COMPANY_AD_BUDGET: CompanyAdBudget[] = [
   {
-    company: "퍼포먼스디자인",
+    company: "퍼포먼스디자인 — 티몬 광고대행",
     budget: "연 40~60억",
-    note: "티몬 공식 광고대행 9개월",
+    note: "운영총괄실장 (2022.08~2023.04)",
+    metrics: {
+      roas: "3,516% → 7,404% (▲ 3,888%p)",
+      gr: "208억 → 288억 (▲ 79.4억+)",
+      bu: "94,153 → 180,713 (▲ 86,560명)",
+      cpbu: "4,709원 → 2,365원 (▼ -50% 절감)",
+    },
   },
   {
-    company: "퍼스트 아카데미",
+    company: "퍼스트 아카데미 본사",
     budget: "연 20억+",
-    note: "전국 30지점 1년 3개월",
+    note: "마케팅 총괄팀장 (2021.03~2022.05) — 전국 30지점·카페 4지점",
   },
 ];
+
+/**
+ * TMON ROAS 검증 출처 — 사용자 직접 작성한 마스터 자료.
+ * `/home/a20616050/projects/A/포토폴리오-260503/개인 포토폴리오-23.03.02.pdf`
+ *
+ * 변환된 차트 이미지는 `/marketing-portfolio/page-01.{jpg,webp,avif,png}` 로 사용.
+ */
+export const TMON_PORTFOLIO_PERIOD = "2022.07 중순 ~ 2023.02.20";
+export const TMON_PORTFOLIO_SOURCE = "/marketing-portfolio/page-01.jpg";

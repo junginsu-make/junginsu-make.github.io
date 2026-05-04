@@ -35,13 +35,15 @@ describe("Marketing Data", () => {
     );
   });
 
-  it("COMPANY_AD_BUDGET 정확 — TMON ROAS / NGO 마음하나 X", () => {
+  it("COMPANY_AD_BUDGET 정확 — TMON ROAS 검증됨 (개인 포토폴리오-23.03.02.pdf), NGO 마음하나 X (여전히 미검증)", () => {
     const allText = JSON.stringify(COMPANY_AD_BUDGET);
-    expect(allText).not.toContain("7,404");
+    // NGO 마음하나는 여전히 미검증 — 사용 금지
     expect(allText).not.toContain("4,378");
     expect(allText).not.toContain("마음하나");
-    // 정확한 임팩트는 있어야
+    // 정확한 임팩트 (정량 데이터)
     expect(allText).toContain("40~60억");
     expect(allText).toContain("20억");
+    // TMON ROAS 7,404% 는 PDF로 검증되어 사용 가능
+    expect(allText).toContain("7,404");
   });
 });
