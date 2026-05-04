@@ -28,7 +28,7 @@ const CATEGORIES: Category[] = [
     img: "/photos/teaching/IMG_1187.JPG",
     imgWebp: "/photos/teaching/IMG_1187.webp",
     imgAvif: "/photos/teaching/IMG_1187.avif",
-    caption: "KOICA · 광고 운영 10년 · 31 강의처",
+    caption: "광고 운영 10년+ · 31 강의처",
   },
   {
     href: "/builder",
@@ -37,7 +37,7 @@ const CATEGORIES: Category[] = [
     img: "/captured/tickpoint/home/desktop.jpg",
     imgWebp: "/captured/tickpoint/home/desktop.webp",
     imgAvif: "/captured/tickpoint/home/desktop.avif",
-    caption: "GitHub 84 · make.com 4 핵심 · 6 라이브 SaaS",
+    caption: "GitHub 43 · make.com 81 시스템 (4 핵심) · 6 라이브 SaaS",
   },
 ];
 
@@ -63,7 +63,7 @@ export function ThreeCategories() {
                 alt={c.label}
                 loading="lazy"
                 decoding="async"
-                className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-90 transition-opacity duration-700 ease-out"
+                className="absolute inset-0 w-full h-full object-cover opacity-30 blur-sm group-hover:opacity-90 group-hover:blur-0 transition-all duration-700 ease-out"
               />
             </picture>
             <div className="relative h-full flex flex-col justify-between p-6 md:p-8 group-hover:text-paper-dark group-hover:mix-blend-difference transition-all duration-700">
