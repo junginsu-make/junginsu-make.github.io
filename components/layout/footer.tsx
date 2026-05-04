@@ -4,7 +4,7 @@ export function Footer() {
       <div className="flex flex-col md:flex-row justify-between gap-8">
         <div>
           <p className="text-[40px] font-display mb-4">정인수</p>
-          <p className="text-meta opacity-60">AI Builder · 17년 마케터 · 정부 부처·기관 강사</p>
+          <p className="text-meta opacity-60">AI Builder · 17년 마케터</p>
         </div>
         <div className="text-meta space-y-2 opacity-80">
           <p>
