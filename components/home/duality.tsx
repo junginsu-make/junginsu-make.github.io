@@ -99,7 +99,6 @@ export function Duality() {
               type="button"
               onClick={(e) => {
                 e.stopPropagation();
-                setPaused(true);
                 setLeftIdx(
                   (i) => (i - 1 + LEFT_BG_CYCLE.length) % LEFT_BG_CYCLE.length,
                 );
@@ -116,7 +115,6 @@ export function Duality() {
               type="button"
               onClick={(e) => {
                 e.stopPropagation();
-                setPaused(true);
                 setLeftIdx((i) => (i + 1) % LEFT_BG_CYCLE.length);
               }}
               className="w-9 h-9 rounded-full border border-current/40 hover:bg-current/10 transition-colors flex items-center justify-center text-base leading-none"
