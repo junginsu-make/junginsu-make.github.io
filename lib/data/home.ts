@@ -1,5 +1,5 @@
 export const MANIFESTO =
-  "AI 시대를 만난 17년 마케터가, 풀사이클 빌더로 다시 태어났다";
+  "AI 시대를 만난 17년 Marketer가, AI Builder로 다시 태어났다";
 
 export const HERO_META = {
   name: "정인수",

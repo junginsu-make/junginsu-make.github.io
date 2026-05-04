@@ -17,13 +17,13 @@ export function Manifesto() {
                 AI 시대를 만난{" "}
               </MaskReveal>
               <MaskReveal delay={0.4} duration={1.0}>
-                <WordHighlight delay={1.4}>17년 마케터</WordHighlight>가,
+                <WordHighlight delay={1.4}>17년 Marketer</WordHighlight>가,
               </MaskReveal>
             </span>
             {/* 2행 */}
             <span className="block">
               <MaskReveal delay={0.7} duration={1.0}>
-                <WordHighlight delay={1.9}>풀사이클 빌더</WordHighlight>로
+                <WordHighlight delay={1.9}>AI Builder</WordHighlight>로
               </MaskReveal>{" "}
               <MaskReveal delay={1.0} duration={1.0}>
                 다시 태어났다

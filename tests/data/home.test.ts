@@ -8,9 +8,9 @@ import {
 } from "@/lib/data/home";
 
 describe("Home Data", () => {
-  it("MANIFESTO 전체 카피 — '17년 마케터 + 풀사이클 빌더'", () => {
+  it("MANIFESTO 전체 카피 — '17년 Marketer + AI Builder' (한영 혼용)", () => {
     expect(MANIFESTO).toBe(
-      "AI 시대를 만난 17년 마케터가, 풀사이클 빌더로 다시 태어났다",
+      "AI 시대를 만난 17년 Marketer가, AI Builder로 다시 태어났다",
     );
   });
 

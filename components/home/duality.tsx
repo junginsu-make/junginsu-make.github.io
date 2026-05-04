@@ -100,11 +100,6 @@ export function Duality() {
                 <p>티몬 광고대행 연 40~60억 · 31 강의처</p>
               </ScrollReveal>
             </div>
-            <ScrollReveal delay={1.0}>
-              <p className="text-meta opacity-80 mt-6">
-                sbcyberpass@naver.com · junginsuai@gmail.com
-              </p>
-            </ScrollReveal>
           </div>
           {/* 우하단 cycle 인디케이터 + 수동 prev/next 버튼 */}
           <div className="absolute bottom-4 right-4 flex items-center gap-3 mix-blend-difference text-[var(--color-ink)]">
