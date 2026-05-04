@@ -13,7 +13,7 @@ export function Certifications() {
         <span className="text-meta opacity-40">3 비주얼 · 6 부속</span>
       </div>
 
-      <h2 className="text-display-md font-display leading-[1.1] tracking-[-0.02em] mb-10 max-w-[680px]">
+      <h2 className="text-display-md font-display leading-[1.1] tracking-[-0.02em] mb-10 lg:whitespace-nowrap">
         <MaskReveal>
           <span>AI · 마케팅 자격증 3 (메인) + 강사·CS 부속 6</span>
         </MaskReveal>
