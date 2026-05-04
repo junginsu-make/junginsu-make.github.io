@@ -17,19 +17,19 @@ export const CERTS_VISUAL: CertVisual[] = [
     name: "AIPOT 프롬프트엔지니어링 2급",
     year: "2025.02",
     issuer: "한국생산성본부 KPC",
-    image: "/certifications/aipot.jpg",
+    image: "/certifications/20250529_160511.jpg",
   },
   {
     name: "검색광고마케터 1급",
     year: "2022.07",
     issuer: "한국정보통신진흥협회 KAIT",
-    image: "/certifications/search-ad.jpg",
+    image: "/certifications/%EA%B2%80%EC%83%89%EA%B4%91%EA%B3%A0%EB%A7%88%EC%BC%80%ED%84%B0%201%EA%B8%89.jpg",
   },
   {
     name: "SNS광고마케터 1급",
     year: "2022.05",
     issuer: "한국정보통신진흥협회 KAIT",
-    image: "/certifications/sns-ad.jpg",
+    image: "/certifications/SNS%20%EA%B4%91%EA%B3%A0%EB%A7%88%EC%8A%A4%ED%84%B0%201%EA%B8%89.jpg",
   },
 ];
 
