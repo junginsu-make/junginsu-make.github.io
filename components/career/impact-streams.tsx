@@ -26,7 +26,7 @@ export function ImpactStreams() {
         </MaskReveal>
       </p>
 
-      <div className="mt-16 max-w-[680px] text-body opacity-70 leading-[1.7]">
+      <div className="mt-16 text-body opacity-70 leading-[1.7] lg:whitespace-nowrap">
         <MaskReveal delay={0.85}>
           <span>
             영업·마케팅·강사 17년. AI 시대를 만나 풀사이클 빌더로 다시 태어났다.
@@ -95,7 +95,7 @@ export function ImpactStreamsList() {
               <ul className="mt-10 space-y-5">
                 {s.bullets.map((b, j) => (
                   <ScrollReveal key={j} delay={j * 0.06}>
-                    <li className="flex gap-4 md:gap-6 items-baseline text-body md:text-body-lg max-w-[820px] leading-[1.6]">
+                    <li className="flex gap-4 md:gap-6 items-baseline text-body md:text-body-lg leading-[1.6]">
                       <span className="text-meta opacity-40 tabular-nums shrink-0 w-8">
                         {(j + 1).toString().padStart(2, "0")}
                       </span>

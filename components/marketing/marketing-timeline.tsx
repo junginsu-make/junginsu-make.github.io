@@ -153,7 +153,7 @@ export function MarketingTimeline() {
       </div>
 
       <ScrollReveal delay={0.5} className="mt-16 ml-9 md:ml-14">
-        <p className="text-meta opacity-50 leading-[1.7] max-w-[920px]">
+        <p className="text-meta opacity-50 leading-[1.7] lg:whitespace-nowrap">
           ※ 자료: 정인수 이력서.pdf 페이지 2~5 · 17년 4개월 마케팅 경력의 6개
           전환점. 과거 모든 회사·기관·역할 풀 타임라인은{" "}
           <span className="text-[var(--accent)]">/career</span> 페이지의 17 회사

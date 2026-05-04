@@ -13,7 +13,7 @@ export function BuildTracks() {
         <p className="text-meta opacity-60 tracking-[0.2em]">
           <MaskReveal>TWO TRACKS · DUAL CRAFT</MaskReveal>
         </p>
-        <span className="text-meta opacity-40">VIBE CODING + MAKE.COM</span>
+        <span className="text-meta opacity-40">VIBE CODING + 자동화 시나리오</span>
       </div>
 
       <h2 className="text-display-md md:text-display-lg font-display leading-[1.05] tracking-[-0.02em] mb-12 max-w-[920px]">
@@ -38,10 +38,10 @@ export function BuildTracks() {
             key={t.id}
             delay={i * 0.15}
             className={cn(
-              "bg-[var(--bg)] p-8 md:p-12 group transition-colors duration-500",
+              "bg-[var(--bg)] p-8 md:p-12 group transition-all duration-500",
               t.color === "accent"
-                ? "hover:bg-[color-mix(in_oklab,var(--accent)_5%,var(--bg))]"
-                : "hover:bg-[color-mix(in_oklab,var(--fg)_4%,var(--bg))]",
+                ? "hover:bg-[color-mix(in_oklab,var(--accent)_8%,var(--bg))]"
+                : "hover:bg-[color-mix(in_oklab,var(--fg)_8%,var(--bg))]",
             )}
           >
             {/* Header — TRACK 번호만 (glyph 제거) */}
@@ -54,10 +54,10 @@ export function BuildTracks() {
             {/* Title + subtitle */}
             <h3
               className={cn(
-                "text-display-md md:text-display-lg font-display leading-[1.05] tracking-[-0.025em] transition-colors duration-300",
+                "text-display-md md:text-display-lg font-display leading-[1.05] tracking-[-0.025em] transition-all duration-300 group-hover:translate-x-1",
                 t.color === "accent"
                   ? "group-hover:text-[var(--accent)]"
-                  : "",
+                  : "group-hover:text-[var(--fg)]",
               )}
             >
               {t.title}

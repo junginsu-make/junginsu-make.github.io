@@ -67,7 +67,7 @@ export function SaasMetrics({ saas }: { saas: SaaSDetail }) {
           className="group flex items-baseline justify-between border-b border-[var(--line)] pb-3 hover:border-[var(--accent)] transition-colors duration-300"
         >
           <span className="opacity-60 group-hover:opacity-100 transition-opacity">
-            LIVE URL
+            바로가기
           </span>
           <span className="font-mono opacity-90 group-hover:text-[var(--accent)] transition-colors">
             {saas.liveUrl.replace(/^https?:\/\//, "").replace(/\/$/, "")} ↗

@@ -13,10 +13,10 @@ type Kpi = {
 };
 
 const KPIS: Kpi[] = [
-  { to: GITHUB_TOTAL, label: "GitHub Repos", note: "외부 공개" },
-  { to: 4, label: "Make.com Core", note: "핵심 시나리오" },
+  { to: GITHUB_TOTAL, label: "바이브코딩 Repos", note: "외부 공개" },
+  { to: 4, label: "자동화 Core", note: "핵심 시나리오" },
   { to: 6, label: "Live SaaS", note: "프로덕션 운영" },
-  { to: 81, label: "Total Systems", note: "make.com 인벤토리" },
+  { to: 81, label: "Total Systems", note: "자동화 시나리오 인벤토리" },
 ];
 
 export function BuilderHero() {
@@ -40,9 +40,9 @@ export function BuilderHero() {
         <span className="block mt-2">
           <MaskReveal delay={0.85}>
             <span>
-              <WordHighlight delay={1.25}>GitHub 43</WordHighlight> ·{" "}
-              <WordHighlight delay={1.4}>make.com 4 핵심</WordHighlight> ·{" "}
-              <WordHighlight delay={1.55}>6 라이브 SaaS</WordHighlight>
+              <WordHighlight delay={1.25}>바이브코딩 43</WordHighlight> ·{" "}
+              <WordHighlight delay={1.4}>자동화 시나리오 81</WordHighlight> ·{" "}
+              <WordHighlight delay={1.55}>SaaS 6 Live</WordHighlight>
             </span>
           </MaskReveal>
         </span>

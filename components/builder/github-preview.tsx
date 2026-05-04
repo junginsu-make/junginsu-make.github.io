@@ -2,7 +2,6 @@
 import { Counter } from "@/components/motion/counter";
 import { MaskReveal } from "@/components/motion/mask-reveal";
 import { ScrollReveal } from "@/components/motion/scroll-reveal";
-import { SweepLink } from "@/components/motion/color-sweep";
 import { GITHUB_CATEGORIES, GITHUB_TOTAL } from "@/lib/data/github";
 
 export function GithubPreview() {
@@ -10,7 +9,7 @@ export function GithubPreview() {
     <section className="px-6 md:px-10 lg:px-16 py-24 md:py-32 border-t border-[var(--line)]">
       <div className="flex items-baseline justify-between mb-12 md:mb-16">
         <p className="text-meta opacity-60 tracking-[0.2em]">
-          GITHUB · PUBLIC INVENTORY
+          바이브코딩 · PUBLIC INVENTORY
         </p>
         <span className="text-meta opacity-40">2026-05-04</span>
       </div>
@@ -68,15 +67,6 @@ export function GithubPreview() {
         ))}
       </div>
 
-      <ScrollReveal delay={0.4} className="mt-16">
-        <SweepLink
-          href="/builder/github"
-          className="inline-flex items-center gap-3 text-body-lg border-b border-[var(--fg)] pb-1 hover:text-[var(--accent)] hover:border-[var(--accent)] transition-colors duration-300"
-        >
-          <span>43 레포 카테고리·메타·노트 전체 보기</span>
-          <span aria-hidden>→</span>
-        </SweepLink>
-      </ScrollReveal>
     </section>
   );
 }

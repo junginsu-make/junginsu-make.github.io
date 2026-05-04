@@ -30,7 +30,7 @@ export function SaasCapabilities({ saas, galleryImages }: Props) {
         <p className="text-body-lg opacity-75 leading-[1.6] mb-16 md:mb-24 max-w-[820px]">
           {saas.name}이 실제로 무엇을 하는지 — 각 능력은 라이브 사이트에서
           하나의 화면 또는 워크플로우 단위. 텍스트 설명만으로 안 닿는다면 우측
-          상단 LIVE 버튼으로 직접 살펴보세요.
+          상단 「바로가기」 버튼으로 직접 살펴보세요.
         </p>
       </ScrollReveal>
 

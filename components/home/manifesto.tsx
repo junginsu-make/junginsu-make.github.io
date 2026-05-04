@@ -8,8 +8,8 @@ import { HERO_META } from "@/lib/data/home";
 export function Manifesto() {
   return (
     <PinSection className="relative overflow-hidden">
-      <div className="h-screen flex items-end px-6 md:px-10 lg:px-16 pb-20 md:pb-32">
-        <h1 className="text-display-mega font-display max-w-[18ch] leading-[0.88]">
+      <div className="h-screen flex items-center px-6 md:px-10 lg:px-16">
+        <h1 className="text-display-xl font-display max-w-[18ch] leading-[0.92] tracking-[-0.03em]">
           <KineticText>
             {/* 1행 */}
             <span className="block">

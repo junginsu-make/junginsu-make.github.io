@@ -16,13 +16,12 @@ export function Footer() {
             </a>
           </p>
           <p>
-            <a href="/resume.pdf" download className="hover:text-[var(--accent)] transition-colors">
+            <a href="/정인수 이력서_260505.pdf" download="정인수 이력서.pdf" className="hover:text-[var(--accent)] transition-colors">
               이력서 PDF
             </a>
           </p>
         </div>
       </div>
-      <p className="mt-12 text-meta opacity-40">© 2026 정인수 (ls.Jung)</p>
     </footer>
   );
 }

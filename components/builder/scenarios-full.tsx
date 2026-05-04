@@ -15,7 +15,7 @@ export function ScenariosFull() {
       {/* HERO */}
       <section className="px-6 md:px-10 lg:px-16 pt-40 pb-24 md:pb-32 border-b border-[var(--line)]">
         <p className="text-meta opacity-60 mb-12 tracking-[0.2em]">
-          <MaskReveal>SCENARIOS · MAKE.COM</MaskReveal>
+          <MaskReveal>SCENARIOS · 자동화</MaskReveal>
         </p>
 
         <h1 className="text-display-mega font-display leading-[0.92] tracking-[-0.03em]">

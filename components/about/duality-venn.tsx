@@ -155,13 +155,13 @@ export function DualityVenn() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-20% 0px" }}
           transition={{ duration: 0.9, delay: 1.2 }}
-          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center"
+          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center w-[160px] md:w-[200px]"
         >
-          <p className="text-display-md md:text-display-lg font-display leading-none tracking-[-0.02em]">
-            콘텐츠
+          <p className="text-[20px] md:text-[28px] font-display leading-[1.05] tracking-[-0.02em]">
+            Multi Agent
           </p>
-          <p className="text-display-md md:text-display-lg font-display leading-none tracking-[-0.02em] mt-1">
-            자동화
+          <p className="text-[20px] md:text-[28px] font-display leading-[1.05] tracking-[-0.02em] mt-1">
+            SaaS 개발
           </p>
         </motion.div>
       </div>

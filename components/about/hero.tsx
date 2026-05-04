@@ -24,8 +24,7 @@ export function Hero() {
           <KineticText>한 사람을 정확히 보는 가장 빠른 방법</KineticText>
         </h1>
         <p className="text-body-lg mt-6 opacity-90 lg:whitespace-nowrap">
-          1983년생 · 서울 강북구 거주 · 영동대 사회복지학과 졸업 · 군필 · 17년
-          4개월 경력
+          17년 4개월 경력
         </p>
       </div>
     </section>

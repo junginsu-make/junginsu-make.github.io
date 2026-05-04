@@ -140,7 +140,7 @@ export const TIMELINE_2024_2025: TimelinePhase[] = [
   {
     period: "2024.10",
     phase: "기반 구축",
-    note: "Make.com 실습 / Notion+Claude+Flux / RSS+IG / YouTube 채널 분석",
+    note: "자동화 시나리오 실습 / Notion+Claude+Flux / RSS+IG / YouTube 채널 분석",
   },
   {
     period: "2024.11",

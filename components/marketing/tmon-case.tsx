@@ -185,7 +185,7 @@ export function TmonCase() {
               「개인 포토폴리오-23.03.02.pdf」
             </span>{" "}
             · TMON 공식 광고대행 운영총괄실장 (퍼포먼스디자인 시기) 시점 12 개월
-            ROAS 데이터. 합계 KPI는 상단 「마케팅 임팩트」 hero 섹션 참조.
+            ROAS 데이터. 합계 KPI는 상단 「Marketing Performance」 hero 섹션 참조.
           </p>
         </div>
       </ScrollReveal>

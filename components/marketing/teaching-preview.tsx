@@ -20,17 +20,20 @@ export function TeachingPreview({ photos }: Props) {
   const totalCount = TIER1.length + TIER2.length + TIER3.length;
   const featured = TIER1.slice(0, 6).map((t) => t.name);
 
-  // 사진 carousel — 4초마다 자동 롤링
+  // 사진 carousel — 자동 롤링 + 좌우 수동 navigation
   const [idx, setIdx] = useState(0);
   const [paused, setPaused] = useState(false);
   useEffect(() => {
     if (paused || photos.length === 0) return;
     const t = setInterval(
       () => setIdx((i) => (i + 1) % photos.length),
-      4000,
+      2000,
     );
     return () => clearInterval(t);
   }, [paused, photos.length]);
+  const goPrev = () =>
+    setIdx((i) => (i - 1 + photos.length) % photos.length);
+  const goNext = () => setIdx((i) => (i + 1) % photos.length);
 
   return (
     <section className="px-6 md:px-10 lg:px-16 py-24 md:py-32 border-t border-[var(--line)]">
@@ -130,7 +133,7 @@ export function TeachingPreview({ photos }: Props) {
             </div>
 
             {/* 진행 인디케이터 — carousel 진행 도트 */}
-            <div className="absolute top-5 left-5 right-5 flex gap-1.5">
+            <div className="absolute top-5 left-5 right-5 flex gap-1.5 pointer-events-none">
               {photos.map((_, i) => (
                 <div
                   key={i}
@@ -142,18 +145,39 @@ export function TeachingPreview({ photos }: Props) {
                       initial={{ scaleX: 0 }}
                       animate={{ scaleX: paused ? 0 : 1 }}
                       transition={{
-                        duration: paused ? 0 : 4,
+                        duration: paused ? 0 : 2,
                         ease: "linear",
                       }}
                       className="h-full bg-[#F4F0E6] origin-left"
                     />
                   )}
-                  {i < idx && (
-                    <div className="h-full bg-[#F4F0E6]/60" />
-                  )}
+                  {i < idx && <div className="h-full bg-[#F4F0E6]/60" />}
                 </div>
               ))}
             </div>
+
+            {/* 좌측 화살표 */}
+            <button
+              type="button"
+              onClick={goPrev}
+              className="absolute left-3 md:left-5 top-1/2 -translate-y-1/2 inline-flex items-center justify-center w-11 h-11 md:w-12 md:h-12 rounded-full bg-[var(--bg)]/85 backdrop-blur-sm text-[var(--fg)] border border-[var(--line)] hover:bg-[var(--accent)] hover:text-[var(--bg)] hover:border-[var(--accent)] hover:scale-110 transition-all duration-300 shadow-lg"
+              aria-label="이전 강의 사진"
+            >
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="12,4 6,10 12,16" />
+              </svg>
+            </button>
+            {/* 우측 화살표 */}
+            <button
+              type="button"
+              onClick={goNext}
+              className="absolute right-3 md:right-5 top-1/2 -translate-y-1/2 inline-flex items-center justify-center w-11 h-11 md:w-12 md:h-12 rounded-full bg-[var(--bg)]/85 backdrop-blur-sm text-[var(--fg)] border border-[var(--line)] hover:bg-[var(--accent)] hover:text-[var(--bg)] hover:border-[var(--accent)] hover:scale-110 transition-all duration-300 shadow-lg"
+              aria-label="다음 강의 사진"
+            >
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="8,4 14,10 8,16" />
+              </svg>
+            </button>
           </div>
         </ScrollReveal>
 

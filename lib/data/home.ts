@@ -15,8 +15,8 @@ export type Counter = {
 
 export const COUNTERS: Counter[] = [
   { value: "17", suffix: "년", label: "Career" },
-  { value: "43", suffix: "", label: "GitHub Repos" },
-  { value: "81", suffix: "", label: "Make.com 시스템 (4 핵심)" },
+  { value: "43", suffix: "", label: "바이브코딩 Repos" },
+  { value: "81", suffix: "", label: "자동화 시나리오" },
   { value: "6", suffix: "", label: "Live SaaS" },
 ];
 
@@ -48,7 +48,7 @@ export const TECH_STACK: TechCategory[] = [
   {
     category: "워크플로우 / 자동화",
     items: [
-      "Make.com",
+      "자동화 시나리오",
       "n8n",
       "LangGraph",
       "APScheduler",

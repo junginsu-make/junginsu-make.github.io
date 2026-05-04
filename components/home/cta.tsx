@@ -15,7 +15,7 @@ export function Cta() {
       <Magnetic strength={0.5}>
         <a
           href={`mailto:${CONTACT_EMAIL}`}
-          className="text-display-mega font-display break-all inline-block"
+          className="text-display-lg md:text-display-xl font-display whitespace-nowrap inline-block tracking-tight"
           onMouseLeave={() => setHoverIdx(null)}
         >
           {Array.from(CONTACT_EMAIL).map((char, i) => {
@@ -48,8 +48,8 @@ export function Cta() {
       </Magnetic>
       <ScrollReveal delay={0.6}>
         <a
-          href="/resume.pdf"
-          download
+          href="/정인수 이력서_260505.pdf"
+          download="정인수 이력서.pdf"
           className="text-meta mt-16 underline-offset-4 hover:underline opacity-70 hover:opacity-100 transition-opacity inline-block"
         >
           이력서 PDF 다운로드 →

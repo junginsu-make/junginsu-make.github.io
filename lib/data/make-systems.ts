@@ -27,9 +27,9 @@ export const CATEGORY_INFO: Record<
   MakeSystemCategory,
   { number: string; count: number; tone: "fg" | "accent" }
 > = {
-  "콘텐츠 자동화": { number: "01", count: 5, tone: "accent" },
-  "블로그·워드프레스 자동화": { number: "02", count: 5, tone: "fg" },
-  "SEO·데이터 분석 자동화": { number: "03", count: 5, tone: "fg" },
+  "콘텐츠 자동화": { number: "01", count: 3, tone: "accent" },
+  "블로그·워드프레스 자동화": { number: "02", count: 3, tone: "fg" },
+  "SEO·데이터 분석 자동화": { number: "03", count: 4, tone: "fg" },
   "공공데이터·정부지원사업 자동화": { number: "04", count: 2, tone: "accent" },
   "AI 이미지·음성 자동화": { number: "05", count: 3, tone: "fg" },
   "정보 수집·뉴스 큐레이션": { number: "06", count: 2, tone: "fg" },
@@ -107,7 +107,7 @@ export const MAKE_SYSTEMS: MakeSystem[] = [
   },
   {
     category: "블로그·워드프레스 자동화",
-    title: "원텐 플로우 — 워드프레스 자동화 (QJC 앱버서더 전용)",
+    title: "원텐 플로우 — 워드프레스 자동화",
     modules: 14,
     services: [
       "Inoreader",
@@ -118,21 +118,13 @@ export const MAKE_SYSTEMS: MakeSystem[] = [
       "Google Drive",
     ],
     description:
-      "Inoreader RSS 피드로 최신 아티클을 자동 수집하고, Claude AI + Perplexity AI가 분석·재작성합니다. 미드저니 이미지를 자동 삽입 후 WordPress에 발행합니다. QJC 커뮤니티 앱버서더 전용으로 제작·배포된 고급 시스템입니다.",
-  },
-  {
-    category: "블로그·워드프레스 자동화",
-    title: "천은영 블로그 자동화 (클라이언트 맞춤 납품)",
-    modules: 8,
-    services: ["Inoreader", "OpenAI", "WordPress", "Markdown"],
-    description:
-      "클라이언트 맞춤 제작 블로그 자동화 시스템입니다. Inoreader 아티클을 수집하고 OpenAI가 요약·번역·재작성하여 WordPress에 자동 포스팅합니다. Watch(실시간 트리거)와 List(주기적 실행) 두 가지 모드를 모두 지원합니다.",
+      "Inoreader RSS 피드로 최신 아티클을 자동 수집하고, Claude AI + Perplexity AI가 분석·재작성합니다. 미드저니 이미지를 자동 삽입 후 WordPress에 발행합니다. 클라이언트 맞춤 제작·배포된 고급 시스템입니다.",
   },
 
   // 4-3. SEO & 데이터 분석 자동화 (5개)
   {
     category: "SEO·데이터 분석 자동화",
-    title: "네이버 키워드 분석 자동화 V2",
+    title: "네이버 키워드 분석 자동화",
     modules: 17,
     services: [
       "SerpAPI",
@@ -144,7 +136,7 @@ export const MAKE_SYSTEMS: MakeSystem[] = [
       "OneSaaS",
     ],
     description:
-      "네이버 검색 키워드의 월간 검색량·경쟁도·상위노출 페이지를 자동 분석합니다. 결과를 Airtable DB에 저장하고 Google Docs 보고서를 자동 생성한 뒤 Discord 알림·이메일 발송까지 완전 자동화합니다. V1 → V2 → V3로 지속 개선된 시스템입니다.",
+      "네이버 검색 키워드의 월간 검색량·경쟁도·상위노출 페이지를 자동 분석합니다. 결과를 Airtable DB에 저장하고 Google Docs 보고서를 자동 생성한 뒤 Discord 알림·이메일 발송까지 완전 자동화합니다.",
     isFlagship: true,
   },
   {
@@ -163,19 +155,11 @@ export const MAKE_SYSTEMS: MakeSystem[] = [
   },
   {
     category: "SEO·데이터 분석 자동화",
-    title: "상위노출 분석 자동화 V.1",
+    title: "상위노출 분석 자동화",
     modules: 14,
     services: ["SerpAPI", "OpenAI", "Airtable", "Google Docs"],
     description:
       "네이버·구글 상위노출 페이지를 자동 분석하고, AI가 공통 패턴·키워드 밀도·콘텐츠 구조를 파악합니다. 최적화 전략을 자동 보고서로 정리해 주기적으로 업데이트합니다.",
-  },
-  {
-    category: "SEO·데이터 분석 자동화",
-    title: "구글 + 네이버 키워드 분석 V1",
-    modules: "복합 시나리오",
-    services: ["SerpAPI", "OpenAI", "Airtable", "Discord", "Google Docs"],
-    description:
-      "구글·네이버 양대 검색엔진의 키워드 데이터를 동시 수집·비교 분석합니다. 플랫폼별 검색 트렌드 차이를 AI가 해석하고 채널별 최적 키워드 전략을 자동 도출합니다.",
   },
   {
     category: "SEO·데이터 분석 자동화",
@@ -189,7 +173,7 @@ export const MAKE_SYSTEMS: MakeSystem[] = [
   // 4-4. 공공데이터·정부지원사업 (2개)
   {
     category: "공공데이터·정부지원사업 자동화",
-    title: "정부지원사업 필터링 자동 수집 V1",
+    title: "정부지원사업 필터링 자동 수집",
     modules: 10,
     services: ["BizInfo API", "Claude AI", "OpenAI", "Airtable", "정규식 처리"],
     description:
@@ -209,7 +193,7 @@ export const MAKE_SYSTEMS: MakeSystem[] = [
   // 4-5. AI 이미지·음성 자동화 (3개)
   {
     category: "AI 이미지·음성 자동화",
-    title: "이미지 자동화 메가 시스템 V1 ~ V3 (4세트)",
+    title: "이미지 자동화 메가 시스템 (4세트)",
     modules: "복합 시나리오",
     services: [
       "Midjourney (useapi)",
@@ -219,15 +203,15 @@ export const MAKE_SYSTEMS: MakeSystem[] = [
       "Google Drive",
     ],
     description:
-      "Midjourney API와 다양한 이미지 도구를 연동해 블로그·SNS용 이미지를 대량 자동 생성합니다. V1 → V2 → V3로 진화하며 4세트로 운영됩니다.",
+      "Midjourney API와 다양한 이미지 도구를 연동해 블로그·SNS용 이미지를 대량 자동 생성합니다. 4세트로 진화·운영되는 메가 시스템입니다.",
   },
   {
     category: "AI 이미지·음성 자동화",
-    title: "영상 자동화 V1 ~ V3 (5세트)",
+    title: "영상 자동화 (5세트)",
     modules: "복합 시나리오",
     services: ["Suno AI", "OpenAI", "JSON2Video"],
     description:
-      "Suno AI로 BGM을 자동 작곡하고, OpenAI 스크립트를 결합해 JSON2Video가 영상을 자동 제작합니다. V1 → V2 → V3로 발전한 5 세트 영상 자동화 시스템입니다.",
+      "Suno AI로 BGM을 자동 작곡하고, OpenAI 스크립트를 결합해 JSON2Video가 영상을 자동 제작합니다. 5세트로 진화한 영상 자동화 시스템입니다.",
   },
   {
     category: "AI 이미지·음성 자동화",
@@ -241,7 +225,7 @@ export const MAKE_SYSTEMS: MakeSystem[] = [
   // 4-6. 정보 수집·뉴스 큐레이션 (2개)
   {
     category: "정보 수집·뉴스 큐레이션",
-    title: "퀀텀 AI 스튜디오 — 광고 기획 자동화",
+    title: "AI 스튜디오 — 광고 기획 자동화",
     modules: 10,
     services: ["Claude AI", "OpenAI", "Airtable"],
     description:
@@ -254,6 +238,85 @@ export const MAKE_SYSTEMS: MakeSystem[] = [
     services: ["Apify", "OpenAI", "Airtable"],
     description:
       "Instagram·YouTube·블로그 등 주요 SNS에서 인기 콘텐츠를 자동 수집하고 AI가 성과 패턴을 분석합니다. 바이럴 요인·최적 포스팅 시간·해시태그 전략을 자동으로 도출합니다.",
+  },
+];
+
+/** 4 핵심 시나리오 — 81 시스템 중 가장 핵심 자동화 */
+export type MakeCoreScenario = {
+  number: string;
+  title: string;
+  modules: number;
+  services: string[];
+  description: string;
+};
+
+export const MAKE_CORE_FOUR: MakeCoreScenario[] = [
+  {
+    number: "01",
+    title: "정부지원사업 크롤링 및 사업계획서 작성 자동화",
+    modules: 25,
+    services: [
+      "BizInfo API",
+      "PDF.co",
+      "CloudConvert",
+      "Claude AI",
+      "Perplexity AI",
+      "Airtable",
+      "Discord",
+    ],
+    description:
+      "정부지원사업 공고를 BizInfo 공공 API로 자동 수집하고, Claude·Perplexity AI가 조건 분석·필터링·적합도 점수화·맞춤 추천을 진행합니다. PDF 공고문 파싱부터 사업계획서 초안 작성까지 풀사이클 자동화.",
+  },
+  {
+    number: "02",
+    title: "10X 콘텐츠 자동화",
+    modules: 19,
+    services: [
+      "Google Trends",
+      "SerpAPI",
+      "Perplexity AI",
+      "Claude AI",
+      "Midjourney",
+      "ElevenLabs",
+      "JSON2Video",
+      "WordPress",
+      "Instagram",
+      "YouTube",
+    ],
+    description:
+      "트렌드·키워드 자동 수집 → AI가 글·이미지·음성·영상 생성 → 블로그·SNS·YouTube 멀티 채널 자동 배포. 콘텐츠 1개를 10배로 활용하는 풀사이클 메가 자동화 시스템.",
+  },
+  {
+    number: "03",
+    title: "계약서 관리 시스템 및 GA4 분석 자동화",
+    modules: 18,
+    services: [
+      "Google Analytics 4",
+      "OpenAI",
+      "Airtable",
+      "Google Docs",
+      "Google Drive",
+      "Markdown",
+    ],
+    description:
+      "계약서 데이터를 Airtable에서 통합 관리하고, GA4 이탈율·UX 데이터를 자동 수집·분석합니다. AI가 이탈 원인을 진단하고 개선안을 자동 보고서로 생성합니다.",
+  },
+  {
+    number: "04",
+    title: "뉴스레터·웹사이트 크롤링 → 콘텐츠 생성·업로드 자동화",
+    modules: 16,
+    services: [
+      "Inoreader",
+      "Apify",
+      "Claude AI",
+      "OpenAI",
+      "Perplexity AI",
+      "WordPress",
+      "Instagram",
+      "Slack",
+    ],
+    description:
+      "뉴스레터·뉴스·외부 사이트를 자동 크롤링 → AI가 요약·재구성·SEO 최적화 → 블로그·SNS에 자동 발행합니다. 정보 수집부터 발행까지 완전 자동화.",
   },
 ];
 

@@ -12,11 +12,11 @@ import { ThemeToggle } from "./theme-toggle";
 import { cn } from "@/lib/utils";
 
 const LINKS = [
+  { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/career", label: "Career" },
   { href: "/builder", label: "AI Builder" },
   { href: "/marketing", label: "Marketing" },
-  { href: "/contact", label: "Contact" },
 ];
 
 function isActive(pathname: string, href: string): boolean {
@@ -66,7 +66,14 @@ export function Nav() {
       </ul>
 
       {/* right cluster */}
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-3">
+        <a
+          href="/정인수 이력서_260505.pdf"
+          download="정인수 이력서.pdf"
+          className="hidden md:inline-flex items-center gap-2 h-10 px-5 rounded-full bg-[var(--accent)] text-[var(--bg)] text-[13px] tracking-[0.1em] uppercase font-mono font-semibold shadow-[0_0_0_2px_color-mix(in_oklab,var(--accent)_30%,transparent)] hover:shadow-[0_0_0_6px_color-mix(in_oklab,var(--accent)_25%,transparent)] hover:-translate-y-0.5 transition-all duration-300"
+        >
+          이력서 다운로드 ↓
+        </a>
         <ThemeToggle />
 
         {/* mobile menu trigger */}
@@ -127,16 +134,26 @@ export function Nav() {
               })}
             </ul>
 
-            <div className="mt-auto pt-8 border-t border-[var(--line)]">
-              <p className="text-meta opacity-50 mb-3 tracking-[0.2em]">
-                CONTACT
-              </p>
+            <div className="mt-auto pt-8 border-t border-[var(--line)] space-y-5">
               <a
-                href="mailto:9843ohs@gmail.com"
-                className="font-mono text-body hover:text-[var(--accent)] transition-colors"
+                href="/정인수 이력서_260505.pdf"
+                download="정인수 이력서.pdf"
+                onClick={() => setMobileOpen(false)}
+                className="inline-flex items-center gap-2 h-10 px-5 rounded-full border border-[var(--fg)]/30 text-[13px] tracking-[0.08em] uppercase font-mono hover:bg-[var(--accent)] hover:text-[var(--bg)] hover:border-[var(--accent)] transition-colors"
               >
-                9843ohs@gmail.com
+                이력서 다운로드 ↓
               </a>
+              <div>
+                <p className="text-meta opacity-50 mb-3 tracking-[0.2em]">
+                  CONTACT
+                </p>
+                <a
+                  href="mailto:9843ohs@gmail.com"
+                  className="font-mono text-body hover:text-[var(--accent)] transition-colors"
+                >
+                  9843ohs@gmail.com
+                </a>
+              </div>
             </div>
           </SheetContent>
         </Sheet>

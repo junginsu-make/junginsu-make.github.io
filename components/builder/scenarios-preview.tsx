@@ -9,7 +9,7 @@ export function ScenariosPreview() {
     <section className="px-6 md:px-10 lg:px-16 py-24 md:py-32 border-t border-[var(--line)]">
       <div className="flex items-baseline justify-between mb-12 md:mb-16">
         <p className="text-meta opacity-60 tracking-[0.2em]">
-          MAKE.COM · CORE SCENARIOS
+          자동화 시나리오 · CORE
         </p>
         <span className="text-meta opacity-40">04 / 81</span>
       </div>

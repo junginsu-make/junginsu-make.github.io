@@ -12,7 +12,7 @@ const CHAPTERS = [
     number: "02",
     period: "2001 — 2010",
     title: "전환점 — 군대 → 늦깎이 대학 → 우수교직원",
-    body: "군대에서 부적응병사·신임병사 상담을 시작하면서 사람과 대화하는 일에 흥미. 말년휴가에 수능 재응시. 영동대학교 사회복지학과 입학 (학점 3.98/4.5). 봉사동아리 '훈민정음' 회장, 사회복지학과 총 학회장, 16대 총학생회 복지국장. 졸업 후 학과조교 — 우수교직원 수상.",
+    body: "군대에서 부적응병사·신임병사 상담을 시작하면서 사람과 대화하는 일에 흥미. 말년휴가에 수능 재응시. 영동대학교 사회복지학과 입학. 봉사동아리 '훈민정음' 회장, 사회복지학과 총 학회장, 16대 총학생회 복지국장. 졸업 후 학과조교 — 우수교직원 수상.",
     side: "right" as const,
   },
   {
@@ -32,7 +32,7 @@ const CHAPTERS = [
   {
     number: "05",
     period: "2024 — 현재",
-    title: "풀사이클 AI 빌더 (Palette ㈜ Agent 본부 팀장)",
+    title: "풀사이클 AI 빌더",
     body: "2024년 10월 Make.com 실습으로 시작. 11개월 만에 자체 시스템 100+ 1인 개발, GitHub 43 공개 저장소, 6 라이브 SaaS (Tickpoint·Lumio·OS Agent·MKT Automation·PropIntel·아키텍처). make.com 81 시스템 (4 핵심). AI SaaS PL 진행 중 — 호반그룹·서울법무법인·아주그룹·Palette OS Agent. AI Content Operation — 성동청년이룸·고려대기술지주·제2서울핀테크랩 외 7+ 기관.",
     side: "left" as const,
   },

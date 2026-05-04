@@ -7,7 +7,7 @@ export function CounterSection() {
   return (
     <section className="min-h-screen flex flex-col justify-center px-6 md:px-10 lg:px-16 py-32">
       <ScrollReveal>
-        <p className="text-meta opacity-50 mb-16">현재 임팩트</p>
+        <p className="text-meta opacity-50 mb-16 tracking-[0.2em]">BY THE NUMBERS</p>
       </ScrollReveal>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-y-16 gap-x-8">
         {COUNTERS.map((c, i) => (

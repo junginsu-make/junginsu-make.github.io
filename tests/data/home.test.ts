@@ -14,12 +14,12 @@ describe("Home Data", () => {
     );
   });
 
-  it("COUNTERS 4개 — GitHub 43 + make.com 81 시스템(4 핵심) 분리 표기", () => {
+  it("COUNTERS 4개 — 바이브코딩 43 + 자동화 시나리오 81 분리 표기", () => {
     expect(COUNTERS).toHaveLength(4);
     const labels = COUNTERS.map((c) => c.label);
     expect(labels).toContain("Career");
-    expect(labels.some((l) => l.includes("GitHub"))).toBe(true);
-    expect(labels.some((l) => l.includes("Make.com"))).toBe(true);
+    expect(labels.some((l) => l.includes("바이브코딩"))).toBe(true);
+    expect(labels.some((l) => l.includes("자동화 시나리오"))).toBe(true);
     expect(labels.some((l) => l.includes("Live SaaS"))).toBe(true);
     // 합산 라벨 (예: "Total Systems") 금지
     expect(labels.some((l) => /total|combined|all systems/i.test(l))).toBe(
@@ -27,18 +27,17 @@ describe("Home Data", () => {
     );
   });
 
-  it("COUNTERS — GitHub = 43, Make.com = 81 (4 핵심 부제)", () => {
-    const github = COUNTERS.find((c) => c.label.includes("GitHub"));
-    expect(github?.value).toBe("43");
-    const make = COUNTERS.find((c) => c.label.includes("Make.com"));
-    expect(make?.value).toBe("81");
-    expect(make?.label).toContain("4 핵심");
+  it("COUNTERS — 바이브코딩 = 43, 자동화 시나리오 = 81", () => {
+    const vibe = COUNTERS.find((c) => c.label.includes("바이브코딩"));
+    expect(vibe?.value).toBe("43");
+    const auto = COUNTERS.find((c) => c.label.includes("자동화 시나리오"));
+    expect(auto?.value).toBe("81");
   });
 
   it("TECH_BADGES 풀세트", () => {
     expect(TECH_BADGES.length).toBeGreaterThanOrEqual(7);
     expect(TECH_BADGES).toContain("Claude");
-    expect(TECH_BADGES).toContain("Make.com");
+    expect(TECH_BADGES).toContain("자동화 시나리오");
   });
 
   it("CONTACT_EMAIL 9843ohs", () => {

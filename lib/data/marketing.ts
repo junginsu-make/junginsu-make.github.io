@@ -134,87 +134,46 @@ export const TMON_BEFORE_AFTER = [
   },
 ];
 
-/** 공공기관 제안서·PT·종합홍보 PM 운영 이력 (자료: 정인수 이력서.pdf 페이지 2-3) */
+/** 공공기관 제안서·PT·종합홍보 PM 운영 이력 (자료: 정인수 이력서.pdf 페이지 2-3)
+ *  abbr: 카드 좌상단 wordmark 박스에 표시할 약어.
+ *  logo: 옵셔널. 명시 시 해당 경로의 이미지로 wordmark 대체 (사용자 추후 SVG 추가용). */
 export type PublicAgency = {
   name: string;
+  slug: string;
+  abbr: string;
   category: "정부 부처" | "공공기관" | "공기업" | "지자체" | "NGO";
   role: string;
   period?: string;
+  logo?: string;
 };
 
 export const PUBLIC_AGENCIES: PublicAgency[] = [
-  {
-    name: "농림축산식품부",
-    category: "정부 부처",
-    role: "소셜미디어·마케팅 홍보 영역 PM",
-    period: "Capsule Media",
-  },
-  {
-    name: "조달청",
-    category: "정부 부처",
-    role: "소셜미디어·마케팅 홍보 영역 PM",
-    period: "Capsule Media",
-  },
-  {
-    name: "한국벤처투자",
-    category: "공공기관",
-    role: "과업 총괄 PM",
-    period: "Capsule Media",
-  },
-  {
-    name: "창업진흥원",
-    category: "공공기관",
-    role: "2023년도 과업 총괄 PM",
-    period: "Capsule Media",
-  },
-  {
-    name: "서울관광공사",
-    category: "공기업",
-    role: "제안서 작성 + 제안 PT 발표",
-    period: "퍼포먼스디자인",
-  },
-  {
-    name: "연수구청",
-    category: "지자체",
-    role: "제안서 작성 + 제안 PT 발표",
-    period: "퍼포먼스디자인",
-  },
-  {
-    name: "한국산림복지진흥원",
-    category: "공공기관",
-    role: "AI 교육 강의",
-    period: "솔찍한인쌤",
-  },
-  {
-    name: "성동청년창업이룸센터",
-    category: "지자체",
-    role: "AI 교육 강의 + 콘텐츠 운영",
-    period: "팔레트 ㈜ + 솔찍한인쌤",
-  },
-  {
-    name: "제2서울핀테크랩",
-    category: "공공기관",
-    role: "AI 교육 강의 + 콘텐츠 운영",
-    period: "팔레트 ㈜",
-  },
-  {
-    name: "고려대학교기술지주",
-    category: "공공기관",
-    role: "AI 교육 강의 + 콘텐츠 운영",
-    period: "팔레트 ㈜",
-  },
-  {
-    name: "국제협력단 KOICA",
-    category: "공공기관",
-    role: "해외봉사단 고향방문단 국내 교육",
-    period: "솔찍한인쌤",
-  },
-  {
-    name: "서울도시철도엔지니어링",
-    category: "공기업",
-    role: "콘텐츠 운영",
-    period: "팔레트 ㈜",
-  },
+  { name: "농림축산식품부", slug: "mafra", abbr: "농식품부", category: "정부 부처", role: "종합홍보 용역 PM" },
+  { name: "조달청", slug: "pps", abbr: "조달청", category: "정부 부처", role: "종합홍보 용역 PM" },
+  { name: "농촌진흥청", slug: "rda", abbr: "농진청", category: "정부 부처", role: "종합홍보 용역 PM" },
+  { name: "국가기술표준원", slug: "kats", abbr: "기표원", category: "정부 부처", role: "종합홍보 용역 PM" },
+  { name: "제외동포청", slug: "oka", abbr: "재외동포청", category: "정부 부처", role: "종합홍보 용역 PM" },
+  { name: "한국벤처투자", slug: "kvic", abbr: "KVIC", category: "공공기관", role: "종합홍보 용역 PM" },
+  { name: "KOTRA", slug: "kotra", abbr: "KOTRA", category: "공공기관", role: "종합홍보 용역 PM" },
+  { name: "KOICA", slug: "koica", abbr: "KOICA", category: "공공기관", role: "종합홍보 용역 PM" },
+  { name: "한국산업단지공단", slug: "kicox", abbr: "KICOX", category: "공공기관", role: "종합홍보 용역 PM" },
+  { name: "언론중재위원회", slug: "pac", abbr: "언론중재", category: "공공기관", role: "종합홍보 용역 PM" },
+  { name: "창업진흥원", slug: "kised", abbr: "KISED", category: "공공기관", role: "종합홍보 용역 PM" },
+  { name: "한국가스기술공사", slug: "kogas-tech", abbr: "KOGAS-Tech", category: "공공기관", role: "종합홍보 용역 PM" },
+  { name: "지역문화활용", slug: "rcc", abbr: "지역문화", category: "공공기관", role: "종합홍보 용역 PM" },
+  { name: "서울문화재단", slug: "sfac", abbr: "SFAC", category: "공공기관", role: "종합홍보 용역 PM" },
+  { name: "한국문화유산연구회", slug: "khra", abbr: "KHRA", category: "공공기관", role: "종합홍보 용역 PM" },
+  { name: "한국지역난방공사", slug: "kdhc", abbr: "KDHC", category: "공기업", role: "종합홍보 용역 PM" },
+  { name: "서울관광공사", slug: "stto", abbr: "STTO", category: "지자체", role: "종합홍보 용역 PM" },
+  { name: "서울대공원", slug: "grandpark", abbr: "서울대공원", category: "지자체", role: "종합홍보 용역 PM" },
+];
+
+/** 민간기업 디지털 마케팅 대행 (TMON 외) */
+export const PRIVATE_CLIENTS = [
+  { name: "티몬 (TMON)", note: "공식 광고대행, 연 40~60억 광고비 총괄" },
+  { name: "성형외과", note: "검색·SNS 광고 운영" },
+  { name: "이커머스", note: "퍼포먼스 마케팅 운영" },
+  { name: "교육업", note: "전국 30지점 광고 운영" },
 ];
 
 /** 마케팅 전문 분야 (자료: 정인수 이력서.pdf 페이지 3) */
@@ -354,13 +313,13 @@ export const MARKETING_TIMELINE: MarketingMilestone[] = [
     period: "2023.04 ~ 재직중",
     era: "AI Builder + 마케팅 융합",
     company: "팔레트 ㈜",
-    role: "Agent 본부 팀장 · AI팀장",
+    role: "Agent 본부",
     highlight:
       "마케팅 17년 + AI Builder — 풀사이클로 콘텐츠·자동화·데이터를 한 명이",
     scale: "AI SaaS PL 4건 · Content Op 7+ · Capsule PM 20+",
     bullets: [
       "Vibe Coding으로 100+ 자체 시스템 1인 개발",
-      "Make.com · n8n으로 콘텐츠 자동화·데이터 수집·웹스크랩 시스템 구축",
+      "자동화 시나리오 · n8n으로 콘텐츠 자동화·데이터 수집·웹스크랩 시스템 구축",
       "AI Prompt SEO + 멀티 LLM 통합 (Claude · GPT · Gemini · Perplexity)",
       "AI SaaS PL 4건 — 호반·서울법무법인·아주그룹·Palette OS Agent",
       "AI Content Operation 7+ 클라이언트 — 성동청년이룸·고려대기술지주·시스트란 외",

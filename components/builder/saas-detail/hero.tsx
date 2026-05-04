@@ -90,9 +90,9 @@ export function SaasHero({ saas }: { saas: SaaSDetail }) {
               href={saas.liveUrl}
               target="_blank"
               rel="noreferrer"
-              className="group inline-flex items-center gap-3 border border-[#F4F0E6] px-7 py-3.5 text-meta tracking-[0.15em] hover:bg-[#F4F0E6] hover:text-[#0A0A0A] transition-colors duration-300"
+              className="group inline-flex items-center gap-3 bg-[var(--accent)] text-[var(--color-ink-dark)] px-7 py-3.5 text-meta tracking-[0.15em] font-semibold shadow-[0_0_0_3px_color-mix(in_oklab,var(--accent)_30%,transparent)] hover:shadow-[0_0_0_8px_color-mix(in_oklab,var(--accent)_25%,transparent)] hover:-translate-y-0.5 transition-all duration-300"
             >
-              <span>LIVE</span>
+              <span>바로가기</span>
               <span aria-hidden className="transition-transform group-hover:translate-x-1">
                 ↗
               </span>

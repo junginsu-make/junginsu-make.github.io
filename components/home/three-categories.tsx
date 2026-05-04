@@ -40,7 +40,7 @@ const CATEGORIES: Category[] = [
     img: "/ai-builder/os-agent-detail.jpg",
     imgWebp: "/ai-builder/os-agent-detail.webp",
     imgAvif: "/ai-builder/os-agent-detail.avif",
-    caption: "GitHub 43 · make.com 81 시스템 (4 핵심) · 6 라이브 SaaS",
+    caption: "바이브코딩 43 · 자동화 시나리오 81 · SaaS 6 Live",
   },
 ];
 

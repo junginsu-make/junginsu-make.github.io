@@ -44,14 +44,14 @@ export function MarketingHero() {
   return (
     <section className="px-6 md:px-10 lg:px-16 pt-40 pb-24 md:pb-32 border-b border-[var(--line)]">
       <p className="text-meta opacity-60 mb-12 tracking-[0.2em]">
-        <MaskReveal>MARKETING · IMPACT</MaskReveal>
+        <MaskReveal>MARKETING · PERFORMANCE</MaskReveal>
       </p>
 
-      <h1 className="text-display-mega font-display leading-[0.92] tracking-[-0.03em]">
-        <MaskRevealStagger text="마케팅 임팩트" letterDelay={0.05} />
+      <h1 className="text-display-lg lg:text-display-xl font-display leading-[0.95] tracking-[-0.03em] [word-break:keep-all]">
+        <MaskRevealStagger text="Marketing Performance" letterDelay={0.05} />
       </h1>
 
-      <p className="mt-10 text-body-xl md:text-display-md font-display max-w-[860px] leading-[1.2]">
+      <p className="mt-20 md:mt-24 text-body-xl md:text-display-md font-display max-w-[860px] leading-[1.2]">
         <MaskReveal delay={0.6}>
           <span>
             17년의 광고 운영 · PM · 강의가 한 화면에서 증명되는{" "}
@@ -96,8 +96,7 @@ export function MarketingHero() {
           <span className="font-mono text-meta opacity-90">
             「개인 포토폴리오-23.03.02.pdf」
           </span>{" "}
-          — TMON 공식 광고대행 운영총괄실장 (2022.07~2023.02) 시점
-          ROAS·GR·BU·CPBU 공식 데이터.
+          — TMON 공식 광고대행 운영총괄실장
         </p>
       </ScrollReveal>
     </section>

@@ -1,16 +1,35 @@
 "use client";
 import { motion } from "framer-motion";
-import { SweepLink } from "@/components/motion/color-sweep";
+import { useRouter } from "next/navigation";
 import { MaskReveal } from "@/components/motion/mask-reveal";
 import { ScrollReveal } from "@/components/motion/scroll-reveal";
 import { cn } from "@/lib/utils";
 import type { SaaSDetail } from "@/lib/data/saas";
 
 export function SaasCard({ saas, order }: { saas: SaaSDetail; order: number }) {
+  const router = useRouter();
+  function handleCardClick() {
+    const doc = document as Document & {
+      startViewTransition?: (cb: () => void) => void;
+    };
+    if (typeof document !== "undefined" && typeof doc.startViewTransition === "function") {
+      doc.startViewTransition(() => router.push(`/builder/${saas.slug}`));
+    } else {
+      router.push(`/builder/${saas.slug}`);
+    }
+  }
   return (
-    <SweepLink
-      href={`/builder/${saas.slug}`}
-      className="group relative block border-b border-[var(--line)] py-10 md:py-14 cursor-pointer"
+    <div
+      role="button"
+      tabIndex={0}
+      onClick={handleCardClick}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          handleCardClick();
+        }
+      }}
+      className="group relative block border-b border-[var(--line)] py-10 md:py-14 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]"
       aria-label={`${saas.name} 자세히 보기`}
     >
       <div className="grid grid-cols-12 gap-6 md:gap-8 items-start">
@@ -38,6 +57,17 @@ export function SaasCard({ saas, order }: { saas: SaaSDetail; order: number }) {
             <span className="text-meta opacity-40 group-hover:opacity-100 group-hover:text-[var(--accent)] transition-all duration-300">
               ↗ 자세히 보기
             </span>
+            {/* 바로가기 — 외부 라이브 URL, 카드 클릭과 분리 */}
+            <a
+              href={saas.liveUrl}
+              target="_blank"
+              rel="noreferrer"
+              onClick={(e) => e.stopPropagation()}
+              className="ml-auto inline-flex items-center gap-2 h-9 px-4 rounded-full bg-[var(--accent)] text-[var(--bg)] text-[12px] tracking-[0.1em] uppercase font-mono font-semibold shadow-[0_0_0_2px_color-mix(in_oklab,var(--accent)_30%,transparent)] hover:shadow-[0_0_0_6px_color-mix(in_oklab,var(--accent)_25%,transparent)] hover:-translate-y-0.5 transition-all duration-300"
+              aria-label={`${saas.name} 라이브 사이트 새 탭으로 열기`}
+            >
+              바로가기 ↗
+            </a>
           </div>
 
           <p className="mt-5 text-body opacity-80 leading-[1.6] max-w-none lg:max-w-[760px]">
@@ -113,7 +143,7 @@ export function SaasCard({ saas, order }: { saas: SaaSDetail; order: number }) {
           </div>
         </div>
       </div>
-    </SweepLink>
+    </div>
   );
 }
 
@@ -134,7 +164,7 @@ export function SaasIndex({ list }: { list: SaaSDetail[] }) {
       </h2>
 
       <ScrollReveal delay={0.2}>
-        <p className="text-body-lg opacity-75 max-w-[920px] leading-[1.6] mb-12 md:mb-16">
+        <p className="text-body-lg opacity-75 leading-[1.6] mb-12 md:mb-16 lg:whitespace-nowrap">
           호버하면 5 핵심 능력이 펼쳐지고, 카드를 클릭하면 풀블리드 라이브 캡처
           + 5+ 능력 디테일 + 메트릭 + 갤러리까지 디테일 페이지로 이동합니다.
         </p>

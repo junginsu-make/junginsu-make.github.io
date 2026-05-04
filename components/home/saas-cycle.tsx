@@ -10,7 +10,7 @@ export function SaasCycle() {
 
   useEffect(() => {
     if (paused) return;
-    const t = setInterval(() => setIdx((i) => (i + 1) % SAAS_LIST.length), 3000);
+    const t = setInterval(() => setIdx((i) => (i + 1) % SAAS_LIST.length), 2000);
     return () => clearInterval(t);
   }, [paused]);
 
@@ -19,13 +19,11 @@ export function SaasCycle() {
   function handlePrev(e: React.MouseEvent) {
     e.preventDefault();
     e.stopPropagation();
-    setPaused(true);
     setIdx((i) => (i - 1 + SAAS_LIST.length) % SAAS_LIST.length);
   }
   function handleNext(e: React.MouseEvent) {
     e.preventDefault();
     e.stopPropagation();
-    setPaused(true);
     setIdx((i) => (i + 1) % SAAS_LIST.length);
   }
 
@@ -73,25 +71,28 @@ export function SaasCycle() {
             {saas.tagline.split(" — ")[0]}
           </p>
         </div>
-        {/* 우하단 — 수동 < > 버튼 (z-20 으로 SweepLink 위 + pointer-events-auto) */}
-        <div className="absolute bottom-10 right-6 md:right-10 lg:right-16 flex gap-3 mix-blend-difference text-paper-dark z-20">
-          <button
-            type="button"
-            onClick={handlePrev}
-            aria-label="이전 SaaS"
-            className="w-12 h-12 rounded-full border border-current/40 hover:bg-current/10 transition-colors flex items-center justify-center text-2xl font-display leading-none"
-          >
-            ‹
-          </button>
-          <button
-            type="button"
-            onClick={handleNext}
-            aria-label="다음 SaaS"
-            className="w-12 h-12 rounded-full border border-current/40 hover:bg-current/10 transition-colors flex items-center justify-center text-2xl font-display leading-none"
-          >
-            ›
-          </button>
-        </div>
+        {/* 좌측 화살표 */}
+        <button
+          type="button"
+          onClick={handlePrev}
+          aria-label="이전 SaaS"
+          className="absolute left-3 md:left-5 top-1/2 -translate-y-1/2 inline-flex items-center justify-center w-11 h-11 md:w-12 md:h-12 rounded-full bg-[var(--bg)]/85 backdrop-blur-sm text-[var(--fg)] border border-[var(--line)] hover:bg-[var(--accent)] hover:text-[var(--bg)] hover:border-[var(--accent)] hover:scale-110 transition-all duration-300 shadow-lg z-20"
+        >
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="12,4 6,10 12,16" />
+          </svg>
+        </button>
+        {/* 우측 화살표 */}
+        <button
+          type="button"
+          onClick={handleNext}
+          aria-label="다음 SaaS"
+          className="absolute right-3 md:right-5 top-1/2 -translate-y-1/2 inline-flex items-center justify-center w-11 h-11 md:w-12 md:h-12 rounded-full bg-[var(--bg)]/85 backdrop-blur-sm text-[var(--fg)] border border-[var(--line)] hover:bg-[var(--accent)] hover:text-[var(--bg)] hover:border-[var(--accent)] hover:scale-110 transition-all duration-300 shadow-lg z-20"
+        >
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="8,4 14,10 8,16" />
+          </svg>
+        </button>
       </div>
     </PinSection>
   );

@@ -30,7 +30,8 @@ const CHANNELS = [
 const RESOURCES = [
   {
     label: "이력서",
-    href: "/resume.pdf",
+    href: "/정인수 이력서_260505.pdf",
+    download: "정인수 이력서.pdf",
     meta: "PDF · 마지막 갱신 2026-05",
   },
   {
@@ -121,8 +122,7 @@ export function ContactFull() {
                 <a
                   key={r.label}
                   href={r.href}
-                  target="_blank"
-                  rel="noreferrer"
+                  {...(r.download ? { download: r.download } : { target: "_blank", rel: "noreferrer" })}
                   className="group flex items-baseline justify-between border-b border-[var(--line)] py-3 hover:border-[var(--accent)] transition-colors duration-300"
                 >
                   <span className="text-body-lg group-hover:text-[var(--accent)] transition-colors duration-300">
@@ -149,14 +149,7 @@ export function ContactFull() {
         {/* FOOTNOTE */}
         <ScrollReveal delay={0.4} className="mt-24 md:mt-32 max-w-[680px]">
           <p className="text-meta opacity-50 leading-[1.7]">
-            ※ 외부 GitHub 링크는 노출하지 않습니다 — 작업 컨텍스트는{" "}
-            <a
-              href="/builder/github"
-              className="underline underline-offset-4 hover:text-[var(--accent)] transition-colors"
-            >
-              /builder/github
-            </a>{" "}
-            인덱스에서 카테고리·예시·원칙으로 정리되어 있습니다.
+            ※ 외부 바이브코딩 저장소 링크는 노출하지 않습니다.
           </p>
         </ScrollReveal>
       </div>

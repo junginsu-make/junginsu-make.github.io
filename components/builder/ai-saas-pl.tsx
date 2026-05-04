@@ -17,11 +17,11 @@ export function AiSaasPlSection() {
         </span>
       </div>
 
-      <h2 className="text-display-md md:text-display-lg font-display leading-[1.05] tracking-[-0.02em] mb-12 max-w-[920px]">
+      <h2 className="text-display-md md:text-display-lg font-display leading-[1.05] tracking-[-0.02em] mb-12 lg:whitespace-nowrap">
         <MaskReveal>
           <span>
             클라이언트 AI 시스템 기획 + 개발{" "}
-            <WordHighlight delay={0.6}>PL</WordHighlight> · 4건 동시 진행
+            <WordHighlight delay={0.6}>PL</WordHighlight> · 4건 진행 중...
           </span>
         </MaskReveal>
       </h2>
@@ -59,7 +59,7 @@ export function AiSaasPlSection() {
       </div>
 
       <ScrollReveal delay={0.4} className="mt-12">
-        <p className="text-meta opacity-50 leading-[1.7] max-w-[680px]">
+        <p className="text-meta opacity-50 leading-[1.7] lg:whitespace-nowrap">
           ※ 마케팅 캠페인이 아니라 AI 시스템 구축 PL 역할 — 기획 → 데이터 모델 →
           시나리오 → 멀티 LLM 라우팅 → 사내 OS 까지 동일 흐름.
         </p>

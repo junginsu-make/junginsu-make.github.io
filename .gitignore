@@ -40,12 +40,5 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# 자료 (copy script가 채움 — 대용량)
-public/photos/teaching/
-public/photos/profile-hero.png
-public/photos/profile-hero.jpg
-public/saas-folders/
-public/captured/
-public/cropped/
-public/automation/
+# 자료 — 2026-05-05 사용자 승인으로 비공개 저장소에 모두 포함 (이전 ignore 해제)
 capture.log
