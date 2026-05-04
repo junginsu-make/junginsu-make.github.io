@@ -1,4 +1,6 @@
-export const GITHUB_TOTAL = 84;
+// 2026-05-04 시점 외부 공개 43개 (https://api.github.com/users/junginsu-make → public_repos: 43).
+// private 41개는 클라이언트 작업·실험 비공개.
+export const GITHUB_TOTAL = 43;
 export const GITHUB_PROFILE = "https://github.com/junginsu-make";
 
 export type GithubCategory = {
@@ -12,7 +14,7 @@ export const GITHUB_CATEGORIES: GithubCategory[] = [
   {
     id: "A",
     name: "대표 시스템 (AI Agent / 마케팅 / 금융 / 영상 / 이미지 / 문서)",
-    count: 36,
+    count: 25,
     examples: [
       "synapse-platform",
       "propintel-ai",
@@ -28,7 +30,7 @@ export const GITHUB_CATEGORIES: GithubCategory[] = [
   {
     id: "B",
     name: "Claude Code 생태계",
-    count: 11,
+    count: 6,
     examples: [
       "claude-forge",
       "my-claude-code-setting",
@@ -41,7 +43,7 @@ export const GITHUB_CATEGORIES: GithubCategory[] = [
   {
     id: "C",
     name: "Frontend Stack 큐레이션 (학습용 fork)",
-    count: 17,
+    count: 8,
     examples: [
       "shadcn-landing-page",
       "next-shadcn-dashboard-starter",
@@ -55,33 +57,20 @@ export const GITHUB_CATEGORIES: GithubCategory[] = [
   {
     id: "D",
     name: "외부 도구·학습 fork",
-    count: 7,
+    count: 2,
     examples: [
       "hwp-open-source",
       "NAVER_NESS",
-      "spider",
-      "python-bithumb",
-      "Qwen-Image-Layered",
     ],
   },
   {
     id: "E",
     name: "Misc/부속",
-    count: 6,
+    count: 2,
     examples: [
       "2026-New-Year-s-Fortune",
       "suno-api",
-      "youtube-studio",
-      "replit",
-      "Architect-Build",
-      "LLM-Model",
     ],
-  },
-  {
-    id: "NEW",
-    name: "신규 추가 (2026-05-01 이후, gh 직접 보강 필요)",
-    count: 7,
-    examples: [],
   },
 ];
 

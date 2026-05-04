@@ -106,7 +106,7 @@ export function DualityVenn() {
             fontSize="13"
             letterSpacing="0.5"
           >
-            GitHub 84 저장소
+            GitHub 43 저장소
           </text>
           <text
             x="540"

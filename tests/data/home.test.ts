@@ -1,7 +1,6 @@
 import { describe, expect, it } from "vitest";
 import {
   MANIFESTO,
-  HERO_META,
   COUNTERS,
   TECH_BADGES,
   CTA_QUOTE,
@@ -9,19 +8,11 @@ import {
 } from "@/lib/data/home";
 
 describe("Home Data", () => {
-  it("MANIFESTO 정확한 카피", () => {
-    expect(MANIFESTO).toBe(
-      "AI 시대를 만난 17년 마케터가, 풀사이클 빌더로 다시 태어났다",
-    );
+  it("MANIFESTO 단순 카피 — '마케터 + AI 빌더'", () => {
+    expect(MANIFESTO).toBe("마케터 + AI 빌더");
   });
 
-  it("HERO_META 4개 필드", () => {
-    expect(HERO_META.name).toBe("정인수");
-    expect(HERO_META.birth).toBe("1983");
-    expect(HERO_META.role).toContain("Palette");
-  });
-
-  it("COUNTERS 4개 — GitHub와 make.com 절대 합산 X", () => {
+  it("COUNTERS 4개 — GitHub 43 + make.com 81 시스템(4 핵심) 분리 표기", () => {
     expect(COUNTERS).toHaveLength(4);
     const labels = COUNTERS.map((c) => c.label);
     expect(labels).toContain("Career");
@@ -32,6 +23,14 @@ describe("Home Data", () => {
     expect(labels.some((l) => /total|combined|all systems/i.test(l))).toBe(
       false,
     );
+  });
+
+  it("COUNTERS — GitHub = 43, Make.com = 81 (4 핵심 부제)", () => {
+    const github = COUNTERS.find((c) => c.label.includes("GitHub"));
+    expect(github?.value).toBe("43");
+    const make = COUNTERS.find((c) => c.label.includes("Make.com"));
+    expect(make?.value).toBe("81");
+    expect(make?.label).toContain("4 핵심");
   });
 
   it("TECH_BADGES 풀세트", () => {

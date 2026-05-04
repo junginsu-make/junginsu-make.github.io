@@ -23,7 +23,7 @@ const jetbrains = JetBrains_Mono({
 export const metadata: Metadata = {
   title: "정인수 — AI 시대를 만난 17년 마케터, 풀사이클 빌더",
   description:
-    "AI Builder · 마케팅 17년 · GitHub 84 저장소 · make.com 4 핵심 시나리오 · 6 라이브 SaaS · KOICA·정부 부처 AI 강의",
+    "AI Builder · 마케팅 17년 · GitHub 43 공개 저장소 · make.com 81 시스템 (4 핵심) · 6 라이브 SaaS · 정부 부처·기관 AI 강의",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

@@ -7,23 +7,24 @@ import {
 } from "@/lib/data/github";
 
 describe("GitHub Data", () => {
-  it("GITHUB_TOTAL = 84 (2026-05-03 기준 정확)", () => {
-    expect(GITHUB_TOTAL).toBe(84);
+  it("GITHUB_TOTAL = 43 (2026-05-04 외부 공개 기준, api.github.com/users/junginsu-make → public_repos)", () => {
+    expect(GITHUB_TOTAL).toBe(43);
   });
 
   it("GITHUB_PROFILE 정확", () => {
     expect(GITHUB_PROFILE).toBe("https://github.com/junginsu-make");
   });
 
-  it("GITHUB_CATEGORIES 5+ 메인 그룹 + NEW 그룹", () => {
-    expect(GITHUB_CATEGORIES.length).toBeGreaterThanOrEqual(6);
-    expect(GITHUB_CATEGORIES.find((c) => c.id === "A")).toBeDefined();
-    expect(GITHUB_CATEGORIES.find((c) => c.id === "NEW")).toBeDefined();
+  it("GITHUB_CATEGORIES 5 메인 그룹 (A~E)", () => {
+    expect(GITHUB_CATEGORIES.length).toBeGreaterThanOrEqual(5);
+    for (const id of ["A", "B", "C", "D", "E"]) {
+      expect(GITHUB_CATEGORIES.find((c) => c.id === id)).toBeDefined();
+    }
   });
 
-  it("GITHUB_CATEGORIES 합계 = GITHUB_TOTAL (gap 없음)", () => {
+  it("GITHUB_CATEGORIES 합계 = GITHUB_TOTAL (gap 없음, 정확히 43)", () => {
     const sum = GITHUB_CATEGORIES.reduce((acc, c) => acc + c.count, 0);
-    expect(sum).toBe(GITHUB_TOTAL); // 합쳐서 정확히 84
+    expect(sum).toBe(GITHUB_TOTAL);
   });
 
   it("GOLDEN_PRINCIPLES 12개", () => {
