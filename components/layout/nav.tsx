@@ -12,26 +12,23 @@ const LINKS = [
 
 export function Nav() {
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 px-6 md:px-10 lg:px-16 py-5 flex items-center justify-between">
+    <nav className="fixed top-0 left-0 right-0 z-50 px-6 md:px-10 lg:px-16 py-5 flex items-center justify-between backdrop-blur-md bg-[var(--bg)]/70 border-b border-[var(--line)]">
       <Link
         href="/"
-        className="text-[28px] font-display tracking-tight mix-blend-difference text-white"
+        className="text-[24px] md:text-[28px] font-display tracking-tight text-[var(--fg)]"
       >
-        정인수
+        Jung In su
       </Link>
-      <ul className="hidden md:flex gap-8 text-meta mix-blend-difference text-white">
+      <ul className="hidden md:flex gap-8 text-meta text-[var(--fg)]">
         {LINKS.map((l) => (
           <li key={l.href}>
-            <Link href={l.href} className="hover:opacity-70 transition-opacity">
+            <Link href={l.href} className="hover:opacity-60 transition-opacity">
               {l.label}
             </Link>
           </li>
         ))}
       </ul>
-      {/* ThemeToggle은 mix-blend-difference 효과에서 격리 (button 클릭 안정성) */}
-      <div className="isolate mix-blend-normal">
-        <ThemeToggle />
-      </div>
+      <ThemeToggle />
     </nav>
   );
 }
