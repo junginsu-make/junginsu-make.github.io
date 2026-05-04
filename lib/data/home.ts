@@ -1,4 +1,11 @@
-export const MANIFESTO = "마케터 + AI 빌더";
+export const MANIFESTO =
+  "AI 시대를 만난 17년 마케터가, 풀사이클 빌더로 다시 태어났다";
+
+export const HERO_META = {
+  name: "정인수",
+  birth: "1983",
+  city: "서울",
+};
 
 export type Counter = {
   value: string;
