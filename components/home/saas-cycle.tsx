@@ -16,6 +16,19 @@ export function SaasCycle() {
 
   const saas = SAAS_LIST[idx];
 
+  function handlePrev(e: React.MouseEvent) {
+    e.preventDefault();
+    e.stopPropagation();
+    setPaused(true);
+    setIdx((i) => (i - 1 + SAAS_LIST.length) % SAAS_LIST.length);
+  }
+  function handleNext(e: React.MouseEvent) {
+    e.preventDefault();
+    e.stopPropagation();
+    setPaused(true);
+    setIdx((i) => (i + 1) % SAAS_LIST.length);
+  }
+
   return (
     <PinSection>
       <div
@@ -51,7 +64,7 @@ export function SaasCycle() {
             </picture>
           </SweepLink>
         ))}
-        <div className="absolute bottom-10 left-6 md:left-10 lg:left-16 text-paper-dark mix-blend-difference pointer-events-none">
+        <div className="absolute bottom-10 left-6 md:left-10 lg:left-16 text-paper-dark mix-blend-difference pointer-events-none z-10">
           <p className="text-meta">
             {idx + 1} / {SAAS_LIST.length}
           </p>
@@ -60,8 +73,24 @@ export function SaasCycle() {
             {saas.tagline.split(" — ")[0]}
           </p>
         </div>
-        <div className="absolute bottom-10 right-6 md:right-10 lg:right-16 text-meta text-paper-dark mix-blend-difference pointer-events-none">
-          호버 시 정지 · 클릭 시 디테일 →
+        {/* 우하단 — 수동 < > 버튼 (z-20 으로 SweepLink 위 + pointer-events-auto) */}
+        <div className="absolute bottom-10 right-6 md:right-10 lg:right-16 flex gap-3 mix-blend-difference text-paper-dark z-20">
+          <button
+            type="button"
+            onClick={handlePrev}
+            aria-label="이전 SaaS"
+            className="w-12 h-12 rounded-full border border-current/40 hover:bg-current/10 transition-colors flex items-center justify-center text-2xl font-display leading-none"
+          >
+            ‹
+          </button>
+          <button
+            type="button"
+            onClick={handleNext}
+            aria-label="다음 SaaS"
+            className="w-12 h-12 rounded-full border border-current/40 hover:bg-current/10 transition-colors flex items-center justify-center text-2xl font-display leading-none"
+          >
+            ›
+          </button>
         </div>
       </div>
     </PinSection>
