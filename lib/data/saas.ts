@@ -148,7 +148,7 @@ export const SAAS_LIST: SaaSDetail[] = [
     name: "OS Agent (Synapse)",
     tagline:
       "사내 AI OS — 12명 가상직원 + 20개 AI 에이전트가 부서별 협업하는 운영 시스템",
-    liveUrl: "http://43.201.237.25:3010/",
+    liveUrl: "https://frontend-three-smoky-68.vercel.app/",
     tone: "light",
     toneNote: "라이트 + 베이지·갈색 액센트",
     capabilities: [
@@ -199,7 +199,7 @@ export const SAAS_LIST: SaaSDetail[] = [
     name: "MKT Automation",
     tagline:
       "All-in-One 마케팅 OS — 네이버·구글·블로그·SNS·YouTube 단일 워크플로우",
-    liveUrl: "https://frontend-three-smoky-68.vercel.app/",
+    liveUrl: "http://43.201.237.25:3010/",
     tone: "dark",
     toneNote: "다크 + 네온 그라디언트 블롭, 카테고리 컬러 코딩 (N·G·I·V·A)",
     since: "2025-12-19",

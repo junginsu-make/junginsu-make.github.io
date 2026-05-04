@@ -25,25 +25,25 @@
   },
   {
     "slug": "os-agent/home/desktop",
-    "url": "http://43.201.237.25:3010/",
+    "url": "https://frontend-three-smoky-68.vercel.app/",
     "capturedAt": "2026-05-03T17:36:06.450Z",
     "ok": true
   },
   {
     "slug": "os-agent/home/mobile",
-    "url": "http://43.201.237.25:3010/",
+    "url": "https://frontend-three-smoky-68.vercel.app/",
     "capturedAt": "2026-05-03T17:36:10.082Z",
     "ok": true
   },
   {
     "slug": "mkt-automation/home/desktop",
-    "url": "https://frontend-three-smoky-68.vercel.app/",
+    "url": "http://43.201.237.25:3010/",
     "capturedAt": "2026-05-03T17:36:16.204Z",
     "ok": true
   },
   {
     "slug": "mkt-automation/home/mobile",
-    "url": "https://frontend-three-smoky-68.vercel.app/",
+    "url": "http://43.201.237.25:3010/",
     "capturedAt": "2026-05-03T17:36:20.393Z",
     "ok": true
   },
