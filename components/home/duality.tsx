@@ -5,20 +5,22 @@ export function Duality() {
   return (
     <PinSection>
       <div className="h-screen grid grid-cols-1 md:grid-cols-2 relative overflow-hidden">
-        {/* 좌: 강사 */}
+        {/* 좌: 마케터 */}
         <div className="relative bg-[var(--color-paper)] dark:bg-[#1a1a1a]">
           <img
-            src="/photos/teaching/IMG_1187.JPG"
-            alt="KOICA 강의"
+            src="/photos/teaching/KakaoTalk_20200102_190424548_01.jpg"
+            alt="강사 클로즈업 + Naver Blog 검색률 차트"
             className="absolute inset-0 w-full h-full object-cover opacity-50"
           />
           <div className="relative h-full flex flex-col justify-end p-8 md:p-16 text-[var(--color-ink)]">
             <p className="text-meta opacity-60">A 면</p>
-            <h3 className="text-display-md font-display mt-2">강사 · 블로거</h3>
+            <h3 className="text-display-md font-display mt-2">마케터</h3>
             <p className="text-body-lg mt-4 max-w-md">
-              KOICA · 정부 부처 · 대학 · 소상공인 · 31 강의처
+              티몬 광고대행 연 40~60억 · 광고 운영 10년+ · 31 강의처
             </p>
-            <p className="text-meta opacity-50 mt-6">sbcyberpass@naver.com</p>
+            <p className="text-meta opacity-50 mt-6">
+              sbcyberpass@naver.com · junginsuai@gmail.com
+            </p>
           </div>
         </div>
         {/* 우: AI 빌더 */}
