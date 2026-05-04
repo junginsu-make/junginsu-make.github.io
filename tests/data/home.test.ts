@@ -8,8 +8,10 @@ import {
 } from "@/lib/data/home";
 
 describe("Home Data", () => {
-  it("MANIFESTO 단순 카피 — '마케터 + AI 빌더'", () => {
-    expect(MANIFESTO).toBe("마케터 + AI 빌더");
+  it("MANIFESTO 전체 카피 — '17년 마케터 + 풀사이클 빌더'", () => {
+    expect(MANIFESTO).toBe(
+      "AI 시대를 만난 17년 마케터가, 풀사이클 빌더로 다시 태어났다",
+    );
   });
 
   it("COUNTERS 4개 — GitHub 43 + make.com 81 시스템(4 핵심) 분리 표기", () => {

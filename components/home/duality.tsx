@@ -129,20 +129,14 @@ export function Duality() {
         {/* 우: AI 빌더 */}
         <div className="relative bg-[var(--color-ink-dark)] text-[var(--color-paper-dark)]">
           <picture>
-            <source
-              srcSet="/captured/tickpoint/home/desktop.avif"
-              type="image/avif"
-            />
-            <source
-              srcSet="/captured/tickpoint/home/desktop.webp"
-              type="image/webp"
-            />
+            <source srcSet="/ai-builder/os-agent-hr.avif" type="image/avif" />
+            <source srcSet="/ai-builder/os-agent-hr.webp" type="image/webp" />
             <img
-              src="/captured/tickpoint/home/desktop.jpg"
-              alt="Tickpoint 라이브 SaaS"
+              src="/ai-builder/os-agent-hr.jpg"
+              alt="OS Agent — HR Agent 자연어 채팅 + 휴가 신청서 PDF 자동 생성"
               loading="lazy"
               decoding="async"
-              className="absolute inset-0 w-full h-full object-cover opacity-40"
+              className="absolute inset-0 w-full h-full object-cover object-center opacity-50"
             />
           </picture>
           <div className="relative h-full flex flex-col justify-end p-8 md:p-16">

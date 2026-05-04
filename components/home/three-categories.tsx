@@ -34,9 +34,9 @@ const CATEGORIES: Category[] = [
     href: "/builder",
     number: "03",
     label: "AI Builder",
-    img: "/captured/tickpoint/home/desktop.jpg",
-    imgWebp: "/captured/tickpoint/home/desktop.webp",
-    imgAvif: "/captured/tickpoint/home/desktop.avif",
+    img: "/ai-builder/saas-mosaic.jpg",
+    imgWebp: "/ai-builder/saas-mosaic.webp",
+    imgAvif: "/ai-builder/saas-mosaic.avif",
     caption: "GitHub 43 · make.com 81 시스템 (4 핵심) · 6 라이브 SaaS",
   },
 ];
