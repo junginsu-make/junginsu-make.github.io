@@ -89,16 +89,12 @@ export function Duality() {
             <h3 className="text-display-md font-display mt-2 drop-shadow-lg">
               <MaskRevealStagger text="마케터" startDelay={0.4} />
             </h3>
-            <div className="text-body-lg mt-4 max-w-md space-y-1 drop-shadow-md">
+            <div className="text-body-lg mt-4 drop-shadow-md">
               <ScrollReveal delay={0.6}>
-                <p>
+                <p className="lg:whitespace-nowrap">
                   TMON ROAS{" "}
-                  <WordHighlight delay={1.2}>7404%</WordHighlight> · 광고운영
-                  79억+
+                  <WordHighlight delay={1.2}>7404%</WordHighlight> · 광고운영 79억 + 마케팅 강의(<WordHighlight delay={1.4}>31</WordHighlight>)
                 </p>
-              </ScrollReveal>
-              <ScrollReveal delay={0.8}>
-                <p>티몬 광고대행 연 40~60억 · 31 강의처</p>
               </ScrollReveal>
             </div>
           </div>
@@ -159,9 +155,6 @@ export function Duality() {
                 SaaS <WordHighlight delay={1.3}>6</WordHighlight> Live ·
                 자동화 시나리오 <WordHighlight delay={1.6}>81</WordHighlight>
               </p>
-            </ScrollReveal>
-            <ScrollReveal delay={1.0}>
-              <p className="text-meta opacity-50 mt-6">9843ohs@gmail.com</p>
             </ScrollReveal>
           </div>
         </div>
