@@ -20,7 +20,7 @@ export function Hero() {
       <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-ink-dark)]/85 via-[var(--color-ink-dark)]/20 to-transparent" />
       <div className="absolute bottom-10 left-6 md:left-10 lg:left-16 right-6 md:right-10 lg:right-16 text-[var(--color-paper-dark)] mix-blend-difference">
         <p className="text-meta opacity-70 mb-4">ABOUT — 정인수</p>
-        <h1 className="text-display-lg lg:text-display-xl font-display leading-[0.95] lg:whitespace-nowrap">
+        <h1 className="text-display-lg lg:text-display-xl font-display leading-[0.95] max-w-[14ch]">
           <KineticText>한 사람을 정확히 보는 가장 빠른 방법</KineticText>
         </h1>
         <p className="text-body-lg mt-6 opacity-90 lg:whitespace-nowrap">

@@ -129,7 +129,7 @@ export function TeachingPreview({ photos }: Props) {
                   {String(photos.length).padStart(2, "0")}
                 </span>
               </p>
-              <p className="text-display-md font-display leading-[1.1] tracking-[-0.02em]">
+              <p className="text-body-xl font-display leading-[1.2] tracking-[-0.01em]">
                 정부 부처 · 대학 · 창업지원센터 · 개인사업자까지
               </p>
             </div>
