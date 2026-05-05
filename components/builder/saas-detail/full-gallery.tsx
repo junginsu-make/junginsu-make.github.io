@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { MaskReveal } from "@/components/motion/mask-reveal";
 import { ScrollReveal } from "@/components/motion/scroll-reveal";
@@ -12,14 +12,24 @@ type Props = {
 
 export function SaasGallery({ saas, galleryImages }: Props) {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const scrollRef = useRef<HTMLDivElement>(null);
 
   if (galleryImages.length === 0) return null;
 
   const isOpen = activeIndex !== null;
   const activeImage = activeIndex !== null ? galleryImages[activeIndex] : null;
 
+  function scrollByCard(dir: 1 | -1) {
+    const el = scrollRef.current;
+    if (!el) return;
+    const firstCard = el.querySelector("button");
+    const cardW = firstCard ? (firstCard as HTMLElement).offsetWidth : 400;
+    const gap = window.innerWidth >= 768 ? 24 : 16;
+    el.scrollBy({ left: (cardW + gap) * dir, behavior: "smooth" });
+  }
+
   return (
-    <section className="py-24 md:py-32 border-t border-[var(--line)]">
+    <section className="relative py-24 md:py-32 border-t border-[var(--line)]">
       <div className="px-6 md:px-10 lg:px-16 flex items-baseline justify-between mb-12 md:mb-16">
         <p className="text-meta opacity-60 tracking-[0.2em]">
           <MaskReveal>GALLERY · 풀 인벤토리</MaskReveal>
@@ -31,6 +41,7 @@ export function SaasGallery({ saas, galleryImages }: Props) {
 
       {/* horizontal scroll snap */}
       <div
+        ref={scrollRef}
         className="overflow-x-auto"
         style={{ scrollbarWidth: "none", msOverflowStyle: "none" } as React.CSSProperties}
       >
@@ -68,6 +79,28 @@ export function SaasGallery({ saas, galleryImages }: Props) {
           ))}
         </div>
       </div>
+
+      {/* 좌우 화살표 — 다른 carousel과 동일 패턴 (다크/라이트 자동) */}
+      <button
+        type="button"
+        onClick={() => scrollByCard(-1)}
+        aria-label="이전 갤러리 이미지"
+        className="absolute left-3 md:left-5 top-1/2 -translate-y-1/2 inline-flex items-center justify-center w-11 h-11 md:w-12 md:h-12 rounded-full bg-[var(--bg)]/55 backdrop-blur-md text-[var(--fg)] border border-[var(--line)]/50 hover:bg-[var(--accent)] hover:text-[var(--bg)] hover:border-[var(--accent)] hover:scale-110 transition-all duration-300 shadow-lg z-20"
+      >
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <polyline points="12,4 6,10 12,16" />
+        </svg>
+      </button>
+      <button
+        type="button"
+        onClick={() => scrollByCard(1)}
+        aria-label="다음 갤러리 이미지"
+        className="absolute right-3 md:right-5 top-1/2 -translate-y-1/2 inline-flex items-center justify-center w-11 h-11 md:w-12 md:h-12 rounded-full bg-[var(--bg)]/55 backdrop-blur-md text-[var(--fg)] border border-[var(--line)]/50 hover:bg-[var(--accent)] hover:text-[var(--bg)] hover:border-[var(--accent)] hover:scale-110 transition-all duration-300 shadow-lg z-20"
+      >
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <polyline points="8,4 14,10 8,16" />
+        </svg>
+      </button>
 
       <Dialog open={isOpen} onOpenChange={(open) => !open && setActiveIndex(null)}>
         <DialogContent className="max-w-[95vw] md:max-w-[90vw] p-2 md:p-4 bg-[var(--bg)]">
