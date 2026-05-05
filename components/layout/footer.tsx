@@ -6,7 +6,7 @@ export function Footer() {
           정인수
         </span>
         <span className="text-meta opacity-60">
-          AI Builder · 17년 마케터
+          AI Builder · 마케터
         </span>
       </div>
     </footer>
