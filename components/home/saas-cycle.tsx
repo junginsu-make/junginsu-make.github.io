@@ -2,8 +2,6 @@
 import { useState, useEffect } from "react";
 import { SAAS_LIST } from "@/lib/data/saas";
 import { SweepLink } from "@/components/motion/color-sweep";
-import { PinSection } from "@/components/motion/pin-section";
-import { cn } from "@/lib/utils";
 
 export function SaasCycle() {
   const [idx, setIdx] = useState(0);
@@ -29,14 +27,14 @@ export function SaasCycle() {
   }
 
   return (
-    <PinSection>
+    <section className="overflow-hidden">
       <div
-        className="h-screen flex flex-col px-6 md:px-10 lg:px-16 py-5 md:py-7 lg:py-8 gap-3 md:gap-4"
+        className="px-6 md:px-10 lg:px-16 py-8 md:py-12"
         onMouseEnter={() => setPaused(true)}
         onMouseLeave={() => setPaused(false)}
       >
-        {/* 사진 carousel — 살짝 inset, 풀높이 - 썸네일 영역 */}
-        <div className="relative flex-1 overflow-hidden">
+        {/* 메인 캡처 — 16:10 정확 매칭으로 풀가시·풀필 (썸네일 strip 제거하여 세로 영역 활용) */}
+        <div className="relative w-full aspect-[16/10] overflow-hidden">
           {SAAS_LIST.map((s, i) => (
             <SweepLink
               key={s.slug}
@@ -60,7 +58,7 @@ export function SaasCycle() {
                   loading={i === 0 ? "eager" : "lazy"}
                   fetchPriority={i === 0 ? "high" : "auto"}
                   decoding="async"
-                  className="w-full h-full object-cover object-top md:object-contain bg-[color-mix(in_oklab,var(--fg)_4%,var(--bg))]"
+                  className="w-full h-full object-cover"
                 />
               </picture>
             </SweepLink>
@@ -99,46 +97,7 @@ export function SaasCycle() {
             </svg>
           </button>
         </div>
-
-        {/* 하단 썸네일 strip — 6 SaaS 직접 이동 */}
-        <div
-          className="flex gap-2 md:gap-3 overflow-x-auto pb-1 shrink-0"
-          style={{ scrollbarWidth: "none" }}
-        >
-          {SAAS_LIST.map((s, i) => (
-            <button
-              key={s.slug}
-              type="button"
-              onClick={() => setIdx(i)}
-              className={cn(
-                "flex-shrink-0 w-20 md:w-28 lg:w-32 aspect-[16/10] overflow-hidden border transition-all duration-300",
-                i === idx
-                  ? "border-[var(--accent)] opacity-100 scale-[1.04]"
-                  : "border-[var(--line)] opacity-50 hover:opacity-100 hover:border-[var(--accent)]/60",
-              )}
-              aria-label={`${s.name}으로 이동`}
-            >
-              <picture>
-                <source
-                  srcSet={`/captured/${s.capturedSlug}/home/desktop.avif`}
-                  type="image/avif"
-                />
-                <source
-                  srcSet={`/captured/${s.capturedSlug}/home/desktop.webp`}
-                  type="image/webp"
-                />
-                <img
-                  src={`/captured/${s.capturedSlug}/home/desktop.jpg`}
-                  alt=""
-                  loading="lazy"
-                  decoding="async"
-                  className="h-full w-full object-cover object-top"
-                />
-              </picture>
-            </button>
-          ))}
-        </div>
       </div>
-    </PinSection>
+    </section>
   );
 }
