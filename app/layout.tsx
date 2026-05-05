@@ -21,6 +21,7 @@ const jetbrains = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://junginsu-portfolio.pages.dev"),
   title: {
     default:
       "AI SaaS 개발 · 자동화 시스템 구축 x 마케팅 도메인 기반 AI Builder",
@@ -28,6 +29,14 @@ export const metadata: Metadata = {
   },
   description:
     "AI SaaS 개발 · 자동화 시스템 구축 x 마케팅 도메인 기반 AI Builder. Vibe Coding 43 · 자동화 시나리오 81 · SaaS 6 Live · 정부 부처·기관 AI 강의 + 17년 마케팅.",
+  openGraph: {
+    type: "website",
+    locale: "ko_KR",
+    siteName: "Jung In su · AI Builder",
+  },
+  twitter: {
+    card: "summary_large_image",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
