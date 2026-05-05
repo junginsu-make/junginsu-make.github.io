@@ -43,9 +43,13 @@ export function DualityVenn() {
         {/* 좌측 원 — 마케터 (살짝 좌우 swing) */}
         <motion.div
           className="absolute left-1/2 top-1/2 -translate-y-1/2 rounded-full border-2 border-[var(--fg)]/40 bg-[color-mix(in_oklab,var(--fg)_4%,transparent)]"
-          initial={{ x: "calc(-50% - 80px)", scale: 0.9, opacity: 0 }}
+          initial={{ x: "calc(-50% - clamp(34px, 9vw, 80px))", scale: 0.9, opacity: 0 }}
           whileInView={{
-            x: ["calc(-50% - 80px)", "calc(-50% - 100px)", "calc(-50% - 80px)"],
+            x: [
+              "calc(-50% - clamp(34px, 9vw, 80px))",
+              "calc(-50% - clamp(44px, 11vw, 100px))",
+              "calc(-50% - clamp(34px, 9vw, 80px))",
+            ],
             scale: 1,
             opacity: 1,
           }}
@@ -62,8 +66,8 @@ export function DualityVenn() {
             opacity: { duration: 0.9 },
           }}
           style={{
-            width: "min(360px, 50vw)",
-            height: "min(360px, 50vw)",
+            width: "min(360px, 44vw)",
+            height: "min(360px, 44vw)",
           }}
           aria-hidden
         />
@@ -71,9 +75,13 @@ export function DualityVenn() {
         {/* 우측 원 — AI 빌더 (반대 방향 swing + orange) */}
         <motion.div
           className="absolute left-1/2 top-1/2 -translate-y-1/2 rounded-full border-2 border-[var(--accent)] bg-[color-mix(in_oklab,var(--accent)_6%,transparent)]"
-          initial={{ x: "calc(-50% + 80px)", scale: 0.9, opacity: 0 }}
+          initial={{ x: "calc(-50% + clamp(34px, 9vw, 80px))", scale: 0.9, opacity: 0 }}
           whileInView={{
-            x: ["calc(-50% + 80px)", "calc(-50% + 100px)", "calc(-50% + 80px)"],
+            x: [
+              "calc(-50% + clamp(34px, 9vw, 80px))",
+              "calc(-50% + clamp(44px, 11vw, 100px))",
+              "calc(-50% + clamp(34px, 9vw, 80px))",
+            ],
             scale: 1,
             opacity: 1,
           }}
@@ -94,8 +102,8 @@ export function DualityVenn() {
             opacity: { duration: 0.9, delay: 0.15 },
           }}
           style={{
-            width: "min(360px, 50vw)",
-            height: "min(360px, 50vw)",
+            width: "min(360px, 44vw)",
+            height: "min(360px, 44vw)",
           }}
           aria-hidden
         />

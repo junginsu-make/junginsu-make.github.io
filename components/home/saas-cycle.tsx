@@ -60,7 +60,7 @@ export function SaasCycle() {
                   loading={i === 0 ? "eager" : "lazy"}
                   fetchPriority={i === 0 ? "high" : "auto"}
                   decoding="async"
-                  className="w-full h-full object-contain bg-[color-mix(in_oklab,var(--fg)_4%,var(--bg))]"
+                  className="w-full h-full object-cover object-top md:object-contain bg-[color-mix(in_oklab,var(--fg)_4%,var(--bg))]"
                 />
               </picture>
             </SweepLink>
