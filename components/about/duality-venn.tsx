@@ -13,8 +13,8 @@ const LEFT_ITEMS = [
 
 const RIGHT_ITEMS = [
   "풀사이클 자동화",
-  "GitHub 43 공개 저장소",
-  "make.com 4 핵심 시나리오",
+  "Vibe Coding 43 공개 저장소",
+  "자동화 시나리오 4 핵심",
   "6 라이브 SaaS · AI SaaS PL 4건",
 ];
 
