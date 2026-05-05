@@ -10,7 +10,6 @@ import { ContentReferences } from "@/components/builder/content-references";
 import { SAAS_LIST } from "@/lib/data/saas";
 
 export const metadata = {
-  title: "AI Builder — 정인수",
   description:
     "Vibe Coding 43 · SaaS 6 Live · AI SaaS PL 4건 + 자동화 시나리오 (18 디테일 시스템). 17년 마케터가 직접 코드도 쓰고 노코드도 짠다.",
 };

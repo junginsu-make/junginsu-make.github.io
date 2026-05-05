@@ -21,9 +21,8 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const saas = SAAS_LIST.find((s) => s.slug === slug);
-  if (!saas) return { title: "Not Found" };
+  if (!saas) return {};
   return {
-    title: `${saas.name} — AI Builder · 정인수`,
     description: saas.tagline,
   };
 }
