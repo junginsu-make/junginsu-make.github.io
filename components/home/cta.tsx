@@ -2,16 +2,13 @@
 import { useState } from "react";
 import { Magnetic } from "@/components/motion/magnetic";
 import { ScrollReveal } from "@/components/motion/scroll-reveal";
-import { CONTACT_EMAIL, CTA_QUOTE } from "@/lib/data/home";
+import { CONTACT_EMAIL } from "@/lib/data/home";
 
 export function Cta() {
   const [hoverIdx, setHoverIdx] = useState<number | null>(null);
 
   return (
     <section className="bg-[var(--color-ink-dark)] text-[var(--color-paper-dark)] flex flex-col items-center justify-center px-6 md:px-10 lg:px-16 py-20 md:py-24 text-center">
-      <ScrollReveal>
-        <p className="text-meta opacity-60 mb-8">{CTA_QUOTE}</p>
-      </ScrollReveal>
       <Magnetic strength={0.5}>
         <a
           href={`mailto:${CONTACT_EMAIL}`}

@@ -118,5 +118,4 @@ export const TECH_STACK: TechCategory[] = [
 // 호환성 위해 flat 도출 (기존 import 유지)
 export const TECH_BADGES = TECH_STACK.flatMap((c) => c.items);
 
-export const CTA_QUOTE = "커피 한 잔이면 됩니다";
 export const CONTACT_EMAIL = "9843ohs@gmail.com";

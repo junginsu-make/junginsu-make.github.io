@@ -3,7 +3,6 @@ import {
   MANIFESTO,
   COUNTERS,
   TECH_BADGES,
-  CTA_QUOTE,
   CONTACT_EMAIL,
 } from "@/lib/data/home";
 
@@ -42,9 +41,5 @@ describe("Home Data", () => {
 
   it("CONTACT_EMAIL 9843ohs", () => {
     expect(CONTACT_EMAIL).toBe("9843ohs@gmail.com");
-  });
-
-  it("CTA_QUOTE 정의", () => {
-    expect(CTA_QUOTE).toContain("커피");
   });
 });
