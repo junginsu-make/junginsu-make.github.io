@@ -153,7 +153,7 @@ export function Duality() {
               <MaskRevealStagger text="AI 빌더" startDelay={0.4} />
             </h3>
             <ScrollReveal delay={0.6}>
-              <p className="text-body-lg mt-4 whitespace-nowrap">
+              <p className="text-body-lg mt-4 lg:whitespace-nowrap">
                 Vibe Coding <WordHighlight delay={1.0}>43</WordHighlight> ·{" "}
                 SaaS <WordHighlight delay={1.3}>6</WordHighlight> Live ·
                 자동화 시나리오 <WordHighlight delay={1.6}>81</WordHighlight>
@@ -167,7 +167,7 @@ export function Duality() {
         {/* 중앙 캡슐 */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
           <div className="bg-[var(--color-orange)] text-white px-10 py-6 md:px-14 md:py-8 rounded-full shadow-2xl">
-            <p className="text-display-md font-display whitespace-nowrap">
+            <p className="text-display-md font-display lg:whitespace-nowrap">
               <MaskRevealStagger
                 text="한 사람, 두 면"
                 startDelay={1.2}

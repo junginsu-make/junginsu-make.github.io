@@ -53,10 +53,12 @@
     font-optical-sizing: auto;
     letter-spacing: -0.01em;
     transition: background 200ms var(--ease-default), color 200ms var(--ease-default);
+    overflow-x: hidden;
   }
 
   body {
     line-height: 1.7;
+    overflow-x: hidden;
   }
 
   ::selection {
