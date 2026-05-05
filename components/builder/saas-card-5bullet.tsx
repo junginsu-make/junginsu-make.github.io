@@ -125,7 +125,7 @@ export function SaasCard({ saas, order }: { saas: SaaSDetail; order: number }) {
               alt={`${saas.name} 라이브 캡처`}
               loading="lazy"
               className={cn(
-                "h-full w-full object-cover object-top",
+                "h-full w-full object-cover object-top md:object-contain",
                 "transition-[transform,filter] duration-700 ease-[cubic-bezier(0.6,0.05,0.3,0.95)]",
                 "grayscale-[40%] scale-100",
                 "group-hover:grayscale-0 group-hover:scale-[1.04]",
