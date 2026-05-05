@@ -110,7 +110,7 @@ export function SaasCard({ saas, order }: { saas: SaaSDetail; order: number }) {
         </div>
 
         {/* captured image */}
-        <div className="col-span-12 md:col-span-3 lg:col-span-3 aspect-[4/3] md:aspect-[16/10] overflow-hidden border border-[var(--line)] bg-[color-mix(in_oklab,var(--fg)_4%,transparent)] relative">
+        <div className="col-span-12 md:col-span-3 lg:col-span-3 aspect-[16/10] overflow-hidden border border-[var(--line)] bg-[color-mix(in_oklab,var(--fg)_4%,transparent)] relative">
           <picture>
             <source
               srcSet={`/captured/${saas.capturedSlug}/home/desktop.avif`}
@@ -125,7 +125,7 @@ export function SaasCard({ saas, order }: { saas: SaaSDetail; order: number }) {
               alt={`${saas.name} 라이브 캡처`}
               loading="lazy"
               className={cn(
-                "h-full w-full object-cover object-top md:object-contain",
+                "h-full w-full object-contain",
                 "transition-[transform,filter] duration-700 ease-[cubic-bezier(0.6,0.05,0.3,0.95)]",
                 "grayscale-[40%] scale-100",
                 "group-hover:grayscale-0 group-hover:scale-[1.04]",
