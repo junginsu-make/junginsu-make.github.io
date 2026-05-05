@@ -15,7 +15,7 @@ export const metadata = {
     "17년 마케팅 진화 6 milestone + TMON ROAS 7404% 검증 + 마케팅 강의 7년 6개월 + 마케팅 전문 분야 6 영역 + 정부 · 공공기관 18 + 민간기업 4 + Owned/Paid 멀티채널 9 + Content Op 7+. Marketing Performance.",
 };
 
-/** 강의 사진 — 사용자 지정 순서 (8장) */
+/** 강의 사진 — 사용자 지정 순서 (12장) */
 const TEACHING_PHOTO_ORDER = [
   "DSC01363",
   "1573555749107",
@@ -25,6 +25,10 @@ const TEACHING_PHOTO_ORDER = [
   "SE-330181ba-2e5e-40a5-ad9a-ee3a0c8bbc6e",
   "P1070865",
   "20190927_121849",
+  "KakaoTalk_20251218_103611205_25",
+  "KakaoTalk_20190221_235605850",
+  "20201112_183042",
+  "20200301_173207",
 ];
 
 function getTeachingCarouselPhotos(): string[] {
