@@ -2,15 +2,32 @@
 // 새 위치: lib/data/builder-clients.ts → AI_SAAS_PL_CLIENTS
 // /builder 인덱스 페이지에서 별도 섹션으로 노출.
 
-export const AI_CONTENT_OP_CLIENTS = [
-  "성동청년이룸창업지원센터",
-  "고려대학교기술지주",
-  "제2서울핀테크랩",
-  "서울도시철도엔지니어링",
-  "시스트란",
-  "모두솔루션",
-  "리부트라이프",
+/**
+ * AI Content Operation 클라이언트
+ * subCount: 인큐베이터/센터 안에서 운영한 입주기업 수
+ *   (incubator 자체 카운트 X, 입주기업만 카운트)
+ * subCount 미지정 = 단일 기업 (1)
+ */
+export type ContentOpClient = {
+  name: string;
+  subCount?: number;
+};
+
+export const AI_CONTENT_OP_CLIENTS: ContentOpClient[] = [
+  { name: "성동청년이룸창업지원센터", subCount: 2 },
+  { name: "고려대학교기술지주", subCount: 5 },
+  { name: "제2서울핀테크랩", subCount: 5 },
+  { name: "서울도시철도엔지니어링" },
+  { name: "시스트란" },
+  { name: "모두솔루션" },
+  { name: "리부트라이프" },
 ];
+
+/** 실제 운영 기업 총합 = 입주기업 수 + 단일 기업 수 (인큐베이터 자체는 미포함) */
+export const AI_CONTENT_OP_TOTAL = AI_CONTENT_OP_CLIENTS.reduce(
+  (sum, c) => sum + (c.subCount ?? 1),
+  0,
+); // = 2 + 5 + 5 + 1 + 1 + 1 + 1 = 16
 
 export type CapsuleProject = {
   name: string;
@@ -322,7 +339,7 @@ export const MARKETING_TIMELINE: MarketingMilestone[] = [
       "자동화 시나리오 · n8n으로 콘텐츠 자동화·데이터 수집·웹스크랩 시스템 구축",
       "AI Prompt SEO + 멀티 LLM 통합 (Claude · GPT · Gemini · Perplexity)",
       "AI SaaS PL 4건 — 호반·서울법무법인·아주그룹·Palette OS Agent",
-      "AI Content Operation 7+ 클라이언트 — 성동청년이룸·고려대기술지주·시스트란 외",
+      "AI Content Operation 16+ 기업 운영 — 성동청년이룸·고려대기술지주·제2서울핀테크랩 입주기업 포함",
       "Capsule Media 종합홍보 PM — 농림축산·조달청·한국벤처투자·창업진흥원 + 14건",
     ],
   },
