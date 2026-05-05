@@ -8,6 +8,7 @@ import { MarketingSpecialties } from "@/components/marketing/marketing-specialti
 import { PublicAgencies } from "@/components/marketing/public-agencies";
 import { AdChannels } from "@/components/marketing/ad-channels";
 import { AiClients } from "@/components/marketing/ai-clients";
+import { ContentReferences } from "@/components/builder/content-references";
 
 export const metadata = {
   description:
@@ -47,6 +48,7 @@ export default function Marketing() {
       <MarketingSpecialties />
       <AdChannels />
       <AiClients />
+      <ContentReferences />
       <PublicAgencies />
     </>
   );
