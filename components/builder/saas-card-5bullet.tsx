@@ -141,6 +141,11 @@ export function SaasCard({ saas, order }: { saas: SaaSDetail; order: number }) {
               VIEW DETAIL →
             </span>
           </div>
+          {/* 코너 브래킷 — 호버 시 등장 (AI Builder 시스템·청사진 시그니처) */}
+          <span aria-hidden className="pointer-events-none absolute top-2 left-2 w-3 h-3 border-t-2 border-l-2 border-[var(--accent)] opacity-0 -translate-x-1 -translate-y-1 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-300 ease-out" />
+          <span aria-hidden className="pointer-events-none absolute top-2 right-2 w-3 h-3 border-t-2 border-r-2 border-[var(--accent)] opacity-0 translate-x-1 -translate-y-1 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-300 ease-out" />
+          <span aria-hidden className="pointer-events-none absolute bottom-2 left-2 w-3 h-3 border-b-2 border-l-2 border-[var(--accent)] opacity-0 -translate-x-1 translate-y-1 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-300 ease-out" />
+          <span aria-hidden className="pointer-events-none absolute bottom-2 right-2 w-3 h-3 border-b-2 border-r-2 border-[var(--accent)] opacity-0 translate-x-1 translate-y-1 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-300 ease-out" />
         </div>
       </div>
     </div>
