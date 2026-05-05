@@ -116,7 +116,7 @@ export function MakeSystemsShowcase({ screenshots }: Props) {
                       src={screenshots[shotIdx]}
                       alt=""
                       decoding="async"
-                      className="h-full w-full object-cover object-top"
+                      className="h-full w-full object-contain bg-[color-mix(in_oklab,var(--fg)_4%,var(--bg))]"
                     />
                   </picture>
                 </motion.button>

@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/lib/theme";
 import { LenisProvider } from "@/components/motion/lenis-provider";
 import { Nav } from "@/components/layout/nav";
 import { Footer } from "@/components/layout/footer";
+import { ScrollToTop } from "@/components/layout/scroll-to-top";
 
 const fraunces = Fraunces({
   subsets: ["latin"],
@@ -71,6 +72,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <Nav />
             <main>{children}</main>
             <Footer />
+            <ScrollToTop />
           </LenisProvider>
         </ThemeProvider>
       </body>
