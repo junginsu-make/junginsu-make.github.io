@@ -46,7 +46,8 @@ export function Duality() {
 
   return (
     <PinSection>
-      <div className="h-screen grid grid-cols-1 md:grid-cols-2 relative overflow-hidden">
+      <div className="h-screen px-6 md:px-10 lg:px-16 py-8 md:py-12">
+        <div className="h-full grid grid-cols-1 md:grid-cols-2 relative overflow-hidden border border-[var(--line)]">
         {/* 좌: 마케터 — TMON ROAS 차트 + 강의 사진 cycle */}
         <div
           className="relative bg-[var(--color-paper)] dark:bg-[#1a1a1a]"
@@ -176,6 +177,7 @@ export function Duality() {
               />
             </p>
           </div>
+        </div>
         </div>
       </div>
     </PinSection>
