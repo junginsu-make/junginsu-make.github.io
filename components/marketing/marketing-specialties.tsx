@@ -36,8 +36,8 @@ export function MarketingSpecialties() {
 
       <ScrollReveal delay={0.2}>
         <p className="text-body-lg opacity-75 leading-[1.6] mb-16 lg:whitespace-nowrap">
-          17년간 직접 운영한 채널·도구·전략 — 도구를 들어본 수준이 아닌
-          광고비·정산·KPI 까지 책임진 영역만.
+          17년간 직접 운영한 채널 · 도구 · 전략 — 도구를 들어본 수준이 아닌
+          광고비 · 정산 · KPI 까지 책임진 영역만.
         </p>
       </ScrollReveal>
 

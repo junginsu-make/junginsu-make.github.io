@@ -1,5 +1,5 @@
 // 2026-05-04 시점 외부 공개 43개 (https://api.github.com/users/junginsu-make → public_repos: 43).
-// private 41개는 클라이언트 작업·실험 비공개.
+// private 41개는 클라이언트 작업 · 실험 비공개.
 export const GITHUB_TOTAL = 43;
 export const GITHUB_PROFILE = "https://github.com/junginsu-make";
 
@@ -56,7 +56,7 @@ export const GITHUB_CATEGORIES: GithubCategory[] = [
   },
   {
     id: "D",
-    name: "외부 도구·학습 fork",
+    name: "외부 도구 · 학습 fork",
     count: 2,
     examples: [
       "hwp-open-source",
@@ -79,7 +79,7 @@ export const GOLDEN_PRINCIPLES = [
   "Secrets in Env",
   "TDD (RED-GREEN-IMPROVE)",
   "Conclusion First",
-  "Small Files (800·50 라인)",
+  "Small Files (800 · 50 라인)",
   "Validate at Boundaries",
   "Explain with Analogies",
   "Context 50% Rule",

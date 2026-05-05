@@ -8,7 +8,7 @@ import { MARKETING_TIMELINE } from "@/lib/data/marketing";
 
 /**
  * 17년 마케팅 진화 — vertical rail 형태로 차별화.
- * 다른 섹션의 grid·card 패턴 X. 좌측 vertical line + node dot + 우측 콘텐츠.
+ * 다른 섹션의 grid · card 패턴 X. 좌측 vertical line + node dot + 우측 콘텐츠.
  * 텍스트 영역은 넓게 (col 11/12) — 2줄로 보이는 issue 해결.
  */
 export function MarketingTimeline() {
@@ -26,7 +26,7 @@ export function MarketingTimeline() {
       <h2 className="text-display-md md:text-display-lg font-display leading-[1.05] tracking-[-0.02em] max-w-none lg:whitespace-nowrap">
         <MaskReveal>
           <span>
-            입학·홍보 → 프랜차이즈 → 광고대행 →{" "}
+            입학 · 홍보 → 프랜차이즈 → 광고대행 →{" "}
             <WordHighlight delay={0.6}>AI Builder</WordHighlight>
           </span>
         </MaskReveal>
@@ -34,7 +34,7 @@ export function MarketingTimeline() {
 
       <ScrollReveal delay={0.2}>
         <p className="mt-6 text-body-lg opacity-75 leading-[1.6] mb-20 md:mb-24 lg:whitespace-nowrap">
-          17년 마케팅 영역의 진화를 회사·역할·임팩트 기준으로 정리 — 이력서에
+          17년 마케팅 영역의 진화를 회사 · 역할 · 임팩트 기준으로 정리 — 이력서에
           흩어진 디테일을 한 흐름으로.
         </p>
       </ScrollReveal>
@@ -97,7 +97,7 @@ export function MarketingTimeline() {
                 {/* 시기 + era 라벨 — 헤딩 위 한 줄로 */}
                 <div className="flex flex-wrap items-baseline gap-x-4 gap-y-2 text-meta opacity-60 mb-4">
                   <span className="tabular-nums">{m.period}</span>
-                  <span className="opacity-40">·</span>
+                  <span className="opacity-40"> · </span>
                   <span className="tracking-[0.15em] text-[var(--accent)]">
                     {m.era}
                   </span>
@@ -155,7 +155,7 @@ export function MarketingTimeline() {
       <ScrollReveal delay={0.5} className="mt-16 ml-9 md:ml-14">
         <p className="text-meta opacity-50 leading-[1.7] lg:whitespace-nowrap">
           ※ 자료: 정인수 이력서.pdf 페이지 2~5 · 17년 4개월 마케팅 경력의 6개
-          전환점. 과거 모든 회사·기관·역할 풀 타임라인은{" "}
+          전환점. 과거 모든 회사 · 기관 · 역할 풀 타임라인은{" "}
           <span className="text-[var(--accent)]">/career</span> 페이지의 17 회사
           풀 타임라인 토글에서 확인.
         </p>

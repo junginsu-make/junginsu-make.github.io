@@ -78,7 +78,7 @@ export function TeachingHero({ photos }: { photos: string[] }) {
         >
           <MaskReveal delay={0.6}>
             <span>
-              정부 부처·대학·창업지원센터·협회·기업·자영업자·1인샵까지 —{" "}
+              정부 부처 · 대학 · 창업지원센터 · 협회 · 기업 · 자영업자 · 1인샵까지 —{" "}
               <WordHighlight delay={1.0}>3 Tier</WordHighlight> 가능한 모든
               현장
             </span>

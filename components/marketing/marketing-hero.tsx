@@ -17,7 +17,7 @@ const KPIS: Kpi[] = [
     to: 7404,
     suffix: "%",
     label: "TMON ROAS",
-    note: "3,516% → 7,404% (▲ 3,888%p)",
+    note: "3516% → 7404% (▲ 3888%p)",
   },
   {
     to: 79,

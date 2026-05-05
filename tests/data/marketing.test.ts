@@ -52,7 +52,7 @@ describe("Marketing Data", () => {
     // 정확한 임팩트 (정량 데이터)
     expect(allText).toContain("40~60억");
     expect(allText).toContain("20억");
-    // TMON ROAS 7,404% 는 PDF로 검증되어 사용 가능
-    expect(allText).toContain("7,404");
+    // TMON ROAS 7404% 는 PDF로 검증되어 사용 가능
+    expect(allText).toContain("7404");
   });
 });

@@ -15,7 +15,7 @@ type LeftBg = {
 const LEFT_BG_CYCLE: LeftBg[] = [
   {
     src: "/marketing-portfolio/page-01",
-    alt: "TMON ROAS 7,404% 차트 (개인 포토폴리오 2023.03.02)",
+    alt: "TMON ROAS 7404% 차트 (개인 포토폴리오 2023.03.02)",
     ext: "jpg",
     isPdf: true,
   },
@@ -92,7 +92,7 @@ export function Duality() {
               <ScrollReveal delay={0.6}>
                 <p>
                   TMON ROAS{" "}
-                  <WordHighlight delay={1.2}>7,404%</WordHighlight> · 광고운영
+                  <WordHighlight delay={1.2}>7404%</WordHighlight> · 광고운영
                   79억+
                 </p>
               </ScrollReveal>
@@ -154,7 +154,7 @@ export function Duality() {
             </h3>
             <ScrollReveal delay={0.6}>
               <p className="text-body-lg mt-4 lg:whitespace-nowrap">
-                Vibe Coding <WordHighlight delay={1.0}>43</WordHighlight> ·{" "}
+                Vibe Coding <WordHighlight delay={1.0}>43</WordHighlight> · {" "}
                 SaaS <WordHighlight delay={1.3}>6</WordHighlight> Live ·
                 자동화 시나리오 <WordHighlight delay={1.6}>81</WordHighlight>
               </p>

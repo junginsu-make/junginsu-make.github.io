@@ -59,12 +59,12 @@ export function TeachingPreview({ photos }: Props) {
 
       <ScrollReveal delay={0.2}>
         <p className="mt-6 text-body-lg opacity-75 leading-[1.6] mb-12 md:mb-16 lg:whitespace-nowrap">
-          정부 부처·대학·창업지원센터·협회·기업·1인샵까지 7년 6개월 직접 강의 —
+          정부 부처 · 대학 · 창업지원센터 · 협회 · 기업 · 1인샵까지 7년 6개월 직접 강의 —
           17년 마케팅 운영 경력을 외부에서 검증한 자료.
         </p>
       </ScrollReveal>
 
-      {/* 좌 사진 carousel + 우 카운터·태그 */}
+      {/* 좌 사진 carousel + 우 카운터 · 태그 */}
       <div className="grid md:grid-cols-12 gap-8 md:gap-12 items-start">
         {/* LEFT — 자동 carousel */}
         <ScrollReveal className="md:col-span-7">
@@ -129,7 +129,7 @@ export function TeachingPreview({ photos }: Props) {
                 </span>
               </p>
               <p className="text-display-md font-display leading-[1.1] tracking-[-0.02em]">
-                정부 부처·대학·창업지원센터까지
+                정부 부처 · 대학 · 창업지원센터까지
               </p>
             </div>
 
@@ -225,7 +225,7 @@ export function TeachingPreview({ photos }: Props) {
               <Counter to={totalCount} />
             </p>
             <p className="text-meta opacity-70 mt-4 leading-[1.5]">
-              7년 6개월 누적 · 정부·대학·창업지원·협회·기업·1인샵까지
+              7년 6개월 누적 · 정부 · 대학 · 창업지원 · 협회 · 기업 · 1인샵까지
             </p>
           </ScrollReveal>
 
@@ -239,7 +239,7 @@ export function TeachingPreview({ photos }: Props) {
                 <p className="text-meta opacity-70 mt-3 leading-[1.4]">
                   TIER 01
                   <br />
-                  <span className="opacity-60">정부·대학·AI</span>
+                  <span className="opacity-60">정부 · 대학 · AI</span>
                 </p>
               </div>
               <div>
@@ -249,7 +249,7 @@ export function TeachingPreview({ photos }: Props) {
                 <p className="text-meta opacity-70 mt-3 leading-[1.4]">
                   TIER 02
                   <br />
-                  <span className="opacity-60">협회·기업</span>
+                  <span className="opacity-60">협회 · 기업</span>
                 </p>
               </div>
               <div>
@@ -259,7 +259,7 @@ export function TeachingPreview({ photos }: Props) {
                 <p className="text-meta opacity-70 mt-3 leading-[1.4]">
                   TIER 03
                   <br />
-                  <span className="opacity-60">개인·1인샵</span>
+                  <span className="opacity-60">개인 · 1인샵</span>
                 </p>
               </div>
             </div>

@@ -5,7 +5,7 @@ import { ScrollReveal } from "@/components/motion/scroll-reveal";
 import { WordHighlight } from "@/components/motion/word-highlight";
 
 const LEFT_ITEMS = [
-  "17년 영업·광고 운영",
+  "17년 영업 · 광고 운영",
   "티몬 광고대행 연 40~60억",
   "전국 30지점 연 20억+",
   "KOICA · 31 강의처",
@@ -118,7 +118,7 @@ export function DualityVenn() {
         >
           <p className="text-display-md font-display leading-none">마케터</p>
           <p className="text-meta opacity-60 mt-3 tracking-[0.15em]">
-            17년 운영·광고
+            17년 운영 · 광고
           </p>
         </motion.div>
 

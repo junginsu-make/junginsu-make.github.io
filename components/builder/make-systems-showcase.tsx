@@ -63,7 +63,7 @@ export function MakeSystemsShowcase({ screenshots }: Props) {
             <MaskReveal>
               <span>
                 실제 자동화 시나리오 화면 — <WordHighlight delay={0.5}>노드</WordHighlight>
-                ·<WordHighlight delay={0.7}>플로우</WordHighlight>·
+                · <WordHighlight delay={0.7}>플로우</WordHighlight> ·
                 <WordHighlight delay={0.9}>인벤토리</WordHighlight>
               </span>
             </MaskReveal>
@@ -248,13 +248,13 @@ export function MakeSystemsShowcase({ screenshots }: Props) {
             <MaskReveal>DETAILED SYSTEMS · {MAKE_SYSTEMS.length} / 81</MaskReveal>
           </p>
           <span className="text-meta opacity-40">
-            모듈·연동·설명 풀스펙
+            모듈 · 연동 · 설명 풀스펙
           </span>
         </div>
 
         <h2 className="text-display-md md:text-display-lg font-display leading-[1.05] tracking-[-0.02em] mb-10 max-w-none lg:whitespace-nowrap">
           <MaskReveal>
-            <span>각 시스템의 모듈·연동 서비스·운영 시나리오</span>
+            <span>각 시스템의 모듈 · 연동 서비스 · 운영 시나리오</span>
           </MaskReveal>
         </h2>
 
@@ -347,7 +347,7 @@ export function MakeSystemsShowcase({ screenshots }: Props) {
               >
                 <span className="opacity-60 mr-2">{info.number}</span>
                 {cat}
-                <span className="opacity-50 ml-2">·</span>
+                <span className="opacity-50 ml-2"> · </span>
                 <span className="opacity-90 ml-1">{info.count}</span>
               </button>
             ))}

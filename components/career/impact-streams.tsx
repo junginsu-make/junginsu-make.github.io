@@ -29,7 +29,7 @@ export function ImpactStreams() {
       <div className="mt-16 text-body opacity-70 leading-[1.7] lg:whitespace-nowrap">
         <MaskReveal delay={0.85}>
           <span>
-            영업·마케팅·강사 17년. AI 시대를 만나 풀사이클 빌더로 다시 태어났다.
+            영업 · 마케팅 · 강사 17년. AI 시대를 만나 풀사이클 빌더로 다시 태어났다.
             아래 6 스트림은 회사 단위가 아니라 임팩트 단위로 묶은 경력.
           </span>
         </MaskReveal>
@@ -46,7 +46,7 @@ export function ImpactStreams() {
           <p className="text-display-xl font-display leading-none glow-pulse">
             <Counter to={17} />
           </p>
-          <p className="text-meta opacity-70 mt-4">회사·기관</p>
+          <p className="text-meta opacity-70 mt-4">회사 · 기관</p>
         </ScrollReveal>
         <ScrollReveal delay={0.2} className="border-t border-[var(--line)] pt-6">
           <p className="text-display-xl font-display leading-none glow-pulse">
@@ -112,7 +112,7 @@ export function ImpactStreamsList() {
                     <span key={j}>
                       {c}
                       {j < s.companies.length - 1 && (
-                        <span className="opacity-40 ml-3">·</span>
+                        <span className="opacity-40 ml-3"> · </span>
                       )}
                     </span>
                   ))}

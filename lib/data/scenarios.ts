@@ -22,7 +22,7 @@ export type TimelinePhase = {
 export const CORE_SCENARIOS: CoreScenario[] = [
   {
     number: 1,
-    title: "정부지원사업 크롤링·사업계획서 자동화",
+    title: "정부지원사업 크롤링 · 사업계획서 자동화",
     flow: [
       "Webhook",
       "Airtable",
@@ -77,7 +77,7 @@ export const CORE_SCENARIOS: CoreScenario[] = [
   },
   {
     number: 4,
-    title: "뉴스레터 또는 웹사이트 크롤링 후 콘텐츠 생성·업로드 자동화",
+    title: "뉴스레터 또는 웹사이트 크롤링 후 콘텐츠 생성 · 업로드 자동화",
     flow: [
       "Webhook",
       "Tools",
@@ -99,37 +99,37 @@ export const CORE_SCENARIOS: CoreScenario[] = [
 
 export const INVENTORY_GROUPS: InventoryGroup[] = [
   {
-    name: "AI 검색·SEO 콘텐츠 엔진",
+    name: "AI 검색 · SEO 콘텐츠 엔진",
     systemRange: "01-17, 63-66, 81",
     count: 23,
     isMain: false,
   },
   {
-    name: "버티컬 업무 자동화 (정부지원·법무·금융)",
+    name: "버티컬 업무 자동화 (정부지원 · 법무 · 금융)",
     systemRange: "18-36",
     count: 19,
     isMain: false,
   },
   {
-    name: "SNS·숏폼·멀티미디어",
+    name: "SNS · 숏폼 · 멀티미디어",
     systemRange: "37-42, 52-60, 75",
     count: 16,
     isMain: false,
   },
   {
-    name: "뉴스·지식 큐레이션",
+    name: "뉴스 · 지식 큐레이션",
     systemRange: "43-51",
     count: 9,
     isMain: false,
   },
   {
-    name: "데이터 수집·분석 인프라",
+    name: "데이터 수집 · 분석 인프라",
     systemRange: "02, 06-07, 61-70, 76-79",
     count: 15,
     isMain: false,
   },
   {
-    name: "마케팅·광고·운영 자동화",
+    name: "마케팅 · 광고 · 운영 자동화",
     systemRange: "71-74, 80",
     count: 5,
     isMain: false,
@@ -154,7 +154,7 @@ export const TIMELINE_2024_2025: TimelinePhase[] = [
   },
   {
     period: "2025.01",
-    phase: "통합·고도화",
+    phase: "통합 · 고도화",
     note: "퍼플렉시티-WP / 10X 콘텐츠",
   },
   {
@@ -174,7 +174,7 @@ export const TIMELINE_2024_2025: TimelinePhase[] = [
   },
   {
     period: "2025.06-08",
-    phase: "운영·협업 자동화",
+    phase: "운영 · 협업 자동화",
     note: "Apify 통합 / Pltt AI News 3채널 / Google Chat 알림",
   },
 ];

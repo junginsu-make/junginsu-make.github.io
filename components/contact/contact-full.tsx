@@ -10,19 +10,19 @@ const CHANNELS = [
   {
     label: "MAIN",
     address: "9843ohs@gmail.com",
-    note: "프로젝트·SaaS 운영 전반",
+    note: "프로젝트 · SaaS 운영 전반",
     href: "mailto:9843ohs@gmail.com",
   },
   {
     label: "직무 · 이직",
     address: "junginsuai@gmail.com",
-    note: "이직 제안·헤드헌터",
+    note: "이직 제안 · 헤드헌터",
     href: "mailto:junginsuai@gmail.com",
   },
   {
     label: "강의 · 1인 미디어",
     address: "sbcyberpass@gmail.com",
-    note: "솔직한 인쌤 블로그·강의 문의",
+    note: "솔직한 인쌤 블로그 · 강의 문의",
     href: "mailto:sbcyberpass@gmail.com",
   },
 ];
@@ -37,7 +37,7 @@ const RESOURCES = [
   {
     label: "TMON ROAS 운영 보고서",
     href: "/marketing-portfolio/page-01.jpg",
-    meta: "PNG · 7,404% 검증 차트",
+    meta: "PNG · 7404% 검증 차트",
   },
 ];
 
@@ -84,7 +84,7 @@ export function ContactFull() {
           </Magnetic>
 
           <p className="mt-6 text-meta opacity-60 leading-[1.7] max-w-[640px]">
-            메인 메일 — 프로젝트 의뢰·SaaS 운영·기술 문의 모두 여기로.
+            메인 메일 — 프로젝트 의뢰 · SaaS 운영 · 기술 문의 모두 여기로.
             평일 보통 12시간 내 회신.
           </p>
         </div>

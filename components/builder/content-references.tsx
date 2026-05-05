@@ -273,7 +273,7 @@ export function ContentReferences() {
 
       <ScrollReveal delay={0.2}>
         <p className="text-body-lg opacity-75 leading-[1.6] mb-16 md:mb-20 lg:whitespace-nowrap">
-          100% 자동화로 생성·발행된 SNS 카드뉴스 · 블로그 · 숏폼 — 사이트
+          100% 자동화로 생성 · 발행된 SNS 카드뉴스 · 블로그 · 숏폼 — 사이트
           안에서 직접 넘기고 재생.
         </p>
       </ScrollReveal>
@@ -309,7 +309,7 @@ export function ContentReferences() {
 
       <ScrollReveal delay={0.3} className="mt-16 md:mt-20">
         <p className="text-meta opacity-50 leading-[1.7] lg:whitespace-nowrap">
-          ※ 모든 콘텐츠는 자체 자동화 시스템으로 기획·생성·발행. 위 6 작품은
+          ※ 모든 콘텐츠는 자체 자동화 시스템으로 기획 · 생성 · 발행. 위 6 작품은
           시스템 결과물의 일부 — 이 시스템은{" "}
           <span className="text-[var(--accent)]">18+ 기업</span>에 실제 운영 중
           (인큐베이터 입주기업 포함, 자세한 클라이언트 리스트는{" "}

@@ -12,7 +12,7 @@ import { AiClients } from "@/components/marketing/ai-clients";
 export const metadata = {
   title: "Marketing — 정인수",
   description:
-    "17년 마케팅 진화 6 milestone + TMON ROAS 7,404% 검증 + 마케팅 강의 7년 6개월 + 마케팅 전문 분야 6 영역 + 정부·공공기관 18 + 민간기업 4 + Owned/Paid 멀티채널 9 + Content Op 7+. Marketing Performance.",
+    "17년 마케팅 진화 6 milestone + TMON ROAS 7404% 검증 + 마케팅 강의 7년 6개월 + 마케팅 전문 분야 6 영역 + 정부 · 공공기관 18 + 민간기업 4 + Owned/Paid 멀티채널 9 + Content Op 7+. Marketing Performance.",
 };
 
 /** 강의 사진 — 사용자 지정 순서 (8장) */

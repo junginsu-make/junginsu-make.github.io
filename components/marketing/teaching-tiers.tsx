@@ -7,7 +7,7 @@ import { TIER1, TIER2, TIER3 } from "@/lib/data/teaching";
 export function TeachingTiers({ photos }: { photos: string[] }) {
   return (
     <>
-      {/* TIER 1 — 정부·공공·대학·AI 교육 6 (메인) */}
+      {/* TIER 1 — 정부 · 공공 · 대학 · AI 교육 6 (메인) */}
       <section className="px-6 md:px-10 lg:px-16 py-24 md:py-32">
         <div className="flex items-baseline justify-between mb-12 md:mb-16">
           <p className="text-meta opacity-60 tracking-[0.2em]">
@@ -20,7 +20,7 @@ export function TeachingTiers({ photos }: { photos: string[] }) {
 
         <h2 className="text-display-md md:text-display-lg font-display leading-[1.05] tracking-[-0.02em] mb-12 md:mb-16 max-w-[820px]">
           <MaskReveal>
-            <span>정부 부처·공공기관·대학·창업지원센터의 AI·마케팅 강의</span>
+            <span>정부 부처 · 공공기관 · 대학 · 창업지원센터의 AI · 마케팅 강의</span>
           </MaskReveal>
         </h2>
 
@@ -77,7 +77,7 @@ export function TeachingTiers({ photos }: { photos: string[] }) {
         </div>
       </section>
 
-      {/* TIER 2 — 협회·기업 8 */}
+      {/* TIER 2 — 협회 · 기업 8 */}
       <section className="px-6 md:px-10 lg:px-16 py-24 md:py-32 border-t border-[var(--line)]">
         <div className="flex items-baseline justify-between mb-12 md:mb-16">
           <p className="text-meta opacity-60 tracking-[0.2em]">
@@ -90,7 +90,7 @@ export function TeachingTiers({ photos }: { photos: string[] }) {
 
         <h2 className="text-display-md md:text-display-lg font-display leading-[1.05] tracking-[-0.02em] mb-12 max-w-[820px]">
           <MaskReveal>
-            <span>학원협회·소상공인 연합회·전문가 모임·미술관까지</span>
+            <span>학원협회 · 소상공인 연합회 · 전문가 모임 · 미술관까지</span>
           </MaskReveal>
         </h2>
 
@@ -127,7 +127,7 @@ export function TeachingTiers({ photos }: { photos: string[] }) {
 
         <h2 className="text-display-md md:text-display-lg font-display leading-[1.05] tracking-[-0.02em] mb-12 max-w-[820px]">
           <MaskReveal>
-            <span>15명의 1:1 마케팅 멘토링 — 직군·규모 불문</span>
+            <span>15명의 1:1 마케팅 멘토링 — 직군 · 규모 불문</span>
           </MaskReveal>
         </h2>
 

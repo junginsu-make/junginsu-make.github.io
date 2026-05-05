@@ -20,7 +20,7 @@ describe("SaaS Data", () => {
     );
   });
 
-  it("약어 풀어서 표현 (VCP·CF 금지)", () => {
+  it("약어 풀어서 표현 (VCP · CF 금지)", () => {
     const allText = JSON.stringify(SAAS_LIST);
     expect(allText).not.toMatch(/\bVCP\b/);
     expect(allText).not.toMatch(/\bCF 모드\b/);

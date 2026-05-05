@@ -39,7 +39,7 @@ export function TmonCase() {
       <h2 className="text-display-md md:text-display-lg font-display leading-[1.05] tracking-[-0.02em] lg:whitespace-nowrap">
         <MaskReveal>
           <span>
-            티몬 공식 광고대행 ·{" "}
+            티몬 공식 광고대행 · {" "}
             <WordHighlight delay={0.6}>9개월</WordHighlight>의 정량 데이터
           </span>
         </MaskReveal>
@@ -173,7 +173,7 @@ export function TmonCase() {
             </span>
             <span className="inline-flex items-center gap-2">
               <span className="inline-block w-3 h-3 bg-[var(--accent)]" />
-              시작·정점 (2022.07 / 2023.02)
+              시작 · 정점 (2022.07 / 2023.02)
             </span>
           </div>
 

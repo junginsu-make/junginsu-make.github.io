@@ -28,7 +28,7 @@ export function BuildTracks() {
       <ScrollReveal delay={0.2}>
         <p className="text-body-lg opacity-75 max-w-[820px] leading-[1.6] mb-16">
           AI 빌더의 두 영역. 어느 한 쪽도 부속이 아니라 둘 다 메인 도구.
-          좌·우 비교로 한눈에.
+          좌 · 우 비교로 한눈에.
         </p>
       </ScrollReveal>
 

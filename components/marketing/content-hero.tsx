@@ -16,7 +16,7 @@ export function ContentHero() {
 
   const stats = [
     { to: CONTENT_REFS.length, label: "Recent Content", note: "최근 운영 사례" },
-    { to: byCategory.instagram ?? 0, label: "Instagram", note: "카드뉴스·릴스" },
+    { to: byCategory.instagram ?? 0, label: "Instagram", note: "카드뉴스 · 릴스" },
     { to: byCategory.youtube ?? 0, label: "YouTube", note: "Shorts" },
     { to: byCategory.blog ?? 0, label: "Naver Blog", note: "장문 SEO" },
   ];
@@ -34,7 +34,7 @@ export function ContentHero() {
       <p className="mt-10 text-body-xl md:text-display-md font-display max-w-[860px] leading-[1.2]">
         <MaskReveal delay={0.6}>
           <span>
-            기획·카피·이미지·숏폼·SEO를{" "}
+            기획 · 카피 · 이미지 · 숏폼 · SEO를{" "}
             <WordHighlight delay={1.0}>한 명이</WordHighlight> — AI 멀티
             파이프라인
           </span>

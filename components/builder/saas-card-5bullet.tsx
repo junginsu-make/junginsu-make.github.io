@@ -90,7 +90,7 @@ export function SaasCard({ saas, order }: { saas: SaaSDetail; order: number }) {
                 className="flex items-baseline gap-3 text-meta opacity-75"
               >
                 <span className="opacity-40 tabular-nums">
-                  ·{(i + 1).toString().padStart(2, "0")}
+                  · {(i + 1).toString().padStart(2, "0")}
                 </span>
                 <span>{c.title}</span>
               </li>

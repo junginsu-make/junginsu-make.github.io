@@ -131,7 +131,7 @@ export function MakeStackVisualization() {
 
       <ScrollReveal delay={0.45} className="mt-16">
         <p className="text-meta opacity-50 leading-[1.7] max-w-[820px]">
-          ※ 4 핵심 시나리오 (정부지원·10X 콘텐츠·계약서 GA4·뉴스레터 크롤링) 가
+          ※ 4 핵심 시나리오 (정부지원사업 · 10X 콘텐츠 · 계약서 자동화 · GA4 · 뉴스레터 · 웹 크롤링) 가
           이 스택으로 매일 돌아가는 자동화. 81 시스템 인벤토리는{" "}
           <span className="text-[var(--accent)]">/builder/scenarios</span> 에서
           전체 보기.

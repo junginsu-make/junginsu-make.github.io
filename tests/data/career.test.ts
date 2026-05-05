@@ -24,7 +24,7 @@ describe("Career Data", () => {
 
   it("출처 미검증 데이터 사용 X (TMON ROAS / NGO 마음하나)", () => {
     const allText = JSON.stringify({ IMPACT_STREAMS, CAREER_FULL });
-    expect(allText).not.toContain("7,404");
+    expect(allText).not.toContain("7404");
     expect(allText).not.toContain("4,378");
     expect(allText).not.toContain("마음하나");
   });

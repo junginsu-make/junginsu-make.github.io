@@ -33,7 +33,7 @@ export function SaasCycle() {
         onMouseEnter={() => setPaused(true)}
         onMouseLeave={() => setPaused(false)}
       >
-        {/* 메인 캡처 — 16:10 정확 매칭으로 풀가시·풀필 (썸네일 strip 제거하여 세로 영역 활용) */}
+        {/* 메인 캡처 — 16:10 정확 매칭으로 풀가시 · 풀필 (썸네일 strip 제거하여 세로 영역 활용) */}
         <div className="relative w-full aspect-[16/10] overflow-hidden">
           {SAAS_LIST.map((s, i) => (
             <SweepLink

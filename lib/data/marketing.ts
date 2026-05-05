@@ -34,8 +34,8 @@ export type CapsuleProject = {
 };
 
 export const CAPSULE_PM_PROJECTS: CapsuleProject[] = [
-  { name: "농림축산식품부", role: "소셜미디어·마케팅 홍보 영역 PM" },
-  { name: "조달청", role: "소셜미디어·마케팅 홍보 영역 PM" },
+  { name: "농림축산식품부", role: "소셜미디어 · 마케팅 홍보 영역 PM" },
+  { name: "조달청", role: "소셜미디어 · 마케팅 홍보 영역 PM" },
   { name: "한국벤처투자", role: "과업 총괄 PM" },
   { name: "창업진흥원", role: "2023년도 과업 총괄 PM" },
 ];
@@ -65,7 +65,7 @@ export const COMPANY_AD_BUDGET: CompanyAdBudget[] = [
     budget: "연 40~60억",
     note: "운영총괄실장 (2022.08~2023.04)",
     metrics: {
-      roas: "3,516% → 7,404% (▲ 3,888%p)",
+      roas: "3516% → 7404% (▲ 3888%p)",
       gr: "208억 → 288억 (▲ 79.4억+)",
       bu: "94,153 → 180,713 (▲ 86,560명)",
       cpbu: "4,709원 → 2,365원 (▼ -50% 절감)",
@@ -74,7 +74,7 @@ export const COMPANY_AD_BUDGET: CompanyAdBudget[] = [
   {
     company: "퍼스트 아카데미 본사",
     budget: "연 20억+",
-    note: "마케팅 총괄팀장 (2021.03~2022.05) — 전국 30지점·카페 4지점",
+    note: "마케팅 총괄팀장 (2021.03~2022.05) — 전국 30지점 · 카페 4지점",
   },
 ];
 
@@ -118,9 +118,9 @@ export const TMON_ROAS_MONTHLY: TmonMonthly[] = [
 export const TMON_BEFORE_AFTER = [
   {
     label: "ROAS",
-    before: "3,516%",
-    after: "7,404%",
-    delta: "▲ 3,888%P",
+    before: "3516%",
+    after: "7404%",
+    delta: "▲ 3888%P",
     direction: "up" as const,
     note: "광고 효율",
   },
@@ -150,7 +150,7 @@ export const TMON_BEFORE_AFTER = [
   },
 ];
 
-/** 공공기관 제안서·PT·종합홍보 PM 운영 이력 (자료: 정인수 이력서.pdf 페이지 2-3)
+/** 공공기관 제안서 · PT · 종합홍보 PM 운영 이력 (자료: 정인수 이력서.pdf 페이지 2-3)
  *  abbr: 카드 좌상단 wordmark 박스에 표시할 약어.
  *  logo: 옵셔널. 명시 시 해당 경로의 이미지로 wordmark 대체 (사용자 추후 SVG 추가용). */
 export type PublicAgency = {
@@ -187,7 +187,7 @@ export const PUBLIC_AGENCIES: PublicAgency[] = [
 /** 민간기업 디지털 마케팅 대행 (TMON 외) */
 export const PRIVATE_CLIENTS = [
   { name: "티몬 (TMON)", note: "공식 광고대행, 연 40~60억 광고비 총괄" },
-  { name: "성형외과", note: "검색·SNS 광고 운영" },
+  { name: "성형외과", note: "검색 · SNS 광고 운영" },
   { name: "이커머스", note: "퍼포먼스 마케팅 운영" },
   { name: "교육업", note: "전국 30지점 광고 운영" },
 ];
@@ -247,15 +247,15 @@ export const MARKETING_TIMELINE: MarketingMilestone[] = [
   {
     number: "01",
     period: "2017.06 ~ 2020.05 · 3년",
-    era: "입학·홍보 마케팅",
+    era: "입학 · 홍보 마케팅",
     company: "글로리아교육재단 ㈜",
     role: "입학관리처 팀장 3년차",
     highlight:
       "한국항공/국제호텔전문 — 디지털 채널 풀스택 + B2B/B2C 통합 운영",
     bullets: [
-      "온라인 디지털마케팅 — 블로그·지식인·파워링크·파워컨텐츠 풀세트",
-      "B2B — 전국 고교·학원 방문 홍보 (오프라인 채널 직접 운영)",
-      "B2C — 입학상담·유치 직접 담당",
+      "온라인 디지털마케팅 — 블로그 · 지식인 · 파워링크 · 파워컨텐츠 풀세트",
+      "B2B — 전국 고교 · 학원 방문 홍보 (오프라인 채널 직접 운영)",
+      "B2C — 입학상담 · 유치 직접 담당",
       "개인 블로그 + 홈페이지 운영 관리",
     ],
   },
@@ -266,13 +266,13 @@ export const MARKETING_TIMELINE: MarketingMilestone[] = [
     company: "중앙대학교 사회교육처",
     role: "실장",
     highlight:
-      "평생교육원 입학·홍보 모집 총괄 + 광고대행사 관리 + DA·네이버 애널리틱스 운영",
+      "평생교육원 입학 · 홍보 모집 총괄 + 광고대행사 관리 + DA · 네이버 애널리틱스 운영",
     bullets: [
       "입학 관련 전 과정 신규 기획 + 리딩",
       "신규 DB / 등록생 / 재학생 관리 + 실무자",
       "DA · 네이버 애널리틱스 분석 및 활용",
       "홈페이지 및 홍보물 리뉴얼 + 신규 제작",
-      "광고대행사 관리 + 자체 온·오프라인 홍보 전략 기획·실무",
+      "광고대행사 관리 + 자체 온 · 오프라인 홍보 전략 기획 · 실무",
     ],
   },
   {
@@ -282,13 +282,13 @@ export const MARKETING_TIMELINE: MarketingMilestone[] = [
     company: "퍼스트 아카데미 본사",
     role: "마케팅 총괄팀장",
     highlight:
-      "전국 30지점·카페 4지점 마케팅 총괄 — 연 20억+ 광고비",
+      "전국 30지점 · 카페 4지점 마케팅 총괄 — 연 20억+ 광고비",
     scale: "월 1억+ 검색광고 · 월 1억+ SNS · 월 3,000만 절감",
     bullets: [
-      "월 3,000만원 광고비 절감 + 광고 효과·신규 고객 유입 상승",
-      "마케팅 비용 연 20억원 이상 집행·관리",
-      "네이버 검색광고 (월 1억원+) 기본 세팅·운영·분석",
-      "SNS (월 1억원+) 광고 집행 관리 + 페이스북·인스타그램 비즈니스",
+      "월 3,000만원 광고비 절감 + 광고 효과 · 신규 고객 유입 상승",
+      "마케팅 비용 연 20억원 이상 집행 · 관리",
+      "네이버 검색광고 (월 1억원+) 기본 세팅 · 운영 · 분석",
+      "SNS (월 1억원+) 광고 집행 관리 + 페이스북 · 인스타그램 비즈니스",
       "네이버 VIEW (2일간 약 100건+ 포스팅) 상위노출 성공",
       "상위 1% 개인 블로그 6개 자체 보유 → 즉시 활용 가능",
     ],
@@ -310,18 +310,18 @@ export const MARKETING_TIMELINE: MarketingMilestone[] = [
     period: "2022.08 ~ 2023.04 · 9개월",
     era: "이커머스 광고대행 운영총괄",
     company: "퍼포먼스디자인",
-    role: "전략마케팅1실·소셜바이럴팀 운영총괄실장",
+    role: "전략마케팅1실 · 소셜바이럴팀 운영총괄실장",
     highlight:
-      "이커머스 티몬 공식 대행사 + 화장품·가전·성형외과 + 나라장터(공공)",
-    scale: "TMON 연 40~60억 광고비 총괄 · ROAS 7,404% 달성",
+      "이커머스 티몬 공식 대행사 + 화장품 · 가전 · 성형외과 + 나라장터(공공)",
+    scale: "TMON 연 40~60억 광고비 총괄 · ROAS 7404% 달성",
     bullets: [
       "이커머스 티몬 공식 광고대행사, 연 40~60억 광고비 총괄 운영관리",
-      "화장품·가전제품·성형외과 등 제안서 작성 + 제안 PT 발표",
-      "나라장터 (서울관광공사·연수구청·NGO 등) 제안서 작성·PT 발표",
+      "화장품 · 가전제품 · 성형외과 등 제안서 작성 + 제안 PT 발표",
+      "나라장터 (서울관광공사 · 연수구청 · NGO 등) 제안서 작성 · PT 발표",
       "Search Engine Optimization (Web · Naver Blog · Place · Shopping)",
       "Search Ad (Google · Naver · Kakao) + Display Ad + DSP",
       "Viral Marketing + Review Marketing + Analysis (Naver · Google · App)",
-      "광고 운영 결과 보고서 + 광고주·광고대행사 관리",
+      "광고 운영 결과 보고서 + 광고주 · 광고대행사 관리",
     ],
   },
   {
@@ -331,15 +331,15 @@ export const MARKETING_TIMELINE: MarketingMilestone[] = [
     company: "팔레트 ㈜",
     role: "Agent 본부",
     highlight:
-      "마케팅 17년 + AI Builder — 풀사이클로 콘텐츠·자동화·데이터를 한 명이",
+      "마케팅 17년 + AI Builder — 풀사이클로 콘텐츠 · 자동화 · 데이터를 한 명이",
     scale: "AI SaaS PL 4건 · Content Op 7+ · Capsule PM 20+",
     bullets: [
       "Vibe Coding으로 100+ 자체 시스템 1인 개발",
-      "자동화 시나리오 · n8n으로 콘텐츠 자동화·데이터 수집·웹스크랩 시스템 구축",
+      "자동화 시나리오 · n8n으로 콘텐츠 자동화 · 데이터 수집 · 웹스크랩 시스템 구축",
       "AI Prompt SEO + 멀티 LLM 통합 (Claude · GPT · Gemini · Perplexity)",
-      "AI SaaS PL 4건 — 호반·서울법무법인·아주그룹·Palette OS Agent",
-      "AI Content Operation 18+ 기업 운영 — 성동청년이룸·고려대기술지주·제2서울핀테크랩 입주기업 포함",
-      "Capsule Media 종합홍보 PM — 농림축산·조달청·한국벤처투자·창업진흥원 + 14건",
+      "AI SaaS PL 4건 — 호반 · 서울법무법인 · 아주그룹 · Palette OS Agent",
+      "AI Content Operation 18+ 기업 운영 — 성동청년이룸 · 고려대기술지주 · 제2서울핀테크랩 입주기업 포함",
+      "Capsule Media 종합홍보 PM — 농림축산 · 조달청 · 한국벤처투자 · 창업진흥원 + 14건",
     ],
   },
 ];

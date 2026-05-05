@@ -25,7 +25,7 @@ export function ScenariosFull() {
         <p className="mt-10 text-body-xl md:text-display-md font-display max-w-[860px] leading-[1.2]">
           <MaskReveal delay={0.6}>
             <span>
-              <WordHighlight delay={1.0}>4 핵심</WordHighlight>이 메인 ·{" "}
+              <WordHighlight delay={1.0}>4 핵심</WordHighlight>이 메인 · {" "}
               <WordHighlight delay={1.2}>77 인벤토리</WordHighlight>가 보조
             </span>
           </MaskReveal>

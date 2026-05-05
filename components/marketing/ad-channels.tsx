@@ -58,7 +58,7 @@ export function AdChannels() {
       {/* 회사별 광고비 운영 규모 (TMON 디테일은 위 섹션에서 시각화) */}
       <ScrollReveal delay={0.3} className="mt-20 md:mt-24">
         <p className="text-meta opacity-60 mb-8 tracking-[0.2em]">
-          광고비 운영 규모 (확정·검증)
+          광고비 운영 규모 (확정 · 검증)
         </p>
 
         <div className="grid md:grid-cols-2 gap-px bg-[var(--line)] border border-[var(--line)]">

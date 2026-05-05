@@ -56,7 +56,7 @@ export const TECH_STACK: TechCategory[] = [
     ],
   },
   {
-    category: "데이터 수집·검색",
+    category: "데이터 수집 · 검색",
     items: [
       "SerpAPI",
       "Apify",

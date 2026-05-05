@@ -20,7 +20,7 @@ export function AiClients() {
             <MaskReveal>AI CONTENT OPERATION</MaskReveal>
           </p>
           <span className="text-meta opacity-40 tabular-nums">
-            <Counter to={AI_CONTENT_OP_TOTAL} suffix="+" /> 기업 운영 ·{" "}
+            <Counter to={AI_CONTENT_OP_TOTAL} suffix="+" /> 기업 운영 · {" "}
             {AI_CONTENT_OP_CLIENTS.length} 채널
           </span>
         </div>

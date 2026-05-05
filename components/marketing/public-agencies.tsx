@@ -53,7 +53,7 @@ export function PublicAgencies() {
 
       <ScrollReveal delay={0.2}>
         <p className="text-body-lg opacity-75 leading-[1.6] mb-16 lg:whitespace-nowrap">
-          정부 부처·공공기관·공기업·지자체 {total}곳 종합홍보 PM 활동 + 티몬을
+          정부 부처 · 공공기관 · 공기업 · 지자체 {total}곳 종합홍보 PM 활동 + 티몬을
           비롯한 민간기업 디지털 마케팅 대행.
         </p>
       </ScrollReveal>
@@ -139,7 +139,7 @@ export function PublicAgencies() {
           <span className="text-[var(--accent)] font-medium">
             다수의 민간기업 클라이언트
           </span>{" "}
-          디지털 마케팅 대행 운영 — 광고·콘텐츠·SNS 풀사이클.
+          디지털 마케팅 대행 운영 — 광고 · 콘텐츠 · SNS 풀사이클.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-[var(--line)] border border-[var(--line)]">
           {PRIVATE_CLIENTS.map((c, i) => (
@@ -159,7 +159,7 @@ export function PublicAgencies() {
         </div>
         <p className="mt-6 text-meta opacity-55 leading-[1.7]">
           ※ 위는 대표 카테고리. 실제 운영 클라이언트 수는 더 많으며 — 광고비
-          규모·업종별로 다양함.
+          규모 · 업종별로 다양함.
         </p>
       </ScrollReveal>
     </section>
