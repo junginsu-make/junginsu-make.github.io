@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Counter } from "@/components/motion/counter";
 import { MaskReveal } from "@/components/motion/mask-reveal";
+import { PulseNumber } from "@/components/motion/pulse-number";
 import { ScrollReveal } from "@/components/motion/scroll-reveal";
 import { WordHighlight } from "@/components/motion/word-highlight";
 import { TIER1, TIER2, TIER3 } from "@/lib/data/teaching";
@@ -221,8 +222,10 @@ export function TeachingPreview({ photos }: Props) {
               총 강의처
             </p>
             <p className="text-display-mega font-display leading-[0.85] tracking-[-0.04em] tabular-nums">
-              <span className="text-[var(--accent)]">+</span>
-              <Counter to={totalCount} />
+              <PulseNumber>
+                <span className="text-[var(--accent)]">+</span>
+                <Counter to={totalCount} />
+              </PulseNumber>
             </p>
             <p className="text-meta opacity-70 mt-4 leading-[1.5]">
               7년 6개월 누적 · 정부 · 대학 · 창업지원 · 협회 · 기업 · 1인샵까지

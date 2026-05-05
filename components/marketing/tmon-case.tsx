@@ -12,6 +12,7 @@ import {
 import { MaskReveal } from "@/components/motion/mask-reveal";
 import { ScrollReveal } from "@/components/motion/scroll-reveal";
 import { WordHighlight } from "@/components/motion/word-highlight";
+import { PulseNumber } from "@/components/motion/pulse-number";
 import {
   TMON_PORTFOLIO_PERIOD,
   TMON_ROAS_MONTHLY,
@@ -60,7 +61,7 @@ export function TmonCase() {
               월별 ROAS · 12 개월
             </h3>
             <span className="text-meta opacity-50 tabular-nums">
-              피크 {peakRoas.toLocaleString()}%
+              피크 <PulseNumber className="text-[var(--accent)] opacity-100">{peakRoas.toLocaleString()}%</PulseNumber>
             </span>
           </div>
 
