@@ -1,26 +1,13 @@
 export function Footer() {
   return (
-    <footer className="px-6 md:px-10 lg:px-16 py-16 border-t border-[var(--line)]">
-      <div className="flex flex-col md:flex-row justify-between gap-8">
-        <div>
-          <p className="text-[40px] font-display mb-4">정인수</p>
-          <p className="text-meta opacity-60">AI Builder · 17년 마케터</p>
-        </div>
-        <div className="text-meta space-y-2 opacity-80">
-          <p>
-            <a
-              href="mailto:9843ohs@gmail.com"
-              className="hover:text-[var(--accent)] transition-colors"
-            >
-              9843ohs@gmail.com
-            </a>
-          </p>
-          <p>
-            <a href="/정인수 이력서_260505.pdf" download="정인수 이력서.pdf" className="hover:text-[var(--accent)] transition-colors">
-              이력서 PDF
-            </a>
-          </p>
-        </div>
+    <footer className="px-6 md:px-10 lg:px-16 py-6 border-t border-[var(--line)]">
+      <div className="flex items-baseline justify-center gap-3">
+        <span className="text-[28px] md:text-[32px] font-display leading-none">
+          정인수
+        </span>
+        <span className="text-meta opacity-60">
+          AI Builder · 17년 마케터
+        </span>
       </div>
     </footer>
   );

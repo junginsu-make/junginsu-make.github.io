@@ -32,9 +32,14 @@ export function Nav() {
     <nav className="fixed top-0 left-0 right-0 z-50 px-6 md:px-10 lg:px-16 py-5 flex items-center justify-between backdrop-blur-md bg-[var(--bg)]/70 border-b border-[var(--line)]">
       <Link
         href="/"
-        className="text-[24px] md:text-[28px] font-display tracking-tight text-[var(--fg)]"
+        className="inline-flex items-baseline gap-2 text-[var(--fg)]"
       >
-        Jung In su
+        <span className="text-[24px] md:text-[28px] font-display tracking-tight">
+          Jung In su
+        </span>
+        <span className="hidden md:inline text-meta tracking-[0.15em] uppercase text-[var(--accent)] opacity-80">
+          Portfolio
+        </span>
       </Link>
 
       {/* desktop links */}
