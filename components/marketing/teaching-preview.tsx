@@ -130,7 +130,7 @@ export function TeachingPreview({ photos }: Props) {
                 </span>
               </p>
               <p className="text-display-md font-display leading-[1.1] tracking-[-0.02em]">
-                정부 부처 · 대학 · 창업지원센터까지
+                정부 부처 · 대학 · 창업지원센터 · 개인사업자까지
               </p>
             </div>
 
