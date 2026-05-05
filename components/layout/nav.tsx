@@ -42,8 +42,8 @@ export function Nav() {
         </span>
       </Link>
 
-      {/* desktop links */}
-      <ul className="hidden md:flex gap-8 text-meta text-[var(--fg)]">
+      {/* desktop links — viewport 중앙 정렬 */}
+      <ul className="hidden md:flex gap-8 text-meta text-[var(--fg)] absolute left-1/2 -translate-x-1/2">
         {LINKS.map((l) => {
           const active = isActive(pathname, l.href);
           return (
@@ -72,13 +72,6 @@ export function Nav() {
 
       {/* right cluster */}
       <div className="flex items-center gap-3">
-        <a
-          href="/정인수 이력서_260505.pdf"
-          download="정인수 이력서.pdf"
-          className="hidden md:inline-flex items-center gap-2 h-10 px-5 rounded-full bg-[var(--accent)] text-[var(--bg)] text-meta font-semibold shadow-[0_0_0_2px_color-mix(in_oklab,var(--accent)_30%,transparent)] hover:shadow-[0_0_0_6px_color-mix(in_oklab,var(--accent)_25%,transparent)] hover:-translate-y-0.5 transition-all duration-300"
-        >
-          이력서 ↓
-        </a>
         <ThemeToggle />
 
         {/* mobile menu trigger */}
@@ -142,14 +135,6 @@ export function Nav() {
             </ul>
 
             <div className="mt-auto pt-8 border-t border-[var(--line)] space-y-5">
-              <a
-                href="/정인수 이력서_260505.pdf"
-                download="정인수 이력서.pdf"
-                onClick={() => setMobileOpen(false)}
-                className="inline-flex items-center gap-2 h-10 px-5 rounded-full border border-[var(--fg)]/30 text-[13px] tracking-[0.08em] uppercase font-mono hover:bg-[var(--accent)] hover:text-[var(--bg)] hover:border-[var(--accent)] transition-colors"
-              >
-                이력서 다운로드 ↓
-              </a>
               <div>
                 <p className="text-meta opacity-50 mb-3 tracking-[0.2em]">
                   CONTACT

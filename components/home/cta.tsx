@@ -1,7 +1,6 @@
 "use client";
 import { useState } from "react";
 import { Magnetic } from "@/components/motion/magnetic";
-import { ScrollReveal } from "@/components/motion/scroll-reveal";
 import { CONTACT_EMAIL } from "@/lib/data/home";
 
 export function Cta() {
@@ -43,15 +42,6 @@ export function Cta() {
           })}
         </a>
       </Magnetic>
-      <ScrollReveal delay={0.6}>
-        <a
-          href="/정인수 이력서_260505.pdf"
-          download="정인수 이력서.pdf"
-          className="text-meta mt-16 underline-offset-4 hover:underline opacity-70 hover:opacity-100 transition-opacity inline-block"
-        >
-          이력서 PDF 다운로드 →
-        </a>
-      </ScrollReveal>
     </section>
   );
 }

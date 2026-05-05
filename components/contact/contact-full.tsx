@@ -29,12 +29,6 @@ const CHANNELS = [
 
 const RESOURCES = [
   {
-    label: "이력서",
-    href: "/정인수 이력서_260505.pdf",
-    download: "정인수 이력서.pdf",
-    meta: "PDF · 마지막 갱신 2026-05",
-  },
-  {
     label: "TMON ROAS 운영 보고서",
     href: "/marketing-portfolio/page-01.jpg",
     meta: "PNG · 7404% 검증 차트",
@@ -122,7 +116,8 @@ export function ContactFull() {
                 <a
                   key={r.label}
                   href={r.href}
-                  {...(r.download ? { download: r.download } : { target: "_blank", rel: "noreferrer" })}
+                  target="_blank"
+                  rel="noreferrer"
                   className="group flex items-baseline justify-between border-b border-[var(--line)] py-3 hover:border-[var(--accent)] transition-colors duration-300"
                 >
                   <span className="text-body-lg group-hover:text-[var(--accent)] transition-colors duration-300">
