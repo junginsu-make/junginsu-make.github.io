@@ -119,12 +119,12 @@ export const SAAS_LIST: SaaSDetail[] = [
       {
         title: "이미지 모델 라우팅 4종",
         description:
-          "Auto / Nano Banana Pro / GPT Image 2 / Flux Pro 2 자동 선택 또는 수동 지정. 광고 컨셉에 맞는 모델 자동 라우팅 — 사실적 vs 일러스트레이션 스타일 자동 매칭.",
+          "Auto / Nano Banana / GPT Image / Flux 자동 선택 또는 수동 지정. 광고 컨셉에 맞는 모델 자동 라우팅 — 사실적 vs 일러스트레이션 스타일 자동 매칭.",
       },
       {
         title: "영상·음악 모델 통합",
         description:
-          "Veo 3.1 + Kling v3 Pro + ElevenLabs Music. 영상 모델은 컨셉에 따라 자동 라우팅, 음악은 ElevenLabs로 광고 분위기 매칭 BGM 생성.",
+          "Veo + Kling + ElevenLabs Music. 영상 모델은 컨셉에 따라 자동 라우팅, 음악은 ElevenLabs로 광고 분위기 매칭 BGM 생성.",
       },
       {
         title: "씬별 편집 풀세트",
@@ -134,15 +134,15 @@ export const SAAS_LIST: SaaSDetail[] = [
       {
         title: "광고 영상 자동 생성 모드",
         description:
-          "브랜드/제품 양식 (메시지·타겟·컨셉·9:16/30s) 입력 → Gemini 3.1 Pro + Gemini Image + Kling v3 Pro + ElevenLabs Music 일괄 생성. 클라이언트는 양식만 채우면 5분 후 완성된 광고 영상이 나옴.",
+          "브랜드/제품 양식 (메시지·타겟·컨셉·9:16/30s) 입력 → Gemini + Gemini Image + Kling + ElevenLabs Music 일괄 생성. 클라이언트는 양식만 채우면 5분 후 완성된 광고 영상이 나옴.",
       },
     ],
     techStack: [
       "Next.js",
       "shadcn/ui",
-      "Veo 3.1",
-      "Kling v3 Pro",
-      "Flux Pro 2",
+      "Veo",
+      "Kling",
+      "Flux",
       "Gemini Image",
       "ElevenLabs",
     ],
