@@ -65,7 +65,7 @@ export function TeachingPreview({ photos }: Props) {
       </ScrollReveal>
 
       {/* 좌 사진 carousel + 우 카운터 · 태그 */}
-      <div className="grid md:grid-cols-12 gap-8 md:gap-12 items-start">
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-start">
         {/* LEFT — 자동 carousel */}
         <ScrollReveal className="md:col-span-7">
           <div
