@@ -41,7 +41,7 @@ export const IMPACT_STREAMS: ImpactStream[] = [
   {
     id: "ai-content-op",
     number: "03",
-    title: "AI Content Operation · 16+ 기업 운영",
+    title: "AI Content Operation · 18+ 기업 운영",
     bullets: [
       "성동청년이룸창업지원센터 (+2 입주기업) · 고려대학교기술지주 (+5 입주기업) · 제2서울핀테크랩 (+5 입주기업) · 서울도시철도엔지니어링 · 시스트란 · 모두솔루션 · 리부트라이프",
       "콘텐츠 자동화 + 데이터 기반 마케팅 전략 운영 — 인큐베이터/센터 안 입주기업 직접 운영 포함",
@@ -91,7 +91,7 @@ export const CAREER_FULL: Company[] = [
     role: "Agent 본부 팀장",
     salary: "6,500만원",
     impact:
-      "AI Builder 100+ 자체 시스템 / AI SaaS PL 4건 / AI Content Operation 16+ 기업 운영",
+      "AI Builder 100+ 자체 시스템 / AI SaaS PL 4건 / AI Content Operation 18+ 기업 운영",
     current: true,
   },
   {

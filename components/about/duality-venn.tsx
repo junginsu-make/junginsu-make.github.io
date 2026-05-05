@@ -13,14 +13,14 @@ const LEFT_ITEMS = [
 
 const RIGHT_ITEMS = [
   "풀사이클 자동화",
-  "Vibe Coding 43 공개 저장소",
+  "Vibe Coding 43",
   "자동화 시나리오 81",
   "6 라이브 SaaS · AI SaaS PL 4건",
 ];
 
 const INTERSECTION_ITEMS = [
   "콘텐츠 자동화 — 마케팅 + AI 융합",
-  "AI Content Operation 7+ 클라이언트",
+  "AI Content Operation 18+ 기업 운영",
   "정부 부처 · 창업지원센터 AI 강의",
 ];
 

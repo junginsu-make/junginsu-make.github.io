@@ -19,13 +19,13 @@ describe("Marketing Data", () => {
     );
   });
 
-  it("AI Content Operation — 7 채널 + 16+ 기업 (입주기업 포함)", () => {
+  it("AI Content Operation — 7 채널 + 18+ 기업 (입주기업 포함)", () => {
     expect(AI_CONTENT_OP_CLIENTS.length).toBeGreaterThanOrEqual(7);
     expect(AI_CONTENT_OP_CLIENTS.map((c) => c.name)).toContain(
       "성동청년이룸창업지원센터",
     );
-    // 인큐베이터/센터 안 입주기업 + 단일 기업 합계
-    expect(AI_CONTENT_OP_TOTAL).toBe(16);
+    // 인큐베이터/센터 안 입주기업 + 단일 기업 합계 (사용자 확인 18+)
+    expect(AI_CONTENT_OP_TOTAL).toBe(18);
   });
 
   it("Capsule PM 4 명시 + 14건 추가", () => {

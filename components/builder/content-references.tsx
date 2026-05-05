@@ -311,7 +311,7 @@ export function ContentReferences() {
         <p className="text-meta opacity-50 leading-[1.7] lg:whitespace-nowrap">
           ※ 모든 콘텐츠는 자체 자동화 시스템으로 기획·생성·발행. 위 6 작품은
           시스템 결과물의 일부 — 이 시스템은{" "}
-          <span className="text-[var(--accent)]">16+ 기업</span>에 실제 운영 중
+          <span className="text-[var(--accent)]">18+ 기업</span>에 실제 운영 중
           (인큐베이터 입주기업 포함, 자세한 클라이언트 리스트는{" "}
           <span className="text-[var(--accent)]">/marketing</span> 페이지 AI
           Content Operation).

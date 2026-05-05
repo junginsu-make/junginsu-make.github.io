@@ -124,7 +124,7 @@ export const BUILD_TRACKS: BuildTrack[] = [
       "Multi-LLM 라우팅 (Claude · GPT · Gemini · Perplexity)",
       "shadcn/ui · Recharts · React Flow · Radix · Zustand · Dexie",
     ],
-    metric: { value: "43", label: "Vibe Coding 공개 저장소" },
+    metric: { value: "43", label: "Vibe Coding 저장소" },
     color: "accent",
   },
   {
