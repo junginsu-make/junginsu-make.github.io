@@ -81,22 +81,24 @@ export function Nav() {
           <SheetTrigger asChild>
             <button
               type="button"
-              className="md:hidden inline-flex items-center justify-center w-10 h-10 -mr-2 text-[var(--fg)]"
+              className="md:hidden inline-flex items-center gap-1.5 h-10 px-3.5 rounded-full border border-current/30 hover:bg-current/5 text-[var(--fg)] text-meta font-semibold tracking-[0.08em] transition-colors"
               aria-label="메뉴 열기"
             >
               <svg
-                width="22"
-                height="22"
+                width="16"
+                height="16"
                 viewBox="0 0 22 22"
                 fill="none"
                 stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="square"
+                strokeWidth="2"
+                strokeLinecap="round"
                 aria-hidden
               >
-                <line x1="3" y1="7" x2="19" y2="7" />
-                <line x1="3" y1="15" x2="19" y2="15" />
+                <line x1="3" y1="6" x2="19" y2="6" />
+                <line x1="3" y1="11" x2="19" y2="11" />
+                <line x1="3" y1="16" x2="19" y2="16" />
               </svg>
+              MENU
             </button>
           </SheetTrigger>
           <SheetContent
