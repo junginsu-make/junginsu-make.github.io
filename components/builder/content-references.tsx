@@ -247,9 +247,10 @@ export function ContentReferences() {
   const blogs = BUILDER_CONTENT_REFS.filter((r) =>
     r.type === "blog-google" || r.type === "blog-naver",
   ) as Extract<BuilderContentRef, { type: "blog-google" | "blog-naver" }>[];
-  const shorts = BUILDER_CONTENT_REFS.find((r) => r.type === "shorts") as
-    | Extract<BuilderContentRef, { type: "shorts" }>
-    | undefined;
+  const shorts = BUILDER_CONTENT_REFS.filter((r) => r.type === "shorts") as Extract<
+    BuilderContentRef,
+    { type: "shorts" }
+  >[];
 
   return (
     <section className="px-6 md:px-10 lg:px-16 py-24 md:py-32 border-t border-[var(--line)]">
@@ -295,12 +296,14 @@ export function ContentReferences() {
         ))}
       </div>
 
-      {/* 행 3: YouTube Shorts (PhoneMockup, 가운데 정렬) */}
-      {shorts && (
-        <div className="flex justify-center">
-          <ScrollReveal className="w-full md:w-1/3">
-            <ShortsVideoCard ref={shorts} />
-          </ScrollReveal>
+      {/* 행 3: YouTube Shorts (PhoneMockup × 3, 같은 줄 + 기존 중앙) */}
+      {shorts.length > 0 && (
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-10 lg:gap-16">
+          {shorts.map((s, i) => (
+            <ScrollReveal key={s.slug} delay={i * 0.08}>
+              <ShortsVideoCard ref={s} />
+            </ScrollReveal>
+          ))}
         </div>
       )}
 

@@ -145,9 +145,23 @@ export const BUILDER_CONTENT_REFS: BuilderContentRef[] = [
   },
   {
     type: "shorts",
+    slug: "shorts-2",
+    title: "Automation Reel #2",
+    caption: "YouTube Shorts · 9:16",
+    videoId: "oIWix6kKBEw",
+  },
+  {
+    type: "shorts",
     slug: "shorts-travel-korea",
     title: "Travel Korea without the weight",
     caption: "YouTube Shorts · 9:16",
     videoId: "SmtY7-8JpOk",
+  },
+  {
+    type: "shorts",
+    slug: "shorts-3",
+    title: "Automation Reel #3",
+    caption: "YouTube Shorts · 9:16",
+    videoId: "N7NZgo_7Rfc",
   },
 ];
