@@ -7,7 +7,7 @@ export function Cta() {
   const [hoverIdx, setHoverIdx] = useState<number | null>(null);
 
   return (
-    <section className="bg-[var(--color-ink-dark)] text-[var(--color-paper-dark)] flex flex-col items-center justify-center px-6 md:px-10 lg:px-16 py-20 md:py-24 text-center">
+    <section className="bg-[var(--bg)] text-[var(--fg)] border-t border-[var(--line)] flex flex-col items-center justify-center px-6 md:px-10 lg:px-16 py-20 md:py-24 text-center">
       <Magnetic strength={0.5}>
         <a
           href={`mailto:${CONTACT_EMAIL}`}
@@ -33,7 +33,7 @@ export function Cta() {
                 className="inline-block transition-all duration-300 ease-out"
                 style={{
                   transform: `translateY(${lift}px)`,
-                  color: colored ? "var(--color-orange-dark)" : "inherit",
+                  color: colored ? "var(--accent)" : "inherit",
                 }}
               >
                 {char}
