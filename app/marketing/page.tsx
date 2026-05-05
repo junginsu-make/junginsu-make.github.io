@@ -46,9 +46,9 @@ export default function Marketing() {
       <TmonCase />
       <TeachingPreview photos={teachingPhotos} />
       <MarketingSpecialties />
-      <PublicAgencies />
       <AdChannels />
       <AiClients />
+      <PublicAgencies />
     </>
   );
 }
