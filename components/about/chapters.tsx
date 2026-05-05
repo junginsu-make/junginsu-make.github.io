@@ -42,7 +42,7 @@ export function Chapters() {
   return (
     <section className="px-6 md:px-10 lg:px-16 py-32 bg-[var(--bg)] text-[var(--fg)]">
       <p className="text-meta opacity-50 mb-8">5 CHAPTERS</p>
-      <h2 className="text-display-md font-display mb-24 max-w-[10ch]">
+      <h2 className="text-display-md font-display mb-24 max-w-[13ch]">
         한 사람의 궤적은 우연히 그려지지 않는다.
       </h2>
       <div className="space-y-32 md:space-y-40">
