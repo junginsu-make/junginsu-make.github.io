@@ -7,11 +7,11 @@ export function Cta() {
   const [hoverIdx, setHoverIdx] = useState<number | null>(null);
 
   return (
-    <section className="bg-[var(--bg)] text-[var(--fg)] border-t border-[var(--line)] flex flex-col items-center justify-center px-6 md:px-10 lg:px-16 py-20 md:py-24 text-center">
+    <section className="relative z-10 bg-[var(--bg)] text-[var(--fg)] border-t border-[var(--line)] flex min-h-[42vh] flex-col items-center justify-center px-6 py-24 text-center md:min-h-[46vh] md:px-10 md:py-28 lg:px-16">
       <Magnetic strength={0.5}>
         <a
           href={`mailto:${CONTACT_EMAIL}`}
-          className="text-display-lg md:text-display-xl font-display whitespace-nowrap inline-block tracking-tight"
+          className="inline-block max-w-full whitespace-nowrap font-display text-[clamp(30px,8.8vw,56px)] leading-none tracking-normal md:text-display-xl"
           onMouseLeave={() => setHoverIdx(null)}
         >
           {Array.from(CONTACT_EMAIL).map((char, i) => {

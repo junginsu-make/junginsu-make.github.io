@@ -1,8 +1,8 @@
 ---
 title: AI Chat Widget — 좌하단 위젯 + Gemini 백엔드 + 푸터 작성일
 date: 2026-05-06
-status: in-progress
-branch: feat/chat-widget
+status: deployed
+branch: main
 rollback_tag: pre-chat-widget
 ---
 
@@ -231,3 +231,38 @@ body: {
 2. 해당 Phase 테스트 모두 통과
 3. 로컬 commit (스냅샷) 완료
 4. 다음 Phase로 자동 진입
+
+## 11. 2026-05-06 운영 동기화
+
+현재 운영 구현은 초기 설계의 "말풍선 SVG 아이콘" 단계에서 사용자 제공 캐릭터 기반 위젯으로 변경되었다.
+
+**캐릭터 자산**
+- 원본: `Character image/character-walking-slowly/character-walking-slowly/autosprite-blink.png`
+- 배포 자산: `public/characters/autosprite-blink.png`
+- 렌더러: `components/chat/walking-character.tsx`
+- atlas: 5x5, 25프레임, 1280x1280 PNG를 CSS background-position으로 재생
+
+**채팅 트리거 동작**
+- 위치: 전역 `app/layout.tsx`의 `<ChatWidget />`, 모든 페이지 좌하단 노출
+- 크기: 데스크톱 128px, 모바일 100px
+- 이동: 하단에서 왼쪽 끝과 오른쪽 끝을 `linear` 왕복. 랜덤 이동/중간 정지 제거
+- 방향: 좌→우 이동 중 오른쪽 방향 유지, 우측 끝에서만 반전, 우→좌 이동 중 왼쪽 방향 유지
+- 말풍선: 캐릭터 위에 8초 주기로 `무엇이든 물어보세요^^` 표시. 말풍선은 캐릭터 좌우 반전에 영향받지 않음
+- 접근성: `prefers-reduced-motion: reduce`에서는 이동과 말풍선 반복 애니메이션을 정지
+
+**채팅 메시지**
+- 초기 인사말은 자연스러운 줄바꿈으로 표시
+- assistant markdown paragraph에 `whitespace-pre-line` 적용
+
+**모바일 홈 CTA**
+- `components/home/cta.tsx`는 `min-h-[42vh]`, 충분한 상하 padding, 모바일 안전 폰트 크기 적용
+- `한 사람, 두 면` 섹션과 `9843ohs@gmail.com` CTA가 모바일에서 겹치지 않도록 독립 구간으로 분리
+
+**검증 커맨드**
+- `pnpm test -- --runInBand`
+- `pnpm build`
+- Playwright 수동 확인: 데스크톱 캐릭터 이동/말풍선, 모바일 CTA 간격
+
+**배포**
+- GitHub main merge 후 Cloudflare Pages 직접 배포 경로 확인됨:
+  `pnpm dlx wrangler pages deploy out --project-name junginsu-portfolio`
