@@ -30,6 +30,9 @@ const MOBILE_CHARACTER_SIZE = 100;
 const DESKTOP_LEFT_INSET = 24;
 const MOBILE_LEFT_INSET = 16;
 const RIGHT_INSET = 18;
+const MOBILE_CLOSE_DRAG_OFFSET = 42;
+const MOBILE_CLOSE_DRAG_VELOCITY = 260;
+const MOBILE_PANEL_DRAG_CONSTRAINTS = { left: -280, right: 0 };
 
 export function ChatWidget() {
   const [open, setOpen] = useState(false);
@@ -130,7 +133,10 @@ export function ChatWidget() {
   };
 
   const handleDragEnd = (_: unknown, info: PanInfo) => {
-    if (info.offset.x < -100 || info.velocity.x < -500) {
+    if (
+      info.offset.x < -MOBILE_CLOSE_DRAG_OFFSET ||
+      info.velocity.x < -MOBILE_CLOSE_DRAG_VELOCITY
+    ) {
       setOpen(false);
     }
   };
@@ -260,8 +266,12 @@ export function ChatWidget() {
               aria-modal={isMobile}
               {...panelMotion}
               drag={isMobile ? "x" : false}
-              dragConstraints={{ left: 0, right: 0 }}
-              dragElastic={{ left: 0.6, right: 0 }}
+              dragConstraints={
+                isMobile ? MOBILE_PANEL_DRAG_CONSTRAINTS : { left: 0, right: 0 }
+              }
+              dragDirectionLock
+              dragElastic={{ left: 0.18, right: 0 }}
+              dragMomentum={false}
               onDragEnd={handleDragEnd}
               className={cn(
                 "fixed z-50 flex flex-col bg-[var(--bg)] border border-[var(--line)] shadow-2xl",
