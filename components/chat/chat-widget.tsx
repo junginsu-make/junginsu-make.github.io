@@ -133,31 +133,30 @@ export function ChatWidget() {
             type="button"
             onClick={() => setOpen(true)}
             aria-label="정인수 AI 채팅 열기"
-            initial={{ opacity: 0, scale: 0.85 }}
+            initial={{ opacity: 0 }}
             animate={{
               opacity: 1,
-              scale: 1,
               x: [0, isMobile ? 140 : 240, 0],
-              y: [0, -2, 0, -2, 0, -2, 0, -2, 0, -2, 0, -2, 0, -2, 0],
+              scaleX: [1, 1, -1, -1, 1],
             }}
-            exit={{ opacity: 0, scale: 0.85 }}
+            exit={{ opacity: 0 }}
             transition={{
-              opacity: { duration: 0.25, ease: [0.6, 0.05, 0.3, 0.95] },
-              scale: { duration: 0.25, ease: [0.6, 0.05, 0.3, 0.95] },
+              opacity: { duration: 0.3, ease: [0.6, 0.05, 0.3, 0.95] },
               x: { duration: 14, repeat: Infinity, ease: "easeInOut" },
-              y: { duration: 0.55, repeat: Infinity, ease: "linear" },
+              scaleX: {
+                duration: 14,
+                repeat: Infinity,
+                times: [0, 0.485, 0.515, 0.985, 1],
+                ease: "linear",
+              },
             }}
-            whileHover={{ scale: 1.08 }}
-            whileTap={{ scale: 0.95 }}
-            className="fixed bottom-3 left-4 md:bottom-6 md:left-6 z-50 inline-flex items-center justify-center w-14 h-14 md:w-16 md:h-16 cursor-pointer drop-shadow-[0_4px_12px_rgba(0,0,0,0.18)] dark:drop-shadow-[0_4px_12px_rgba(0,0,0,0.45)]"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.92 }}
+            className="fixed bottom-3 left-4 md:bottom-6 md:left-6 z-50 w-[72px] h-[72px] cursor-pointer p-0 border-0 bg-transparent"
           >
-            <img
-              src="/chat-mascot.png"
-              alt="정인수 캐릭터"
-              width={64}
-              height={64}
-              className="w-full h-full object-contain pointer-events-none select-none"
-              draggable={false}
+            <span
+              className="block w-full h-full mascot-walk-anim drop-shadow-[0_4px_12px_rgba(0,0,0,0.18)] dark:drop-shadow-[0_4px_12px_rgba(0,0,0,0.45)] pointer-events-none"
+              aria-hidden
             />
           </motion.button>
         )}
