@@ -10,7 +10,7 @@ import {
   type KeyboardEvent,
 } from "react";
 import { AnimatePresence, motion, type PanInfo } from "framer-motion";
-import { Send, X } from "lucide-react";
+import { Send, Sparkles, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import {
   ChatMessageBubble,
@@ -80,14 +80,6 @@ export function ChatWidget() {
     if (prefersReducedMotion) return 0;
     return Math.min(58, Math.max(28, travelDistance / (isMobile ? 18 : 22)));
   }, [isMobile, prefersReducedMotion, travelDistance]);
-
-  useEffect(() => {
-    if (open) {
-      requestAnimationFrame(() => {
-        textareaRef.current?.focus();
-      });
-    }
-  }, [open]);
 
   useEffect(() => {
     const el = scrollRef.current;
@@ -210,7 +202,15 @@ export function ChatWidget() {
                   times: [0, 0.16, 0.22, 0.58, 0.72, 1],
                 }}
               >
-                <span className="block">무엇이든 물어보세요^^</span>
+                <span className="inline-flex items-center gap-1.5">
+                  <span>무엇이든 물어보세요</span>
+                  <Sparkles
+                    size={13}
+                    strokeWidth={2.2}
+                    className="text-[var(--accent)]"
+                    aria-hidden
+                  />
+                </span>
                 <span className="absolute left-1/2 top-full h-2 w-2 -translate-x-1/2 -translate-y-1 rotate-45 border-b border-r border-[var(--line)] bg-[var(--bg)]/95" />
               </motion.span>
             )}
