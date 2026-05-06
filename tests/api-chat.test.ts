@@ -218,9 +218,9 @@ describe("SYSTEM_PROMPT", () => {
     expect(SYSTEM_PROMPT_FOR_TESTS).toContain("7,404%");
   });
 
-  it("마크다운 금지 지시가 포함된다", () => {
+  it("마크다운 사용 가능 지시 (자연스러운 포맷팅)", () => {
     expect(SYSTEM_PROMPT_FOR_TESTS).toContain("마크다운");
-    expect(SYSTEM_PROMPT_FOR_TESTS).toMatch(/금지|사용 ?하지/);
+    expect(SYSTEM_PROMPT_FOR_TESTS).toMatch(/사용 가능|자유롭게|자연스럽게/);
   });
 
   it("프롬프트 인젝션 방어 지시가 포함된다", () => {
