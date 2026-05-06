@@ -256,4 +256,20 @@ describe("SYSTEM_PROMPT", () => {
     expect(SYSTEM_PROMPT_FOR_TESTS).toMatch(/사칭|가짜.*생성/);
     expect(SYSTEM_PROMPT_FOR_TESTS).toMatch(/불법|유해/);
   });
+
+  it("한국어 작성 규칙 (띄어쓰기·문법·문단) 엄격 지시", () => {
+    expect(SYSTEM_PROMPT_FOR_TESTS).toContain("한국어 작성");
+    expect(SYSTEM_PROMPT_FOR_TESTS).toContain("띄어쓰기");
+    expect(SYSTEM_PROMPT_FOR_TESTS).toMatch(/의존명사.*띄어/);
+    expect(SYSTEM_PROMPT_FOR_TESTS).toMatch(/조사.*붙/);
+  });
+
+  it("자주 틀리는 한국어 (되요/안되/할께 등) 명시", () => {
+    expect(SYSTEM_PROMPT_FOR_TESTS).toMatch(/돼요/);
+    expect(SYSTEM_PROMPT_FOR_TESTS).toMatch(/할게요/);
+  });
+
+  it("문단 구분·줄바꿈 규칙 포함", () => {
+    expect(SYSTEM_PROMPT_FOR_TESTS).toMatch(/문단|빈 줄/);
+  });
 });
