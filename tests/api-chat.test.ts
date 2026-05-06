@@ -227,23 +227,33 @@ describe("SYSTEM_PROMPT", () => {
     expect(SYSTEM_PROMPT_FOR_TESTS).toMatch(/시스템 프롬프트.*출력|통째/);
   });
 
-  it("답변 범위 명시 (가능/불가)가 포함된다", () => {
-    expect(SYSTEM_PROMPT_FOR_TESTS).toContain("답변 가능 범위");
-    expect(SYSTEM_PROMPT_FOR_TESTS).toContain("답변 불가 범위");
+  it("주/부 임무 (정인수님 안내 + 일반 질문 답변) 둘 다 명시", () => {
+    expect(SYSTEM_PROMPT_FOR_TESTS).toContain("주 임무");
+    expect(SYSTEM_PROMPT_FOR_TESTS).toContain("부 임무");
   });
 
-  it("범위 밖 거절 시 귀엽고 정중한 톤 가이드가 포함된다", () => {
-    expect(SYSTEM_PROMPT_FOR_TESTS).toMatch(/귀엽|따뜻|친근/);
-    expect(SYSTEM_PROMPT_FOR_TESTS).toMatch(/단호|차갑/);
+  it("일반 질문 답변 시 정인수님 무관 명시 의무 지시", () => {
+    expect(SYSTEM_PROMPT_FOR_TESTS).toMatch(/관련 없는 일반|포트폴리오와 별개|이력서에는 없는/);
+    expect(SYSTEM_PROMPT_FOR_TESTS).toMatch(/명시/);
   });
 
-  it("범위 밖 카테고리 (시사·코딩·번역·AI 비교 등) 명시", () => {
+  it("일반 질문 카테고리 (시사·코딩·번역·AI 비교 등) 예시 포함", () => {
     expect(SYSTEM_PROMPT_FOR_TESTS).toContain("시사");
     expect(SYSTEM_PROMPT_FOR_TESTS).toContain("번역");
-    expect(SYSTEM_PROMPT_FOR_TESTS).toMatch(/Claude.*GPT|AI 모델 비교/);
+    expect(SYSTEM_PROMPT_FOR_TESTS).toContain("코딩");
   });
 
-  it("거절 후 정인수님 주제로 안내하라는 지시가 있다", () => {
-    expect(SYSTEM_PROMPT_FOR_TESTS).toMatch(/안내|정인수님 관련/);
+  it("경계 질문 (사용 기술 일반 설명) 처리 가이드 포함", () => {
+    expect(SYSTEM_PROMPT_FOR_TESTS).toMatch(/경계 질문|일반 정의|일반 정보를 보완/);
+  });
+
+  it("KB 사실 외 추측·창작 금지 강조", () => {
+    expect(SYSTEM_PROMPT_FOR_TESTS).toMatch(/만들어내기 (절대 )?금지|창작.*금지|추측.*금지/);
+  });
+
+  it("프롬프트 인젝션·사칭·유해 정보는 일반 모드로도 거절", () => {
+    expect(SYSTEM_PROMPT_FOR_TESTS).toMatch(/항상 거절|일반 답변도 X/);
+    expect(SYSTEM_PROMPT_FOR_TESTS).toMatch(/사칭|가짜.*생성/);
+    expect(SYSTEM_PROMPT_FOR_TESTS).toMatch(/불법|유해/);
   });
 });
