@@ -10,11 +10,13 @@ const COLUMNS = 5;
 const FRAME_MS = 90;
 const STATIC_FRAME = 12;
 const FRONT_FRAME = 12;
+const TURN_FRAME_MS = 125;
+const TURN_TO_FRONT_FRAMES = [0, 1, 2, 3, 4, 8, 12, 12];
 
 type WalkingCharacterProps = {
   className?: string;
   animated?: boolean;
-  pose?: "walk" | "front";
+  pose?: "walk" | "turn-front" | "front";
 };
 
 export function WalkingCharacter({
@@ -24,7 +26,7 @@ export function WalkingCharacter({
 }: WalkingCharacterProps) {
   const ref = useRef<HTMLSpanElement>(null);
   const spriteUrl = useMemo(
-    () => (pose === "front" ? FRONT_SPRITE_URL : WALK_SPRITE_URL),
+    () => (pose === "walk" ? WALK_SPRITE_URL : FRONT_SPRITE_URL),
     [pose],
   );
 
@@ -50,6 +52,29 @@ export function WalkingCharacter({
     if (pose === "front") {
       setFrame(FRONT_FRAME);
       return;
+    }
+
+    if (pose === "turn-front") {
+      const start = performance.now();
+
+      const renderTurn = (now: number) => {
+        const elapsed = now - start;
+        const index = Math.min(
+          TURN_TO_FRONT_FRAMES.length - 1,
+          Math.floor(elapsed / TURN_FRAME_MS),
+        );
+        setFrame(TURN_TO_FRONT_FRAMES[index]);
+
+        if (index < TURN_TO_FRONT_FRAMES.length - 1) {
+          raf = requestAnimationFrame(renderTurn);
+        }
+      };
+
+      raf = requestAnimationFrame(renderTurn);
+
+      return () => {
+        cancelAnimationFrame(raf);
+      };
     }
 
     const render = (now: number) => {
