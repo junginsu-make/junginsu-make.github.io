@@ -40,6 +40,7 @@ const MOBILE_CLOSE_DRAG_OFFSET = 42;
 const MOBILE_CLOSE_DRAG_VELOCITY = 260;
 const MOBILE_PANEL_DRAG_CONSTRAINTS = { left: -280, right: 0 };
 const PROMPT_WALK_MS = 6200;
+const FRONT_HOLD_MS = 1900;
 
 export function ChatWidget() {
   const [open, setOpen] = useState(false);
@@ -52,7 +53,7 @@ export function ChatWidget() {
   const [travelDistance, setTravelDistance] = useState(0);
   const [characterFacing, setCharacterFacing] = useState<1 | -1>(1);
   const [characterPose, setCharacterPose] = useState<
-    "walk" | "turn-front" | "front"
+    "walk" | "turn-front" | "front" | "turn-back"
   >("walk");
   const [promptVisible, setPromptVisible] = useState(false);
   const characterControls = useAnimationControls();
@@ -62,6 +63,7 @@ export function ChatWidget() {
   const sendingRef = useRef(false);
   const swipeStartRef = useRef<{ x: number; y: number } | null>(null);
   const turnCompleteRef = useRef<(() => void) | null>(null);
+  const holdTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     const mq = window.matchMedia("(max-width: 767px)");
@@ -146,19 +148,36 @@ export function ChatWidget() {
         if (cancelled) break;
 
         x = nextX;
+        const previousDirection: 1 | -1 = direction;
         if (Math.abs(x - target) < 0.5) {
           direction = direction === 1 ? -1 : 1;
         }
 
-        setPromptVisible(true);
         setCharacterPose("turn-front");
         await new Promise<void>((resolve) => {
           turnCompleteRef.current = resolve;
         });
         if (cancelled) break;
-
         turnCompleteRef.current = null;
+
+        setCharacterPose("front");
+        setPromptVisible(true);
+        await new Promise<void>((resolve) => {
+          holdTimeoutRef.current = setTimeout(resolve, FRONT_HOLD_MS);
+        });
+        if (cancelled) break;
+        holdTimeoutRef.current = null;
+
         setPromptVisible(false);
+        if (direction !== previousDirection) {
+          setCharacterFacing(direction);
+        }
+        setCharacterPose("turn-back");
+        await new Promise<void>((resolve) => {
+          turnCompleteRef.current = resolve;
+        });
+        if (cancelled) break;
+        turnCompleteRef.current = null;
       }
     };
 
@@ -169,6 +188,10 @@ export function ChatWidget() {
       characterControls.stop();
       turnCompleteRef.current?.();
       turnCompleteRef.current = null;
+      if (holdTimeoutRef.current) {
+        clearTimeout(holdTimeoutRef.current);
+        holdTimeoutRef.current = null;
+      }
     };
   }, [
     characterControls,
@@ -235,10 +258,13 @@ export function ChatWidget() {
     }
   };
 
-  const handleCharacterPoseComplete = useCallback((pose: "turn-front") => {
-    if (pose !== "turn-front") return;
-    turnCompleteRef.current?.();
-  }, []);
+  const handleCharacterPoseComplete = useCallback(
+    (pose: "turn-front" | "turn-back") => {
+      if (pose !== "turn-front" && pose !== "turn-back") return;
+      turnCompleteRef.current?.();
+    },
+    [],
+  );
 
   const handlePanelPointerDown = (e: PointerEvent<HTMLDivElement>) => {
     if (!isMobile) return;

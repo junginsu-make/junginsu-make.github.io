@@ -40,6 +40,7 @@ yarn-error.log*
 
 # 원본 이미지 자산 — scripts/process-mascot.ts로 처리 후 public/에만 배포
 image/
+Character image/
 
 # vercel
 .vercel
