@@ -9,6 +9,9 @@ export function Footer() {
           AI Builder · 마케터
         </span>
       </div>
+      <p className="mt-3 text-center text-[11px] font-mono opacity-40 tracking-wider">
+        작성일: 2026. 5. 5.
+      </p>
     </footer>
   );
 }

@@ -104,19 +104,21 @@ export function ChatWidget() {
   };
 
   const panelMotion = useMemo(() => {
+    const mobileEase: [number, number, number, number] = [0.32, 0.72, 0, 1];
+    const desktopEase: [number, number, number, number] = [0.6, 0.05, 0.3, 0.95];
     if (isMobile) {
       return {
         initial: { x: "-100%" as const },
         animate: { x: 0 },
         exit: { x: "-100%" as const },
-        transition: { type: "tween" as const, duration: 0.32, ease: [0.32, 0.72, 0, 1] },
+        transition: { type: "tween" as const, duration: 0.32, ease: mobileEase },
       };
     }
     return {
       initial: { opacity: 0, y: 12, scale: 0.96 },
       animate: { opacity: 1, y: 0, scale: 1 },
       exit: { opacity: 0, y: 12, scale: 0.96 },
-      transition: { duration: 0.22, ease: [0.6, 0.05, 0.3, 0.95] as const },
+      transition: { duration: 0.22, ease: desktopEase },
     };
   }, [isMobile]);
 
