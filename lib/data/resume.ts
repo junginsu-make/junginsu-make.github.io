@@ -6,7 +6,7 @@ export const RESUME_TEXT = `
 [기본 정보]
 - 이름: 정인수 (남, 1983년생, 43세)
 - 거주: 서울 강북구 수유동
-- 이메일: sbcyberpass@naver.com (블로그) / junginsuai@gmail.com (이직 · 채용 컨택) / 9843ohs@gmail.com (SaaS · 비즈니스)
+- 이메일: sbcyberpass@naver.com (블로그) / 9843ohs@gmail.com (SaaS · 비즈니스)
 - 휴대폰: 010-6491-8919
 - 학력: 영동대학교(4년제) 사회복지학과 졸업 (2006.03~2010.02, 학점 3.98/4.5)
 - 고등학교: 용문고등학교 (서울특별시 성북구) 이과계열

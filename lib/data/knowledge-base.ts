@@ -121,7 +121,6 @@ const PUBLIC_LINKS = `
 - 블로그: https://blog.naver.com/sbcyberpass
 - Tickpoint SaaS: https://tickpoint.co.kr/
 - Lumio Video: https://lumio-video.vercel.app/
-- 이메일(이직 · 채용): junginsuai@gmail.com
 - 이메일(블로그): sbcyberpass@naver.com
 - 이메일(SaaS · 비즈니스): 9843ohs@gmail.com
 
