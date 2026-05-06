@@ -39,6 +39,13 @@ const RIGHT_INSET = 18;
 const MOBILE_CLOSE_DRAG_OFFSET = 42;
 const MOBILE_CLOSE_DRAG_VELOCITY = 260;
 const MOBILE_PANEL_DRAG_CONSTRAINTS = { left: -280, right: 0 };
+const PROMPT_WALK_MS = 6200;
+const PROMPT_PAUSE_MS = 2600;
+
+const delay = (ms: number) =>
+  new Promise<void>((resolve) => {
+    window.setTimeout(resolve, ms);
+  });
 
 export function ChatWidget() {
   const [open, setOpen] = useState(false);
@@ -50,6 +57,8 @@ export function ChatWidget() {
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
   const [travelDistance, setTravelDistance] = useState(0);
   const [characterFacing, setCharacterFacing] = useState<1 | -1>(1);
+  const [characterPose, setCharacterPose] = useState<"walk" | "front">("walk");
+  const [promptVisible, setPromptVisible] = useState(false);
   const characterControls = useAnimationControls();
 
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -96,41 +105,58 @@ export function ChatWidget() {
   useEffect(() => {
     let cancelled = false;
     const legDuration = walkDuration / 2;
+    const speed = legDuration > 0 ? travelDistance / legDuration : 0;
 
     const run = async () => {
       if (
         prefersReducedMotion ||
         open ||
         travelDistance <= 0 ||
-        legDuration <= 0
+        legDuration <= 0 ||
+        speed <= 0
       ) {
         setCharacterFacing(1);
+        setCharacterPose("walk");
+        setPromptVisible(false);
         characterControls.set({ opacity: 1, x: 0 });
         return;
       }
 
+      let x = 0;
+      let direction: 1 | -1 = 1;
+      const maxSegmentDistance = speed * (PROMPT_WALK_MS / 1000);
+
       characterControls.set({ opacity: 1, x: 0 });
 
       while (!cancelled) {
-        setCharacterFacing(1);
+        setCharacterPose("walk");
+        setPromptVisible(false);
+        setCharacterFacing(direction);
+
+        const target = direction === 1 ? travelDistance : 0;
+        const distanceToTarget = Math.abs(target - x);
+        const distance = Math.min(distanceToTarget, maxSegmentDistance);
+        const nextX = x + direction * distance;
+
         await characterControls.start({
           opacity: 1,
-          x: travelDistance,
+          x: nextX,
           transition: {
             opacity: { duration: 0.3, ease: [0.6, 0.05, 0.3, 0.95] },
-            x: { duration: legDuration, ease: "linear" },
+            x: { duration: distance / speed, ease: "linear" },
           },
         });
         if (cancelled) break;
 
-        setCharacterFacing(-1);
-        await characterControls.start({
-          opacity: 1,
-          x: 0,
-          transition: {
-            x: { duration: legDuration, ease: "linear" },
-          },
-        });
+        x = nextX;
+        if (Math.abs(x - target) < 0.5) {
+          direction = direction === 1 ? -1 : 1;
+        }
+
+        setCharacterPose("front");
+        setCharacterFacing(1);
+        setPromptVisible(true);
+        await delay(PROMPT_PAUSE_MS);
       }
     };
 
@@ -259,22 +285,14 @@ export function ChatWidget() {
             whileTap={{ scale: 0.94 }}
             className="fixed bottom-3 left-4 md:bottom-6 md:left-6 z-50 w-[100px] h-[100px] md:w-32 md:h-32 cursor-pointer p-0 border-0 bg-transparent"
           >
-            {!prefersReducedMotion && (
+            {!prefersReducedMotion && promptVisible && (
               <motion.span
                 className="absolute left-1/2 bottom-[86%] md:bottom-[84%] whitespace-nowrap rounded-full border border-[var(--line)] bg-[var(--bg)]/95 px-3 py-1.5 text-[11px] md:text-[12px] font-medium leading-none text-[var(--fg)] shadow-lg backdrop-blur-sm"
                 aria-hidden
                 initial={{ opacity: 0, y: 6, x: "-50%", scale: 0.94 }}
-                animate={{
-                  opacity: [0, 0, 1, 1, 0, 0],
-                  y: [6, 6, 0, 0, -2, 6],
-                  scale: [0.94, 0.94, 1, 1, 0.98, 0.94],
-                }}
-                transition={{
-                  duration: 8,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  times: [0, 0.16, 0.22, 0.58, 0.72, 1],
-                }}
+                animate={{ opacity: 1, y: 0, x: "-50%", scale: 1 }}
+                exit={{ opacity: 0, y: -2, x: "-50%", scale: 0.98 }}
+                transition={{ duration: 0.24, ease: "easeInOut" }}
               >
                 <span className="inline-flex items-center gap-1.5">
                   <span>무엇이든 물어보세요</span>
@@ -295,7 +313,8 @@ export function ChatWidget() {
             >
               <WalkingCharacter
                 className="w-full h-full drop-shadow-[0_5px_14px_rgba(0,0,0,0.20)] dark:drop-shadow-[0_5px_16px_rgba(0,0,0,0.50)] pointer-events-none"
-                animated={!prefersReducedMotion}
+                animated={!prefersReducedMotion && characterPose === "walk"}
+                pose={characterPose}
               />
             </motion.span>
           </motion.button>
