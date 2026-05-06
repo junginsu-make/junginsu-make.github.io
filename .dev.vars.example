@@ -1,0 +1,10 @@
+# 로컬 개발용 환경변수 — wrangler pages dev에서 자동 로드됨
+# 사용법:
+#   1. 이 파일을 .dev.vars로 복사
+#   2. Google AI Studio (https://aistudio.google.com/apikey)에서 키 발급
+#   3. 아래 값에 실제 키 붙여넣기
+#   4. pnpm dlx wrangler pages dev out --compatibility-date=2025-01-01
+#
+# 주의: .dev.vars는 .gitignore에 포함됨. 절대 commit하지 마세요.
+
+GEMINI_API_KEY=your-gemini-api-key-here
