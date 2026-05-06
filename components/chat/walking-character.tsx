@@ -1,24 +1,32 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useMemo, useRef } from "react";
 import { cn } from "@/lib/utils";
 
-const SPRITE_URL = "/characters/walking-slowly.png";
+const WALK_SPRITE_URL = "/characters/walking-slowly.png";
+const FRONT_SPRITE_URL = "/characters/autosprite-blink.png";
 const FRAME_COUNT = 25;
 const COLUMNS = 5;
 const FRAME_MS = 90;
 const STATIC_FRAME = 12;
+const FRONT_FRAME = 12;
 
 type WalkingCharacterProps = {
   className?: string;
   animated?: boolean;
+  pose?: "walk" | "front";
 };
 
 export function WalkingCharacter({
   className,
   animated = true,
+  pose = "walk",
 }: WalkingCharacterProps) {
   const ref = useRef<HTMLSpanElement>(null);
+  const spriteUrl = useMemo(
+    () => (pose === "front" ? FRONT_SPRITE_URL : WALK_SPRITE_URL),
+    [pose],
+  );
 
   useEffect(() => {
     const el = ref.current;
@@ -38,6 +46,11 @@ export function WalkingCharacter({
       el.style.backgroundSize = `${size * COLUMNS}px ${size * COLUMNS}px`;
       el.style.backgroundPosition = `-${col * size}px -${row * size}px`;
     };
+
+    if (pose === "front") {
+      setFrame(FRONT_FRAME);
+      return;
+    }
 
     const render = (now: number) => {
       setFrame(
@@ -60,13 +73,13 @@ export function WalkingCharacter({
       cancelAnimationFrame(raf);
       resizeObserver.disconnect();
     };
-  }, [animated]);
+  }, [animated, pose]);
 
   return (
     <span
       ref={ref}
       className={cn("block bg-no-repeat", className)}
-      style={{ backgroundImage: `url(${SPRITE_URL})` }}
+      style={{ backgroundImage: `url(${spriteUrl})` }}
       aria-hidden
     />
   );
