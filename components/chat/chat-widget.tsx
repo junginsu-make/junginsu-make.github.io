@@ -34,6 +34,7 @@ export function ChatWidget() {
 
   const scrollRef = useRef<HTMLDivElement>(null);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
+  const sendingRef = useRef(false);
 
   useEffect(() => {
     const mq = window.matchMedia("(max-width: 767px)");
@@ -58,7 +59,8 @@ export function ChatWidget() {
 
   const send = useCallback(async () => {
     const text = input.trim();
-    if (!text || loading) return;
+    if (!text || loading || sendingRef.current) return;
+    sendingRef.current = true;
 
     const next: ChatMessage[] = [...messages, { role: "user", content: text }];
     setMessages(next);
@@ -82,6 +84,7 @@ export function ChatWidget() {
       setError((e as Error).message);
     } finally {
       setLoading(false);
+      sendingRef.current = false;
     }
   }, [input, loading, messages]);
 

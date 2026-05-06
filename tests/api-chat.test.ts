@@ -154,7 +154,55 @@ describe("/api/chat — POST handler", () => {
     const ctx = makeContext({ messages });
     await onRequestPost(ctx);
     const body = JSON.parse(fetchSpy.mock.calls[0][1]?.body as string);
-    expect(body.contents).toHaveLength(12);
+    // leading assistant strip이 동작하면 12개 미만이 될 수도 있음. 최대 12개 검증.
+    expect(body.contents.length).toBeLessThanOrEqual(12);
+    expect(body.contents[0].role).toBe("user");
+  });
+
+  it("leading assistant 메시지는 제거 후 user로 시작", async () => {
+    const fetchSpy = vi.spyOn(globalThis, "fetch");
+    const ctx = makeContext({
+      messages: [
+        { role: "assistant", content: "합성 인사말" },
+        { role: "user", content: "안녕" },
+      ],
+    });
+    await onRequestPost(ctx);
+    const body = JSON.parse(fetchSpy.mock.calls[0][1]?.body as string);
+    expect(body.contents).toHaveLength(1);
+    expect(body.contents[0].role).toBe("user");
+    expect(body.contents[0].parts[0].text).toBe("안녕");
+  });
+
+  it("연속된 leading assistant 모두 제거", async () => {
+    const fetchSpy = vi.spyOn(globalThis, "fetch");
+    const ctx = makeContext({
+      messages: [
+        { role: "assistant", content: "인사1" },
+        { role: "assistant", content: "인사2" },
+        { role: "user", content: "안녕" },
+      ],
+    });
+    await onRequestPost(ctx);
+    const body = JSON.parse(fetchSpy.mock.calls[0][1]?.body as string);
+    expect(body.contents).toHaveLength(1);
+    expect(body.contents[0].role).toBe("user");
+  });
+
+  it("Gemini 오류 본문은 사용자에게 노출되지 않음", async () => {
+    vi.spyOn(globalThis, "fetch").mockResolvedValue(
+      new Response(
+        JSON.stringify({ error: { message: "INTERNAL_PROJECT_DETAIL_xyz" } }),
+        { status: 500 }
+      )
+    );
+    const ctx = makeContext({
+      messages: [{ role: "user", content: "테스트" }],
+    });
+    const res = await onRequestPost(ctx);
+    const data = (await res.json()) as { error: string };
+    expect(data.error).not.toContain("INTERNAL_PROJECT_DETAIL");
+    expect(data.error).toContain("AI 응답");
   });
 });
 
@@ -168,5 +216,14 @@ describe("SYSTEM_PROMPT", () => {
 
   it("KNOWLEDGE_BASE가 임베드된다 (TMON 수치 포함)", () => {
     expect(SYSTEM_PROMPT_FOR_TESTS).toContain("7,404%");
+  });
+
+  it("마크다운 금지 지시가 포함된다", () => {
+    expect(SYSTEM_PROMPT_FOR_TESTS).toContain("마크다운");
+    expect(SYSTEM_PROMPT_FOR_TESTS).toMatch(/금지|사용 ?하지/);
+  });
+
+  it("프롬프트 인젝션 방어 지시가 포함된다", () => {
+    expect(SYSTEM_PROMPT_FOR_TESTS).toMatch(/시스템 프롬프트|지식베이스 내용을 통째로/);
   });
 });

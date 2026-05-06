@@ -33,6 +33,10 @@ yarn-error.log*
 # env files (can opt-in for committing if needed)
 .env*
 
+# Cloudflare Pages local dev secrets — never commit
+.dev.vars
+.dev.vars.local
+
 # vercel
 .vercel
 

@@ -179,7 +179,7 @@ body: {
 
 ### Phase 5: 최종 검증
 
-- `pnpm build` — 정적 export 18 라우트 생성
+- `pnpm build` — 정적 export 21 라우트 생성
 - `out/` 디렉토리 검사 — index.html에 위젯 마운트, footer 텍스트 포함
 - 다크/라이트 모드 양쪽 토큰 적용 확인 (개발 서버에서)
 - 모바일/데스크톱 미디어쿼리 분기 확인
