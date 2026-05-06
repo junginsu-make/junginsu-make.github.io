@@ -27,14 +27,9 @@ const GREETING: ChatMessage = {
 
 const DESKTOP_CHARACTER_SIZE = 128;
 const MOBILE_CHARACTER_SIZE = 100;
-
-type WanderTarget = {
-  x: number;
-  y: number;
-  scaleX: 1 | -1;
-  rotate: number;
-  duration: number;
-};
+const DESKTOP_LEFT_INSET = 24;
+const MOBILE_LEFT_INSET = 16;
+const RIGHT_INSET = 18;
 
 export function ChatWidget() {
   const [open, setOpen] = useState(false);
@@ -44,19 +39,11 @@ export function ChatWidget() {
   const [error, setError] = useState<string | null>(null);
   const [isMobile, setIsMobile] = useState(false);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
-  const [characterMoving, setCharacterMoving] = useState(false);
-  const [wanderTarget, setWanderTarget] = useState<WanderTarget>({
-    x: 0,
-    y: 0,
-    scaleX: 1,
-    rotate: 0,
-    duration: 8,
-  });
+  const [travelDistance, setTravelDistance] = useState(0);
 
   const scrollRef = useRef<HTMLDivElement>(null);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const sendingRef = useRef(false);
-  const wanderPauseRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     const mq = window.matchMedia("(max-width: 767px)");
@@ -74,81 +61,25 @@ export function ChatWidget() {
     return () => mq.removeEventListener("change", apply);
   }, []);
 
-  const nextWanderTarget = useCallback(
-    (current: WanderTarget): WanderTarget => {
-      if (typeof window === "undefined" || prefersReducedMotion) {
-        return { x: 0, y: 0, scaleX: 1, rotate: 0, duration: 0 };
-      }
-
+  useEffect(() => {
+    const apply = () => {
       const size = isMobile ? MOBILE_CHARACTER_SIZE : DESKTOP_CHARACTER_SIZE;
-      const leftInset = isMobile ? 16 : 24;
-      const rightInset = 18;
-      const maxLift = isMobile ? 14 : 22;
-      const maxX = Math.max(0, window.innerWidth - leftInset - rightInset - size);
-      const nextX = Math.round(Math.random() * maxX);
-      const nextY = -Math.round(Math.random() * maxLift);
-      const distance = Math.hypot(nextX - current.x, nextY - current.y);
-
-      return {
-        x: nextX,
-        y: nextY,
-        scaleX: nextX >= current.x ? 1 : -1,
-        rotate: Math.round((Math.random() - 0.5) * 2),
-        duration: Math.min(20, Math.max(8, distance / (isMobile ? 22 : 26))),
-      };
-    },
-    [isMobile, prefersReducedMotion]
-  );
-
-  useEffect(() => {
-    if (open || prefersReducedMotion) {
-      if (wanderPauseRef.current) {
-        clearTimeout(wanderPauseRef.current);
-        wanderPauseRef.current = null;
-      }
-      setCharacterMoving(false);
-      return;
-    }
-
-    const queueNextMove = (pauseMs: number) => {
-      if (wanderPauseRef.current) {
-        clearTimeout(wanderPauseRef.current);
-      }
-
-      wanderPauseRef.current = setTimeout(() => {
-        setWanderTarget((current) => {
-          const next = nextWanderTarget(current);
-
-          wanderPauseRef.current = setTimeout(() => {
-            setCharacterMoving(false);
-            queueNextMove(1400 + Math.random() * 1600);
-          }, next.duration * 1000);
-
-          return next;
-        });
-
-        setCharacterMoving(true);
-      }, pauseMs);
+      const leftInset = isMobile ? MOBILE_LEFT_INSET : DESKTOP_LEFT_INSET;
+      setTravelDistance(
+        Math.max(0, window.innerWidth - leftInset - RIGHT_INSET - size)
+      );
     };
 
-    queueNextMove(550);
+    apply();
+    window.addEventListener("resize", apply);
 
-    return () => {
-      if (wanderPauseRef.current) {
-        clearTimeout(wanderPauseRef.current);
-        wanderPauseRef.current = null;
-      }
-      setCharacterMoving(false);
-    };
-  }, [open, nextWanderTarget, prefersReducedMotion]);
+    return () => window.removeEventListener("resize", apply);
+  }, [isMobile]);
 
-  useEffect(() => {
-    return () => {
-      if (wanderPauseRef.current) {
-        clearTimeout(wanderPauseRef.current);
-      }
-    };
-  }, []);
+  const walkDuration = useMemo(() => {
+    if (prefersReducedMotion) return 0;
+    return Math.min(58, Math.max(28, travelDistance / (isMobile ? 18 : 22)));
+  }, [isMobile, prefersReducedMotion, travelDistance]);
 
   useEffect(() => {
     if (open) {
@@ -241,32 +172,67 @@ export function ChatWidget() {
             aria-label="정인수 AI 채팅 열기"
             initial={{ opacity: 0 }}
             animate={
-              prefersReducedMotion
-                ? { opacity: 1, x: 0, y: 0, scaleX: 1, rotate: 0 }
+              prefersReducedMotion || open
+                ? { opacity: 1, x: 0 }
                 : {
                     opacity: 1,
-                    x: wanderTarget.x,
-                    y: wanderTarget.y,
-                    scaleX: wanderTarget.scaleX,
-                    rotate: wanderTarget.rotate,
+                    x: [0, travelDistance, travelDistance, 0, 0],
                   }
             }
             exit={{ opacity: 0 }}
             transition={{
               opacity: { duration: 0.3, ease: [0.6, 0.05, 0.3, 0.95] },
-              x: { duration: wanderTarget.duration, ease: "easeInOut" },
-              y: { duration: wanderTarget.duration, ease: "easeInOut" },
-              scaleX: { duration: 0.18, ease: "linear" },
-              rotate: { duration: wanderTarget.duration, ease: "easeInOut" },
+              x: {
+                duration: walkDuration,
+                repeat: Infinity,
+                ease: "linear",
+                times: [0, 0.499, 0.501, 0.999, 1],
+              },
             }}
             whileHover={{ scale: 1.08 }}
             whileTap={{ scale: 0.94 }}
             className="fixed bottom-3 left-4 md:bottom-6 md:left-6 z-50 w-[100px] h-[100px] md:w-32 md:h-32 cursor-pointer p-0 border-0 bg-transparent"
           >
-            <WalkingCharacter
-              className="w-full h-full drop-shadow-[0_5px_14px_rgba(0,0,0,0.20)] dark:drop-shadow-[0_5px_16px_rgba(0,0,0,0.50)] pointer-events-none"
-              animated={characterMoving && !prefersReducedMotion}
-            />
+            {!prefersReducedMotion && (
+              <motion.span
+                className="absolute left-1/2 bottom-[86%] md:bottom-[84%] whitespace-nowrap rounded-full border border-[var(--line)] bg-[var(--bg)]/95 px-3 py-1.5 text-[11px] md:text-[12px] font-medium leading-none text-[var(--fg)] shadow-lg backdrop-blur-sm"
+                aria-hidden
+                initial={{ opacity: 0, y: 6, x: "-50%", scale: 0.94 }}
+                animate={{
+                  opacity: [0, 0, 1, 1, 0, 0],
+                  y: [6, 6, 0, 0, -2, 6],
+                  scale: [0.94, 0.94, 1, 1, 0.98, 0.94],
+                }}
+                transition={{
+                  duration: 8,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  times: [0, 0.16, 0.22, 0.58, 0.72, 1],
+                }}
+              >
+                <span className="block">무엇이든 물어보세요^^</span>
+                <span className="absolute left-1/2 top-full h-2 w-2 -translate-x-1/2 -translate-y-1 rotate-45 border-b border-r border-[var(--line)] bg-[var(--bg)]/95" />
+              </motion.span>
+            )}
+            <motion.span
+              className="block w-full h-full"
+              animate={
+                prefersReducedMotion
+                  ? { scaleX: 1 }
+                  : { scaleX: [1, 1, -1, -1, 1] }
+              }
+              transition={{
+                duration: walkDuration,
+                repeat: Infinity,
+                ease: "linear",
+                times: [0, 0.499, 0.501, 0.999, 1],
+              }}
+            >
+              <WalkingCharacter
+                className="w-full h-full drop-shadow-[0_5px_14px_rgba(0,0,0,0.20)] dark:drop-shadow-[0_5px_16px_rgba(0,0,0,0.50)] pointer-events-none"
+                animated={!prefersReducedMotion}
+              />
+            </motion.span>
           </motion.button>
         )}
       </AnimatePresence>
