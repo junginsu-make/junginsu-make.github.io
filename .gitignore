@@ -36,6 +36,10 @@ yarn-error.log*
 # Cloudflare Pages local dev secrets — never commit
 .dev.vars
 .dev.vars.local
+.wrangler/
+
+# 원본 이미지 자산 — scripts/process-mascot.ts로 처리 후 public/에만 배포
+image/
 
 # vercel
 .vercel
