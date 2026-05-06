@@ -17,11 +17,23 @@ import {
   ChatTypingIndicator,
   type ChatMessage,
 } from "./chat-message";
+import { WalkingCharacter } from "./walking-character";
 
 const GREETING: ChatMessage = {
   role: "assistant",
   content:
-    "안녕하세요! 정인수님의 포트폴리오 AI 어시스턴트예요.\n경력·SaaS·자동화 시나리오·강의 등 무엇이든 물어보세요.",
+    "안녕하세요!\n정인수님의 포트폴리오 AI 어시스턴트예요.\n\n경력·SaaS·자동화 시나리오·강의 등\n무엇이든 물어보세요.",
+};
+
+const DESKTOP_CHARACTER_SIZE = 128;
+const MOBILE_CHARACTER_SIZE = 100;
+
+type WanderTarget = {
+  x: number;
+  y: number;
+  scaleX: 1 | -1;
+  rotate: number;
+  duration: number;
 };
 
 export function ChatWidget() {
@@ -31,10 +43,20 @@ export function ChatWidget() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [isMobile, setIsMobile] = useState(false);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  const [characterMoving, setCharacterMoving] = useState(false);
+  const [wanderTarget, setWanderTarget] = useState<WanderTarget>({
+    x: 0,
+    y: 0,
+    scaleX: 1,
+    rotate: 0,
+    duration: 8,
+  });
 
   const scrollRef = useRef<HTMLDivElement>(null);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const sendingRef = useRef(false);
+  const wanderPauseRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     const mq = window.matchMedia("(max-width: 767px)");
@@ -42,6 +64,90 @@ export function ChatWidget() {
     apply();
     mq.addEventListener("change", apply);
     return () => mq.removeEventListener("change", apply);
+  }, []);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const apply = () => setPrefersReducedMotion(mq.matches);
+    apply();
+    mq.addEventListener("change", apply);
+    return () => mq.removeEventListener("change", apply);
+  }, []);
+
+  const nextWanderTarget = useCallback(
+    (current: WanderTarget): WanderTarget => {
+      if (typeof window === "undefined" || prefersReducedMotion) {
+        return { x: 0, y: 0, scaleX: 1, rotate: 0, duration: 0 };
+      }
+
+      const size = isMobile ? MOBILE_CHARACTER_SIZE : DESKTOP_CHARACTER_SIZE;
+      const leftInset = isMobile ? 16 : 24;
+      const rightInset = 18;
+      const maxLift = isMobile ? 14 : 22;
+      const maxX = Math.max(0, window.innerWidth - leftInset - rightInset - size);
+      const nextX = Math.round(Math.random() * maxX);
+      const nextY = -Math.round(Math.random() * maxLift);
+      const distance = Math.hypot(nextX - current.x, nextY - current.y);
+
+      return {
+        x: nextX,
+        y: nextY,
+        scaleX: nextX >= current.x ? 1 : -1,
+        rotate: Math.round((Math.random() - 0.5) * 2),
+        duration: Math.min(20, Math.max(8, distance / (isMobile ? 22 : 26))),
+      };
+    },
+    [isMobile, prefersReducedMotion]
+  );
+
+  useEffect(() => {
+    if (open || prefersReducedMotion) {
+      if (wanderPauseRef.current) {
+        clearTimeout(wanderPauseRef.current);
+        wanderPauseRef.current = null;
+      }
+      setCharacterMoving(false);
+      return;
+    }
+
+    const queueNextMove = (pauseMs: number) => {
+      if (wanderPauseRef.current) {
+        clearTimeout(wanderPauseRef.current);
+      }
+
+      wanderPauseRef.current = setTimeout(() => {
+        setWanderTarget((current) => {
+          const next = nextWanderTarget(current);
+
+          wanderPauseRef.current = setTimeout(() => {
+            setCharacterMoving(false);
+            queueNextMove(1400 + Math.random() * 1600);
+          }, next.duration * 1000);
+
+          return next;
+        });
+
+        setCharacterMoving(true);
+      }, pauseMs);
+    };
+
+    queueNextMove(550);
+
+    return () => {
+      if (wanderPauseRef.current) {
+        clearTimeout(wanderPauseRef.current);
+        wanderPauseRef.current = null;
+      }
+      setCharacterMoving(false);
+    };
+  }, [open, nextWanderTarget, prefersReducedMotion]);
+
+  useEffect(() => {
+    return () => {
+      if (wanderPauseRef.current) {
+        clearTimeout(wanderPauseRef.current);
+      }
+    };
   }, []);
 
   useEffect(() => {
@@ -134,29 +240,32 @@ export function ChatWidget() {
             onClick={() => setOpen(true)}
             aria-label="정인수 AI 채팅 열기"
             initial={{ opacity: 0 }}
-            animate={{
-              opacity: 1,
-              x: [0, isMobile ? 140 : 240, 0],
-              scaleX: [1, 1, -1, -1, 1],
-            }}
+            animate={
+              prefersReducedMotion
+                ? { opacity: 1, x: 0, y: 0, scaleX: 1, rotate: 0 }
+                : {
+                    opacity: 1,
+                    x: wanderTarget.x,
+                    y: wanderTarget.y,
+                    scaleX: wanderTarget.scaleX,
+                    rotate: wanderTarget.rotate,
+                  }
+            }
             exit={{ opacity: 0 }}
             transition={{
               opacity: { duration: 0.3, ease: [0.6, 0.05, 0.3, 0.95] },
-              x: { duration: 14, repeat: Infinity, ease: "easeInOut" },
-              scaleX: {
-                duration: 14,
-                repeat: Infinity,
-                times: [0, 0.485, 0.515, 0.985, 1],
-                ease: "linear",
-              },
+              x: { duration: wanderTarget.duration, ease: "easeInOut" },
+              y: { duration: wanderTarget.duration, ease: "easeInOut" },
+              scaleX: { duration: 0.18, ease: "linear" },
+              rotate: { duration: wanderTarget.duration, ease: "easeInOut" },
             }}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.92 }}
-            className="fixed bottom-3 left-4 md:bottom-6 md:left-6 z-50 w-[72px] h-[72px] cursor-pointer p-0 border-0 bg-transparent"
+            whileHover={{ scale: 1.08 }}
+            whileTap={{ scale: 0.94 }}
+            className="fixed bottom-3 left-4 md:bottom-6 md:left-6 z-50 w-[100px] h-[100px] md:w-32 md:h-32 cursor-pointer p-0 border-0 bg-transparent"
           >
-            <span
-              className="block w-full h-full mascot-walk-anim drop-shadow-[0_4px_12px_rgba(0,0,0,0.18)] dark:drop-shadow-[0_4px_12px_rgba(0,0,0,0.45)] pointer-events-none"
-              aria-hidden
+            <WalkingCharacter
+              className="w-full h-full drop-shadow-[0_5px_14px_rgba(0,0,0,0.20)] dark:drop-shadow-[0_5px_16px_rgba(0,0,0,0.50)] pointer-events-none"
+              animated={characterMoving && !prefersReducedMotion}
             />
           </motion.button>
         )}
@@ -199,14 +308,7 @@ export function ChatWidget() {
               <header className="flex items-center justify-between px-4 py-3 border-b border-[var(--line)] shrink-0">
                 <div className="flex items-center gap-2.5">
                   <div className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-[var(--mute)]/20 overflow-hidden shrink-0">
-                    <img
-                      src="/chat-mascot.png"
-                      alt=""
-                      width={36}
-                      height={36}
-                      className="w-full h-full object-contain"
-                      aria-hidden
-                    />
+                    <WalkingCharacter className="w-full h-full" animated={false} />
                   </div>
                   <div className="flex flex-col leading-tight">
                     <span className="text-[14px] font-medium text-[var(--fg)]">정인수 AI</span>

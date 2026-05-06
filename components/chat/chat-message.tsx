@@ -8,7 +8,7 @@ export type ChatMessage = {
 
 const markdownComponents = {
   p: ({ children }: { children?: React.ReactNode }) => (
-    <p className="mb-2 last:mb-0 leading-relaxed">{children}</p>
+    <p className="mb-2 last:mb-0 leading-relaxed whitespace-pre-line">{children}</p>
   ),
   strong: ({ children }: { children?: React.ReactNode }) => (
     <strong className="font-semibold">{children}</strong>

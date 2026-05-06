@@ -139,16 +139,3 @@
 .wave-letter:hover .wave-char {
   animation: wave-letter 0.6s ease-in-out;
 }
-
-/* 정인수 마스코트 워킹 스프라이트 — 6프레임 우측 워킹 (160x160 per frame, 960x160 total) */
-@keyframes mascot-walk-cycle {
-  to { background-position: -432px 0; }
-}
-
-.mascot-walk-anim {
-  background-image: url(/chat-mascot-walk.png);
-  background-size: 432px 72px; /* 6 frames * 72px = 432px */
-  background-repeat: no-repeat;
-  background-position: 0 0;
-  animation: mascot-walk-cycle 0.6s steps(6) infinite;
-}
