@@ -17,12 +17,14 @@ type WalkingCharacterProps = {
   className?: string;
   animated?: boolean;
   pose?: "walk" | "turn-front" | "front";
+  onPoseComplete?: (pose: "turn-front") => void;
 };
 
 export function WalkingCharacter({
   className,
   animated = true,
   pose = "walk",
+  onPoseComplete,
 }: WalkingCharacterProps) {
   const ref = useRef<HTMLSpanElement>(null);
   const spriteUrl = useMemo(
@@ -67,6 +69,8 @@ export function WalkingCharacter({
 
         if (index < TURN_TO_FRONT_FRAMES.length - 1) {
           raf = requestAnimationFrame(renderTurn);
+        } else {
+          onPoseComplete?.("turn-front");
         }
       };
 
@@ -98,7 +102,7 @@ export function WalkingCharacter({
       cancelAnimationFrame(raf);
       resizeObserver.disconnect();
     };
-  }, [animated, pose]);
+  }, [animated, onPoseComplete, pose]);
 
   return (
     <span

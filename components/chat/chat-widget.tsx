@@ -40,13 +40,6 @@ const MOBILE_CLOSE_DRAG_OFFSET = 42;
 const MOBILE_CLOSE_DRAG_VELOCITY = 260;
 const MOBILE_PANEL_DRAG_CONSTRAINTS = { left: -280, right: 0 };
 const PROMPT_WALK_MS = 6200;
-const PROMPT_PAUSE_MS = 2600;
-const TURN_TO_FRONT_MS = 1000;
-
-const delay = (ms: number) =>
-  new Promise<void>((resolve) => {
-    window.setTimeout(resolve, ms);
-  });
 
 export function ChatWidget() {
   const [open, setOpen] = useState(false);
@@ -68,6 +61,7 @@ export function ChatWidget() {
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const sendingRef = useRef(false);
   const swipeStartRef = useRef<{ x: number; y: number } | null>(null);
+  const turnCompleteRef = useRef<(() => void) | null>(null);
 
   useEffect(() => {
     const mq = window.matchMedia("(max-width: 767px)");
@@ -156,14 +150,15 @@ export function ChatWidget() {
           direction = direction === 1 ? -1 : 1;
         }
 
-        setCharacterPose("turn-front");
         setPromptVisible(true);
-        await delay(TURN_TO_FRONT_MS);
+        setCharacterPose("turn-front");
+        await new Promise<void>((resolve) => {
+          turnCompleteRef.current = resolve;
+        });
         if (cancelled) break;
 
-        setCharacterFacing(1);
-        setCharacterPose("front");
-        await delay(Math.max(0, PROMPT_PAUSE_MS - TURN_TO_FRONT_MS));
+        turnCompleteRef.current = null;
+        setPromptVisible(false);
       }
     };
 
@@ -172,6 +167,8 @@ export function ChatWidget() {
     return () => {
       cancelled = true;
       characterControls.stop();
+      turnCompleteRef.current?.();
+      turnCompleteRef.current = null;
     };
   }, [
     characterControls,
@@ -237,6 +234,11 @@ export function ChatWidget() {
       setOpen(false);
     }
   };
+
+  const handleCharacterPoseComplete = useCallback((pose: "turn-front") => {
+    if (pose !== "turn-front") return;
+    turnCompleteRef.current?.();
+  }, []);
 
   const handlePanelPointerDown = (e: PointerEvent<HTMLDivElement>) => {
     if (!isMobile) return;
@@ -321,6 +323,7 @@ export function ChatWidget() {
               <WalkingCharacter
                 className="w-full h-full drop-shadow-[0_5px_14px_rgba(0,0,0,0.20)] dark:drop-shadow-[0_5px_16px_rgba(0,0,0,0.50)] pointer-events-none"
                 animated={!prefersReducedMotion && characterPose === "walk"}
+                onPoseComplete={handleCharacterPoseComplete}
                 pose={characterPose}
               />
             </motion.span>
