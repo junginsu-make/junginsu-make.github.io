@@ -10,7 +10,7 @@ import {
   type KeyboardEvent,
 } from "react";
 import { AnimatePresence, motion, type PanInfo } from "framer-motion";
-import { MessageCircle, Send, X } from "lucide-react";
+import { Send, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import {
   ChatMessageBubble,
@@ -132,14 +132,33 @@ export function ChatWidget() {
           <motion.button
             type="button"
             onClick={() => setOpen(true)}
-            aria-label="AI 채팅 열기"
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.9 }}
-            transition={{ duration: 0.25, ease: [0.6, 0.05, 0.3, 0.95] }}
-            className="fixed bottom-6 left-6 md:bottom-10 md:left-10 z-50 inline-flex items-center justify-center w-12 h-12 md:w-14 md:h-14 rounded-full bg-[var(--accent)] text-white shadow-lg hover:scale-110 hover:shadow-xl transition-all duration-300"
+            aria-label="정인수 AI 채팅 열기"
+            initial={{ opacity: 0, scale: 0.85 }}
+            animate={{
+              opacity: 1,
+              scale: 1,
+              x: [0, isMobile ? 140 : 240, 0],
+              y: [0, -2, 0, -2, 0, -2, 0, -2, 0, -2, 0, -2, 0, -2, 0],
+            }}
+            exit={{ opacity: 0, scale: 0.85 }}
+            transition={{
+              opacity: { duration: 0.25, ease: [0.6, 0.05, 0.3, 0.95] },
+              scale: { duration: 0.25, ease: [0.6, 0.05, 0.3, 0.95] },
+              x: { duration: 14, repeat: Infinity, ease: "easeInOut" },
+              y: { duration: 0.55, repeat: Infinity, ease: "linear" },
+            }}
+            whileHover={{ scale: 1.08 }}
+            whileTap={{ scale: 0.95 }}
+            className="fixed bottom-3 left-4 md:bottom-6 md:left-6 z-50 inline-flex items-center justify-center w-14 h-14 md:w-16 md:h-16 cursor-pointer drop-shadow-[0_4px_12px_rgba(0,0,0,0.18)] dark:drop-shadow-[0_4px_12px_rgba(0,0,0,0.45)]"
           >
-            <MessageCircle size={isMobile ? 22 : 26} aria-hidden />
+            <img
+              src="/chat-mascot.png"
+              alt="정인수 캐릭터"
+              width={64}
+              height={64}
+              className="w-full h-full object-contain pointer-events-none select-none"
+              draggable={false}
+            />
           </motion.button>
         )}
       </AnimatePresence>
@@ -180,8 +199,15 @@ export function ChatWidget() {
             >
               <header className="flex items-center justify-between px-4 py-3 border-b border-[var(--line)] shrink-0">
                 <div className="flex items-center gap-2.5">
-                  <div className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[var(--accent)] text-white">
-                    <MessageCircle size={16} aria-hidden />
+                  <div className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-[var(--mute)]/20 overflow-hidden shrink-0">
+                    <img
+                      src="/chat-mascot.png"
+                      alt=""
+                      width={36}
+                      height={36}
+                      className="w-full h-full object-contain"
+                      aria-hidden
+                    />
                   </div>
                   <div className="flex flex-col leading-tight">
                     <span className="text-[14px] font-medium text-[var(--fg)]">정인수 AI</span>
