@@ -17,7 +17,6 @@ const SITE_OVERVIEW = `
 - /career — 경력 (17년 4개월) · Impact Streams 4종
 - /marketing — 마케팅 포트폴리오 (TMON ROAS 7,404% · 광고대행 경력)
 - /about — 자기소개 · 가치관 · 강의 · 자격
-- /contact — 연락처
 `;
 
 const IMPACT_STREAMS = `
@@ -121,8 +120,7 @@ const PUBLIC_LINKS = `
 - 블로그: https://blog.naver.com/sbcyberpass
 - Tickpoint SaaS: https://tickpoint.co.kr/
 - Lumio Video: https://lumio-video.vercel.app/
-- 이메일(블로그): sbcyberpass@naver.com
-- 이메일(SaaS · 비즈니스): 9843ohs@gmail.com
+- 이메일: 9843ohs@gmail.com
 
 [운영 사이트]
 - ProPintel · Tickpoint · Lumio · 자체 시스템 다수
@@ -141,4 +139,4 @@ export const KNOWLEDGE_BASE = [
   RESUME_TEXT,
 ].join("\n");
 
-export const KNOWLEDGE_BASE_VERSION = "2026-05-06-v1";
+export const KNOWLEDGE_BASE_VERSION = "2026-05-06-v2";

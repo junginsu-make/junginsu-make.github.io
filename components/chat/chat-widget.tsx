@@ -405,7 +405,11 @@ export function ChatWidget() {
               <header className="flex items-center justify-between px-4 py-3 border-b border-[var(--line)] shrink-0">
                 <div className="flex items-center gap-2.5">
                   <div className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-[var(--mute)]/20 overflow-hidden shrink-0">
-                    <WalkingCharacter className="w-full h-full" animated={false} />
+                    <WalkingCharacter
+                      className="w-full h-full"
+                      animated={false}
+                      pose="head"
+                    />
                   </div>
                   <div className="flex flex-col leading-tight">
                     <span className="text-[14px] font-medium text-[var(--fg)]">정인수 AI</span>
