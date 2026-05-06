@@ -7,7 +7,7 @@ export function Cta() {
   const [hoverIdx, setHoverIdx] = useState<number | null>(null);
 
   return (
-    <section className="relative z-10 bg-[var(--bg)] text-[var(--fg)] border-t border-[var(--line)] flex min-h-[30vh] flex-col items-center justify-center px-6 py-16 text-center md:min-h-[46vh] md:px-10 md:py-28 lg:px-16">
+    <section className="relative z-10 bg-[var(--bg)] text-[var(--fg)] border-t border-[var(--line)] flex flex-col items-center justify-center px-6 py-12 text-center md:px-10 md:py-20 lg:px-16">
       <Magnetic strength={0.5}>
         <a
           href={`mailto:${CONTACT_EMAIL}`}
