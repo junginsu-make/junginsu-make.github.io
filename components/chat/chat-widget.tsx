@@ -8,8 +8,14 @@ import {
   useState,
   type FormEvent,
   type KeyboardEvent,
+  type PointerEvent,
 } from "react";
-import { AnimatePresence, motion, type PanInfo } from "framer-motion";
+import {
+  AnimatePresence,
+  motion,
+  useAnimationControls,
+  type PanInfo,
+} from "framer-motion";
 import { Send, Sparkles, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import {
@@ -43,10 +49,13 @@ export function ChatWidget() {
   const [isMobile, setIsMobile] = useState(false);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
   const [travelDistance, setTravelDistance] = useState(0);
+  const [characterFacing, setCharacterFacing] = useState<1 | -1>(1);
+  const characterControls = useAnimationControls();
 
   const scrollRef = useRef<HTMLDivElement>(null);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const sendingRef = useRef(false);
+  const swipeStartRef = useRef<{ x: number; y: number } | null>(null);
 
   useEffect(() => {
     const mq = window.matchMedia("(max-width: 767px)");
@@ -83,6 +92,61 @@ export function ChatWidget() {
     if (prefersReducedMotion) return 0;
     return Math.min(58, Math.max(28, travelDistance / (isMobile ? 18 : 22)));
   }, [isMobile, prefersReducedMotion, travelDistance]);
+
+  useEffect(() => {
+    let cancelled = false;
+    const legDuration = walkDuration / 2;
+
+    const run = async () => {
+      if (
+        prefersReducedMotion ||
+        open ||
+        travelDistance <= 0 ||
+        legDuration <= 0
+      ) {
+        setCharacterFacing(1);
+        characterControls.set({ opacity: 1, x: 0 });
+        return;
+      }
+
+      characterControls.set({ opacity: 1, x: 0 });
+
+      while (!cancelled) {
+        setCharacterFacing(1);
+        await characterControls.start({
+          opacity: 1,
+          x: travelDistance,
+          transition: {
+            opacity: { duration: 0.3, ease: [0.6, 0.05, 0.3, 0.95] },
+            x: { duration: legDuration, ease: "linear" },
+          },
+        });
+        if (cancelled) break;
+
+        setCharacterFacing(-1);
+        await characterControls.start({
+          opacity: 1,
+          x: 0,
+          transition: {
+            x: { duration: legDuration, ease: "linear" },
+          },
+        });
+      }
+    };
+
+    void run();
+
+    return () => {
+      cancelled = true;
+      characterControls.stop();
+    };
+  }, [
+    characterControls,
+    open,
+    prefersReducedMotion,
+    travelDistance,
+    walkDuration,
+  ]);
 
   useEffect(() => {
     const el = scrollRef.current;
@@ -141,6 +205,26 @@ export function ChatWidget() {
     }
   };
 
+  const handlePanelPointerDown = (e: PointerEvent<HTMLDivElement>) => {
+    if (!isMobile) return;
+    swipeStartRef.current = { x: e.clientX, y: e.clientY };
+  };
+
+  const handlePanelPointerUp = (e: PointerEvent<HTMLDivElement>) => {
+    const start = swipeStartRef.current;
+    swipeStartRef.current = null;
+    if (!isMobile || !start) return;
+
+    const dx = e.clientX - start.x;
+    const dy = e.clientY - start.y;
+    if (
+      dx < -MOBILE_CLOSE_DRAG_OFFSET &&
+      Math.abs(dx) > Math.abs(dy) * 1.1
+    ) {
+      setOpen(false);
+    }
+  };
+
   const panelMotion = useMemo(() => {
     const mobileEase: [number, number, number, number] = [0.32, 0.72, 0, 1];
     const desktopEase: [number, number, number, number] = [0.6, 0.05, 0.3, 0.95];
@@ -168,25 +252,9 @@ export function ChatWidget() {
             type="button"
             onClick={() => setOpen(true)}
             aria-label="정인수 AI 채팅 열기"
-            initial={{ opacity: 0 }}
-            animate={
-              prefersReducedMotion || open
-                ? { opacity: 1, x: 0 }
-                : {
-                    opacity: 1,
-                    x: [0, travelDistance, travelDistance, 0, 0],
-                  }
-            }
+            initial={{ opacity: 0, x: 0 }}
+            animate={characterControls}
             exit={{ opacity: 0 }}
-            transition={{
-              opacity: { duration: 0.3, ease: [0.6, 0.05, 0.3, 0.95] },
-              x: {
-                duration: walkDuration,
-                repeat: Infinity,
-                ease: "linear",
-                times: [0, 0.499, 0.501, 0.999, 1],
-              },
-            }}
             whileHover={{ scale: 1.08 }}
             whileTap={{ scale: 0.94 }}
             className="fixed bottom-3 left-4 md:bottom-6 md:left-6 z-50 w-[100px] h-[100px] md:w-32 md:h-32 cursor-pointer p-0 border-0 bg-transparent"
@@ -222,17 +290,8 @@ export function ChatWidget() {
             )}
             <motion.span
               className="block w-full h-full"
-              animate={
-                prefersReducedMotion
-                  ? { scaleX: 1 }
-                  : { scaleX: [1, 1, -1, -1, 1] }
-              }
-              transition={{
-                duration: walkDuration,
-                repeat: Infinity,
-                ease: "linear",
-                times: [0, 0.499, 0.501, 0.999, 1],
-              }}
+              animate={{ scaleX: prefersReducedMotion ? 1 : characterFacing }}
+              transition={{ duration: 0 }}
             >
               <WalkingCharacter
                 className="w-full h-full drop-shadow-[0_5px_14px_rgba(0,0,0,0.20)] dark:drop-shadow-[0_5px_16px_rgba(0,0,0,0.50)] pointer-events-none"
@@ -273,13 +332,20 @@ export function ChatWidget() {
               dragElastic={{ left: 0.18, right: 0 }}
               dragMomentum={false}
               onDragEnd={handleDragEnd}
+              onPointerDown={handlePanelPointerDown}
+              onPointerUp={handlePanelPointerUp}
+              onPointerCancel={() => {
+                swipeStartRef.current = null;
+              }}
               className={cn(
                 "fixed z-50 flex flex-col bg-[var(--bg)] border border-[var(--line)] shadow-2xl",
                 isMobile
                   ? "inset-y-0 left-0 rounded-r-2xl"
                   : "bottom-6 left-6 md:bottom-10 md:left-10 w-[380px] h-[600px] max-h-[calc(100vh-5rem)] rounded-2xl"
               )}
-              style={isMobile ? { width: "66.67vw" } : undefined}
+              style={
+                isMobile ? { width: "66.67vw", touchAction: "pan-y" } : undefined
+              }
             >
               <header className="flex items-center justify-between px-4 py-3 border-b border-[var(--line)] shrink-0">
                 <div className="flex items-center gap-2.5">

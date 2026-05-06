@@ -3,11 +3,11 @@
 import { useEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
 
-const SPRITE_URL = "/characters/autosprite-blink.png";
+const SPRITE_URL = "/characters/walking-slowly.png";
+const FRAME_COUNT = 25;
 const COLUMNS = 5;
-const FRAME_MS = 140;
-const WALK_FRAMES = [0, 1, 15, 16, 17, 18];
-const STATIC_FRAME = 0;
+const FRAME_MS = 90;
+const STATIC_FRAME = 12;
 
 type WalkingCharacterProps = {
   className?: string;
@@ -40,8 +40,9 @@ export function WalkingCharacter({
     };
 
     const render = (now: number) => {
-      const sequenceIndex = Math.floor(now / FRAME_MS) % WALK_FRAMES.length;
-      setFrame(animated ? WALK_FRAMES[sequenceIndex] : STATIC_FRAME);
+      setFrame(
+        animated ? Math.floor(now / FRAME_MS) % FRAME_COUNT : STATIC_FRAME,
+      );
       if (animated) {
         raf = requestAnimationFrame(render);
       }
@@ -49,7 +50,7 @@ export function WalkingCharacter({
 
     const resizeObserver = new ResizeObserver(() => {
       frame = -1;
-      setFrame(STATIC_FRAME);
+      setFrame(animated ? 0 : STATIC_FRAME);
     });
 
     resizeObserver.observe(el);
