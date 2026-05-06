@@ -7,6 +7,8 @@ const WALK_SPRITE_URL = "/characters/walking-slowly.png";
 const FRONT_SPRITE_URL = "/characters/walking-stop.png";
 const FRAME_COUNT = 25;
 const COLUMNS = 5;
+const FRAME_SIZE = 256;
+const SHEET_SIZE = 1280;
 const FRAME_MS = 90;
 const STATIC_FRAME = 12;
 const FRONT_FRAME = 14;
@@ -14,8 +16,14 @@ const TURN_FRAME_MS = 110;
 const TURN_TO_FRONT_FRAMES = [0, 3, 6, 9, 12, 14, 14];
 const TURN_TO_WALK_FRAMES = [14, 12, 9, 6, 3, 0];
 
+const HEAD_FRAME_COL = 4;
+const HEAD_FRAME_ROW = 2;
+const HEAD_CROP_X = 70;
+const HEAD_CROP_Y = 8;
+const HEAD_CROP_SIZE = 130;
+
 type TurnPose = "turn-front" | "turn-back";
-type WalkingCharacterPose = "walk" | "front" | TurnPose;
+type WalkingCharacterPose = "walk" | "front" | "head" | TurnPose;
 
 type WalkingCharacterProps = {
   className?: string;
@@ -54,6 +62,26 @@ export function WalkingCharacter({
       el.style.backgroundSize = `${size * COLUMNS}px ${size * COLUMNS}px`;
       el.style.backgroundPosition = `-${col * size}px -${row * size}px`;
     };
+
+    if (pose === "head") {
+      const applyHead = () => {
+        const rect = el.getBoundingClientRect();
+        const size = rect.width || el.clientWidth || 36;
+        const scale = size / HEAD_CROP_SIZE;
+        const offsetX = (HEAD_FRAME_COL * FRAME_SIZE + HEAD_CROP_X) * scale;
+        const offsetY = (HEAD_FRAME_ROW * FRAME_SIZE + HEAD_CROP_Y) * scale;
+        el.style.backgroundSize = `${SHEET_SIZE * scale}px ${SHEET_SIZE * scale}px`;
+        el.style.backgroundPosition = `-${offsetX}px -${offsetY}px`;
+      };
+
+      applyHead();
+      const resizeObserver = new ResizeObserver(applyHead);
+      resizeObserver.observe(el);
+
+      return () => {
+        resizeObserver.disconnect();
+      };
+    }
 
     if (pose === "front") {
       setFrame(FRONT_FRAME);
