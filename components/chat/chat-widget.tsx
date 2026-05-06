@@ -41,6 +41,7 @@ const MOBILE_CLOSE_DRAG_VELOCITY = 260;
 const MOBILE_PANEL_DRAG_CONSTRAINTS = { left: -280, right: 0 };
 const PROMPT_WALK_MS = 6200;
 const PROMPT_PAUSE_MS = 2600;
+const TURN_TO_FRONT_MS = 1000;
 
 const delay = (ms: number) =>
   new Promise<void>((resolve) => {
@@ -57,7 +58,9 @@ export function ChatWidget() {
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
   const [travelDistance, setTravelDistance] = useState(0);
   const [characterFacing, setCharacterFacing] = useState<1 | -1>(1);
-  const [characterPose, setCharacterPose] = useState<"walk" | "front">("walk");
+  const [characterPose, setCharacterPose] = useState<
+    "walk" | "turn-front" | "front"
+  >("walk");
   const [promptVisible, setPromptVisible] = useState(false);
   const characterControls = useAnimationControls();
 
@@ -153,10 +156,14 @@ export function ChatWidget() {
           direction = direction === 1 ? -1 : 1;
         }
 
-        setCharacterPose("front");
-        setCharacterFacing(1);
+        setCharacterPose("turn-front");
         setPromptVisible(true);
-        await delay(PROMPT_PAUSE_MS);
+        await delay(TURN_TO_FRONT_MS);
+        if (cancelled) break;
+
+        setCharacterFacing(1);
+        setCharacterPose("front");
+        await delay(Math.max(0, PROMPT_PAUSE_MS - TURN_TO_FRONT_MS));
       }
     };
 
