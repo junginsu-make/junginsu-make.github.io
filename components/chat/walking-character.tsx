@@ -4,20 +4,24 @@ import { useEffect, useMemo, useRef } from "react";
 import { cn } from "@/lib/utils";
 
 const WALK_SPRITE_URL = "/characters/walking-slowly.png";
-const FRONT_SPRITE_URL = "/characters/autosprite-blink.png";
+const FRONT_SPRITE_URL = "/characters/walking-stop.png";
 const FRAME_COUNT = 25;
 const COLUMNS = 5;
 const FRAME_MS = 90;
 const STATIC_FRAME = 12;
-const FRONT_FRAME = 12;
-const TURN_FRAME_MS = 125;
-const TURN_TO_FRONT_FRAMES = [0, 1, 2, 3, 4, 8, 12, 12];
+const FRONT_FRAME = 14;
+const TURN_FRAME_MS = 110;
+const TURN_TO_FRONT_FRAMES = [0, 3, 6, 9, 12, 14, 14];
+const TURN_TO_WALK_FRAMES = [14, 12, 9, 6, 3, 0];
+
+type TurnPose = "turn-front" | "turn-back";
+type WalkingCharacterPose = "walk" | "front" | TurnPose;
 
 type WalkingCharacterProps = {
   className?: string;
   animated?: boolean;
-  pose?: "walk" | "turn-front" | "front";
-  onPoseComplete?: (pose: "turn-front") => void;
+  pose?: WalkingCharacterPose;
+  onPoseComplete?: (pose: TurnPose) => void;
 };
 
 export function WalkingCharacter({
@@ -56,21 +60,26 @@ export function WalkingCharacter({
       return;
     }
 
-    if (pose === "turn-front") {
+    if (pose === "turn-front" || pose === "turn-back") {
+      const sequence =
+        pose === "turn-front" ? TURN_TO_FRONT_FRAMES : TURN_TO_WALK_FRAMES;
+      const completedPose: TurnPose = pose;
       const start = performance.now();
+      let completed = false;
 
       const renderTurn = (now: number) => {
         const elapsed = now - start;
         const index = Math.min(
-          TURN_TO_FRONT_FRAMES.length - 1,
+          sequence.length - 1,
           Math.floor(elapsed / TURN_FRAME_MS),
         );
-        setFrame(TURN_TO_FRONT_FRAMES[index]);
+        setFrame(sequence[index]);
 
-        if (index < TURN_TO_FRONT_FRAMES.length - 1) {
+        if (index < sequence.length - 1) {
           raf = requestAnimationFrame(renderTurn);
-        } else {
-          onPoseComplete?.("turn-front");
+        } else if (!completed) {
+          completed = true;
+          onPoseComplete?.(completedPose);
         }
       };
 
