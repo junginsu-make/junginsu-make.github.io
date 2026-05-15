@@ -10,7 +10,8 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "capture": "tsx scripts/capture-urls.ts",
-    "optimize": "tsx scripts/optimize-images.ts"
+    "optimize": "tsx scripts/optimize-images.ts",
+    "pdf": "tsx scripts/capture-portfolio-pdf.ts"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.15",
@@ -42,6 +43,7 @@
     "@types/react-dom": "^19",
     "@vitest/ui": "^4.1.5",
     "jsdom": "^29.1.1",
+    "pdf-lib": "^1.17.1",
     "pdf-to-img": "^6.0.0",
     "playwright": "^1.59.1",
     "sharp": "^0.34.5",

@@ -26,7 +26,7 @@ export const IMPACT_STREAMS: ImpactStream[] = [
       "데이터 크롤링 · OCR · 웹스크랩 · 자동 발행 + AI Prompt SEO",
       "멀티 LLM 통합 (Claude · GPT · Gemini · Perplexity)",
     ],
-    companies: ["팔레트 ㈜ Agent 본부 팀장", "솔찍한인쌤 (병행)"],
+    companies: ["팔레트 ㈜ Agent 본부 팀장", "2024.10 ~", "솔찍한인쌤 (병행)"],
   },
   {
     id: "ai-saas-pl",

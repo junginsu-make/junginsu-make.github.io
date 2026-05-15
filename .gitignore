@@ -51,3 +51,6 @@ next-env.d.ts
 
 # 자료 — 2026-05-05 사용자 승인으로 비공개 저장소에 모두 포함 (이전 ignore 해제)
 capture.log
+
+# 생성된 포트폴리오 PDF (수십 MB — pnpm pdf 산출물, 저장소 비대화 방지)
+/*.pdf
