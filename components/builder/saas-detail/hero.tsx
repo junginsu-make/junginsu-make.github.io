@@ -3,7 +3,7 @@ import { Magnetic } from "@/components/motion/magnetic";
 import { MaskReveal, MaskRevealStagger } from "@/components/motion/mask-reveal";
 import { WordHighlight } from "@/components/motion/word-highlight";
 import { ScrollReveal } from "@/components/motion/scroll-reveal";
-import type { SaaSDetail } from "@/lib/data/saas";
+import { SAAS_LIST, type SaaSDetail } from "@/lib/data/saas";
 
 export function SaasHero({ saas }: { saas: SaaSDetail }) {
   const meta = [
@@ -51,7 +51,7 @@ export function SaasHero({ saas }: { saas: SaaSDetail }) {
           style={{ textShadow: "0 1px 6px rgba(0,0,0,0.6)" }}
         >
           <MaskReveal>
-            {`AI BUILDER · ${String(saas.order).padStart(2, "0")} / 06`}
+            {`AI BUILDER · ${String(saas.order).padStart(2, "0")} / ${String(SAAS_LIST.length).padStart(2, "0")}`}
           </MaskReveal>
         </p>
 

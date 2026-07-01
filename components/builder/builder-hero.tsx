@@ -15,7 +15,7 @@ type Kpi = {
 const KPIS: Kpi[] = [
   { to: GITHUB_TOTAL, label: "Vibe Coding Repos", note: "외부 공개" },
   { to: 4, label: "자동화 Core", note: "핵심 시나리오" },
-  { to: 6, label: "Live SaaS", note: "프로덕션 운영" },
+  { to: 7, label: "Live SaaS", note: "프로덕션 운영" },
   { to: 81, label: "Total Systems", note: "자동화 시나리오 인벤토리" },
 ];
 
@@ -42,7 +42,7 @@ export function BuilderHero() {
             <span>
               <WordHighlight delay={1.25}>Vibe Coding 43</WordHighlight> · {" "}
               <WordHighlight delay={1.4}>자동화 시나리오 81</WordHighlight> · {" "}
-              <WordHighlight delay={1.55}>SaaS 6 Live</WordHighlight>
+              <WordHighlight delay={1.55}>SaaS 7 Live</WordHighlight>
             </span>
           </MaskReveal>
         </span>

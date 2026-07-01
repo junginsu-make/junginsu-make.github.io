@@ -9,11 +9,11 @@ const SITE_OVERVIEW = `
 - URL: https://junginsu-portfolio.pages.dev/
 - 작성자: 정인수 (Marketer · AI Builder · AI SaaS)
 - 한 줄 선언: "AI 시대를 만난 17년 Marketer가, AI Builder로 다시 태어났다"
-- 4 핵심 지표: 17년 Career · 43 Vibe Coding Repos · 81 자동화 시나리오 · 6 Live SaaS
+- 4 핵심 지표: 17년 Career · 43 Vibe Coding Repos · 81 자동화 시나리오 · 7 Live SaaS
 
 [페이지 구조]
 - / (홈) — 소개, 4 지표, AI Builder + Marketer 양면
-- /builder — AI Builder 전체 (43 Vibe Coding · 81 자동화 시스템 · 6 SaaS · 4 핵심 시나리오)
+- /builder — AI Builder 전체 (43 Vibe Coding · 81 자동화 시스템 · 7 SaaS · 4 핵심 시나리오)
 - /career — 경력 (17년 4개월) · Impact Streams 4종
 - /marketing — 마케팅 포트폴리오 (TMON ROAS 7,404% · 광고대행 경력)
 - /about — 자기소개 · 가치관 · 강의 · 자격
@@ -38,12 +38,14 @@ const TECH_STACK = `
 `;
 
 const SAAS_LIVE = `
-[6 Live SaaS]
+[7 Live SaaS]
 1. Tickpoint (https://tickpoint.co.kr/) — 한국 주식 트레이딩 인텔리전스. KOSPI·KOSDAQ 2,769 종목을 멀티 LLM(Claude·GPT·Gemini·Perplexity)으로 통합 분석. 변동성 수축 패턴 시그널 + 9 백테스트 KPI + 24 이슈 종목 자동 큐레이션 + 80+ 시그널 + 시장 심리 게이지 + 자동매매 시스템 + 섹터 히트맵.
 2. Lumio Video (https://lumio-video.vercel.app/) — AI 영상 생성/편집 SaaS
 3. ProPintel — 부동산 인텔리전스
 4. Palette OS Agent — 사내 AI OS · Synapse, 12 가상직원 + 20 AI 에이전트 OS
-5~6. 추가 SaaS — 사이트 /builder/saas 참조
+5. MKT Automation — 네이버·구글·블로그·SNS·YouTube 단일 워크플로우 마케팅 OS
+6. Architect (아키텍처 시스템) — AI 비즈니스 진단 + 제안서·PRD 동시 자동 생성
+7. Factto (https://image-insight-tau.vercel.app/) — 사실로 쓰는 SEO 블로그 자동 생성. 이미지·네이버 플레이스 실데이터에서 사실만 추출(무 할루시네이션), 다중 AI 교차검증 이미지 분석, 표절 없는 경쟁분석(상위 글 통계만 참고), SEO 실전 튜닝, AI 이미지 승인제(fal.ai), Image Blog + Place Blog 2 시스템.
 
 [4 핵심 자동화 시나리오 (81개 중 대표)]
 1. 정부지원사업 크롤링 · 사업계획서 자동화 (Webhook → Airtable → CloudConvert/PDF.co → OpenAI 6+ 분기 → Google Docs) — 24+ 공고 누적
@@ -120,10 +122,11 @@ const PUBLIC_LINKS = `
 - 블로그: https://blog.naver.com/sbcyberpass
 - Tickpoint SaaS: https://tickpoint.co.kr/
 - Lumio Video: https://lumio-video.vercel.app/
+- Factto (사실 기반 SEO 블로그): https://image-insight-tau.vercel.app/
 - 이메일: 9843ohs@gmail.com
 
 [운영 사이트]
-- ProPintel · Tickpoint · Lumio · 자체 시스템 다수
+- ProPintel · Tickpoint · Lumio · Factto · 자체 시스템 다수
 `;
 
 export const KNOWLEDGE_BASE = [
@@ -139,4 +142,4 @@ export const KNOWLEDGE_BASE = [
   RESUME_TEXT,
 ].join("\n");
 
-export const KNOWLEDGE_BASE_VERSION = "2026-05-06-v2";
+export const KNOWLEDGE_BASE_VERSION = "2026-07-01-v3";

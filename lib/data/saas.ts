@@ -415,4 +415,71 @@ export const SAAS_LIST: SaaSDetail[] = [
     iconName: "Workflow",
     developer: "ls.Jung",
   },
+  {
+    slug: "factto",
+    order: 7,
+    name: "Factto",
+    tagline:
+      "사실로 쓰는 SEO 블로그 — 이미지·네이버 플레이스 실데이터에서 사실만 뽑아 상위 노출 통계에 맞춰 홍보 블로그를 자동 생성하는 SaaS",
+    liveUrl: "https://image-insight-tau.vercel.app/",
+    tone: "dark",
+    toneNote: "다크 + 에메랄드 그린 액센트, 사실 기반 배지",
+    since: "2026-07-01",
+    problemStatement:
+      "일반 AI 글쓰기 도구는 그럴듯하지만 근거 없는 내용을 지어냄(할루시네이션). 홍보 블로그에 사실이 아닌 정보가 들어가면 신뢰가 무너진다. 이미지·네이버 플레이스 실데이터에서 확인된 사실만으로 상위 노출 통계에 맞춰 글을 쓰는 도구가 필요해 출발.",
+    outcome:
+      "이미지 업로드 또는 플레이스 URL 입력 → 검증된 사실만으로 구성된 SEO 최적화 블로그 글 + 단락별 승인 이미지 자동 생성. 없는 정보는 지어내지 않으며, 경쟁글은 통계만 참고해 표절 위험 제로.",
+    capabilities: [
+      {
+        title: "사실 기반·무 할루시네이션",
+        description:
+          "이미지와 네이버 플레이스 실데이터에서 추출한 사실만으로 글을 씁니다. 확인되지 않은 정보는 작성하지 않아, 다른 AI 도구가 그럴듯한 추측을 만들어낼 때 Factto는 검증된 사실만 사용합니다.",
+      },
+      {
+        title: "다중 AI 교차검증 이미지 분석",
+        description:
+          "복수 비전 AI 모델이 이미지를 독립적으로 분석한 뒤 교차검증합니다. 장소·분위기·텍스트·객체·색감을 추출하는 이미지 분석 시스템이 이중 검증으로 정확도를 높입니다.",
+      },
+      {
+        title: "표절 없는 경쟁분석 + SEO 실전 튜닝",
+        description:
+          "상위 경쟁 글의 글자수·이미지수·제목 구조 같은 통계 수치만 참고하며 내용을 인용하지 않아 표절 위험이 없습니다. 제목 길이·키워드 위치·소제목·연관 키워드를 상위 노출 통계에 맞춰 검증합니다.",
+      },
+      {
+        title: "Image Blog + Place Blog 2 시스템",
+        description:
+          "이미지 업로드 → 분석 → 키워드 → 경쟁분석 → 블로그 글 생성까지 한 흐름의 Image Blog, 그리고 네이버 플레이스 URL을 8단계 위저드로 홍보 블로그 글로 자동 변환하는 Place Blog — 두 시스템으로 소스에 맞춰 진행합니다.",
+      },
+      {
+        title: "AI 이미지 승인제",
+        description:
+          "fal.ai로 단락별 이미지를 자동 생성하되, 자동 삽입이 아니라 사람이 검토·승인한 이미지만 본문에 삽입합니다. 사용자가 업로드한 이미지는 항상 AI 이미지보다 우선 배치됩니다.",
+      },
+      {
+        title: "CTA 링크 자동 삽입 + 투명 비용 추적",
+        description:
+          "전환율을 높이는 CTA 링크(URL)를 글에 자동 삽입하고, 네이버 플레이스 리뷰 기반 블로그에도 동일하게 적용합니다. 실행 횟수 기반 API 비용은 관리자 패널에서 실시간·투명하게 추적됩니다.",
+      },
+    ],
+    techStack: [
+      "Next.js",
+      "다중 비전 AI",
+      "fal.ai",
+      "네이버 플레이스",
+      "Vercel",
+    ],
+    metrics: [
+      { label: "핵심 차별점", value: "9가지" },
+      { label: "시스템", value: "3" },
+      { label: "완성 프로세스", value: "5단계" },
+      { label: "Place 위저드", value: "8단계" },
+      { label: "이미지 검증", value: "다중 AI" },
+    ],
+    folderImageCount: 7,
+    folderPath: "/saas-folders/factto",
+    capturedSlug: "factto",
+    iconName: "FileCheck2",
+    developer: "ls.Jung",
+    contactEmail: "9843ohs@gmail.com",
+  },
 ];
