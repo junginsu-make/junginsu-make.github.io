@@ -15,7 +15,7 @@ const RIGHT_ITEMS = [
   "풀사이클 자동화",
   "Vibe Coding 43",
   "자동화 시나리오 81",
-  "6 라이브 SaaS · AI SaaS PL 4건",
+  "7 라이브 SaaS · AI SaaS PL 4건",
 ];
 
 const INTERSECTION_ITEMS = [

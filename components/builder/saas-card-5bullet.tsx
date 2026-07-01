@@ -157,7 +157,7 @@ export function SaasIndex({ list }: { list: SaaSDetail[] }) {
     <section className="px-6 md:px-10 lg:px-16 py-24 md:py-32">
       <div className="flex items-baseline justify-between mb-8">
         <p className="text-meta opacity-60 tracking-[0.2em]">
-          <MaskReveal>6 LIVE SAAS · INDEX</MaskReveal>
+          <MaskReveal>{`${list.length} LIVE SAAS · INDEX`}</MaskReveal>
         </p>
         <span className="text-meta opacity-40">PRODUCTION</span>
       </div>
