@@ -218,7 +218,8 @@ export function ChatWidget() {
     setError(null);
 
     try {
-      const res = await fetch("/api/chat", {
+      // trailingSlash:true → canonical 경로로 직접 호출(308 리다이렉트 회피)
+      const res = await fetch("/api/chat/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ messages: next }),
