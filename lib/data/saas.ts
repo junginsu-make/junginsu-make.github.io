@@ -482,4 +482,70 @@ export const SAAS_LIST: SaaSDetail[] = [
     developer: "ls.Jung",
     contactEmail: "9843ohs@gmail.com",
   },
+  {
+    slug: "place-seo",
+    order: 8,
+    name: "Naver Place SEO",
+    tagline:
+      "네이버 플레이스 상위노출 진단·액션 SaaS — URL 하나로 상위 10개와 비교해 '오늘 뭐부터 할지'를 우선순위로 알려주는 서비스",
+    liveUrl: "https://vercel-demo-sigma-rosy.vercel.app/",
+    tone: "light",
+    toneNote: "라이트 + 에메랄드 그린 액센트, 플레이스 진단 카드 UI",
+    since: "2026-07-03",
+    problemStatement:
+      "네이버 플레이스 사장님·대행사는 '알고리즘'을 공부해도 정작 오늘 뭘 해야 순위가 오르는지 모른다. 상위노출을 보장한다는 말 대신, 상위 10개와 비교한 실제 격차를 근거로 '지금 뭐부터 할지'를 우선순위로 짚어주는 도구가 필요해 출발.",
+    outcome:
+      "플레이스 URL 하나만 넣으면 진단 시작(키워드 몰라도 AI 추천). 상위 10개 대비 부족 격차를 '42건 부족·35%p 부족'처럼 구체 수치로 → 우선순위 실행 목록 → 7·14일 후 순위·지표 변화 검증. 대행사가 사장님께 그대로 설명할 근거까지.",
+    capabilities: [
+      {
+        title: "URL 하나로 진단 시작 (키워드 몰라도 됨)",
+        description:
+          "네이버 플레이스 URL만 입력하면 진단 시작. 추적 키워드는 1~5개 직접 선택하거나 AI 추천을 그대로 사용. 알고리즘을 공부할 필요 없이 바로 시작한다.",
+      },
+      {
+        title: "상위 10개 대비 부족 격차 진단",
+        description:
+          "내 플레이스의 실제 수집값을 비슷한 상위 10개 업체 벤치마크와 대조. '42건 부족', '35%p 부족'처럼 채워야 할 정확한 격차를 숫자로 제시한다.",
+      },
+      {
+        title: "오늘 할 일 — 우선순위 실행 목록",
+        description:
+          "부족 수치를 채우는 액션을 우선순위(높음·보통·낮음)로 정렬. 각 액션마다 현재값·기준값·채울값 + 근거·추세·경쟁·AI 제안 탭으로 '왜 해야 하는지'까지 제공한다.",
+      },
+      {
+        title: "매일 자동 수집·순위 추적",
+        description:
+          "Admin에 저장한 장소 URL·키워드를 매일 자동 수집·추적. 플레이스 기본·소식·메뉴/사진·리뷰·위치/교통 5개 카테고리 원자료를 저장하고 순위 그래프로 변화를 확인한다.",
+      },
+      {
+        title: "직접 비교 (내 장소 vs 경쟁 장소)",
+        description:
+          "비교할 장소 URL을 넣으면 키워드 순위·방문자 리뷰·글 포함 리뷰 등을 같은 기준으로 항목별 카드로 비교. 표 대신 카드로 한눈에 본다.",
+      },
+      {
+        title: "근거 투명성 — 사장님 보고용",
+        description:
+          "모든 액션에 대행사 직원이 사장님께 그대로 설명할 근거가 붙는다. 추측이 아니라 수집값과 상위권 기준값의 차이. 수집 실패·확인 불가는 신뢰도에 반영하며 상위노출은 보장하지 않는다.",
+      },
+    ],
+    techStack: [
+      "Next.js",
+      "네이버 플레이스",
+      "AI 키워드 추천",
+      "Vercel",
+    ],
+    metrics: [
+      { label: "진단 시작", value: "URL 1개" },
+      { label: "비교 기준", value: "상위 10개" },
+      { label: "수집 카테고리", value: "5" },
+      { label: "검증 주기", value: "7·14일" },
+      { label: "메인 화면", value: "5탭" },
+    ],
+    folderImageCount: 5,
+    folderPath: "/saas-folders/place-seo",
+    capturedSlug: "place-seo",
+    iconName: "MapPin",
+    developer: "ls.Jung",
+    contactEmail: "9843ohs@gmail.com",
+  },
 ];
