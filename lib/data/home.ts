@@ -17,7 +17,7 @@ export const COUNTERS: Counter[] = [
   { value: "17", suffix: "년", label: "Career" },
   { value: "43", suffix: "", label: "Vibe Coding Repos" },
   { value: "81", suffix: "", label: "자동화 시나리오" },
-  { value: "8", suffix: "", label: "Live SaaS" },
+  { value: "9", suffix: "", label: "Live SaaS" },
 ];
 
 export type TechCategory = {

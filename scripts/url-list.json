@@ -7,6 +7,7 @@
   { "slug": "architect/home", "url": "https://architect-portfolio-lake.vercel.app/" },
   { "slug": "factto/home", "url": "https://image-insight-tau.vercel.app/" },
   { "slug": "shopping-insight/home", "url": "https://shopping.mktinsight.kr/" },
+  { "slug": "place-insight/home", "url": "https://place.mktinsight.kr/" },
   { "slug": "github/profile", "url": "https://github.com/junginsu-make" },
   { "slug": "blog/sbcyberpass", "url": "https://blog.naver.com/sbcyberpass" }
 ]

@@ -40,7 +40,7 @@ const CATEGORIES: Category[] = [
     img: "/ai-builder/os-agent-detail.jpg",
     imgWebp: "/ai-builder/os-agent-detail.webp",
     imgAvif: "/ai-builder/os-agent-detail.avif",
-    caption: "Vibe Coding 43 · 자동화 시나리오 81 · SaaS 8 Live",
+    caption: "Vibe Coding 43 · 자동화 시나리오 81 · SaaS 9 Live",
   },
 ];
 
