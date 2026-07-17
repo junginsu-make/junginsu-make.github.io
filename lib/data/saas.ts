@@ -21,10 +21,10 @@ export type SaaSDetail = {
   outcome?: string; // "이 SaaS로 무엇이 달라지나"
 };
 
-export const SAAS_LIST: SaaSDetail[] = [
+const SAAS_LIST_UNORDERED: SaaSDetail[] = [
   {
     slug: "tickpoint",
-    order: 1,
+    order: 7,
     name: "Tickpoint",
     tagline:
       "한국 주식 트레이딩 인텔리전스 — KOSPI · KOSDAQ 2,769 종목을 멀티 LLM으로 통합 분석하는 라이브 SaaS",
@@ -160,7 +160,7 @@ export const SAAS_LIST: SaaSDetail[] = [
   },
   {
     slug: "os-agent",
-    order: 3,
+    order: 1,
     name: "OS Agent (Synapse)",
     tagline:
       "사내 AI OS — 12명 가상직원 + 20개 AI 에이전트가 부서별 협업하는 운영 시스템",
@@ -218,7 +218,7 @@ export const SAAS_LIST: SaaSDetail[] = [
   },
   {
     slug: "mkt-automation",
-    order: 4,
+    order: 6,
     name: "MKT Automation",
     tagline:
       "All-in-One 마케팅 OS — 네이버 · 구글 · 블로그 · SNS · YouTube 단일 워크플로우",
@@ -286,7 +286,7 @@ export const SAAS_LIST: SaaSDetail[] = [
   },
   {
     slug: "propintel",
-    order: 5,
+    order: 9,
     name: "PropIntel AI",
     tagline:
       "부동산 AI 어시스턴트 — 시장 + 등기 + 계약 사기 검증을 묶은 SaaS",
@@ -352,7 +352,7 @@ export const SAAS_LIST: SaaSDetail[] = [
   },
   {
     slug: "architect",
-    order: 6,
+    order: 8,
     name: "아키텍처 시스템",
     tagline:
       "AI 비즈니스 진단 + 이중 출력 워크벤치 — 5단계 인터뷰만으로 제안서 · PRD 동시 자동 생성",
@@ -417,7 +417,7 @@ export const SAAS_LIST: SaaSDetail[] = [
   },
   {
     slug: "factto",
-    order: 7,
+    order: 5,
     name: "Factto",
     tagline:
       "사실로 쓰는 SEO 블로그 — 이미지·네이버 플레이스 실데이터에서 사실만 뽑아 상위 노출 통계에 맞춰 홍보 블로그를 자동 생성하는 SaaS",
@@ -484,7 +484,7 @@ export const SAAS_LIST: SaaSDetail[] = [
   },
   {
     slug: "shopping-insight",
-    order: 8,
+    order: 3,
     name: "Naver Shopping Insight",
     tagline:
       "네이버 쇼핑 상품 성장 인텔리전스 — 상품 URL 하나로 실제 순위·검색 수요·경쟁 가격·리뷰 신호를 묶어 '지금 뭘 바꿔야 하는지'와 다음 매출 기회를 데이터로 보여주는 SaaS",
@@ -554,7 +554,7 @@ export const SAAS_LIST: SaaSDetail[] = [
   },
   {
     slug: "place-insight",
-    order: 9,
+    order: 4,
     name: "Place Insight",
     tagline:
       "네이버 플레이스 순위 관리 + 상권·부동산 공공데이터를 한 화면에 — 경쟁 상위 10곳 실측으로 '오늘 뭘 먼저 할지'를 우선순위로 내려주는 점포 의사결정 SaaS",
@@ -620,3 +620,8 @@ export const SAAS_LIST: SaaSDetail[] = [
     contactEmail: "9843ohs@gmail.com",
   },
 ];
+
+/** 홈·빌더 노출 순서 — 각 엔트리의 order 필드대로 정렬(사용자 지정). */
+export const SAAS_LIST: SaaSDetail[] = [...SAAS_LIST_UNORDERED].sort(
+  (a, b) => a.order - b.order,
+);

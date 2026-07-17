@@ -2,6 +2,8 @@
 import { useState, useEffect } from "react";
 import { SAAS_LIST } from "@/lib/data/saas";
 import { SweepLink } from "@/components/motion/color-sweep";
+import { ScrollReveal } from "@/components/motion/scroll-reveal";
+import { MaskRevealStagger } from "@/components/motion/mask-reveal";
 
 export function SaasCycle() {
   const [idx, setIdx] = useState(0);
@@ -28,6 +30,21 @@ export function SaasCycle() {
 
   return (
     <section className="overflow-hidden">
+      {/* SaaS 영역 제목 — 키 비주얼 (ThreeCategories 헤딩과 동일 스타일) */}
+      <div className="px-6 md:px-10 lg:px-16 pt-24 md:pt-32">
+        <ScrollReveal>
+          <p className="text-meta opacity-50 mb-8">
+            {SAAS_LIST.length} 라이브 SaaS · 프로덕션 운영
+          </p>
+        </ScrollReveal>
+        <h2 className="text-display-lg font-display max-w-3xl">
+          <MaskRevealStagger
+            text="기획 · 설계 · 개발 · 배포까지, 전부 한 사람이."
+            letterDelay={0.025}
+            startDelay={0.1}
+          />
+        </h2>
+      </div>
       <div
         className="px-6 md:px-10 lg:px-16 py-8 md:py-12"
         onMouseEnter={() => setPaused(true)}

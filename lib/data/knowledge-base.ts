@@ -39,16 +39,16 @@ const TECH_STACK = `
 
 const SAAS_LIVE = `
 [9 Live SaaS]
-※ 아래 8개 SaaS는 모두 정인수가 혼자 기획·설계·구현·검증·배포까지 전 과정을 수행한 1인 풀사이클 결과물이다.
-1. Tickpoint (https://tickpoint.co.kr/) — 한국 주식 트레이딩 인텔리전스. KOSPI·KOSDAQ 2,769 종목을 멀티 LLM(Claude·GPT·Gemini·Perplexity)으로 통합 분석. 변동성 수축 패턴 시그널 + 9 백테스트 KPI + 24 이슈 종목 자동 큐레이션 + 80+ 시그널 + 시장 심리 게이지 + 자동매매 시스템 + 섹터 히트맵.
+※ 아래 9개 SaaS는 모두 정인수가 혼자 기획·설계·구현·검증·배포까지 전 과정을 수행한 1인 풀사이클 결과물이다. (노출 순서 기준)
+1. Palette OS Agent — 사내 AI OS · Synapse, 12 가상직원 + 20 AI 에이전트 OS
 2. Lumio Video (https://lumio-video.vercel.app/) — AI 영상 생성/편집 SaaS
-3. ProPintel — 부동산 인텔리전스
-4. Palette OS Agent — 사내 AI OS · Synapse, 12 가상직원 + 20 AI 에이전트 OS
-5. MKT Automation — 네이버·구글·블로그·SNS·YouTube 단일 워크플로우 마케팅 OS
-6. Architect (아키텍처 시스템) — AI 비즈니스 진단 + 제안서·PRD 동시 자동 생성
-7. Factto (https://image-insight-tau.vercel.app/) — 사실로 쓰는 SEO 블로그 자동 생성. 이미지·네이버 플레이스 실데이터에서 사실만 추출(무 할루시네이션), 다중 AI 교차검증 이미지 분석, 표절 없는 경쟁분석(상위 글 통계만 참고), SEO 실전 튜닝, AI 이미지 승인제(fal.ai), Image Blog + Place Blog 2 시스템.
-8. Naver Shopping Insight (https://shopping.mktinsight.kr/) — 네이버 쇼핑 상품 성장 인텔리전스. 상품 URL 하나로 실제 노출 점수·Top10 진입률·30일 클릭 추이·키워드 수요·시장 관심 구성비(기기·성별·연령)·경쟁상품 Top20·리뷰·실행 액션을 한 화면에. 실제 순위 vs API 추정 순위 구분, DataLab 시장 트렌드 탐색, 거래 기회 분석·상품 비교, Chrome 확장 수집기. 매출은 순위로 역산하지 않고 수집 데이터 기반 기회 지표로만 표시. 공개 데모는 로그인 불필요.
-9. Place Insight (https://place.mktinsight.kr/) — 네이버 플레이스 순위 관리 + 상권·부동산 공공데이터를 한 화면에 묶은 점포 의사결정 SaaS. 경쟁 상위 10곳 실측 비교(리뷰 227/430=203건 부족처럼 정확한 수치), 오늘 할 일 우선순위 실행 카드(근거·실행단계·확인시점), 가짜 데이터 없음(없으면 판단 보류 명시), 업종별 지표 자동 분리, 매일 07시 내·경쟁 순위 자동 추적(플레이스 7영역), 상권·인구·부동산 실거래·상가 계약 위험 사전 점검(소상공인·SGIS·국토부·청약홈·ECOS 공공데이터).
+3. Naver Shopping Insight (https://shopping.mktinsight.kr/) — 네이버 쇼핑 상품 성장 인텔리전스. 상품 URL 하나로 실제 노출 점수·Top10 진입률·30일 클릭 추이·키워드 수요·시장 관심 구성비(기기·성별·연령)·경쟁상품 Top20·리뷰·실행 액션을 한 화면에. 실제 순위 vs API 추정 순위 구분, DataLab 시장 트렌드 탐색, 거래 기회 분석·상품 비교, Chrome 확장 수집기. 매출은 순위로 역산하지 않고 수집 데이터 기반 기회 지표로만 표시. 공개 데모는 로그인 불필요.
+4. Place Insight (https://place.mktinsight.kr/) — 네이버 플레이스 순위 관리 + 상권·부동산 공공데이터를 한 화면에 묶은 점포 의사결정 SaaS. 경쟁 상위 10곳 실측 비교(리뷰 227/430=203건 부족처럼 정확한 수치), 오늘 할 일 우선순위 실행 카드(근거·실행단계·확인시점), 가짜 데이터 없음(없으면 판단 보류 명시), 업종별 지표 자동 분리, 매일 07시 내·경쟁 순위 자동 추적(플레이스 7영역), 상권·인구·부동산 실거래·상가 계약 위험 사전 점검(소상공인·SGIS·국토부·청약홈·ECOS 공공데이터).
+5. Factto (https://image-insight-tau.vercel.app/) — 사실로 쓰는 SEO 블로그 자동 생성. 이미지·네이버 플레이스 실데이터에서 사실만 추출(무 할루시네이션), 다중 AI 교차검증 이미지 분석, 표절 없는 경쟁분석(상위 글 통계만 참고), SEO 실전 튜닝, AI 이미지 승인제(fal.ai), Image Blog + Place Blog 2 시스템.
+6. MKT Automation — 네이버·구글·블로그·SNS·YouTube 단일 워크플로우 마케팅 OS
+7. Tickpoint (https://tickpoint.co.kr/) — 한국 주식 트레이딩 인텔리전스. KOSPI·KOSDAQ 2,769 종목을 멀티 LLM(Claude·GPT·Gemini·Perplexity)으로 통합 분석. 변동성 수축 패턴 시그널 + 9 백테스트 KPI + 24 이슈 종목 자동 큐레이션 + 80+ 시그널 + 시장 심리 게이지 + 자동매매 시스템 + 섹터 히트맵.
+8. Architect (아키텍처 시스템) — AI 비즈니스 진단 + 제안서·PRD 동시 자동 생성
+9. ProPintel — 부동산 인텔리전스
 
 [4 핵심 자동화 시나리오 (81개 중 대표)]
 1. 정부지원사업 크롤링 · 사업계획서 자동화 (Webhook → Airtable → CloudConvert/PDF.co → OpenAI 6+ 분기 → Google Docs) — 24+ 공고 누적
@@ -147,4 +147,4 @@ export const KNOWLEDGE_BASE = [
   RESUME_TEXT,
 ].join("\n");
 
-export const KNOWLEDGE_BASE_VERSION = "2026-07-18-v9";
+export const KNOWLEDGE_BASE_VERSION = "2026-07-18-v10";

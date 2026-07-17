@@ -5,15 +5,15 @@ describe("SaaS Data", () => {
   it("9 SaaS 정확한 순서 (사용자 명시)", () => {
     expect(SAAS_LIST).toHaveLength(9);
     expect(SAAS_LIST.map((s) => s.slug)).toEqual([
-      "tickpoint",
-      "lumio",
       "os-agent",
-      "mkt-automation",
-      "propintel",
-      "architect",
-      "factto",
+      "lumio",
       "shopping-insight",
       "place-insight",
+      "factto",
+      "mkt-automation",
+      "tickpoint",
+      "architect",
+      "propintel",
     ]);
   });
 
