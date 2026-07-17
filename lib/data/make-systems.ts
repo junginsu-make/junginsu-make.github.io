@@ -340,7 +340,7 @@ export const MAKE_FOLDERS: MakeFolder[] = [
   { index: "9", name: "Midjourney image", count: 3 },
   { index: "10", name: "기타 (완료)", count: 4 },
   { index: "11", name: "미완성", count: 6 },
-  { index: "12", name: "서울법무법인 (클라이언트)", count: 9 },
+  { index: "12", name: "법무법인 (클라이언트)", count: 9 },
   { index: "13", name: "정부지원 사업 크롤링&사업계획서 작성", count: 7 },
   { index: "14", name: "카드뉴스 자동화", count: 8 },
   { index: "15", name: "AI FAKE 릴스 NEWS", count: 5 },

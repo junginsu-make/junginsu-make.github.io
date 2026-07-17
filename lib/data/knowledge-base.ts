@@ -22,7 +22,7 @@ const SITE_OVERVIEW = `
 const IMPACT_STREAMS = `
 [4 Impact Streams]
 1. AI Builder · 풀사이클 자동화 — 100+ Vibe Coding 자체 시스템 1인 개발, 자동화 시나리오 81 (정부지원사업·10X 콘텐츠·계약서·GA4·뉴스레터·웹크롤링), 멀티 LLM 통합(Claude·GPT·Gemini·Perplexity) — 팔레트 ㈜ Agent 본부 팀장 (AI Builder 2024.10 ~) + 솔찍한인쌤 병행
-2. AI SaaS PL · 4건 진행중 — 호반그룹, 서울법무법인, 아주그룹, Palette OS Agent — 클라이언트 시스템 기획 + 개발 리딩 — 팔레트 ㈜
+2. AI SaaS PL · 4건 진행중 — 대형 건설·부동산 그룹, 대형 법무법인, 대기업 그룹사, Palette OS Agent — 클라이언트 시스템 기획 + 개발 리딩 — 팔레트 ㈜ (고객사 실명은 비공개이므로 챗봇도 실명을 밝히지 않는다)
 3. AI Content Operation · 18+ 기업 운영 — 성동청년이룸창업지원센터(+2), 고려대학교기술지주(+5), 제2서울핀테크랩(+5), 서울도시철도엔지니어링, 시스트란, 모두솔루션, 리부트라이프 — 팔레트 ㈜
 4. AI 강의 — 정부 부처·창업지원센터·국제협력단 코이카·대학교·소상공인 이사회·기업 대상 — 솔찍한인쌤 (병행)
 `;
@@ -145,4 +145,4 @@ export const KNOWLEDGE_BASE = [
   RESUME_TEXT,
 ].join("\n");
 
-export const KNOWLEDGE_BASE_VERSION = "2026-07-18-v6";
+export const KNOWLEDGE_BASE_VERSION = "2026-07-18-v7";

@@ -33,7 +33,7 @@ const CHAPTERS = [
     number: "05",
     period: "2024 — 현재",
     title: "풀사이클 AI 빌더",
-    body: "2024년 10월 자동화 시나리오 실습으로 시작. 11개월 만에 자체 시스템 100+ 1인 개발, Vibe Coding 43, 6 라이브 SaaS (Tickpoint · Lumio · OS Agent · MKT Automation · PropIntel · 아키텍처). 자동화 시나리오 81 (4 핵심). AI SaaS PL 진행 중 — 호반그룹 · 서울법무법인 · 아주그룹 · Palette OS Agent. AI Content Operation — 성동청년이룸 (+2) · 고려대기술지주 (+5) · 제2서울핀테크랩 (+5) 외 단일 4개사 = 총 18+ 기업 운영.",
+    body: "2024년 10월 자동화 시나리오 실습으로 시작. 11개월 만에 자체 시스템 100+ 1인 개발, Vibe Coding 43, 6 라이브 SaaS (Tickpoint · Lumio · OS Agent · MKT Automation · PropIntel · 아키텍처). 자동화 시나리오 81 (4 핵심). AI SaaS PL 진행 중 — 대형 건설·부동산 그룹 · 대형 법무법인 · 대기업 그룹사 · Palette OS Agent. AI Content Operation — 성동청년이룸 (+2) · 고려대기술지주 (+5) · 제2서울핀테크랩 (+5) 외 단일 4개사 = 총 18+ 기업 운영.",
     side: "left" as const,
   },
 ];

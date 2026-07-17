@@ -33,7 +33,7 @@ export const IMPACT_STREAMS: ImpactStream[] = [
     number: "02",
     title: "AI SaaS PL · 클라이언트 4건 진행 중",
     bullets: [
-      "호반그룹 · 서울법무법인 · 아주그룹 · Palette OS Agent",
+      "대형 건설·부동산 그룹 · 대형 법무법인 · 대기업 그룹사 · Palette OS Agent",
       "클라이언트 시스템 기획 + 개발 리딩",
     ],
     companies: ["팔레트 ㈜"],

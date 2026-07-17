@@ -11,19 +11,19 @@ export type AiSaasPlClient = {
  */
 export const AI_SAAS_PL_CLIENTS: AiSaasPlClient[] = [
   {
-    name: "호반그룹",
+    name: "대형 건설·부동산 그룹",
     domain: "건설 · 부동산 · 그룹사",
     scope: "사내 AI 시스템 PL · 기획 + 개발 리딩",
     status: "in-progress",
   },
   {
-    name: "서울법무법인",
+    name: "대형 법무법인",
     domain: "법무 · B2B SaaS",
     scope: "법률 자동화 SaaS PL · 멀티 LLM 라우팅",
     status: "in-progress",
   },
   {
-    name: "아주그룹",
+    name: "대기업 그룹사",
     domain: "그룹사 · 다업종",
     scope: "그룹 통합 AI 시스템 PL · 사내 자동화",
     status: "in-progress",

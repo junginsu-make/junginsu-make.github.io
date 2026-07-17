@@ -337,7 +337,7 @@ export const MARKETING_TIMELINE: MarketingMilestone[] = [
       "Vibe Coding으로 100+ 자체 시스템 1인 개발",
       "자동화 시나리오 · n8n으로 콘텐츠 자동화 · 데이터 수집 · 웹스크랩 시스템 구축",
       "AI Prompt SEO + 멀티 LLM 통합 (Claude · GPT · Gemini · Perplexity)",
-      "AI SaaS PL 4건 — 호반 · 서울법무법인 · 아주그룹 · Palette OS Agent",
+      "AI SaaS PL 4건 — 대형 건설·부동산 그룹 · 대형 법무법인 · 대기업 그룹사 · Palette OS Agent",
       "AI Content Operation 18+ 기업 운영 — 성동청년이룸 · 고려대기술지주 · 제2서울핀테크랩 입주기업 포함",
       "Capsule Media 종합홍보 PM — 농림축산 · 조달청 · 한국벤처투자 · 창업진흥원 + 14건",
     ],
