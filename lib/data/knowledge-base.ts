@@ -39,6 +39,7 @@ const TECH_STACK = `
 
 const SAAS_LIVE = `
 [8 Live SaaS]
+※ 아래 8개 SaaS는 모두 정인수가 혼자 기획·설계·구현·검증·배포까지 전 과정을 수행한 1인 풀사이클 결과물이다.
 1. Tickpoint (https://tickpoint.co.kr/) — 한국 주식 트레이딩 인텔리전스. KOSPI·KOSDAQ 2,769 종목을 멀티 LLM(Claude·GPT·Gemini·Perplexity)으로 통합 분석. 변동성 수축 패턴 시그널 + 9 백테스트 KPI + 24 이슈 종목 자동 큐레이션 + 80+ 시그널 + 시장 심리 게이지 + 자동매매 시스템 + 섹터 히트맵.
 2. Lumio Video (https://lumio-video.vercel.app/) — AI 영상 생성/편집 SaaS
 3. ProPintel — 부동산 인텔리전스

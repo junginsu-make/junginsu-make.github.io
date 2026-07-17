@@ -164,6 +164,11 @@ export function Duality() {
               자동화 시나리오 <WordHighlight delay={1.6}>81</WordHighlight>
             </p>
           </ScrollReveal>
+          <ScrollReveal delay={0.75}>
+            <p className="text-meta opacity-60 mt-3 lg:whitespace-nowrap">
+              기획 · 설계 · 구현 · 검증 · 배포까지 1인 풀사이클
+            </p>
+          </ScrollReveal>
         </div>
       </div>
       {/* 중앙 캡슐 */}

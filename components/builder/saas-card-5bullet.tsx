@@ -168,6 +168,15 @@ export function SaasIndex({ list }: { list: SaaSDetail[] }) {
         </MaskReveal>
       </h2>
 
+      <ScrollReveal delay={0.12}>
+        <p className="text-body-lg leading-[1.6] mb-4">
+          <span className="text-[var(--accent)] font-semibold">
+            {list.length}개 모두 기획 · 설계 · 구현 · 검증 · 배포까지 1인 풀사이클
+          </span>
+          로 완성한 프로덕션 SaaS입니다.
+        </p>
+      </ScrollReveal>
+
       <ScrollReveal delay={0.2}>
         <p className="text-body-lg opacity-75 leading-[1.6] mb-12 md:mb-16 lg:whitespace-nowrap">
           호버하면 5 핵심 능력이 펼쳐지고, 카드를 클릭하면 풀블리드 라이브 캡처
