@@ -2,8 +2,8 @@ import { describe, expect, it } from "vitest";
 import { SAAS_LIST } from "@/lib/data/saas";
 
 describe("SaaS Data", () => {
-  it("8 SaaS 정확한 순서 (사용자 명시)", () => {
-    expect(SAAS_LIST).toHaveLength(8);
+  it("9 SaaS 정확한 순서 (사용자 명시)", () => {
+    expect(SAAS_LIST).toHaveLength(9);
     expect(SAAS_LIST.map((s) => s.slug)).toEqual([
       "tickpoint",
       "lumio",
@@ -13,6 +13,7 @@ describe("SaaS Data", () => {
       "architect",
       "factto",
       "shopping-insight",
+      "place-insight",
     ]);
   });
 
