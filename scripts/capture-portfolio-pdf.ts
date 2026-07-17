@@ -12,7 +12,7 @@ import { PDFDocument, PDFName, PDFString } from "pdf-lib";
 import sharp from "sharp";
 import { writeFile } from "fs/promises";
 
-const BASE_URL = process.env.BASE_URL ?? "https://junginsu-make-github-io.vercel.app";
+const BASE_URL = process.env.BASE_URL ?? "https://isjung.mktinsight.kr";
 const VIEWPORT_WIDTH = 1440;
 const VIEWPORT_HEIGHT = 900;
 const DEVICE_SCALE = 1.5; // 선명도 — 물리 픽셀 2160 wide

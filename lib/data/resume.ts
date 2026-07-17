@@ -190,7 +190,7 @@ AI SaaS PL로 대형 건설·부동산 그룹·대형 법무법인·대기업 �
 개인포부: 좋은 학력·자격조건 가진 사람은 아니지만, 다양한 경험으로 사람을 대하고 성공·실패에서 발전을 이뤘다. 나이·경력보다 입장을 직시하고 겸손한 자세로 임함. 가장 자신 있는 부분은 온라인 마케팅과 고객을 대하는 서비스업이며, 끊임없는 자기 발전으로 한 명의 직원이 회사에 끼치는 영향력과 발전을 보여드리는 것이 목표.
 
 [포트폴리오 / 외부 자산]
-- 메인: https://junginsu-make-github-io.vercel.app/
+- 메인: https://isjung.mktinsight.kr/
 - 작업 기간: 2026.05.02~2026.05.04 (1인 작업, Website)
 - 기타 운영 사이트: tickpoint.co.kr, lumio-video.vercel.app, 43.201.237.25:3010
 - 블로그: http://blog.naver.com/sbcyberpass
