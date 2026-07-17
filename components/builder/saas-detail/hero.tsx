@@ -55,6 +55,15 @@ export function SaasHero({ saas }: { saas: SaaSDetail }) {
           </MaskReveal>
         </p>
 
+        <ScrollReveal delay={0.15} className="mb-6">
+          <span
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[#F4F0E6]/30 bg-black/25 backdrop-blur-sm text-meta tracking-[0.1em]"
+            style={{ textShadow: "0 1px 4px rgba(0,0,0,0.6)" }}
+          >
+            1인 풀사이클 · 기획 → 설계 → 구현 → 검증 → 배포
+          </span>
+        </ScrollReveal>
+
         <h1
           className="text-display-xl md:text-display-mega font-display leading-[0.92] tracking-[-0.03em] max-w-[1280px]"
           style={{ textShadow: "0 4px 24px rgba(0,0,0,0.55)" }}

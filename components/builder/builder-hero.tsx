@@ -46,6 +46,11 @@ export function BuilderHero() {
             </span>
           </MaskReveal>
         </span>
+        <span className="block mt-3 text-body-lg opacity-70">
+          <MaskReveal delay={1.0}>
+            <span>기획 · 설계 · 구현 · 검증 · 배포까지 — 전부 1인 풀사이클</span>
+          </MaskReveal>
+        </span>
       </div>
 
       <div className="mt-24 grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-12">

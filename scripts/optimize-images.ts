@@ -12,7 +12,7 @@ const PUBLIC_DIRS = [
   "public/saas-folders/propintel",
   "public/saas-folders/architect",
   "public/saas-folders/factto",
-  "public/saas-folders/place-seo",
+  "public/saas-folders/shopping-insight",
   "public/automation",
   "public/captured",
 ];
