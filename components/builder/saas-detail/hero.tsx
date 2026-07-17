@@ -57,10 +57,19 @@ export function SaasHero({ saas }: { saas: SaaSDetail }) {
 
         <ScrollReveal delay={0.15} className="mb-6">
           <span
-            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[#F4F0E6]/30 bg-black/25 backdrop-blur-sm text-meta tracking-[0.1em]"
+            className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-[var(--accent)]/70 bg-black/45 backdrop-blur-sm text-meta tracking-[0.1em]"
             style={{ textShadow: "0 1px 4px rgba(0,0,0,0.6)" }}
           >
-            1인 풀사이클 · 기획 → 설계 → 구현 → 검증 → 배포
+            <span
+              aria-hidden
+              className="w-1.5 h-1.5 rounded-full bg-[var(--accent)]"
+            />
+            <span className="text-[var(--accent)] font-semibold">
+              1인 개발 풀사이클
+            </span>
+            <span className="opacity-85">
+              · 기획 → 설계 → 구현 → 검증 → 배포
+            </span>
           </span>
         </ScrollReveal>
 
