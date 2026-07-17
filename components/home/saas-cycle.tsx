@@ -37,7 +37,7 @@ export function SaasCycle() {
             {SAAS_LIST.length} 라이브 SaaS · 프로덕션 운영
           </p>
         </ScrollReveal>
-        <h2 className="text-display-lg font-display max-w-3xl">
+        <h2 className="text-display-lg font-display max-w-5xl text-balance">
           <MaskRevealStagger
             text="기획 · 설계 · 개발 · 배포까지, 전부 한 사람이."
             letterDelay={0.025}
