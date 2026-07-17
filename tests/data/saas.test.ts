@@ -12,7 +12,7 @@ describe("SaaS Data", () => {
       "propintel",
       "architect",
       "factto",
-      "place-seo",
+      "shopping-insight",
     ]);
   });
 

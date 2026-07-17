@@ -144,7 +144,7 @@ export function Duality() {
           <source srcSet="/ai-builder/saas-mosaic.webp" type="image/webp" />
           <img
             src="/ai-builder/saas-mosaic.jpg"
-            alt="SaaS 6 Live 모자이크 — Lumio · OS Agent · Propintel · Tickpoint · Architect · MKT-Auto"
+            alt="SaaS 8 Live 모자이크 — Tickpoint · Lumio · OS Agent · MKT Automation · PropIntel · Architect · Factto · Naver Shopping Insight"
             loading="lazy"
             decoding="async"
             className="absolute inset-0 w-full h-full object-cover object-center opacity-50"
@@ -160,7 +160,7 @@ export function Duality() {
           <ScrollReveal delay={0.6}>
             <p className="text-body-lg mt-4 lg:whitespace-nowrap">
               Vibe Coding <WordHighlight delay={1.0}>43</WordHighlight> · {" "}
-              SaaS <WordHighlight delay={1.3}>6</WordHighlight> Live ·
+              SaaS <WordHighlight delay={1.3}>8</WordHighlight> Live ·
               자동화 시나리오 <WordHighlight delay={1.6}>81</WordHighlight>
             </p>
           </ScrollReveal>
