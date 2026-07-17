@@ -28,7 +28,7 @@ describe("knowledge-base", () => {
 
   it("주요 SaaS 라이브 URL이 포함된다", () => {
     expect(KNOWLEDGE_BASE).toContain("tickpoint.co.kr");
-    expect(KNOWLEDGE_BASE).toContain("junginsu-make-github-io.vercel.app");
+    expect(KNOWLEDGE_BASE).toContain("isjung.mktinsight.kr");
   });
 
   it("TMON ROAS 7404 수치가 포함된다", () => {

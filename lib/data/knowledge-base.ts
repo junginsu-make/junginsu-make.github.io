@@ -6,7 +6,7 @@ import { RESUME_TEXT } from "./resume";
 
 const SITE_OVERVIEW = `
 [사이트 개요]
-- URL: https://junginsu-make-github-io.vercel.app/
+- URL: https://isjung.mktinsight.kr/
 - 작성자: 정인수 (Marketer · AI Builder · AI SaaS)
 - 한 줄 선언: "AI 시대를 만난 17년 Marketer가, AI Builder로 다시 태어났다"
 - 4 핵심 지표: 17년 Career · 43 Vibe Coding Repos · 81 자동화 시나리오 · 8 Live SaaS
@@ -120,7 +120,7 @@ const CERTIFICATIONS = `
 
 const PUBLIC_LINKS = `
 [공개 링크 — 답변에 자유롭게 사용 가능]
-- 포트폴리오 메인: https://junginsu-make-github-io.vercel.app/
+- 포트폴리오 메인: https://isjung.mktinsight.kr/
 - 블로그: https://blog.naver.com/sbcyberpass
 - Tickpoint SaaS: https://tickpoint.co.kr/
 - Lumio Video: https://lumio-video.vercel.app/
@@ -145,4 +145,4 @@ export const KNOWLEDGE_BASE = [
   RESUME_TEXT,
 ].join("\n");
 
-export const KNOWLEDGE_BASE_VERSION = "2026-07-18-v7";
+export const KNOWLEDGE_BASE_VERSION = "2026-07-18-v8";
