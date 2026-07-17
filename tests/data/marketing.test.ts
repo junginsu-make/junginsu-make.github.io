@@ -11,12 +11,20 @@ import { AI_SAAS_PL_CLIENTS } from "@/lib/data/builder-clients";
 describe("Marketing Data", () => {
   it("AI SaaS PL 클라이언트 4건 — AI 빌더 영역 (마케팅 X)", () => {
     expect(AI_SAAS_PL_CLIENTS).toHaveLength(4);
-    expect(AI_SAAS_PL_CLIENTS.map((c) => c.name)).toContain("호반그룹");
-    expect(AI_SAAS_PL_CLIENTS.map((c) => c.name)).toContain("서울법무법인");
-    expect(AI_SAAS_PL_CLIENTS.map((c) => c.name)).toContain("아주그룹");
+    // 고객사 실명은 비공개 — 익명화된 표기 사용 (기밀 보호)
+    expect(AI_SAAS_PL_CLIENTS.map((c) => c.name)).toContain(
+      "대형 건설·부동산 그룹",
+    );
+    expect(AI_SAAS_PL_CLIENTS.map((c) => c.name)).toContain("대형 법무법인");
+    expect(AI_SAAS_PL_CLIENTS.map((c) => c.name)).toContain("대기업 그룹사");
     expect(AI_SAAS_PL_CLIENTS.map((c) => c.name)).toContain(
       "Palette OS Agent",
     );
+    // 실명이 남아있지 않은지 가드
+    const names = JSON.stringify(AI_SAAS_PL_CLIENTS);
+    expect(names).not.toContain("호반");
+    expect(names).not.toContain("서울법무법인");
+    expect(names).not.toContain("아주그룹");
   });
 
   it("AI Content Operation — 7 채널 + 18+ 기업 (입주기업 포함)", () => {
