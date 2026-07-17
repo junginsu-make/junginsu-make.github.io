@@ -21,7 +21,7 @@ export function AiSaasPlSection() {
         <MaskReveal>
           <span>
             클라이언트 AI 시스템 기획 + 개발{" "}
-            <WordHighlight delay={0.6}>PL</WordHighlight> · 4건 진행 중...
+            <WordHighlight delay={0.6}>PL</WordHighlight>
           </span>
         </MaskReveal>
       </h2>

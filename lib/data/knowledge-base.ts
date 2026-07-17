@@ -47,7 +47,7 @@ const SAAS_LIVE = `
 5. MKT Automation — 네이버·구글·블로그·SNS·YouTube 단일 워크플로우 마케팅 OS
 6. Architect (아키텍처 시스템) — AI 비즈니스 진단 + 제안서·PRD 동시 자동 생성
 7. Factto (https://image-insight-tau.vercel.app/) — 사실로 쓰는 SEO 블로그 자동 생성. 이미지·네이버 플레이스 실데이터에서 사실만 추출(무 할루시네이션), 다중 AI 교차검증 이미지 분석, 표절 없는 경쟁분석(상위 글 통계만 참고), SEO 실전 튜닝, AI 이미지 승인제(fal.ai), Image Blog + Place Blog 2 시스템.
-8. Naver Shopping Insight (https://naver-shopping-insight.vercel.app/) — 네이버 쇼핑 상품 성장 인텔리전스. 상품 URL 하나로 실제 노출 점수·Top10 진입률·30일 클릭 추이·키워드 수요·시장 관심 구성비(기기·성별·연령)·경쟁상품 Top20·리뷰·실행 액션을 한 화면에. 실제 순위 vs API 추정 순위 구분, DataLab 시장 트렌드 탐색, 거래 기회 분석·상품 비교, Chrome 확장 수집기. 매출은 순위로 역산하지 않고 수집 데이터 기반 기회 지표로만 표시. 공개 데모는 로그인 불필요.
+8. Naver Shopping Insight (https://shopping.mktinsight.kr/) — 네이버 쇼핑 상품 성장 인텔리전스. 상품 URL 하나로 실제 노출 점수·Top10 진입률·30일 클릭 추이·키워드 수요·시장 관심 구성비(기기·성별·연령)·경쟁상품 Top20·리뷰·실행 액션을 한 화면에. 실제 순위 vs API 추정 순위 구분, DataLab 시장 트렌드 탐색, 거래 기회 분석·상품 비교, Chrome 확장 수집기. 매출은 순위로 역산하지 않고 수집 데이터 기반 기회 지표로만 표시. 공개 데모는 로그인 불필요.
 
 [4 핵심 자동화 시나리오 (81개 중 대표)]
 1. 정부지원사업 크롤링 · 사업계획서 자동화 (Webhook → Airtable → CloudConvert/PDF.co → OpenAI 6+ 분기 → Google Docs) — 24+ 공고 누적
@@ -125,7 +125,7 @@ const PUBLIC_LINKS = `
 - Tickpoint SaaS: https://tickpoint.co.kr/
 - Lumio Video: https://lumio-video.vercel.app/
 - Factto (사실 기반 SEO 블로그): https://image-insight-tau.vercel.app/
-- Naver Shopping Insight (네이버 쇼핑 상품 성장 인텔리전스): https://naver-shopping-insight.vercel.app/
+- Naver Shopping Insight (네이버 쇼핑 상품 성장 인텔리전스): https://shopping.mktinsight.kr/
 - 이메일: 9843ohs@gmail.com
 
 [운영 사이트]
@@ -145,4 +145,4 @@ export const KNOWLEDGE_BASE = [
   RESUME_TEXT,
 ].join("\n");
 
-export const KNOWLEDGE_BASE_VERSION = "2026-07-17-v5";
+export const KNOWLEDGE_BASE_VERSION = "2026-07-18-v6";

@@ -405,7 +405,7 @@ export const SAAS_LIST: SaaSDetail[] = [
     metrics: [
       { label: "진단 단계", value: "5" },
       { label: "결과물 탭", value: "5" },
-      { label: "동시 출력", value: "제안서+PRD" },
+      { label: "동시 출력 (제안서·PRD)", value: "2종" },
       { label: "스프린트", value: "27" },
     ],
     github: "https://github.com/junginsu-make/Architect-Build",
@@ -473,7 +473,7 @@ export const SAAS_LIST: SaaSDetail[] = [
       { label: "시스템", value: "3" },
       { label: "완성 프로세스", value: "5단계" },
       { label: "Place 위저드", value: "8단계" },
-      { label: "이미지 검증", value: "다중 AI" },
+      { label: "비전 AI 교차검증", value: "2+" },
     ],
     folderImageCount: 7,
     folderPath: "/saas-folders/factto",
@@ -488,7 +488,7 @@ export const SAAS_LIST: SaaSDetail[] = [
     name: "Naver Shopping Insight",
     tagline:
       "네이버 쇼핑 상품 성장 인텔리전스 — 상품 URL 하나로 실제 순위·검색 수요·경쟁 가격·리뷰 신호를 묶어 '지금 뭘 바꿔야 하는지'와 다음 매출 기회를 데이터로 보여주는 SaaS",
-    liveUrl: "https://naver-shopping-insight.vercel.app/",
+    liveUrl: "https://shopping.mktinsight.kr/",
     tone: "light",
     toneNote: "라이트 + 코럴(오렌지) 액센트, 데이터 대시보드 카드 UI",
     since: "2026-07-17",
