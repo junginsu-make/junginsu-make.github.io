@@ -23,7 +23,7 @@ describe("knowledge-base", () => {
     expect(KNOWLEDGE_BASE).toContain("17년");
     expect(KNOWLEDGE_BASE).toContain("43");
     expect(KNOWLEDGE_BASE).toContain("81");
-    expect(KNOWLEDGE_BASE).toContain("9 Live SaaS");
+    expect(KNOWLEDGE_BASE).toContain("10 Live SaaS");
   });
 
   it("주요 SaaS 라이브 URL이 포함된다", () => {
