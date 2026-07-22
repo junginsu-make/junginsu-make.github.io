@@ -144,7 +144,7 @@ export function Duality() {
           <source srcSet="/ai-builder/saas-mosaic.webp" type="image/webp" />
           <img
             src="/ai-builder/saas-mosaic.jpg"
-            alt="SaaS 9 Live 모자이크 — OS Agent · Lumio · Naver Shopping Insight · Place Insight · Factto · MKT Automation · Tickpoint · Architect · PropIntel"
+            alt="SaaS 10 Live 모자이크 — OS Agent · Lumio · Naver Shopping Insight · Place Insight · Factto · MKT Automation · AI 상세페이지 스튜디오 · Tickpoint · Architect · PropIntel"
             loading="lazy"
             decoding="async"
             className="absolute inset-0 w-full h-full object-cover object-center opacity-50"

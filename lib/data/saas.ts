@@ -23,8 +23,75 @@ export type SaaSDetail = {
 
 const SAAS_LIST_UNORDERED: SaaSDetail[] = [
   {
-    slug: "tickpoint",
+    slug: "detail-page-studio",
     order: 7,
+    name: "AI 상세페이지 스튜디오",
+    tagline:
+      "상품 사진 한 장으로 이커머스 상세페이지를 새로 만들고, 기존 페이지를 전환율 중심으로 리디자인하는 AI 통합 스튜디오",
+    liveUrl: "https://detail-page-studio-web.vercel.app/",
+    tone: "light",
+    toneNote: "라이트 + 자미·플럼(#B0446A) 액센트, 상세페이지 갤러리 카드 UI",
+    since: "2026-07-22",
+    problemStatement:
+      "이커머스 셀러는 신제품을 올릴 때마다 상세페이지가 필요한데, 촬영·포토샵·모델컷·디자인 외주에 시간과 비용이 든다. 게다가 도구가 새로 만들기와 리뉴얼로 나뉘어 있어 컨텍스트가 끊긴다. 상품 사진 한 장이면 판매에 필요한 섹션 구성을 AI가 스스로 설계하고, 기존 페이지 개선까지 하나의 스튜디오에서 끝내는 도구가 필요해 통합했다.",
+    outcome:
+      "상품 사진 1장 업로드 → AI가 히어로·문제 제기·베네핏·근거·사용법 등 섹션 구조를 설계하고 모델컷·연출컷·플랫레이를 2K 고해상도로 생성. 갤러리에서 한눈에 검토·재생성·편집한 뒤 섹션별 또는 전체 ZIP으로 내보낸다. 한이룸 상세페이지 도구 2건(redesign-maker + pdp-maker)을 하나로 통합한 현행 최신 시스템.",
+    capabilities: [
+      {
+        title: "사진 1장으로 상세페이지 자동 설계",
+        description:
+          "제품컷 한 장을 넣으면 AI가 히어로 · 문제 제기 · 베네핏 · 근거 · 사용법 등 판매에 필요한 섹션 구성을 스스로 설계한다. 분석은 구조만 빠르게 만들고, 이미지는 갤러리에서 한 장씩 생성해 라이브 생성 지연을 없앴다.",
+      },
+      {
+        title: "모델컷 · 연출컷 자동 생성 (2K 고해상도)",
+        description:
+          "인물이 제품을 사용하는 장면, 연출컷, 성분 플랫레이 등 촬영이 필요했던 이미지를 Nano Banana Pro(Gemini 3 Pro Image)가 만든다. 상세페이지는 확대해서 보는 물건이라 2K 고해상도로 뽑아 흐리지 않다.",
+      },
+      {
+        title: "새로 만들기 + 리디자인 2 도구 통합",
+        description:
+          "사진으로 새로 만드는 Create와 기존 상세페이지(이미지 · PDF)를 전환율 중심으로 개선하는 Redesign을 하나의 통합 디자인에서 오간다. 원본 두 프로젝트의 백엔드 로직은 보존하고 프론트엔드만 공통 디자인 시스템으로 합쳤다.",
+      },
+      {
+        title: "한눈에 검토하는 갤러리 (격자 · 이어보기 · 모달)",
+        description:
+          "만든 섹션을 격자로 모아 보고, 카드 크기 3단계로 조절하거나 세로로 이어 붙여(이어보기) 실제 상세페이지 모습 그대로 확인한다. 카드를 누르면 모달로 크게 보며 ← → 이동 · Esc 닫기로 빠르게 검토한다.",
+      },
+      {
+        title: "섹션 순서 변경 · 재생성 · 레이어 편집",
+        description:
+          "텍스트 레이어가 섹션 고유 키로 저장돼 순서를 바꿔도 내용이 따라온다. 마음에 안 드는 섹션만 다시 만들거나, 텍스트 · 도형 레이어를 얹어 다듬고, 섹션을 추가 · 삭제한다.",
+      },
+      {
+        title: "개인 키 방식 + 결과물 보관함",
+        description:
+          "API 키는 브라우저(localStorage)에만 저장되고 서버로 나가지 않아 각자 키 기준으로 과금된다. 만든 작업은 라이브러리(IndexedDB)에 모아두고 다시 열거나 이미지를 내려받는다.",
+      },
+    ],
+    techStack: [
+      "Next.js",
+      "Tailwind",
+      "shadcn/ui",
+      "Gemini 3 Pro Image (Nano Banana Pro)",
+      "pnpm 모노레포",
+    ],
+    metrics: [
+      { label: "제작 모드", value: "2" },
+      { label: "이미지 해상도", value: "2K" },
+      { label: "작업 단계", value: "4단계" },
+      { label: "자동 섹션", value: "6~8" },
+      { label: "최소 입력", value: "1장" },
+    ],
+    folderImageCount: 7,
+    folderPath: "/saas-folders/detail-page-studio",
+    capturedSlug: "detail-page-studio",
+    iconName: "ImagePlus",
+    developer: "ls.Jung",
+    contactEmail: "9843ohs@gmail.com",
+  },
+  {
+    slug: "tickpoint",
+    order: 8,
     name: "Tickpoint",
     tagline:
       "한국 주식 트레이딩 인텔리전스 — KOSPI · KOSDAQ 2,769 종목을 멀티 LLM으로 통합 분석하는 라이브 SaaS",
@@ -286,7 +353,7 @@ const SAAS_LIST_UNORDERED: SaaSDetail[] = [
   },
   {
     slug: "propintel",
-    order: 9,
+    order: 10,
     name: "PropIntel AI",
     tagline:
       "부동산 AI 어시스턴트 — 시장 + 등기 + 계약 사기 검증을 묶은 SaaS",
@@ -352,7 +419,7 @@ const SAAS_LIST_UNORDERED: SaaSDetail[] = [
   },
   {
     slug: "architect",
-    order: 8,
+    order: 9,
     name: "아키텍처 시스템",
     tagline:
       "AI 비즈니스 진단 + 이중 출력 워크벤치 — 5단계 인터뷰만으로 제안서 · PRD 동시 자동 생성",

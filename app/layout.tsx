@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://isjung.mktinsight.kr"),
   title: "Marketer · AI Builder · AI SaaS",
   description:
-    "Marketer · AI Builder · AI SaaS — 17년 마케팅 + 풀사이클 AI 빌드. Vibe Coding 43 · 자동화 시나리오 81 · SaaS 9 Live.",
+    "Marketer · AI Builder · AI SaaS — 17년 마케팅 + 풀사이클 AI 빌드. Vibe Coding 43 · 자동화 시나리오 81 · SaaS 10 Live.",
   openGraph: {
     type: "website",
     locale: "ko_KR",

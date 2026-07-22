@@ -120,7 +120,7 @@ export const BUILD_TRACKS: BuildTrack[] = [
     bullets: [
       "Cursor · Claude Code · Codex CLI 멀티 에이전트 페어 프로그래밍",
       "Next.js · React 19 · TypeScript 5 · Tailwind v4 · Vite 풀 프론트엔드",
-      "SaaS 9 Live 프로덕션 운영 — OS Agent · Lumio · Naver Shopping Insight · Place Insight · Factto · MKT Automation · Tickpoint · Architect · PropIntel",
+      "SaaS 10 Live 프로덕션 운영 — OS Agent · Lumio · Naver Shopping Insight · Place Insight · Factto · MKT Automation · AI 상세페이지 스튜디오 · Tickpoint · Architect · PropIntel",
       "Multi-LLM 라우팅 (Claude · GPT · Gemini · Perplexity)",
       "shadcn/ui · Recharts · React Flow · Radix · Zustand · Dexie",
     ],
