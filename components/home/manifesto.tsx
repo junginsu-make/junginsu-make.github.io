@@ -25,7 +25,7 @@ export function Manifesto() {
                 <WordHighlight delay={1.9}>AI Builder</WordHighlight>로
               </MaskReveal>{" "}
               <MaskReveal delay={1.0} duration={1.0}>
-                다시 태어났다
+                다시 태어났습니다
               </MaskReveal>
             </span>
           </KineticText>

@@ -20,7 +20,7 @@ export function BuildTracks() {
         <MaskReveal>
           <span>
             직접 <WordHighlight delay={0.5}>코드</WordHighlight>도 쓰고,
-            노코드 <WordHighlight delay={0.85}>자동화</WordHighlight>도 짠다
+            노코드 <WordHighlight delay={0.85}>자동화</WordHighlight>도 짭니다
           </span>
         </MaskReveal>
       </h2>

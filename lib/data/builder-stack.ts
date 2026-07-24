@@ -116,7 +116,7 @@ export const BUILD_TRACKS: BuildTrack[] = [
     id: "vibe",
     number: "01",
     title: "Vibe Coding",
-    subtitle: "직접 코드를 쓴다",
+    subtitle: "직접 코드를 씁니다",
     bullets: [
       "Cursor · Claude Code · Codex CLI 멀티 에이전트 페어 프로그래밍",
       "Next.js · React 19 · TypeScript 5 · Tailwind v4 · Vite 풀 프론트엔드",
@@ -131,7 +131,7 @@ export const BUILD_TRACKS: BuildTrack[] = [
     id: "make",
     number: "02",
     title: "자동화 시나리오",
-    subtitle: "노코드로 시스템을 짠다",
+    subtitle: "노코드로 시스템을 짭니다",
     bullets: [
       "12+ AI 도구 통합 워크플로우 (자동화 시나리오 허브)",
       "정부지원사업 · 10X 콘텐츠 · 계약서 자동화 · GA4 · 뉴스레터 · 웹 크롤링 4 핵심",

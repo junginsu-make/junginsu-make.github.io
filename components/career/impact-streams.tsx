@@ -29,7 +29,7 @@ export function ImpactStreams() {
       <div className="mt-16 text-body opacity-70 leading-[1.7] lg:whitespace-nowrap">
         <MaskReveal delay={0.85}>
           <span>
-            영업 · 마케팅 · 강사 17년. AI 시대를 만나 풀사이클 빌더로 다시 태어났다.
+            영업 · 마케팅 · 강사 17년. AI 시대를 만나 풀사이클 빌더로 다시 태어났습니다.
             아래 6 스트림은 회사 단위가 아니라 임팩트 단위로 묶은 경력.
           </span>
         </MaskReveal>

@@ -53,7 +53,7 @@ export function TeachingPreview({ photos }: Props) {
           <span>
             마케팅을{" "}
             <WordHighlight delay={0.5}>가르치는 사람</WordHighlight>이 직접
-            운영도 한다
+            운영도 합니다
           </span>
         </MaskReveal>
       </h2>

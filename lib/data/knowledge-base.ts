@@ -8,7 +8,7 @@ const SITE_OVERVIEW = `
 [사이트 개요]
 - URL: https://isjung.mktinsight.kr/
 - 작성자: 정인수 (Marketer · AI Builder · AI SaaS)
-- 한 줄 선언: "AI 시대를 만난 17년 Marketer가, AI Builder로 다시 태어났다"
+- 한 줄 선언: "AI 시대를 만난 17년 Marketer가, AI Builder로 다시 태어났습니다"
 - 4 핵심 지표: 17년 Career · 43 Vibe Coding Repos · 81 자동화 시나리오 · 10 Live SaaS
 
 [페이지 구조]
