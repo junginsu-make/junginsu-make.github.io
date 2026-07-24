@@ -46,7 +46,7 @@ const SAAS_LIVE = `
 4. Place Insight (https://place.mktinsight.kr/) — 네이버 플레이스 순위 관리 + 상권·부동산 공공데이터를 한 화면에 묶은 점포 의사결정 SaaS. 경쟁 상위 10곳 실측 비교(리뷰 227/430=203건 부족처럼 정확한 수치), 오늘 할 일 우선순위 실행 카드(근거·실행단계·확인시점), 가짜 데이터 없음(없으면 판단 보류 명시), 업종별 지표 자동 분리, 매일 07시 내·경쟁 순위 자동 추적(플레이스 7영역), 상권·인구·부동산 실거래·상가 계약 위험 사전 점검(소상공인·SGIS·국토부·청약홈·ECOS 공공데이터).
 5. Factto (https://image-insight-tau.vercel.app/) — 사실로 쓰는 SEO 블로그 자동 생성. 이미지·네이버 플레이스 실데이터에서 사실만 추출(무 할루시네이션), 다중 AI 교차검증 이미지 분석, 표절 없는 경쟁분석(상위 글 통계만 참고), SEO 실전 튜닝, AI 이미지 승인제(fal.ai), Image Blog + Place Blog 2 시스템.
 6. MKT Automation — 네이버·구글·블로그·SNS·YouTube 단일 워크플로우 마케팅 OS
-7. AI 상세페이지 스튜디오 (https://detail-page-studio-web.vercel.app/) — 상품 사진 한 장으로 이커머스 상세페이지를 새로 만들고 기존 페이지를 전환율 중심으로 리디자인하는 AI 통합 스튜디오. 히어로·문제제기·베네핏·근거·사용법 등 섹션 구조 자동 설계, 모델컷·연출컷·플랫레이 2K 고해상도 생성(Nano Banana Pro / Gemini 3 Pro Image), 갤러리 검토(격자·이어보기·모달)·섹션 순서 변경·재생성·레이어 편집, 새로 만들기(Create)+리디자인(Redesign) 2 도구 통합, 개인 키(브라우저 저장)+결과물 보관함(IndexedDB). 한이룸 상세페이지 도구 2건(redesign-maker+pdp-maker) 통합 현행 최신 시스템.
+7. AI 상세페이지 스튜디오 (https://page.mktinsight.kr/) — 상품 사진 한 장으로 이커머스 상세페이지를 새로 만들고 기존 페이지를 전환율 중심으로 리디자인하는 AI 통합 스튜디오. 히어로·문제제기·베네핏·근거·사용법 등 섹션 구조 자동 설계, 모델컷·연출컷·플랫레이 2K 고해상도 생성(Nano Banana Pro / Gemini 3 Pro Image), 갤러리 검토(격자·이어보기·모달)·섹션 순서 변경·재생성·레이어 편집, 새로 만들기(Create)+리디자인(Redesign) 2 도구 통합, 개인 키(브라우저 저장)+결과물 보관함(IndexedDB). 한이룸 상세페이지 도구 2건(redesign-maker+pdp-maker) 통합 현행 최신 시스템.
 8. Tickpoint (https://tickpoint.co.kr/) — 한국 주식 트레이딩 인텔리전스. KOSPI·KOSDAQ 2,769 종목을 멀티 LLM(Claude·GPT·Gemini·Perplexity)으로 통합 분석. 변동성 수축 패턴 시그널 + 9 백테스트 KPI + 24 이슈 종목 자동 큐레이션 + 80+ 시그널 + 시장 심리 게이지 + 자동매매 시스템 + 섹터 히트맵.
 9. Architect (아키텍처 시스템) — AI 비즈니스 진단 + 제안서·PRD 동시 자동 생성
 10. ProPintel — 부동산 인텔리전스
@@ -129,7 +129,7 @@ const PUBLIC_LINKS = `
 - Factto (사실 기반 SEO 블로그): https://image-insight-tau.vercel.app/
 - Naver Shopping Insight (네이버 쇼핑 상품 성장 인텔리전스): https://shopping.mktinsight.kr/
 - Place Insight (네이버 플레이스 순위 + 상권·부동산 점포 의사결정): https://place.mktinsight.kr/
-- AI 상세페이지 스튜디오 (사진 1장으로 이커머스 상세페이지 생성·리디자인): https://detail-page-studio-web.vercel.app/
+- AI 상세페이지 스튜디오 (사진 1장으로 이커머스 상세페이지 생성·리디자인): https://page.mktinsight.kr/
 - 이메일: 9843ohs@gmail.com
 
 [운영 사이트]
