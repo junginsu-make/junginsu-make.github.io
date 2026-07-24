@@ -34,7 +34,7 @@ export function BuilderHero() {
         <MaskReveal delay={0.6}>
           <span>
             17년 마케터가{" "}
-            <WordHighlight delay={1.0}>직접 코드를 쓴다</WordHighlight>.
+            <WordHighlight delay={1.0}>직접 코드를 씁니다</WordHighlight>.
           </span>
         </MaskReveal>
         <span className="block mt-2">

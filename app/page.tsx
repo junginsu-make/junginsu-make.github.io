@@ -1,4 +1,5 @@
 import { Manifesto } from "@/components/home/manifesto";
+import { AiUsageStatement } from "@/components/shared/ai-usage-statement";
 import { CounterSection } from "@/components/home/counter-section";
 import { SaasCycle } from "@/components/home/saas-cycle";
 import { ThreeCategories } from "@/components/home/three-categories";
@@ -9,6 +10,7 @@ export default function Home() {
   return (
     <>
       <Manifesto />
+      <AiUsageStatement />
       <CounterSection />
       <SaasCycle />
       <ThreeCategories />

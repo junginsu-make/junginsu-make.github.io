@@ -1,5 +1,20 @@
 export const MANIFESTO =
-  "AI 시대를 만난 17년 Marketer가, AI Builder로 다시 태어났다";
+  "AI 시대를 만난 17년 Marketer가, AI Builder로 다시 태어났습니다";
+
+// AI 사용 슬로건 — "얼마나 많은 AI를 직접 써봤는지(폭)" + "3년 AI 사용료 1억+ 실전 투자"
+export type AiUsageStat = { value: string; suffix: string; label: string };
+
+export const AI_USAGE = {
+  eyebrow: "AI IN PRACTICE",
+  headline: "빠르게 변하는 AI 시장, 분야를 가리지 않고 직접 써봅니다.",
+  stats: [
+    { value: "100", suffix: "+", label: "직접 써본 AI 도구" },
+    { value: "8", suffix: "개", label: "분야 전 영역" },
+    { value: "1억+", suffix: "", label: "3년 사용료" },
+  ] as AiUsageStat[],
+  body:
+    "텍스트·코딩·이미지·영상·음성·발표·리서치·자동화 — 새 도구가 나올 때마다 직접 결제해 써보며 검증했습니다. 3년간 AI 사용료로만 1억+, 그 시행착오와 경험이 지금의 기준이 됐습니다. 무엇을 언제 써야 하는지는, 다 써본 다음에야 알 수 있으니까요.",
+};
 
 export const HERO_META = {
   name: "정인수",
