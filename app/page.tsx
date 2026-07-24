@@ -10,8 +10,8 @@ export default function Home() {
   return (
     <>
       <Manifesto />
-      <AiUsageStatement />
       <CounterSection />
+      <AiUsageStatement />
       <SaasCycle />
       <ThreeCategories />
       <Duality />
