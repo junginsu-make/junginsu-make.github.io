@@ -76,14 +76,14 @@ export function AiUsageStatement() {
         ))}
       </div>
 
-      {/* 노하우 본문 — 각 문장 1줄(가로 영역 넓힘 + keep-all로 어절 중간 끊김 방지) */}
-      <div className="mt-20 max-w-[1120px] space-y-4 break-keep">
-        {AI_USAGE.bodyLines.map((line, i) => (
-          <ScrollReveal key={i} delay={0.15 + i * 0.12}>
-            <p className="text-body opacity-75 leading-[1.8]">{line}</p>
-          </ScrollReveal>
-        ))}
-      </div>
+      {/* 노하우 본문 — 빈 줄 없이 줄바꿈만으로 2줄 (가로 영역 넓힘 + keep-all) */}
+      <ScrollReveal delay={0.15} className="mt-20 max-w-[1120px] break-keep">
+        <p className="text-body opacity-75 leading-[1.9]">
+          {AI_USAGE.bodyLines[0]}
+          <br />
+          {AI_USAGE.bodyLines[1]}
+        </p>
+      </ScrollReveal>
     </section>
   );
 }
