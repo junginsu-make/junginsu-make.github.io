@@ -28,7 +28,7 @@ const SAAS_LIST_UNORDERED: SaaSDetail[] = [
     name: "AI 상세페이지 스튜디오",
     tagline:
       "상품 사진 한 장으로 이커머스 상세페이지를 새로 만들고, 기존 페이지를 전환율 중심으로 리디자인하는 AI 통합 스튜디오",
-    liveUrl: "https://detail-page-studio-web.vercel.app/",
+    liveUrl: "https://page.mktinsight.kr/",
     tone: "light",
     toneNote: "라이트 + 자미·플럼(#B0446A) 액센트, 상세페이지 갤러리 카드 UI",
     since: "2026-07-22",
