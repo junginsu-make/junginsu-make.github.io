@@ -58,28 +58,32 @@ export function AiUsageStatement() {
         ))}
       </div>
 
-      {/* 카운트업 스탯 — Counter + PulseNumber 호흡 + glow (세로 스택으로 큰 숫자에 여백 확보) */}
-      <div className="mt-20 space-y-10 max-w-[760px]">
+      {/* 카운트업 스탯 — 한 줄(가로) 배치, Counter + PulseNumber 호흡 + glow */}
+      <div className="mt-20 flex flex-col sm:flex-row sm:items-start gap-x-14 md:gap-x-24 gap-y-10">
         {AI_USAGE.stats.map((s, i) => (
           <ScrollReveal
             key={s.label}
             delay={i * 0.15}
             className="border-t border-[var(--line)] pt-6"
           >
-            <p className="text-display-lg font-display leading-none glow-pulse tabular-nums">
+            <p className="text-display-lg font-display leading-none glow-pulse tabular-nums whitespace-nowrap">
               <PulseNumber>
                 <Counter to={s.to} suffix={s.suffix} duration={s.duration} />
               </PulseNumber>
             </p>
-            <p className="text-meta opacity-60 mt-5">{s.label}</p>
+            <p className="text-meta opacity-60 mt-5 whitespace-nowrap">{s.label}</p>
           </ScrollReveal>
         ))}
       </div>
 
-      {/* 노하우 본문 */}
-      <ScrollReveal delay={0.2} className="mt-20 max-w-[820px]">
-        <p className="text-body-lg opacity-75 leading-[1.75]">{AI_USAGE.body}</p>
-      </ScrollReveal>
+      {/* 노하우 본문 — 2줄 */}
+      <div className="mt-20 max-w-[820px] space-y-2">
+        {AI_USAGE.bodyLines.map((line, i) => (
+          <ScrollReveal key={i} delay={0.15 + i * 0.12}>
+            <p className="text-body-lg opacity-75 leading-[1.75]">{line}</p>
+          </ScrollReveal>
+        ))}
+      </div>
     </section>
   );
 }
