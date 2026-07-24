@@ -76,11 +76,11 @@ export function AiUsageStatement() {
         ))}
       </div>
 
-      {/* 노하우 본문 — 2줄 */}
-      <div className="mt-20 max-w-[820px] space-y-2">
+      {/* 노하우 본문 — 각 문장 1줄(가로 영역 넓힘 + keep-all로 어절 중간 끊김 방지) */}
+      <div className="mt-20 max-w-[1120px] space-y-4 break-keep">
         {AI_USAGE.bodyLines.map((line, i) => (
           <ScrollReveal key={i} delay={0.15 + i * 0.12}>
-            <p className="text-body-lg opacity-75 leading-[1.75]">{line}</p>
+            <p className="text-body opacity-75 leading-[1.8]">{line}</p>
           </ScrollReveal>
         ))}
       </div>
