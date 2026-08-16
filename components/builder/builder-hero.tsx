@@ -53,6 +53,21 @@ export function BuilderHero() {
         </span>
       </div>
 
+      <ScrollReveal delay={0.3} className="mt-14 max-w-[820px]">
+        <div className="border-l-2 border-[var(--accent)] pl-6 md:pl-8">
+          <p className="text-body-lg leading-[1.7] opacity-85">
+            AI로 뭔가를 만드는 사람은 많습니다.{" "}
+            <span className="text-[var(--accent)]">
+              결과물의 합격 기준을 아는 사람이 만든 시스템은 다릅니다.
+            </span>
+          </p>
+          <p className="text-body-lg leading-[1.7] opacity-65 mt-3">
+            각 시스템 상세 페이지에서 일반적인 접근과 무엇이 다른지, 각 단계가 왜
+            거기 있는지, 그리고 무엇을 거부하는지 확인하실 수 있습니다.
+          </p>
+        </div>
+      </ScrollReveal>
+
       <div className="mt-24 grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-12">
         {KPIS.map((k, i) => (
           <ScrollReveal
