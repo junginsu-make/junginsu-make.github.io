@@ -1,3 +1,10 @@
+import {
+  SAAS_DIFFERENTIATION,
+  type Differentiation,
+} from "./saas-differentiation";
+
+export type { Differentiation, PipelineStage, Refusal } from "./saas-differentiation";
+
 export type SaaSDetail = {
   slug: string;
   order: number;
@@ -19,6 +26,8 @@ export type SaaSDetail = {
   contactEmail?: string;
   problemStatement?: string; // "왜 이 SaaS를 만들었나"
   outcome?: string; // "이 SaaS로 무엇이 달라지나"
+  /** "왜 아무나 못 만드는가" — saas-differentiation.ts에서 slug로 병합된다 */
+  differentiation?: Differentiation;
 };
 
 const SAAS_LIST_UNORDERED: SaaSDetail[] = [
@@ -688,7 +697,13 @@ const SAAS_LIST_UNORDERED: SaaSDetail[] = [
   },
 ];
 
-/** 홈·빌더 노출 순서 — 각 엔트리의 order 필드대로 정렬(사용자 지정). */
-export const SAAS_LIST: SaaSDetail[] = [...SAAS_LIST_UNORDERED].sort(
-  (a, b) => a.order - b.order,
-);
+/**
+ * 홈·빌더 노출 순서 — 각 엔트리의 order 필드대로 정렬(사용자 지정).
+ * 차별화 데이터는 slug 기준으로 병합한다 (원본 배열은 변형하지 않는다).
+ */
+export const SAAS_LIST: SaaSDetail[] = [...SAAS_LIST_UNORDERED]
+  .sort((a, b) => a.order - b.order)
+  .map((saas) => {
+    const differentiation = SAAS_DIFFERENTIATION[saas.slug];
+    return differentiation ? { ...saas, differentiation } : saas;
+  });

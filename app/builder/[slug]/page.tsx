@@ -5,6 +5,9 @@ import type { Metadata } from "next";
 import { SAAS_LIST } from "@/lib/data/saas";
 import { SaasHero } from "@/components/builder/saas-detail/hero";
 import { SaasProblemOutcome } from "@/components/builder/saas-detail/problem-outcome";
+import { SaasComparison } from "@/components/builder/saas-detail/comparison";
+import { SaasPipelineWhy } from "@/components/builder/saas-detail/pipeline-why";
+import { SaasRefusals } from "@/components/builder/saas-detail/refusals";
 import { SaasCapabilities } from "@/components/builder/saas-detail/capabilities";
 import { SaasMetrics } from "@/components/builder/saas-detail/metrics";
 import { SaasGallery } from "@/components/builder/saas-detail/full-gallery";
@@ -63,6 +66,9 @@ export default async function SaasDetail({
     <>
       <SaasHero saas={saas} />
       <SaasProblemOutcome saas={saas} />
+      <SaasComparison saas={saas} />
+      <SaasPipelineWhy saas={saas} />
+      <SaasRefusals saas={saas} />
       <SaasCapabilities saas={saas} galleryImages={galleryImages} />
       <SaasMetrics saas={saas} />
       <SaasGallery saas={saas} galleryImages={galleryImages} />
