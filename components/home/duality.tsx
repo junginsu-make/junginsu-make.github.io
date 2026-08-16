@@ -160,7 +160,7 @@ export function Duality() {
           <ScrollReveal delay={0.6}>
             <p className="text-body-lg mt-4 lg:whitespace-nowrap">
               Vibe Coding <WordHighlight delay={1.0}>43</WordHighlight> · {" "}
-              SaaS <WordHighlight delay={1.3}>9</WordHighlight> Live ·
+              SaaS <WordHighlight delay={1.3}>10</WordHighlight> Live ·
               자동화 시나리오 <WordHighlight delay={1.6}>81</WordHighlight>
             </p>
           </ScrollReveal>
