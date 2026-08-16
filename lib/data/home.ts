@@ -21,6 +21,49 @@ export const AI_USAGE = {
   ],
 };
 
+/**
+ * 홈 "왜 다른가" 섹션 — 수량이 아니라 판단 기준을 보여주는 자리.
+ * 각 항목은 실제 시스템의 거부 기준에서 뽑았다 (lib/data/saas-differentiation.ts).
+ * slug는 해당 SaaS 상세 페이지로 연결된다.
+ */
+export type RefusalHighlight = {
+  slug: string;
+  system: string;
+  rule: string;
+};
+
+export const WHY_DIFFERENT = {
+  eyebrow: "WHAT MAKES THEM DIFFERENT",
+  headlineLead: "AI로 만드는 사람은 많습니다.",
+  headlineMain: "결과물의 합격 기준을 아는 사람이 만든 시스템은 ",
+  headlineAccent: "다릅니다",
+  body: "각 시스템은 무엇을 만드는지가 아니라 무엇을 내보내지 않는지로 구분됩니다. 아래는 실제로 코드가 거부하는 것들입니다.",
+  highlights: [
+    {
+      slug: "shopping-insight",
+      system: "Naver Shopping Insight",
+      rule: "순위로 매출을 역산하지 않습니다",
+    },
+    {
+      slug: "factto",
+      system: "Factto",
+      rule: "경쟁 글의 문장은 시스템 안으로 들어오지 않습니다",
+    },
+    {
+      slug: "tickpoint",
+      system: "Tickpoint",
+      rule: "데이터가 오래되면 신호 자체를 만들지 않습니다",
+    },
+    {
+      slug: "os-agent",
+      system: "OS Agent",
+      rule: "AI가 결재를 건너뛰겠다고 해도 코드가 막습니다",
+    },
+  ] as RefusalHighlight[],
+  ctaLabel: "시스템별 전체 보기",
+  ctaHref: "/builder",
+};
+
 export const HERO_META = {
   name: "정인수",
   birth: "1983",
