@@ -37,7 +37,10 @@ export const WHY_DIFFERENT = {
   headlineLead: "AI로 만드는 사람은 많습니다.",
   headlineMain: "결과물의 합격 기준을 아는 사람이 만든 시스템은 ",
   headlineAccent: "다릅니다",
-  body: "각 시스템은 무엇을 만드는지가 아니라 무엇을 내보내지 않는지로 구분됩니다. 아래는 실제로 코드가 거부하는 것들입니다.",
+  bodyLines: [
+    "각 시스템은 무엇을 만드는지가 아니라 무엇을 내보내지 않는지로 구분됩니다.",
+    "아래는 실제로 코드가 거부하는 것들입니다.",
+  ],
   highlights: [
     {
       slug: "shopping-insight",

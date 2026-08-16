@@ -12,8 +12,10 @@ import { WHY_DIFFERENT } from "@/lib/data/home";
 export function WhyDifferent() {
   const d = WHY_DIFFERENT;
 
+  // 아래쪽 패딩을 위쪽보다 작게 둔다 — 다음 섹션(ThreeCategories)이 py-32를 자체로
+  // 갖고 있어, 대칭으로 두면 이 섹션 아래 여백만 272px로 벌어진다.
   return (
-    <section className="px-6 md:px-10 lg:px-16 py-28 md:py-36 border-t border-[var(--line)]">
+    <section className="px-6 md:px-10 lg:px-16 pt-28 md:pt-36 pb-12 md:pb-20 border-t border-[var(--line)]">
       <div className="flex items-baseline justify-between mb-10 md:mb-14">
         <p className="text-meta opacity-50 tracking-[0.2em]">
           <MaskReveal>{d.eyebrow}</MaskReveal>
@@ -39,7 +41,9 @@ export function WhyDifferent() {
 
       <ScrollReveal delay={0.2}>
         <p className="text-body-lg opacity-70 leading-[1.7] mt-8 md:mt-10 max-w-[680px]">
-          {d.body}
+          {d.bodyLines[0]}
+          <br />
+          {d.bodyLines[1]}
         </p>
       </ScrollReveal>
 
