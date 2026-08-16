@@ -12,8 +12,8 @@ import { WHY_DIFFERENT } from "@/lib/data/home";
 export function WhyDifferent() {
   const d = WHY_DIFFERENT;
 
-  // 아래쪽 패딩을 위쪽보다 작게 둔다 — 다음 섹션(ThreeCategories)이 py-32를 자체로
-  // 갖고 있어, 대칭으로 두면 이 섹션 아래 여백만 272px로 벌어진다.
+  // 아래쪽 패딩을 위쪽보다 작게 둔다 — 다음 섹션(SaasCycle)이 pt-32를 자체로 갖고
+  // 있어, 대칭으로 두면 이 섹션 아래 여백만 272px로 벌어진다.
   return (
     <section className="px-6 md:px-10 lg:px-16 pt-28 md:pt-36 pb-12 md:pb-20 border-t border-[var(--line)]">
       <div className="flex items-baseline justify-between mb-10 md:mb-14">

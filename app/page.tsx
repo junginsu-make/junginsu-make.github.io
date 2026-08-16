@@ -13,8 +13,8 @@ export default function Home() {
       <Manifesto />
       <CounterSection />
       <AiUsageStatement />
-      <SaasCycle />
       <WhyDifferent />
+      <SaasCycle />
       <ThreeCategories />
       <Duality />
       <Cta />
