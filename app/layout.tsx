@@ -6,6 +6,7 @@ import { LenisProvider } from "@/components/motion/lenis-provider";
 import { CursorFollower } from "@/components/motion/cursor-follower";
 import { Nav } from "@/components/layout/nav";
 import { Footer } from "@/components/layout/footer";
+import { MobileTabbar } from "@/components/layout/mobile-tabbar";
 import { ScrollToTop } from "@/components/layout/scroll-to-top";
 import { ChatWidget } from "@/components/chat/chat-widget";
 
@@ -73,6 +74,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <ScrollToTop />
             <ChatWidget />
             <CursorFollower />
+            <MobileTabbar />
           </LenisProvider>
         </ThemeProvider>
       </body>

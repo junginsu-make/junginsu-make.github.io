@@ -1,3 +1,4 @@
+import { NextRead } from "@/components/layout/next-read";
 import fs from "node:fs";
 import path from "node:path";
 import { BuilderHero } from "@/components/builder/builder-hero";
@@ -40,6 +41,7 @@ export default function BuilderIndex() {
       <GithubPreview />
       <MakeSystemsShowcase screenshots={makeScreenshots} />
       <ContentReferences />
+      <NextRead current="/builder" />
     </>
   );
 }

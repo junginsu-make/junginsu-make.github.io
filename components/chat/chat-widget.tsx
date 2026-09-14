@@ -319,7 +319,7 @@ export function ChatWidget() {
             exit={{ opacity: 0 }}
             whileHover={{ scale: 1.08 }}
             whileTap={{ scale: 0.94 }}
-            className="fixed bottom-3 left-4 md:bottom-6 md:left-6 z-50 w-[100px] h-[100px] md:w-32 md:h-32 cursor-pointer p-0 border-0 bg-transparent"
+            className="fixed bottom-[calc(3.75rem+env(safe-area-inset-bottom,0px))] left-2 md:bottom-6 md:left-6 z-50 w-[100px] h-[100px] md:w-32 md:h-32 cursor-pointer p-0 border-0 bg-transparent"
           >
             {!prefersReducedMotion && promptVisible && (
               <motion.span

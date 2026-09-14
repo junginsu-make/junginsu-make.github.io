@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { SITE_LINKS } from "@/lib/data/site-nav";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
@@ -11,13 +12,8 @@ import {
 import { ThemeToggle } from "./theme-toggle";
 import { cn } from "@/lib/utils";
 
-const LINKS = [
-  { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
-  { href: "/career", label: "Career" },
-  { href: "/builder", label: "AI Builder" },
-  { href: "/marketing", label: "Marketing" },
-];
+/** 상단 메뉴도 사이트 공용 목록을 쓴다 — 네 군데에 따로 적으면 반드시 어긋난다. */
+const LINKS = SITE_LINKS;
 
 function isActive(pathname: string, href: string): boolean {
   if (href === "/") return pathname === "/";

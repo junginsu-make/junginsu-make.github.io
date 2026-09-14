@@ -1,3 +1,4 @@
+import { NextRead } from "@/components/layout/next-read";
 import { Manifesto } from "@/components/home/manifesto";
 import { AiUsageStatement } from "@/components/shared/ai-usage-statement";
 import { CounterSection } from "@/components/home/counter-section";
@@ -18,6 +19,7 @@ export default function Home() {
       <ThreeCategories />
       <Duality />
       <Cta />
+      <NextRead current="/" />
     </>
   );
 }

@@ -1,3 +1,4 @@
+import { NextRead } from "@/components/layout/next-read";
 import { Hero } from "@/components/about/hero";
 import { Chapters } from "@/components/about/chapters";
 import { DualityVenn } from "@/components/about/duality-venn";
@@ -13,6 +14,7 @@ export default function About() {
       <Hero />
       <Chapters />
       <DualityVenn />
+      <NextRead current="/about" />
     </>
   );
 }

@@ -1,3 +1,4 @@
+import { NextRead } from "@/components/layout/next-read";
 import {
   ImpactStreams,
   ImpactStreamsList,
@@ -17,6 +18,7 @@ export default function Career() {
       <ImpactStreamsList />
       <CompanyTimelineToggle />
       <Certifications />
+      <NextRead current="/career" />
     </>
   );
 }
