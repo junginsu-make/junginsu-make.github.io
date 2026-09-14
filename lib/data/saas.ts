@@ -100,7 +100,7 @@ const SAAS_LIST_UNORDERED: SaaSDetail[] = [
       { label: "수집 주기", value: "5분" },
     ],
     github: "https://github.com/junginsu-make/fixup-image-agent",
-    folderImageCount: 9,
+    folderImageCount: 10,
     folderPath: "/saas-folders/mcs",
     capturedSlug: "mcs",
     iconName: "Layers",

@@ -3,7 +3,9 @@ import { mkdir } from "node:fs/promises";
 
 // 7 SaaS 모자이크 — MCS 를 상단 전체 폭 타일로 얹고, 기존 6개는 아래 2x3 그대로 둔다.
 // 기존 6개 구성은 사용자 정정(Lumio 2026-05-04 10.45.53 · PropIntel 14.14.21)을 보존한다.
-const HERO_SOURCE = "public/captured/mcs/home/desktop.jpg";
+// 대표 이미지(captured/mcs)가 아니라 갤러리 01 을 가리킨다 — 대표 이미지를 갈아도
+// 모자이크 상단은 "레퍼런스↔결과" 비교 화면으로 유지되어야 한다.
+const HERO_SOURCE = "public/saas-folders/mcs/01.jpg";
 
 const SAAS_SOURCES = [
   "public/captured/tickpoint/home/desktop.jpg",
