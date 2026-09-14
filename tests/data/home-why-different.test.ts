@@ -62,4 +62,22 @@ describe("홈 — SaaS 개수 동기화", () => {
     expect(match, "three-categories.tsx에서 SaaS 개수 표기를 찾지 못함").not.toBeNull();
     expect(Number(match?.[1])).toBe(SAAS_LIST.length);
   });
+
+  // 2026-09-14: 목록 텍스트만 고치고 KPI 카운터(to: 10)를 놓쳐 빌더 히어로가 어긋났다.
+  // 이제 개수를 주입받으므로, 다시 하드코딩되면 이 시험이 잡는다.
+  it("빌더 히어로의 Live SaaS 수치가 하드코딩되어 있지 않다", () => {
+    const src = readFileSync(
+      join(process.cwd(), "components", "builder", "builder-hero.tsx"),
+      "utf8",
+    );
+    expect(src, "KPI 카운터가 주입값을 쓰지 않는다").toContain(
+      'to: saasCount, label: "Live SaaS"',
+    );
+    expect(src, "Live SaaS 카운터에 숫자가 하드코딩됐다").not.toMatch(
+      /to:\s*\d+\s*,\s*label:\s*"Live SaaS"/,
+    );
+    expect(src, "히어로 문구의 SaaS 개수가 하드코딩됐다").not.toMatch(
+      /SaaS\s\d+\sLive/,
+    );
+  });
 });

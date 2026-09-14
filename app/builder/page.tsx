@@ -32,7 +32,7 @@ export default function BuilderIndex() {
   const makeScreenshots = getMakeScreenshots();
   return (
     <>
-      <BuilderHero />
+      <BuilderHero saasCount={SAAS_LIST.length} />
       <AiUsageStatement />
       <BuildTracks />
       <SaasIndex list={SAAS_LIST} />

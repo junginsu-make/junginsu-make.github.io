@@ -12,14 +12,16 @@ type Kpi = {
   note: string;
 };
 
-const KPIS: Kpi[] = [
+/** SaaS 개수는 SAAS_LIST 에서 주입받는다 — 하드코딩하면 목록이 늘 때 어긋난다. */
+const buildKpis = (saasCount: number): Kpi[] => [
   { to: GITHUB_TOTAL, label: "Vibe Coding Repos", note: "외부 공개" },
   { to: 4, label: "자동화 Core", note: "핵심 시나리오" },
-  { to: 10, label: "Live SaaS", note: "프로덕션 운영" },
+  { to: saasCount, label: "Live SaaS", note: "프로덕션 운영" },
   { to: 81, label: "Total Systems", note: "자동화 시나리오 인벤토리" },
 ];
 
-export function BuilderHero() {
+export function BuilderHero({ saasCount }: { saasCount: number }) {
+  const KPIS = buildKpis(saasCount);
   return (
     <section className="px-6 md:px-10 lg:px-16 pt-40 pb-24 md:pb-32 border-b border-[var(--line)]">
       <p className="text-meta opacity-50 mb-12">
@@ -42,7 +44,7 @@ export function BuilderHero() {
             <span>
               <WordHighlight delay={1.25}>Vibe Coding 43</WordHighlight> · {" "}
               <WordHighlight delay={1.4}>자동화 시나리오 81</WordHighlight> · {" "}
-              <WordHighlight delay={1.55}>SaaS 11 Live</WordHighlight>
+              <WordHighlight delay={1.55}>{`SaaS ${saasCount} Live`}</WordHighlight>
             </span>
           </MaskReveal>
         </span>
