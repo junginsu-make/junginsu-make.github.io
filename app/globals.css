@@ -82,6 +82,11 @@
 /* 마우스 커서 (마그네틱 wrapper에서 활성화) */
 .cursor-magnetic { cursor: pointer; transition: transform 0.4s var(--ease-default); }
 
+/* 커서 follower — 누를 수 있는 것 위에서 속이 찬다 */
+.cursor-follower[data-on="1"] {
+  background: color-mix(in oklab, var(--accent) 20%, transparent);
+}
+
 /* View Transitions — 컬러 스윕 페이지 전환 */
 @view-transition {
   navigation: auto;

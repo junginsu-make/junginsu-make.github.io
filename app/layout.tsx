@@ -3,6 +3,7 @@ import { Fraunces, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/lib/theme";
 import { LenisProvider } from "@/components/motion/lenis-provider";
+import { CursorFollower } from "@/components/motion/cursor-follower";
 import { Nav } from "@/components/layout/nav";
 import { Footer } from "@/components/layout/footer";
 import { ScrollToTop } from "@/components/layout/scroll-to-top";
@@ -71,6 +72,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <Footer />
             <ScrollToTop />
             <ChatWidget />
+            <CursorFollower />
           </LenisProvider>
         </ThemeProvider>
       </body>
