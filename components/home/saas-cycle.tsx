@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { SAAS_LIST } from "@/lib/data/saas";
 import { SweepLink } from "@/components/motion/color-sweep";
 import { ScrollReveal } from "@/components/motion/scroll-reveal";
@@ -8,12 +8,31 @@ import { MaskRevealStagger } from "@/components/motion/mask-reveal";
 export function SaasCycle() {
   const [idx, setIdx] = useState(0);
   const [paused, setPaused] = useState(false);
+  const [inView, setInView] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  /**
+   * 화면에 들어와야 돌기 시작한다.
+   *
+   * 마운트 시점에 돌리면 홈이 7,000px 넘게 길어서 사용자가 여기까지 내려올 때쯤엔
+   * 이미 여러 칸 넘어가 있다. 그러면 1번(MCS)을 못 보고 중간부터 만나게 된다.
+   */
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      ([entry]) => setInView(entry.isIntersecting),
+      { rootMargin: "-10% 0px" },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
 
   useEffect(() => {
-    if (paused) return;
+    if (paused || !inView) return;
     const t = setInterval(() => setIdx((i) => (i + 1) % SAAS_LIST.length), 2000);
     return () => clearInterval(t);
-  }, [paused]);
+  }, [paused, inView]);
 
   const saas = SAAS_LIST[idx];
 
@@ -29,7 +48,7 @@ export function SaasCycle() {
   }
 
   return (
-    <section className="overflow-hidden">
+    <section ref={sectionRef} className="overflow-hidden">
       {/* SaaS 영역 제목 — 키 비주얼 (ThreeCategories 헤딩과 동일 스타일) */}
       <div className="px-6 md:px-10 lg:px-16 pt-24 md:pt-32">
         <ScrollReveal>

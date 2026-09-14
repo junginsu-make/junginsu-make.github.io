@@ -85,11 +85,15 @@ export function SaasPipelineWhy({ saas }: { saas: SaaSDetail }) {
 
       {diff.narrative && diff.narrative.length > 0 && (
         <ScrollReveal delay={0.15}>
-          <div className="mt-20 md:mt-28 border-t border-[var(--line)] pt-12 md:pt-16 max-w-[820px]">
-            <p className="text-meta opacity-60 tracking-[0.2em] mb-8">
-              WHY IT MATTERS
-            </p>
-            <div className="space-y-6">
+          {/* 파이프라인 행과 같은 12칸 격자 — 한 단 고정 폭이면 넓은 화면에서 우측이 통째로 빈다. */}
+          <div className="mt-20 md:mt-28 border-t border-[var(--line)] pt-12 md:pt-16 grid md:grid-cols-12 gap-6 md:gap-12">
+            <div className="md:col-span-5">
+              <p className="text-meta opacity-60 tracking-[0.2em]">WHY IT MATTERS</p>
+              <h3 className="mt-6 text-body-xl md:text-display-md font-display leading-[1.15] tracking-[-0.02em]">
+                <MaskReveal>결국 무엇이 갈리나</MaskReveal>
+              </h3>
+            </div>
+            <div className="md:col-span-7 space-y-6">
               {diff.narrative.map((para, i) => (
                 <p key={i} className="text-body-lg opacity-85 leading-[1.8]">
                   {para}
