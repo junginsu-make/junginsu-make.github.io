@@ -9,11 +9,11 @@ const SITE_OVERVIEW = `
 - URL: https://isjung.mktinsight.kr/
 - 작성자: 정인수 (Marketer · AI Builder · AI SaaS)
 - 한 줄 선언: "AI 시대를 만난 17년 Marketer가, AI Builder로 다시 태어났습니다"
-- 4 핵심 지표: 17년 Career · 43 Vibe Coding Repos · 81 자동화 시나리오 · 10 Live SaaS
+- 4 핵심 지표: 17년 Career · 43 Vibe Coding Repos · 81 자동화 시나리오 · 11 Live SaaS
 
 [페이지 구조]
 - / (홈) — 소개, 4 지표, AI Builder + Marketer 양면
-- /builder — AI Builder 전체 (43 Vibe Coding · 81 자동화 시스템 · 10 SaaS · 4 핵심 시나리오)
+- /builder — AI Builder 전체 (43 Vibe Coding · 81 자동화 시스템 · 11 SaaS · 4 핵심 시나리오)
 - /career — 경력 (17년 4개월) · Impact Streams 4종
 - /marketing — 마케팅 포트폴리오 (TMON ROAS 7,404% · 광고대행 경력)
 - /about — 자기소개 · 가치관 · 강의 · 자격
@@ -38,18 +38,19 @@ const TECH_STACK = `
 `;
 
 const SAAS_LIVE = `
-[10 Live SaaS]
-※ 아래 10개 SaaS는 모두 정인수가 혼자 기획·설계·구현·검증·배포까지 전 과정을 수행한 1인 풀사이클 결과물이다. (노출 순서 기준)
-1. Palette OS Agent — 사내 AI OS · Synapse, 12 가상직원 + 20 AI 에이전트 OS
-2. Lumio Video (https://lumio-video.vercel.app/) — AI 영상 생성/편집 SaaS
-3. Naver Shopping Insight (https://shopping.mktinsight.kr/) — 네이버 쇼핑 상품 성장 인텔리전스. 상품 URL 하나로 실제 노출 점수·Top10 진입률·30일 클릭 추이·키워드 수요·시장 관심 구성비(기기·성별·연령)·경쟁상품 Top20·리뷰·실행 액션을 한 화면에. 실제 순위 vs API 추정 순위 구분, DataLab 시장 트렌드 탐색, 거래 기회 분석·상품 비교, Chrome 확장 수집기. 매출은 순위로 역산하지 않고 수집 데이터 기반 기회 지표로만 표시. 공개 데모는 로그인 불필요.
-4. Place Insight (https://place.mktinsight.kr/) — 네이버 플레이스 순위 관리 + 상권·부동산 공공데이터를 한 화면에 묶은 점포 의사결정 SaaS. 경쟁 상위 10곳 실측 비교(리뷰 227/430=203건 부족처럼 정확한 수치), 오늘 할 일 우선순위 실행 카드(근거·실행단계·확인시점), 가짜 데이터 없음(없으면 판단 보류 명시), 업종별 지표 자동 분리, 매일 07시 내·경쟁 순위 자동 추적(플레이스 7영역), 상권·인구·부동산 실거래·상가 계약 위험 사전 점검(소상공인·SGIS·국토부·청약홈·ECOS 공공데이터).
-5. Factto (https://image-insight-tau.vercel.app/) — 사실로 쓰는 SEO 블로그 자동 생성. 이미지·네이버 플레이스 실데이터에서 사실만 추출(무 할루시네이션), 다중 AI 교차검증 이미지 분석, 표절 없는 경쟁분석(상위 글 통계만 참고), SEO 실전 튜닝, AI 이미지 승인제(fal.ai), Image Blog + Place Blog 2 시스템.
-6. MKT Automation — 네이버·구글·블로그·SNS·YouTube 단일 워크플로우 마케팅 OS
-7. AI 상세페이지 스튜디오 (https://page.mktinsight.kr/) — 상품 사진 한 장으로 이커머스 상세페이지를 새로 만들고 기존 페이지를 전환율 중심으로 리디자인하는 AI 통합 스튜디오. 히어로·문제제기·베네핏·근거·사용법 등 섹션 구조 자동 설계, 모델컷·연출컷·플랫레이 2K 고해상도 생성(Nano Banana Pro / Gemini 3 Pro Image), 갤러리 검토(격자·이어보기·모달)·섹션 순서 변경·재생성·레이어 편집, 새로 만들기(Create)+리디자인(Redesign) 2 도구 통합, 개인 키(브라우저 저장)+결과물 보관함(IndexedDB). 한이룸 상세페이지 도구 2건(redesign-maker+pdp-maker) 통합 현행 최신 시스템.
-8. Tickpoint (https://tickpoint.co.kr/) — 한국 주식 트레이딩 인텔리전스. KOSPI·KOSDAQ 2,769 종목을 멀티 LLM(Claude·GPT·Gemini·Perplexity)으로 통합 분석. 변동성 수축 패턴 시그널 + 9 백테스트 KPI + 24 이슈 종목 자동 큐레이션 + 80+ 시그널 + 시장 심리 게이지 + 자동매매 시스템 + 섹터 히트맵.
-9. Architect (아키텍처 시스템) — AI 비즈니스 진단 + 제안서·PRD 동시 자동 생성
-10. ProPintel — 부동산 인텔리전스
+[11 Live SaaS]
+※ 아래 11개 SaaS는 모두 정인수가 혼자 기획·설계·구현·검증·배포까지 전 과정을 수행한 1인 풀사이클 결과물이다. (노출 순서 기준)
+1. MCS · Marketing Content Studio (http://54.180.68.212/) — 카드뉴스·광고 소재·포스터·상세페이지·리디자인·캐릭터를 한 곳에서 만들고, 만든 결과물이 다시 다음 작업의 재료가 되는 마케팅 콘텐츠 스튜디오. 유튜브·RSS·네이버 뉴스·커뮤니티 자동 수집(워커 5분 주기) → 라이브러리 → 만들기 → 작업물 회수로 순환이 닫혀 있다. 원고를 사람이 확정한 뒤에야 이미지를 생성하고, 완성 이미지는 다른 호출이 원고와 대조 검수해 카드별로 '검수 통과'와 '사람의 검수 필요'를 구분 표시. 구성안은 만든 호출과 다른 호출이 6항목(대상·문제·차별점·반론·흐름·행동 유도)을 심사하고 fail 시 최대 2회 재작성. 레퍼런스 역할 4어휘(따라 만들기·제품 그대로 지키기·인물 그대로 지키기·원본 그대로 넣기). 완성한 그림 1장에서 네이버 9·구글 4·카카오 5 = 18개 포털 광고 규격을 재생성 없이 조립 내보내기. 이미지 모델 3종 크레딧 가중치 4/3/1(fal.ai 경유, 원가차 최대 4.6배), 구성 분석 무료·성공한 장수만 차감. 캐릭터 4면(정면·좌·우·후면) 고정 재사용. pnpm 모노레포(앱 2·패키지 8), Supabase 비공개 버킷+짧은 수명 서명 URL, EC2·Caddy·systemd 배포(기동 확인 실패 시 직전 릴리스 자동 롤백). 2026-08-31 시작.
+2. Palette OS Agent — 사내 AI OS · Synapse, 12 가상직원 + 20 AI 에이전트 OS
+3. Lumio Video (https://lumio-video.vercel.app/) — AI 영상 생성/편집 SaaS
+4. Naver Shopping Insight (https://shopping.mktinsight.kr/) — 네이버 쇼핑 상품 성장 인텔리전스. 상품 URL 하나로 실제 노출 점수·Top10 진입률·30일 클릭 추이·키워드 수요·시장 관심 구성비(기기·성별·연령)·경쟁상품 Top20·리뷰·실행 액션을 한 화면에. 실제 순위 vs API 추정 순위 구분, DataLab 시장 트렌드 탐색, 거래 기회 분석·상품 비교, Chrome 확장 수집기. 매출은 순위로 역산하지 않고 수집 데이터 기반 기회 지표로만 표시. 공개 데모는 로그인 불필요.
+5. Place Insight (https://place.mktinsight.kr/) — 네이버 플레이스 순위 관리 + 상권·부동산 공공데이터를 한 화면에 묶은 점포 의사결정 SaaS. 경쟁 상위 10곳 실측 비교(리뷰 227/430=203건 부족처럼 정확한 수치), 오늘 할 일 우선순위 실행 카드(근거·실행단계·확인시점), 가짜 데이터 없음(없으면 판단 보류 명시), 업종별 지표 자동 분리, 매일 07시 내·경쟁 순위 자동 추적(플레이스 7영역), 상권·인구·부동산 실거래·상가 계약 위험 사전 점검(소상공인·SGIS·국토부·청약홈·ECOS 공공데이터).
+6. Factto (https://image-insight-tau.vercel.app/) — 사실로 쓰는 SEO 블로그 자동 생성. 이미지·네이버 플레이스 실데이터에서 사실만 추출(무 할루시네이션), 다중 AI 교차검증 이미지 분석, 표절 없는 경쟁분석(상위 글 통계만 참고), SEO 실전 튜닝, AI 이미지 승인제(fal.ai), Image Blog + Place Blog 2 시스템.
+7. MKT Automation — 네이버·구글·블로그·SNS·YouTube 단일 워크플로우 마케팅 OS
+8. AI 상세페이지 스튜디오 (https://page.mktinsight.kr/) — 상품 사진 한 장으로 이커머스 상세페이지를 새로 만들고 기존 페이지를 전환율 중심으로 리디자인하는 AI 통합 스튜디오. 히어로·문제제기·베네핏·근거·사용법 등 섹션 구조 자동 설계, 모델컷·연출컷·플랫레이 2K 고해상도 생성(Nano Banana Pro / Gemini 3 Pro Image), 갤러리 검토(격자·이어보기·모달)·섹션 순서 변경·재생성·레이어 편집, 새로 만들기(Create)+리디자인(Redesign) 2 도구 통합, 개인 키(브라우저 저장)+결과물 보관함(IndexedDB). 한이룸 상세페이지 도구 2건(redesign-maker+pdp-maker) 통합 현행 최신 시스템.
+9. Tickpoint (https://tickpoint.co.kr/) — 한국 주식 트레이딩 인텔리전스. KOSPI·KOSDAQ 2,769 종목을 멀티 LLM(Claude·GPT·Gemini·Perplexity)으로 통합 분석. 변동성 수축 패턴 시그널 + 9 백테스트 KPI + 24 이슈 종목 자동 큐레이션 + 80+ 시그널 + 시장 심리 게이지 + 자동매매 시스템 + 섹터 히트맵.
+10. Architect (아키텍처 시스템) — AI 비즈니스 진단 + 제안서·PRD 동시 자동 생성
+11. ProPintel — 부동산 인텔리전스
 
 [4 핵심 자동화 시나리오 (81개 중 대표)]
 1. 정부지원사업 크롤링 · 사업계획서 자동화 (Webhook → Airtable → CloudConvert/PDF.co → OpenAI 6+ 분기 → Google Docs) — 24+ 공고 누적
@@ -174,4 +175,4 @@ export const KNOWLEDGE_BASE = [
   RESUME_TEXT,
 ].join("\n");
 
-export const KNOWLEDGE_BASE_VERSION = "2026-08-16-v12";
+export const KNOWLEDGE_BASE_VERSION = "2026-09-14-v13";

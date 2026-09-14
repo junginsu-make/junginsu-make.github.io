@@ -32,8 +32,84 @@ export type SaaSDetail = {
 
 const SAAS_LIST_UNORDERED: SaaSDetail[] = [
   {
+    slug: "mcs",
+    order: 1,
+    name: "MCS",
+    tagline:
+      "Marketing Content Studio — 카드뉴스·광고 소재·포스터·상세페이지·캐릭터를 한 곳에서 만들고, 만든 결과물이 다시 다음 작업의 재료가 되는 마케팅 콘텐츠 스튜디오",
+    liveUrl: "http://54.180.68.212/",
+    tone: "dark",
+    toneNote: "다크 + 더스티 로즈(#c96a8a) 액센트, 결과물 캐러셀 · 레퍼런스↔결과 비교 슬라이더",
+    since: "2026-08-31",
+    problemStatement:
+      "마케팅 콘텐츠는 카드뉴스·광고 소재·포스터·상세페이지가 각각 다른 도구에서 만들어지고, 만든 결과물은 내려받는 순간 흩어진다. 생성 자체는 어디서나 되지만 한국어 글자가 깨지고, 글자를 고치려면 이미지를 다시 만들어야 해서 그때마다 돈이 든다. 소재를 모으는 일부터 완성 이미지까지 한 바퀴를 닫고, 글자를 그림보다 먼저 확정하는 도구가 필요해 만들었다.",
+    outcome:
+      "유튜브·RSS·네이버 뉴스·커뮤니티에서 소재가 자동으로 쌓이고, 여섯 도구 어디서든 라이브러리를 불러 쓰고, 만든 결과물이 다시 라이브러리로 들어가 다음 작업의 레퍼런스가 된다. 원고는 사람이 확정한 뒤에야 이미지를 만들고, 만든 이미지는 다른 호출이 원고와 대조해 검수한다. 완성한 그림 하나에서 네이버·구글·카카오 광고 규격 18종을 새로 만들지 않고 뽑는다.",
+    capabilities: [
+      {
+        title: "한 바퀴가 닫힌 라이브러리 — 만든 것이 다시 재료가 된다",
+        description:
+          "수집 → 라이브러리 → 만들기 → 작업물 → 다시 라이브러리. 등록한 모든 것이 한자리에 쌓이고 어느 도구에서든 불러 쓴다. 참고 이미지는 사용자가 첨부한 것, 작업물은 시스템이 만든 것 — 둘을 같은 라이브러리에서 같은 자격으로 쓴다. 도구의 개수가 아니라 이 순환이 시스템의 뼈대다.",
+      },
+      {
+        title: "원고를 그림보다 먼저 확정하고, 다른 호출이 대조 검수",
+        description:
+          "카드뉴스는 기획 → 원고 → 그림 순서로 간다. 원고 단계에서 사람이 글자를 직접 고치고, 고친 글자가 그대로 그림에 들어간다. 그림을 만든 뒤 글자를 고치려면 다시 만들어야 하고 그건 돈이 드는 일이다. 완성한 그림은 다른 호출이 원고와 대조해 — 없는 글자가 들어갔는지, 글자가 바뀌었는지 — 카드별로 '검수 통과'와 '사람의 검수 필요'를 구분해 표시한다.",
+      },
+      {
+        title: "구성안 심사는 만든 호출과 다른 호출이 한다",
+        description:
+          "같은 호출 안에서 매기는 점수는 방금 쓴 글을 스스로 칭찬하는 것에 가깝다. 심사자에게는 구성안과 판매 원칙만 주고 브리프 원문은 주지 않는다 — 사는 사람은 브리프를 못 보기 때문이다. 대상·문제·차별점·반론·흐름·행동 유도 6항목 중 하나라도 fail이면 지적사항을 담아 최대 2회 다시 만들고, 끝까지 남은 지적은 숨기지 않고 화면에 띄운다.",
+      },
+      {
+        title: "참고 이미지를 어떻게 쓸지 말로 못박는다",
+        description:
+          "레퍼런스는 효과가 세서 역할을 네 어휘로 통일했다 — 따라 만들기(그 결을 따라 새로 그린다) · 제품 그대로 지키기 · 인물 그대로 지키기 · 원본 그대로 넣기. 상세페이지 스타일 레퍼런스는 통일이 깨지지 않게 페이지당 한 장만 쓰고, 어울리는 것이 없으면 아무것도 쓰지 않는다. 고르는 것은 유사도 검색이 아니라 LLM이다.",
+      },
+      {
+        title: "그림 한 장에서 포털 광고 규격 18종을 뽑는다",
+        description:
+          "마스터 6종에서 네이버 9 · 구글 4 · 카카오 5, 모두 18개 규격으로 내보낸다. GFA 네이티브·이미지 배너·네이버 메인·스마트채널, 구글 반응형 디스플레이 4종, 카카오 디스플레이와 비즈보드까지. 새로 생성하지 않고 조립하므로 규격을 늘려도 이미지 크레딧이 들지 않는다.",
+      },
+      {
+        title: "모델 3종을 글자 정확도와 단가로 저울질한다",
+        description:
+          "fal.ai 를 경유해 GPT Image 2(가중치 4, 글자가 가장 정확 · 명조 계열도 표현) · Nano Banana Pro(3, 빠름 · 고딕 계열) · Nano Banana(1, 글자가 적은 장면)를 고른다. 원가가 4.6배까지 벌어져 크레딧에 가중치를 뒀다. 구성 분석은 무료이고, 성공한 이미지 장수만 월 한도에서 차감한다.",
+      },
+      {
+        title: "캐릭터 4면 고정 · 만드는 도중 화면을 옮겨도 된다",
+        description:
+          "인물을 정면·좌·우·후면으로 고정해 두면 여러 장에 같은 사람이 일관되게 나온다. 생성 목록은 화면이 아니라 셸(사이드바)이 들고 있어 도구를 옮겨도 받아 오는 일이 멈추지 않는다. 다만 중지는 되돌리기가 아니라는 것 — fal에 이미 보낸 요청의 비용은 그대로 나간다는 것 — 도 그 자리에 적어 뒀다.",
+      },
+    ],
+    techStack: [
+      "Next.js",
+      "Tailwind v4",
+      "shadcn/ui",
+      "Supabase",
+      "fal.ai",
+      "GPT Image 2 · Nano Banana Pro",
+      "pnpm 모노레포 (앱 2 · 패키지 8)",
+      "EC2 · Caddy · systemd",
+    ],
+    metrics: [
+      { label: "제작 도구", value: "6" },
+      { label: "광고 규격", value: "18종" },
+      { label: "이미지 모델", value: "3종" },
+      { label: "구성안 심사", value: "6항목" },
+      { label: "수집 주기", value: "5분" },
+    ],
+    github: "https://github.com/junginsu-make/fixup-image-agent",
+    folderImageCount: 9,
+    folderPath: "/saas-folders/mcs",
+    capturedSlug: "mcs",
+    iconName: "Layers",
+    developer: "ls.Jung",
+    contactEmail: "9843ohs@gmail.com",
+  },
+  {
     slug: "detail-page-studio",
-    order: 7,
+    order: 8,
     name: "AI 상세페이지 스튜디오",
     tagline:
       "상품 사진 한 장으로 이커머스 상세페이지를 새로 만들고, 기존 페이지를 전환율 중심으로 리디자인하는 AI 통합 스튜디오",
@@ -100,7 +176,7 @@ const SAAS_LIST_UNORDERED: SaaSDetail[] = [
   },
   {
     slug: "tickpoint",
-    order: 8,
+    order: 9,
     name: "Tickpoint",
     tagline:
       "한국 주식 트레이딩 인텔리전스 — KOSPI · KOSDAQ 2,769 종목을 멀티 LLM으로 통합 분석하는 라이브 SaaS",
@@ -170,7 +246,7 @@ const SAAS_LIST_UNORDERED: SaaSDetail[] = [
   },
   {
     slug: "lumio",
-    order: 2,
+    order: 3,
     name: "Lumio",
     tagline:
       "AI 광고 영상 자동 생성 스튜디오 — 소스 → 스토리 → 영상 → 합성 4단계 파이프라인",
@@ -236,7 +312,7 @@ const SAAS_LIST_UNORDERED: SaaSDetail[] = [
   },
   {
     slug: "os-agent",
-    order: 1,
+    order: 2,
     name: "OS Agent (Synapse)",
     tagline:
       "사내 AI OS — 12명 가상직원 + 20개 AI 에이전트가 부서별 협업하는 운영 시스템",
@@ -294,7 +370,7 @@ const SAAS_LIST_UNORDERED: SaaSDetail[] = [
   },
   {
     slug: "mkt-automation",
-    order: 6,
+    order: 7,
     name: "MKT Automation",
     tagline:
       "All-in-One 마케팅 OS — 네이버 · 구글 · 블로그 · SNS · YouTube 단일 워크플로우",
@@ -362,7 +438,7 @@ const SAAS_LIST_UNORDERED: SaaSDetail[] = [
   },
   {
     slug: "propintel",
-    order: 10,
+    order: 11,
     name: "PropIntel AI",
     tagline:
       "부동산 AI 어시스턴트 — 시장 + 등기 + 계약 사기 검증을 묶은 SaaS",
@@ -428,7 +504,7 @@ const SAAS_LIST_UNORDERED: SaaSDetail[] = [
   },
   {
     slug: "architect",
-    order: 9,
+    order: 10,
     name: "아키텍처 시스템",
     tagline:
       "AI 비즈니스 진단 + 이중 출력 워크벤치 — 5단계 인터뷰만으로 제안서 · PRD 동시 자동 생성",
@@ -493,7 +569,7 @@ const SAAS_LIST_UNORDERED: SaaSDetail[] = [
   },
   {
     slug: "factto",
-    order: 5,
+    order: 6,
     name: "Factto",
     tagline:
       "사실로 쓰는 SEO 블로그 — 이미지·네이버 플레이스 실데이터에서 사실만 뽑아 상위 노출 통계에 맞춰 홍보 블로그를 자동 생성하는 SaaS",
@@ -560,7 +636,7 @@ const SAAS_LIST_UNORDERED: SaaSDetail[] = [
   },
   {
     slug: "shopping-insight",
-    order: 3,
+    order: 4,
     name: "Naver Shopping Insight",
     tagline:
       "네이버 쇼핑 상품 성장 인텔리전스 — 상품 URL 하나로 실제 순위·검색 수요·경쟁 가격·리뷰 신호를 묶어 '지금 뭘 바꿔야 하는지'와 다음 매출 기회를 데이터로 보여주는 SaaS",
@@ -630,7 +706,7 @@ const SAAS_LIST_UNORDERED: SaaSDetail[] = [
   },
   {
     slug: "place-insight",
-    order: 4,
+    order: 5,
     name: "Place Insight",
     tagline:
       "네이버 플레이스 순위 관리 + 상권·부동산 공공데이터를 한 화면에 — 경쟁 상위 10곳 실측으로 '오늘 뭘 먼저 할지'를 우선순위로 내려주는 점포 의사결정 SaaS",

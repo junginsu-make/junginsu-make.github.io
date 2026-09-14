@@ -42,7 +42,7 @@ export function BuilderHero() {
             <span>
               <WordHighlight delay={1.25}>Vibe Coding 43</WordHighlight> · {" "}
               <WordHighlight delay={1.4}>자동화 시나리오 81</WordHighlight> · {" "}
-              <WordHighlight delay={1.55}>SaaS 10 Live</WordHighlight>
+              <WordHighlight delay={1.55}>SaaS 11 Live</WordHighlight>
             </span>
           </MaskReveal>
         </span>

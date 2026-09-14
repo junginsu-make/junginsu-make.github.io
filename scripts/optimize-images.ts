@@ -5,6 +5,7 @@ import { join, extname, basename, dirname } from "path";
 const PUBLIC_DIRS = [
   "public/photos",
   "public/photos/teaching",
+  "public/saas-folders/mcs",
   "public/saas-folders/tickpoint",
   "public/saas-folders/lumio",
   "public/saas-folders/os-agent",

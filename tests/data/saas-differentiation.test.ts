@@ -3,7 +3,7 @@ import { SAAS_LIST } from "@/lib/data/saas";
 import { SAAS_DIFFERENTIATION } from "@/lib/data/saas-differentiation";
 
 describe("SaaS Differentiation Data", () => {
-  it("10개 SaaS 전부 차별화 데이터 보유", () => {
+  it("11개 SaaS 전부 차별화 데이터 보유", () => {
     const missing = SAAS_LIST.filter((s) => !s.differentiation).map(
       (s) => s.slug,
     );

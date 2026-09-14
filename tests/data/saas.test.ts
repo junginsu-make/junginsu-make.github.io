@@ -2,9 +2,10 @@ import { describe, expect, it } from "vitest";
 import { SAAS_LIST } from "@/lib/data/saas";
 
 describe("SaaS Data", () => {
-  it("10 SaaS 정확한 순서 (사용자 명시)", () => {
-    expect(SAAS_LIST).toHaveLength(10);
+  it("11 SaaS 정확한 순서 (사용자 명시)", () => {
+    expect(SAAS_LIST).toHaveLength(11);
     expect(SAAS_LIST.map((s) => s.slug)).toEqual([
+      "mcs",
       "os-agent",
       "lumio",
       "shopping-insight",
