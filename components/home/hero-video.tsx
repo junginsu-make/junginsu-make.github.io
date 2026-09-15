@@ -87,28 +87,40 @@ export function HeroVideo() {
 
   return (
     <div className="absolute inset-0 z-0 overflow-hidden" aria-hidden>
-      <video
-        ref={ref}
-        muted
-        loop
-        playsInline
-        preload="none"
-        poster="/hero/hero-poster.jpg"
-        className="hero-video absolute inset-0 w-full h-full object-cover"
-        style={{
-          // 오른쪽 아래 모서리를 고정하고 줄인 뒤, 바닥에서 살짝 띄운다.
-          // 가운데 정렬이면 떠 보이고, 바닥에 딱 붙이면 눌려 보인다.
-          transform: TRANSFORM,
-          transformOrigin: "right bottom",
-          maskImage: EDGE_FADE,
-          WebkitMaskImage: EDGE_FADE,
-          maskComposite: "intersect",
-          WebkitMaskComposite: "source-in",
-        }}
-      >
-        <source data-src="/hero/hero.webm" type="video/webm" />
-        <source data-src="/hero/hero.mp4" type="video/mp4" />
-      </video>
+      {/*
+        모바일과 PC 의 담는 그릇이 다르다.
+
+        영상은 1280x720(가로 1.78)인데 휴대폰 화면은 세로로 길다. 화면 전체를
+        상자로 주고 object-cover 를 걸면 가로의 74% 가 잘려나간다(390px 실측:
+        상자 195x422 = 비율 0.46). 그래서 모바일은 화면 폭에 맞춘 **가로 띠**를
+        아래에 깔아 원본을 거의 그대로 보여준다.
+        PC 는 가로로 넓어 잘림이 적으므로 화면 전체를 쓰고 축소해 오른쪽에 붙인다.
+      */}
+      <div className="hero-video-box absolute inset-x-0 bottom-[calc(3.5rem+env(safe-area-inset-bottom,0px))] h-[calc(100vw/1.2)] md:inset-0 md:bottom-auto md:h-full">
+        <video
+          ref={ref}
+          muted
+          loop
+          playsInline
+          preload="none"
+          poster="/hero/hero-poster.jpg"
+          className="hero-video absolute inset-0 w-full h-full object-cover"
+          style={{
+            // PC 는 오른쪽 아래 모서리를 고정하고 줄인 뒤 바닥에서 살짝 띄운다.
+            // 가운데 정렬이면 떠 보이고, 바닥에 딱 붙이면 눌려 보인다.
+            // 모바일은 이미 상자 자체가 가로 띠라 축소하지 않는다(--hv-scale: 1).
+            transform: TRANSFORM,
+            transformOrigin: "right bottom",
+            maskImage: EDGE_FADE,
+            WebkitMaskImage: EDGE_FADE,
+            maskComposite: "intersect",
+            WebkitMaskComposite: "source-in",
+          }}
+        >
+          <source data-src="/hero/hero.webm" type="video/webm" />
+          <source data-src="/hero/hero.mp4" type="video/mp4" />
+        </video>
+      </div>
       <div className="absolute inset-0" style={{ background: SCRIM }} />
     </div>
   );
