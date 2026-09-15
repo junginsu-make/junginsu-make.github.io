@@ -87,6 +87,14 @@
   background: color-mix(in oklab, var(--accent) 20%, transparent);
 }
 
+/* 히어로 배경 영상 — 크기와 바닥 여백 */
+.hero-video { --hv-scale: 0.62; --hv-gap: 6vh; }
+/* 좁은 화면은 object-cover 가 더 확대해 잘라내므로 같은 배율이라도 피사체가 크다.
+   하단 탭바(56px)도 피해야 해서 바닥을 더 띄운다. */
+@media (max-width: 767px) {
+  .hero-video { --hv-scale: 0.5; --hv-gap: 14vh; }
+}
+
 /* View Transitions — 컬러 스윕 페이지 전환 */
 @view-transition {
   navigation: auto;

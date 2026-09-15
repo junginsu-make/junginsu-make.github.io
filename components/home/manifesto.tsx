@@ -1,5 +1,6 @@
 "use client";
 import { PinSection } from "@/components/motion/pin-section";
+import { ScrollCue } from "@/components/home/scroll-cue";
 import { HeroVideo } from "@/components/home/hero-video";
 import { KineticText } from "@/components/motion/kinetic-text";
 import { MaskReveal } from "@/components/motion/mask-reveal";
@@ -9,7 +10,13 @@ export function Manifesto() {
   return (
     <PinSection className="relative overflow-hidden">
       <HeroVideo />
-      <div className="relative z-10 h-screen flex items-center justify-center px-6 md:px-10 lg:px-16">
+      {/*
+        justify-start — 왼쪽 정렬을 못박는다.
+        원래 justify-center 였는데, 넓은 화면에서 max-w 가 걸리면 글자 덩어리가
+        30px 쯤 안쪽으로 밀렸다(1920px 실측). 오른쪽이 영상으로 차면서 그 밀림이
+        눈에 띄었다.
+      */}
+      <div className="relative z-10 h-screen flex items-center justify-start px-6 md:px-10 lg:px-16">
         <h1 className="text-display-xl font-display max-w-[18ch] leading-[0.92] tracking-[-0.03em] text-left">
           <KineticText>
             {/* 1행 */}
@@ -33,6 +40,7 @@ export function Manifesto() {
           </KineticText>
         </h1>
       </div>
+      <ScrollCue />
     </PinSection>
   );
 }

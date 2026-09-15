@@ -18,11 +18,14 @@ import { useEffect, useRef } from "react";
  * 속성만으로는 재생이 시작되지 않는다.
  */
 
-/** 영상이 화면에서 차지하는 비율. 1 이면 꽉 찬다. */
-const SCALE = 0.62;
-
-/** 바닥에서 띄우는 높이. 딱 붙이면 아래 섹션에 눌린 것처럼 보인다. */
-const BOTTOM_GAP = "6vh";
+/**
+ * 크기와 바닥 여백은 globals.css 의 `.hero-video` 에서 정한다.
+ *
+ * **화면 폭마다 달라야 한다.** 좁은 화면에서는 object-cover 가 더 확대해 잘라내
+ * 같은 배율이라도 피사체가 훨씬 크게 잡힌다. 게다가 모바일에는 하단 탭바가 있어
+ * 바닥 여백도 더 필요하다. 인라인 style 로는 미디어 쿼리를 못 쓰므로 변수로 뺐다.
+ */
+const TRANSFORM = "translateY(calc(-1 * var(--hv-gap))) scale(var(--hv-scale))";
 
 /**
  * 글자 쪽(왼쪽)은 진하게, 영상이 있는 오른쪽은 옅게 덮는다.
@@ -91,11 +94,11 @@ export function HeroVideo() {
         playsInline
         preload="none"
         poster="/hero/hero-poster.jpg"
-        className="absolute inset-0 w-full h-full object-cover"
+        className="hero-video absolute inset-0 w-full h-full object-cover"
         style={{
           // 오른쪽 아래 모서리를 고정하고 줄인 뒤, 바닥에서 살짝 띄운다.
           // 가운데 정렬이면 떠 보이고, 바닥에 딱 붙이면 눌려 보인다.
-          transform: `translateY(-${BOTTOM_GAP}) scale(${SCALE})`,
+          transform: TRANSFORM,
           transformOrigin: "right bottom",
           maskImage: EDGE_FADE,
           WebkitMaskImage: EDGE_FADE,
