@@ -41,8 +41,8 @@ The site runs on **Vercel with a Next.js server runtime** (`next.config.ts`: no 
 
 ### App Router layout
 
-- `app/layout.tsx` is the **only place** that mounts `ThemeProvider`, `LenisProvider`, `Nav`, `Footer`, `ScrollToTop`, and `ChatWidget`. Page files only render section components — they don't re-mount layout chrome.
-- **Light mode is the default** (localStorage key `theme-v2`), enforced by an inline `<script>` in `<head>` that sets `data-theme` *before* React hydrates (prevents flash). Dark is still available via the toggle. Don't replace this with a React-only solution.
+- `app/layout.tsx` is the **only place** that mounts `ThemeProvider`, `LenisProvider`, `Nav`, `Footer`, `ScrollToTop`, `ChatWidget`, `CursorFollower`, and `MobileTabbar`. Page files only render section components — they don't re-mount layout chrome.
+- **Dark mode is the default** (localStorage key `theme-v2`), enforced by an inline `<script>` in `<head>` that sets `data-theme` *before* React hydrates (prevents flash). Light is available via the toggle. Don't replace this with a React-only solution. The default is written in **three** places that must agree — the inline script's `s || 'dark'` and its `catch` fallback in `app/layout.tsx`, plus `useState<Theme>("dark")` and `saved ?? "dark"` in `lib/theme.tsx`. Read the code, not this line, before making contrast decisions.
 - `metadataBase` in `app/layout.tsx` is `https://isjung.mktinsight.kr` (drives OG/canonical) — keep it in sync with the live domain.
 - Pretendard Variable is loaded via jsdelivr CDN (not `next/font/google`) because it's not in Google Fonts. `Fraunces` (display) and `JetBrains_Mono` are loaded via `next/font/google`.
 - Path alias `@/*` maps to the project root (see `tsconfig.json`).
