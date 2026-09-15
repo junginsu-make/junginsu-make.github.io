@@ -88,11 +88,14 @@
 }
 
 /* 히어로 배경 영상 — 크기와 바닥 여백 */
-.hero-video { --hv-scale: 0.7; --hv-gap: 6vh; }
+.hero-video { --hv-scale: 0.7; --hv-gap: 6vh; --hv-pos: center; }
 /* 모바일은 상자 자체가 화면 폭에 맞춘 가로 띠라 축소하지 않는다.
-   여기서 또 줄이면 띠 안에서 영상이 작아져 위아래에 빈 칸만 생긴다. */
+   여기서 또 줄이면 띠 안에서 영상이 작아져 위아래에 빈 칸만 생긴다.
+
+   잘리는 쪽은 왼쪽으로 돌린다 — 인물과 모니터가 화면 오른쪽에 있고 왼쪽은
+   거의 검은 빈 공간이다. 가운데 기준으로 자르면 양쪽이 깎여 인물이 잘린다. */
 @media (max-width: 767px) {
-  .hero-video { --hv-scale: 1; --hv-gap: 0px; }
+  .hero-video { --hv-scale: 1; --hv-gap: 0px; --hv-pos: right center; }
 }
 
 /* View Transitions — 컬러 스윕 페이지 전환 */

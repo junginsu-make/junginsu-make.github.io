@@ -111,6 +111,7 @@ export function HeroVideo() {
             // 모바일은 이미 상자 자체가 가로 띠라 축소하지 않는다(--hv-scale: 1).
             transform: TRANSFORM,
             transformOrigin: "right bottom",
+            objectPosition: "var(--hv-pos)",
             maskImage: EDGE_FADE,
             WebkitMaskImage: EDGE_FADE,
             maskComposite: "intersect",

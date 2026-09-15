@@ -17,10 +17,10 @@ export function Manifesto() {
         눈에 띄었다.
       */}
       {/*
-        모바일은 글자를 위로 올린다. 가운데 정렬이면 글자 위 242px · 아래 329px 이
-        비어 화면의 68% 가 빈 칸이었다(390x844 실측). 아래는 영상 띠 자리다.
+        글자는 세로 가운데. 한 번 위로 올려봤지만 너무 붙어 보였다.
+        아래쪽 영상 띠와 겹치는 구간은 막(SCRIM)이 받쳐 준다 — PC 도 같은 방식이다.
       */}
-      <div className="relative z-10 h-screen flex items-start pt-[14vh] md:items-center md:pt-0 justify-start px-6 md:px-10 lg:px-16 xl:px-24">
+      <div className="relative z-10 h-screen flex items-center justify-start px-6 md:px-10 lg:px-16 xl:px-24">
         <h1 className="text-display-xl font-display max-w-[18ch] leading-[0.92] tracking-[-0.03em] text-left">
           <KineticText>
             {/* 1행 */}
