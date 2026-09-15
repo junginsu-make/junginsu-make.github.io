@@ -38,7 +38,7 @@ export function TeachingPreview({ photos }: Props) {
   const goNext = () => setIdx((i) => (i + 1) % photos.length);
 
   return (
-    <section className="px-6 md:px-10 lg:px-16 py-24 md:py-32 border-t border-[var(--line)]">
+    <section className="px-6 md:px-10 lg:px-16 xl:px-24 py-24 md:py-32 border-t border-[var(--line)]">
       <div className="flex items-baseline justify-between mb-10 md:mb-12">
         <p className="text-meta opacity-60 tracking-[0.2em]">
           <MaskReveal>TEACHING · 마케팅 신뢰의 자료</MaskReveal>

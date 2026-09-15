@@ -13,7 +13,7 @@ export function ScenariosFull() {
   return (
     <>
       {/* HERO */}
-      <section className="px-6 md:px-10 lg:px-16 pt-40 pb-24 md:pb-32 border-b border-[var(--line)]">
+      <section className="px-6 md:px-10 lg:px-16 xl:px-24 pt-40 pb-24 md:pb-32 border-b border-[var(--line)]">
         <p className="text-meta opacity-60 mb-12 tracking-[0.2em]">
           <MaskReveal>SCENARIOS · 자동화</MaskReveal>
         </p>
@@ -64,7 +64,7 @@ export function ScenariosFull() {
       </section>
 
       {/* CORE 4 풀 디테일 */}
-      <section className="px-6 md:px-10 lg:px-16 py-24 md:py-32">
+      <section className="px-6 md:px-10 lg:px-16 xl:px-24 py-24 md:py-32">
         <div className="flex items-baseline justify-between mb-12 md:mb-16">
           <p className="text-meta opacity-60 tracking-[0.2em]">
             <MaskReveal>CORE · 04 / 81</MaskReveal>
@@ -118,7 +118,7 @@ export function ScenariosFull() {
       </section>
 
       {/* 81 인벤토리 그룹 — 트리맵 대체 (시각 임팩트) */}
-      <section className="px-6 md:px-10 lg:px-16 py-24 md:py-32 border-t border-[var(--line)]">
+      <section className="px-6 md:px-10 lg:px-16 xl:px-24 py-24 md:py-32 border-t border-[var(--line)]">
         <div className="flex items-baseline justify-between mb-12 md:mb-16">
           <p className="text-meta opacity-60 tracking-[0.2em]">
             <MaskReveal>INVENTORY · {INVENTORY_GROUPS.length} GROUPS</MaskReveal>
@@ -161,7 +161,7 @@ export function ScenariosFull() {
       </section>
 
       {/* TIMELINE 2024-2025 진화 */}
-      <section className="px-6 md:px-10 lg:px-16 py-24 md:py-32 border-t border-[var(--line)]">
+      <section className="px-6 md:px-10 lg:px-16 xl:px-24 py-24 md:py-32 border-t border-[var(--line)]">
         <div className="flex items-baseline justify-between mb-12 md:mb-16">
           <p className="text-meta opacity-60 tracking-[0.2em]">
             <MaskReveal>TIMELINE · 2024 → 2025</MaskReveal>

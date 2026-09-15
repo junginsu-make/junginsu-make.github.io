@@ -15,7 +15,7 @@ export function MarketingSpecialties() {
   );
 
   return (
-    <section className="px-6 md:px-10 lg:px-16 py-24 md:py-32 border-t border-[var(--line)]">
+    <section className="px-6 md:px-10 lg:px-16 xl:px-24 py-24 md:py-32 border-t border-[var(--line)]">
       <div className="flex items-baseline justify-between mb-12 md:mb-16">
         <p className="text-meta opacity-60 tracking-[0.2em]">
           <MaskReveal>SPECIALTIES · OPERATIONAL DEPTH</MaskReveal>

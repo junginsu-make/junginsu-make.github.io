@@ -16,7 +16,7 @@ export function Manifesto() {
         30px 쯤 안쪽으로 밀렸다(1920px 실측). 오른쪽이 영상으로 차면서 그 밀림이
         눈에 띄었다.
       */}
-      <div className="relative z-10 h-screen flex items-center justify-start px-6 md:px-10 lg:px-16">
+      <div className="relative z-10 h-screen flex items-center justify-start px-6 md:px-10 lg:px-16 xl:px-24">
         <h1 className="text-display-xl font-display max-w-[18ch] leading-[0.92] tracking-[-0.03em] text-left">
           <KineticText>
             {/* 1행 */}

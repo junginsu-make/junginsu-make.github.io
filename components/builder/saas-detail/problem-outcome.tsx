@@ -8,7 +8,7 @@ export function SaasProblemOutcome({ saas }: { saas: SaaSDetail }) {
   if (!saas.problemStatement && !saas.outcome) return null;
 
   return (
-    <section className="px-6 md:px-10 lg:px-16 py-20 md:py-28 border-t border-[var(--line)]">
+    <section className="px-6 md:px-10 lg:px-16 xl:px-24 py-20 md:py-28 border-t border-[var(--line)]">
       <p className="text-meta opacity-60 mb-12 tracking-[0.2em]">
         <MaskReveal>WHY · HOW IT CHANGES</MaskReveal>
       </p>

@@ -8,7 +8,7 @@ export function TeachingTiers({ photos }: { photos: string[] }) {
   return (
     <>
       {/* TIER 1 — 정부 · 공공 · 대학 · AI 교육 6 (메인) */}
-      <section className="px-6 md:px-10 lg:px-16 py-24 md:py-32">
+      <section className="px-6 md:px-10 lg:px-16 xl:px-24 py-24 md:py-32">
         <div className="flex items-baseline justify-between mb-12 md:mb-16">
           <p className="text-meta opacity-60 tracking-[0.2em]">
             <MaskReveal>TIER 01 · 정부 · 대학 · AI 교육</MaskReveal>
@@ -78,7 +78,7 @@ export function TeachingTiers({ photos }: { photos: string[] }) {
       </section>
 
       {/* TIER 2 — 협회 · 기업 8 */}
-      <section className="px-6 md:px-10 lg:px-16 py-24 md:py-32 border-t border-[var(--line)]">
+      <section className="px-6 md:px-10 lg:px-16 xl:px-24 py-24 md:py-32 border-t border-[var(--line)]">
         <div className="flex items-baseline justify-between mb-12 md:mb-16">
           <p className="text-meta opacity-60 tracking-[0.2em]">
             <MaskReveal>TIER 02 · 협회 · 기업</MaskReveal>
@@ -115,7 +115,7 @@ export function TeachingTiers({ photos }: { photos: string[] }) {
       </section>
 
       {/* TIER 3 — 개인 텍스트 15 */}
-      <section className="px-6 md:px-10 lg:px-16 py-24 md:py-32 border-t border-[var(--line)]">
+      <section className="px-6 md:px-10 lg:px-16 xl:px-24 py-24 md:py-32 border-t border-[var(--line)]">
         <div className="flex items-baseline justify-between mb-12 md:mb-16">
           <p className="text-meta opacity-60 tracking-[0.2em]">
             <MaskReveal>TIER 03 · 개인 · 1인샵 · 자영업자</MaskReveal>

@@ -11,7 +11,7 @@ import { AI_USAGE } from "@/lib/data/home";
 // 헤드라인(리드 + 펀치) · 8개 분야 스태거 · 카운트업 스탯 · 노하우 본문
 export function AiUsageStatement() {
   return (
-    <section className="relative px-6 md:px-10 lg:px-16 py-24 md:py-36 border-t border-[var(--line)] overflow-hidden">
+    <section className="relative px-6 md:px-10 lg:px-16 xl:px-24 py-24 md:py-36 border-t border-[var(--line)] overflow-hidden">
       {/* eyebrow + 악센트 룰 draw */}
       <div className="flex items-center gap-4 mb-10">
         <p className="text-meta opacity-50 tracking-[0.25em]">

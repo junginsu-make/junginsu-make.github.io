@@ -40,7 +40,7 @@ const CHAPTERS = [
 
 export function Chapters() {
   return (
-    <section className="px-6 md:px-10 lg:px-16 py-32 bg-[var(--bg)] text-[var(--fg)]">
+    <section className="px-6 md:px-10 lg:px-16 xl:px-24 py-32 bg-[var(--bg)] text-[var(--fg)]">
       <p className="text-meta opacity-50 mb-8">5 CHAPTERS</p>
       <h2 className="text-display-md font-display mb-24 max-w-[14ch] break-keep text-balance">
         한 사람의 궤적은 우연히 그려지지 않습니다.

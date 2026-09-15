@@ -54,7 +54,7 @@ export function Duality() {
   }, []);
 
   const content = (
-    <div className="h-screen px-6 md:px-10 lg:px-16 py-8 md:py-12">
+    <div className="h-screen px-6 md:px-10 lg:px-16 xl:px-24 py-8 md:py-12">
       <div className="h-full grid grid-cols-1 md:grid-cols-2 relative overflow-hidden border border-[var(--line)]">
       {/* 좌: 마케터 — TMON ROAS 차트 + 강의 사진 cycle */}
       <div

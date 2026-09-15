@@ -5,7 +5,7 @@ import { CERTS_VISUAL, CERTS_TEXT } from "@/lib/data/certifications";
 
 export function Certifications() {
   return (
-    <section className="px-6 md:px-10 lg:px-16 py-20 md:py-24 border-t border-[var(--line)]">
+    <section className="px-6 md:px-10 lg:px-16 xl:px-24 py-20 md:py-24 border-t border-[var(--line)]">
       <div className="flex items-baseline justify-between mb-10 md:mb-12">
         <p className="text-meta opacity-60 tracking-[0.2em]">
           <MaskReveal>CERTIFICATIONS · 09</MaskReveal>

@@ -50,7 +50,7 @@ export function SaasCycle() {
   return (
     <section ref={sectionRef} className="overflow-hidden">
       {/* SaaS 영역 제목 — 키 비주얼 (ThreeCategories 헤딩과 동일 스타일) */}
-      <div className="px-6 md:px-10 lg:px-16 pt-24 md:pt-32">
+      <div className="px-6 md:px-10 lg:px-16 xl:px-24 pt-24 md:pt-32">
         <ScrollReveal>
           <p className="text-meta opacity-50 mb-8">
             {SAAS_LIST.length} 라이브 SaaS · 프로덕션 운영
@@ -65,7 +65,7 @@ export function SaasCycle() {
         </h2>
       </div>
       <div
-        className="px-6 md:px-10 lg:px-16 py-8 md:py-12"
+        className="px-6 md:px-10 lg:px-16 xl:px-24 py-8 md:py-12"
         onMouseEnter={() => setPaused(true)}
         onMouseLeave={() => setPaused(false)}
       >

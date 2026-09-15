@@ -7,7 +7,7 @@ import { IMPACT_STREAMS } from "@/lib/data/career";
 
 export function ImpactStreams() {
   return (
-    <section className="px-6 md:px-10 lg:px-16 pt-40 pb-24 md:pb-32 border-b border-[var(--line)]">
+    <section className="px-6 md:px-10 lg:px-16 xl:px-24 pt-40 pb-24 md:pb-32 border-b border-[var(--line)]">
       <p className="text-meta opacity-60 mb-12 tracking-[0.2em]">
         <MaskReveal>CAREER · IMPACT STREAMS</MaskReveal>
       </p>
@@ -67,7 +67,7 @@ export function ImpactStreams() {
 
 export function ImpactStreamsList() {
   return (
-    <section className="px-6 md:px-10 lg:px-16 py-24 md:py-32">
+    <section className="px-6 md:px-10 lg:px-16 xl:px-24 py-24 md:py-32">
       <div className="flex items-baseline justify-between mb-12 md:mb-16">
         <p className="text-meta opacity-60 tracking-[0.2em]">
           <MaskReveal>STREAMS · 06</MaskReveal>

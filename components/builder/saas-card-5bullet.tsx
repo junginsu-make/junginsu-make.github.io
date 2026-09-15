@@ -154,7 +154,7 @@ export function SaasCard({ saas, order }: { saas: SaaSDetail; order: number }) {
 
 export function SaasIndex({ list }: { list: SaaSDetail[] }) {
   return (
-    <section className="px-6 md:px-10 lg:px-16 py-24 md:py-32">
+    <section className="px-6 md:px-10 lg:px-16 xl:px-24 py-24 md:py-32">
       <div className="flex items-baseline justify-between mb-8">
         <p className="text-meta opacity-60 tracking-[0.2em]">
           <MaskReveal>{`${list.length} LIVE SAAS · INDEX`}</MaskReveal>

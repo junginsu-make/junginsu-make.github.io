@@ -23,7 +23,7 @@ const buildKpis = (saasCount: number): Kpi[] => [
 export function BuilderHero({ saasCount }: { saasCount: number }) {
   const KPIS = buildKpis(saasCount);
   return (
-    <section className="px-6 md:px-10 lg:px-16 pt-40 pb-24 md:pb-32 border-b border-[var(--line)]">
+    <section className="px-6 md:px-10 lg:px-16 xl:px-24 pt-40 pb-24 md:pb-32 border-b border-[var(--line)]">
       <p className="text-meta opacity-50 mb-12">
         <MaskReveal>AI BUILDER · 2025—2026</MaskReveal>
       </p>

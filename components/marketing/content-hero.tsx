@@ -22,7 +22,7 @@ export function ContentHero() {
   ];
 
   return (
-    <section className="px-6 md:px-10 lg:px-16 pt-40 pb-24 md:pb-32 border-b border-[var(--line)]">
+    <section className="px-6 md:px-10 lg:px-16 xl:px-24 pt-40 pb-24 md:pb-32 border-b border-[var(--line)]">
       <p className="text-meta opacity-60 mb-12 tracking-[0.2em]">
         <MaskReveal>CONTENT · MULTI-CHANNEL</MaskReveal>
       </p>

@@ -13,7 +13,7 @@ export function NextRead({ current }: { current: string }) {
   const next = nextLink(current);
 
   return (
-    <section className="px-6 md:px-10 lg:px-16 py-16 md:py-24 border-t border-[var(--line)]">
+    <section className="px-6 md:px-10 lg:px-16 xl:px-24 py-16 md:py-24 border-t border-[var(--line)]">
       <div className="max-w-[1440px] mx-auto">
         <div className="flex items-baseline justify-between mb-8 md:mb-10">
           <p className="text-meta opacity-50 tracking-[0.2em]">이어서 보기</p>

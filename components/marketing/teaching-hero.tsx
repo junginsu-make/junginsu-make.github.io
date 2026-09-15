@@ -57,7 +57,7 @@ export function TeachingHero({ photos }: { photos: string[] }) {
         }}
       />
 
-      <div className="relative h-full flex flex-col justify-end px-6 md:px-10 lg:px-16 pb-16 md:pb-20 text-[#F4F0E6]">
+      <div className="relative h-full flex flex-col justify-end px-6 md:px-10 lg:px-16 xl:px-24 pb-16 md:pb-20 text-[#F4F0E6]">
         <p
           className="text-meta opacity-80 mb-6 tracking-[0.2em]"
           style={{ textShadow: "0 1px 6px rgba(0,0,0,0.6)" }}

@@ -27,7 +27,7 @@ export function TmonCase() {
   const peakRoas = Math.max(...data.map((d) => d.roas));
 
   return (
-    <section className="px-6 md:px-10 lg:px-16 py-24 md:py-32 border-t border-[var(--line)]">
+    <section className="px-6 md:px-10 lg:px-16 xl:px-24 py-24 md:py-32 border-t border-[var(--line)]">
       <div className="flex items-baseline justify-between mb-10 md:mb-12">
         <p className="text-meta opacity-60 tracking-[0.2em]">
           <MaskReveal>TMON CASE · VERIFIED 9 MONTHS</MaskReveal>

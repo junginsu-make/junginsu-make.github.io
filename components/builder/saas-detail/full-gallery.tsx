@@ -30,7 +30,7 @@ export function SaasGallery({ saas, galleryImages }: Props) {
 
   return (
     <section className="relative py-24 md:py-32 border-t border-[var(--line)]">
-      <div className="px-6 md:px-10 lg:px-16 flex items-baseline justify-between mb-12 md:mb-16">
+      <div className="px-6 md:px-10 lg:px-16 xl:px-24 flex items-baseline justify-between mb-12 md:mb-16">
         <p className="text-meta opacity-60 tracking-[0.2em]">
           <MaskReveal>GALLERY · 풀 인벤토리</MaskReveal>
         </p>
@@ -45,7 +45,7 @@ export function SaasGallery({ saas, galleryImages }: Props) {
         className="overflow-x-auto"
         style={{ scrollbarWidth: "none", msOverflowStyle: "none" } as React.CSSProperties}
       >
-        <div className="flex gap-4 md:gap-6 px-6 md:px-10 lg:px-16 snap-x snap-mandatory pb-4">
+        <div className="flex gap-4 md:gap-6 px-6 md:px-10 lg:px-16 xl:px-24 snap-x snap-mandatory pb-4">
           {galleryImages.map((src, i) => (
             <ScrollReveal
               key={src}

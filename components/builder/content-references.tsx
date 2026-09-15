@@ -253,7 +253,7 @@ export function ContentReferences() {
   >[];
 
   return (
-    <section className="px-6 md:px-10 lg:px-16 py-24 md:py-32 border-t border-[var(--line)]">
+    <section className="px-6 md:px-10 lg:px-16 xl:px-24 py-24 md:py-32 border-t border-[var(--line)]">
       <div className="flex items-baseline justify-between mb-10 md:mb-14">
         <p className="text-meta tracking-[0.2em] text-[var(--accent)]">
           <MaskReveal>100% AUTOMATED · CONTENT REFERENCE</MaskReveal>

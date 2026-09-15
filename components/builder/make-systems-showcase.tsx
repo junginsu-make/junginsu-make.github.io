@@ -49,7 +49,7 @@ export function MakeSystemsShowcase({ screenshots }: Props) {
     <>
       {/* 실제 make.com 화면 갤러리 — horizontal scroll snap */}
       <section className="py-24 md:py-32 border-t border-[var(--line)]">
-        <div className="px-6 md:px-10 lg:px-16 mb-12 md:mb-16">
+        <div className="px-6 md:px-10 lg:px-16 xl:px-24 mb-12 md:mb-16">
           <div className="flex items-baseline justify-between mb-12">
             <p className="text-meta opacity-60 tracking-[0.2em]">
               <MaskReveal>LIVE NODES · 자동화 시나리오 SCREENS</MaskReveal>
@@ -78,7 +78,7 @@ export function MakeSystemsShowcase({ screenshots }: Props) {
         </div>
 
         {/* 단일 슬라이드 carousel — 자동 롤링 + 좌우 수동 navigation */}
-        <ScrollReveal delay={0.2} className="px-6 md:px-10 lg:px-16">
+        <ScrollReveal delay={0.2} className="px-6 md:px-10 lg:px-16 xl:px-24">
           <div
             className="relative w-full aspect-[16/9] md:aspect-[16/8] border border-[var(--line)] bg-[color-mix(in_oklab,var(--fg)_4%,transparent)] overflow-hidden"
             onMouseEnter={() => setShotPaused(true)}
@@ -242,7 +242,7 @@ export function MakeSystemsShowcase({ screenshots }: Props) {
       {/* 81 시스템 폴더 트리 — 사용자 요청에 따라 숨김 처리 */}
 
       {/* 18 디테일 시스템 — 카테고리 필터 + 카드 grid */}
-      <section className="px-6 md:px-10 lg:px-16 py-24 md:py-32 border-t border-[var(--line)]">
+      <section className="px-6 md:px-10 lg:px-16 xl:px-24 py-24 md:py-32 border-t border-[var(--line)]">
         <div className="flex items-baseline justify-between mb-12">
           <p className="text-meta opacity-60 tracking-[0.2em]">
             <MaskReveal>DETAILED SYSTEMS · {MAKE_SYSTEMS.length} / 81</MaskReveal>

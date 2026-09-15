@@ -48,7 +48,7 @@ export function ThreeCategories() {
   const [hoverIdx, setHoverIdx] = useState<number | null>(null);
 
   return (
-    <section className="min-h-screen px-6 md:px-10 lg:px-16 py-32">
+    <section className="min-h-screen px-6 md:px-10 lg:px-16 xl:px-24 py-32">
       <ScrollReveal>
         <p className="text-meta opacity-50 mb-8">3 분류로 보는 정인수</p>
       </ScrollReveal>

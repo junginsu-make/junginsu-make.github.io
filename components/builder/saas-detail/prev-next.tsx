@@ -9,7 +9,7 @@ export function SaasNav({ currentSlug }: { currentSlug: string }) {
   const next = SAAS_LIST[(idx + 1) % SAAS_LIST.length];
 
   return (
-    <section className="px-6 md:px-10 lg:px-16 py-20 md:py-24 border-t border-[var(--line)]">
+    <section className="px-6 md:px-10 lg:px-16 xl:px-24 py-20 md:py-24 border-t border-[var(--line)]">
       <ScrollReveal className="flex items-baseline justify-between mb-10">
         <p className="text-meta opacity-60 tracking-[0.2em]">EXPLORE NEXT</p>
         <SweepLink

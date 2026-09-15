@@ -26,7 +26,7 @@ const INTERSECTION_ITEMS = [
 
 export function DualityVenn() {
   return (
-    <section className="px-6 md:px-10 lg:px-16 py-32 border-t border-[var(--line)] bg-[var(--bg)] text-[var(--fg)] overflow-hidden">
+    <section className="px-6 md:px-10 lg:px-16 xl:px-24 py-32 border-t border-[var(--line)] bg-[var(--bg)] text-[var(--fg)] overflow-hidden">
       <p className="text-meta opacity-50 mb-8 tracking-[0.2em]">DUALITY</p>
 
       <h2 className="text-display-md md:text-display-lg font-display mb-12 md:mb-16 lg:whitespace-nowrap">

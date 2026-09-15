@@ -25,7 +25,7 @@ export function Nav() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 px-6 md:px-10 lg:px-16 py-5 flex items-center justify-between backdrop-blur-md bg-[var(--bg)]/70 border-b border-[var(--line)]">
+    <nav className="fixed top-0 left-0 right-0 z-50 px-6 md:px-10 lg:px-16 xl:px-24 py-5 flex items-center justify-between backdrop-blur-md bg-[var(--bg)]/70 border-b border-[var(--line)]">
       <Link
         href="/"
         className="inline-flex items-baseline gap-2 text-[var(--fg)]"

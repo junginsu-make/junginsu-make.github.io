@@ -10,7 +10,7 @@ import { SITE_LINKS } from "@/lib/data/site-nav";
  */
 export function Footer() {
   return (
-    <footer className="px-6 md:px-10 lg:px-16 pt-14 pb-[calc(2.5rem+3.5rem+env(safe-area-inset-bottom,0px))] md:pb-10 md:pt-16 border-t border-[var(--line)]">
+    <footer className="px-6 md:px-10 lg:px-16 xl:px-24 pt-14 pb-[calc(2.5rem+3.5rem+env(safe-area-inset-bottom,0px))] md:pb-10 md:pt-16 border-t border-[var(--line)]">
       <nav aria-label="페이지 이동" className="max-w-[1440px] mx-auto">
         <p className="text-meta opacity-50 mb-5">둘러보기</p>
         <ul className="flex flex-wrap gap-x-8 gap-y-3 md:gap-x-12">
