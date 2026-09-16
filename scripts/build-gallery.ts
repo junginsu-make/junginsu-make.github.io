@@ -41,11 +41,17 @@ const VIDEO = /\.(mp4|mov|webm)$/i;
 const WIDE = 1.45;
 /**
  * 이 비율보다 세로로 길면 잘라낸다.
- * 풀페이지 스크린샷(0.3 같은 것)은 한 열을 통째로 삼켜 격자를 무너뜨린다.
+ *
+ * 처음엔 0.62 로 잡아 세로로 긴 것을 다 잘랐는데, 그러면 격자 아래쪽에 생기는
+ * 길쭉한 빈 자리를 메울 타일이 없어진다. 긴 것은 긴 채로 두는 편이 낫다.
+ * 다만 0.3 짜리 풀페이지 스크린샷은 한 열을 통째로 삼키므로 거기까지만 막는다.
  */
-const TOO_TALL = 0.62;
-/** 잘라낼 때 맞출 비율 — 다른 세로 타일과 같은 결. */
-const CROP_TO = 0.7;
+const TOO_TALL = 0.4;
+/** 잘라낼 때 맞출 비율 — 길쭉하되 한 열을 삼키지는 않는 정도. */
+const CROP_TO = 0.45;
+
+/** 걸지 않을 파일 — 비슷한 것이 이미 있다. */
+const EXCLUDE = new Set(["KakaoTalk_20260911_134543202.mp4"]);
 
 type Job = { src: string; tag: string };
 
@@ -82,6 +88,10 @@ async function main() {
   for (const { dir, tag } of SRC_DIRS) {
     if (!existsSync(dir)) continue;
     for (const f of readdirSync(dir).sort()) {
+      if (EXCLUDE.has(f)) {
+        console.log(`제외: ${f}`);
+        continue;
+      }
       const full = path.join(dir, f);
       if (IMAGE.test(f)) images.push({ src: full, tag });
       else if (VIDEO.test(f)) videos.push({ src: full, tag });

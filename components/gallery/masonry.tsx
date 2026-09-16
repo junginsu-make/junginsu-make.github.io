@@ -39,46 +39,70 @@ export function GalleryMasonry({ items }: { items: GalleryItem[] }) {
     const colW = (total - gap * (cols - 1)) / cols;
 
     const heights = new Array(cols).fill(0);
-    const out: Placed[] = [];
+    const out: Placed[] = new Array(items.length);
 
-    for (const item of items) {
-      const span = Math.min(item.span, cols);
-      const width = colW * span + gap * (span - 1);
-      const h = width / item.ratio;
-
+    /** 두 칸짜리가 들어갈 가장 나은 쌍. 두 열의 높이 차를 벌점으로 더한다. */
+    function bestPair() {
       let col = 0;
       let top = Infinity;
-      if (span === 1) {
-        // 가장 낮은 열.
-        for (let c = 0; c < cols; c++) {
-          if (heights[c] < top) {
-            top = heights[c];
-            col = c;
-          }
-        }
-      } else {
-        // 붙어 있는 두 열 쌍 중에서 고른다.
-        // 높이만 보면 한쪽이 훨씬 낮은 쌍을 골라 그 차이만큼 구멍이 남는다.
-        // 그래서 두 열의 높이 차를 벌점으로 더해, 나란한 쌍을 선호하게 한다.
-        let best = Infinity;
-        for (let c = 0; c <= cols - span; c++) {
-          const hi = Math.max(heights[c], heights[c + 1]);
-          const waste = hi - Math.min(heights[c], heights[c + 1]);
-          const score = hi + waste * 0.9;
-          if (score < best) {
-            best = score;
-            top = hi;
-            col = c;
-          }
+      let best = Infinity;
+      for (let c = 0; c <= cols - 2; c++) {
+        const hi = Math.max(heights[c], heights[c + 1]);
+        const waste = hi - Math.min(heights[c], heights[c + 1]);
+        const score = hi + waste * 0.9;
+        if (score < best) {
+          best = score;
+          top = hi;
+          col = c;
         }
       }
+      return { col, top, waste: top - Math.min(heights[col], heights[col + 1]) };
+    }
 
-      out.push({ left: col * (colW + gap), top, width, height: h });
+    /** 가장 낮은 열. */
+    function lowest() {
+      let lo = 0;
+      for (let c = 0; c < cols; c++) if (heights[c] < heights[lo]) lo = c;
+      return lo;
+    }
+
+    function place(i: number, col: number, top: number, span: number) {
+      const width = colW * span + gap * (span - 1);
+      const h = width / items[i].ratio;
+      out[i] = { left: col * (colW + gap), top, width, height: h };
       for (let c = col; c < col + span; c++) heights[c] = top + h + gap;
     }
 
+    // 앞에서부터 꺼내되, 두 칸짜리가 큰 구멍을 만들 때는 뒤에서 한 칸짜리를
+    // 당겨와 낮은 쪽을 먼저 채운다 — CSS grid 의 dense 와 같은 생각이다.
+    const queue = items.map((_, i) => i);
+    while (queue.length) {
+      const span = Math.min(items[queue[0]].span, cols);
+
+      if (span === 2) {
+        const { col, top, waste } = bestPair();
+        if (waste > colW * 0.3) {
+          const at = queue.findIndex((qi, k) => k > 0 && k < 10 && items[qi].span === 1);
+          if (at > 0) {
+            const i = queue.splice(at, 1)[0];
+            const lo = lowest();
+            place(i, lo, heights[lo], 1);
+            continue;
+          }
+        }
+        place(queue.shift()!, col, top, 2);
+        continue;
+      }
+
+      const lo = lowest();
+      place(queue.shift()!, lo, heights[lo], 1);
+    }
+
     setPlaced(out);
-    setHeight(Math.max(0, ...heights) - gap);
+    // 가장 낮은 열에 맞춘다. 마지막 줄은 채울 타일이 없어 들쭉날쭉한데,
+    // 가장 높은 열에 맞추면 그 아래가 통째로 빈 칸으로 남는다.
+    // 튀어나온 부분은 아래쪽 페이드가 받아 준다.
+    setHeight(Math.max(0, Math.min(...heights) - gap));
   }, [items]);
 
   useEffect(() => {
@@ -150,7 +174,13 @@ export function GalleryMasonry({ items }: { items: GalleryItem[] }) {
     <div
       ref={rootRef}
       className="gallery-masonry relative w-full"
-      style={{ height: height || undefined }}
+      style={{
+        height: height || undefined,
+        // 마지막 줄에서 튀어나온 타일을 배경색으로 서서히 덮는다.
+        // 잘라내면 결과물이 뭉텅 잘린 것처럼 보이고, 그대로 두면 바닥이 들쭉날쭉하다.
+        maskImage: "linear-gradient(to bottom, #000 calc(100% - 180px), transparent 100%)",
+        WebkitMaskImage: "linear-gradient(to bottom, #000 calc(100% - 180px), transparent 100%)",
+      }}
     >
       {items.map((item, i) => {
         const pos = placed[i];
@@ -167,7 +197,7 @@ export function GalleryMasonry({ items }: { items: GalleryItem[] }) {
               transitionDelay: `${(i % 10) * 40}ms`,
               visibility: pos ? "visible" : "hidden",
             }}
-            className="group overflow-hidden rounded-xl bg-[var(--bg)] ring-1 ring-white/10 shadow-[0_2px_16px_rgba(0,0,0,0.45)] opacity-0 translate-y-5 transition-[opacity,transform,box-shadow] duration-700 ease-out data-[shown=1]:opacity-100 data-[shown=1]:translate-y-0 hover:ring-white/25 hover:shadow-[0_8px_32px_rgba(0,0,0,0.6)]"
+            className="gallery-tile group overflow-hidden rounded-xl bg-[var(--bg)] opacity-0 translate-y-5 transition-[opacity,transform,box-shadow] duration-700 ease-out data-[shown=1]:opacity-100 data-[shown=1]:translate-y-0"
           >
             {item.kind === "video" ? (
               <video
