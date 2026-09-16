@@ -52,11 +52,21 @@ export function MobileTabbar() {
                   "flex flex-col items-center justify-center gap-1 h-14 transition-colors",
                   active
                     ? "text-[var(--accent)]"
-                    : "text-[var(--fg)] opacity-55 hover:opacity-100",
+                    : l.highlight
+                      ? "text-[var(--fg)] opacity-95"
+                      : "text-[var(--fg)] opacity-55 hover:opacity-100",
                 ].join(" ")}
               >
                 {/* 6칸이라 390px 에서 칸당 65px 뿐이다. 라벨이 접히지 않게 줄였다. */}
-                <Icon size={18} strokeWidth={active ? 2.4 : 1.9} aria-hidden />
+                <span className="relative">
+                  <Icon size={18} strokeWidth={active ? 2.4 : 1.9} aria-hidden />
+                  {l.highlight && !active && (
+                    <span
+                      aria-hidden
+                      className="nav-highlight-dot absolute -top-0.5 -right-1 w-1.5 h-1.5 rounded-full bg-[var(--accent)]"
+                    />
+                  )}
+                </span>
                 <span className="text-[9px] tracking-[0.01em] font-semibold leading-none whitespace-nowrap">
                   {l.ko}
                 </span>

@@ -51,9 +51,17 @@ export function Nav() {
                   active
                     ? "opacity-100 text-[var(--accent)]"
                     : "opacity-70 hover:opacity-100",
+                  // 가장 보여주고 싶은 페이지는 흐려지지 않는다.
+                  l.highlight && !active && "opacity-100 nav-highlight",
                 )}
               >
                 {l.label}
+                {l.highlight && !active && (
+                  <span
+                    aria-hidden
+                    className="nav-highlight-dot absolute -top-1 -right-2 w-1.5 h-1.5 rounded-full bg-[var(--accent)]"
+                  />
+                )}
                 {active && (
                   <span
                     aria-hidden

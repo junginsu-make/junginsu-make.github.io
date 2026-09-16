@@ -12,6 +12,8 @@ export type SiteLink = {
   ko: string;
   /** 「다음 읽기」 카드에 붙는 한 줄 */
   blurb: string;
+  /** 메뉴에서 눈에 띄게 할 것 — 가장 보여주고 싶은 페이지 */
+  highlight?: boolean;
 };
 
 export const SITE_LINKS: SiteLink[] = [
@@ -49,7 +51,8 @@ export const SITE_LINKS: SiteLink[] = [
     href: "/gallery",
     label: "Gallery",
     ko: "갤러리",
-    blurb: "MCS로 만든 결과물 — 목업 없이 나온 그대로",
+    blurb: "혼자 만든 SaaS와, 거기서 클릭 몇 번으로 나온 것들",
+    highlight: true,
   },
 ];
 

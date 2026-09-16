@@ -21,7 +21,7 @@ export default function GalleryPage() {
       <section className="px-6 md:px-10 lg:px-16 xl:px-24 pt-40 pb-12 md:pb-16">
         <div className="flex items-baseline justify-between mb-10 md:mb-12">
           <p className="text-meta opacity-60 tracking-[0.2em]">
-            <MaskReveal>GALLERY · 만든 것들</MaskReveal>
+            <MaskReveal>GALLERY · SaaS와 결과물</MaskReveal>
           </p>
           <span className="text-meta opacity-40 tabular-nums">
             {items.length.toString().padStart(2, "0")}
@@ -30,14 +30,14 @@ export default function GalleryPage() {
         </div>
 
         <ScrollReveal>
-          <h1 className="text-display-lg md:text-display-xl font-display leading-[1.02] tracking-[-0.03em] max-w-[16ch]">
-            목업이 아니라 <WordHighlight delay={0.9}>결과물</WordHighlight>
+          <h1 className="text-display-lg md:text-display-xl font-display leading-[1.02] tracking-[-0.03em] max-w-[18ch]">
+            혼자 만든 SaaS와,{" "}
+            <WordHighlight delay={0.9}>거기서 나온 것들</WordHighlight>
           </h1>
           <p className="mt-8 text-body-lg opacity-70 leading-[1.7] max-w-[62ch]">
-            MCS로 만든 카드뉴스·포스터·광고 소재와, 직접 만든 SaaS의 실제 화면을
-            함께 걸었습니다. 틀에 끼워 넣거나 후보정하지 않고 나온 그대로입니다.
-            비율이 제각각인 것도 손대지 않았습니다 — 무엇을 만들 수 있는지는 그
-            들쭉날쭉함이 더 정직하게 보여줍니다.
+            아래는 전부 그 SaaS에서 클릭 몇 번으로 나온 결과물입니다. 디자이너도,
+            프롬프트를 배우는 시간도 필요하지 않았습니다. 쓰는 사람이 어려우면
+            좋은 도구가 아니라고 생각해서 그렇게 만들었습니다.
           </p>
         </ScrollReveal>
       </section>
