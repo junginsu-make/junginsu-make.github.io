@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Home, User, Briefcase, Boxes, Megaphone } from "lucide-react";
+import { Home, User, Briefcase, Boxes, Megaphone, LayoutGrid } from "lucide-react";
 import { SITE_LINKS } from "@/lib/data/site-nav";
 
 /**
@@ -20,6 +20,7 @@ const ICONS = {
   "/career": Briefcase,
   "/builder": Boxes,
   "/marketing": Megaphone,
+  "/gallery": LayoutGrid,
 } as const;
 
 /** 하단 바 높이 + 안전영역. 챗 위젯·맨위로 버튼이 이만큼 올라간다. */
@@ -54,8 +55,9 @@ export function MobileTabbar() {
                     : "text-[var(--fg)] opacity-55 hover:opacity-100",
                 ].join(" ")}
               >
-                <Icon size={19} strokeWidth={active ? 2.4 : 1.9} aria-hidden />
-                <span className="text-[10px] tracking-[0.04em] font-semibold leading-none">
+                {/* 6칸이라 390px 에서 칸당 65px 뿐이다. 라벨이 접히지 않게 줄였다. */}
+                <Icon size={18} strokeWidth={active ? 2.4 : 1.9} aria-hidden />
+                <span className="text-[9px] tracking-[0.01em] font-semibold leading-none whitespace-nowrap">
                   {l.ko}
                 </span>
               </Link>

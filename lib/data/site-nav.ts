@@ -45,6 +45,12 @@ export const SITE_LINKS: SiteLink[] = [
     ko: "마케팅",
     blurb: "TMON ROAS 7,404% · 광고 운영과 강의",
   },
+  {
+    href: "/gallery",
+    label: "Gallery",
+    ko: "갤러리",
+    blurb: "MCS로 만든 결과물 — 목업 없이 나온 그대로",
+  },
 ];
 
 /** 현재 경로 다음에 읽을 페이지. 목록의 끝에서는 처음으로 돌아온다. */
