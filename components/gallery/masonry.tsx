@@ -1,55 +1,102 @@
 "use client";
-import { useEffect, useRef } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import type { GalleryItem } from "@/lib/gallery";
 
 /**
- * 결과물 격자.
+ * 결과물 격자 — 열 높이를 추적해 가장 낮은 곳에 채우는 masonry.
  *
- * **가로로 긴 것은 두 칸을 차지한다.** 처음에는 CSS columns 로 짰는데, 그러면
- * 칸 너비가 전부 같아서 16:9 결과물이 세로 포스터와 같은 폭으로 들어가 우표만
- * 하게 보였다. grid 에 `col-span-2` 를 쓰면 가로 결과물이 제 크기를 찾는다.
+ * **CSS 로는 안 된다.** columns 는 칸 너비가 전부 같아 16:9 결과물이 우표만
+ * 해지고, grid 는 dense 를 켜도 구멍이 13% 남았다(실측). 두 칸짜리가 섞이면
+ * CSS 가 메울 수 없는 자리가 생긴다. 그래서 자리를 직접 계산한다.
  *
- * **높이는 원본 비율 그대로 둔다.** 잘라 맞추면 결과물이 아니라 썸네일이 된다.
- * 대신 행마다 높이가 달라 아래쪽에 틈이 생기는데, 이건 `grid-auto-rows` 를
- * 잘게 쪼개고 각 칸이 제 높이만큼 행을 먹도록 해서 메운다(자바스크립트 없이는
- * 안 되는 계산이라 붙여 둔다).
- *
- * **영상은 화면에 들어올 때 재생한다.** 스무 개를 한꺼번에 틀면 디코더가 밀린다.
+ * **비율은 파일명에서 읽어 온다.** 이미지를 받기 전에 자리를 잡아야 격자가
+ * 흔들리지 않는다(scripts/build-gallery.ts 가 `-r203` 처럼 적어 준다).
  */
+
+/** 화면 폭 → 열 수. Tailwind 의 md(768) · xl(1280) 기준과 맞춘다. */
+function columnsFor(width: number) {
+  if (width < 768) return 2;
+  if (width < 1280) return 4;
+  return 6;
+}
+
+type Placed = { left: number; top: number; width: number; height: number };
+
 export function GalleryMasonry({ items }: { items: GalleryItem[] }) {
   const rootRef = useRef<HTMLDivElement>(null);
+  const [placed, setPlaced] = useState<Placed[]>([]);
+  const [height, setHeight] = useState(0);
 
-  useEffect(() => {
+  const layout = useCallback(() => {
     const root = rootRef.current;
     if (!root) return;
 
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const total = root.clientWidth;
+    if (!total) return;
 
-    /**
-     * 각 타일이 제 높이만큼 행을 차지하게 한다.
-     * grid-auto-rows 가 1px + gap 이므로, 높이를 그 단위로 환산해 span 을 준다.
-     */
-    function layout() {
-      const style = getComputedStyle(root!);
-      const row = parseFloat(style.getPropertyValue("grid-auto-rows")) || 1;
-      const gap = parseFloat(style.getPropertyValue("row-gap")) || 0;
-      root!.querySelectorAll<HTMLElement>("[data-tile]").forEach((el) => {
-        const media = el.firstElementChild as HTMLElement | null;
-        const h = media ? media.getBoundingClientRect().height : el.getBoundingClientRect().height;
-        if (!h) return;
-        el.style.gridRowEnd = `span ${Math.max(1, Math.ceil((h + gap) / (row + gap)))}`;
-      });
+    const cols = columnsFor(window.innerWidth);
+    const gap = window.innerWidth < 768 ? 8 : 12;
+    const colW = (total - gap * (cols - 1)) / cols;
+
+    const heights = new Array(cols).fill(0);
+    const out: Placed[] = [];
+
+    for (const item of items) {
+      const span = Math.min(item.span, cols);
+      const width = colW * span + gap * (span - 1);
+      const h = width / item.ratio;
+
+      let col = 0;
+      let top = Infinity;
+      if (span === 1) {
+        // 가장 낮은 열.
+        for (let c = 0; c < cols; c++) {
+          if (heights[c] < top) {
+            top = heights[c];
+            col = c;
+          }
+        }
+      } else {
+        // 붙어 있는 두 열 쌍 중에서 고른다.
+        // 높이만 보면 한쪽이 훨씬 낮은 쌍을 골라 그 차이만큼 구멍이 남는다.
+        // 그래서 두 열의 높이 차를 벌점으로 더해, 나란한 쌍을 선호하게 한다.
+        let best = Infinity;
+        for (let c = 0; c <= cols - span; c++) {
+          const hi = Math.max(heights[c], heights[c + 1]);
+          const waste = hi - Math.min(heights[c], heights[c + 1]);
+          const score = hi + waste * 0.9;
+          if (score < best) {
+            best = score;
+            top = hi;
+            col = c;
+          }
+        }
+      }
+
+      out.push({ left: col * (colW + gap), top, width, height: h });
+      for (let c = col; c < col + span; c++) heights[c] = top + h + gap;
     }
 
-    // 이미지·영상은 나중에 도착한다. 도착할 때마다 다시 잰다.
-    const ro = new ResizeObserver(layout);
-    ro.observe(root);
-    root.querySelectorAll("img, video").forEach((el) => {
-      ro.observe(el);
-      el.addEventListener("load", layout);
-      el.addEventListener("loadedmetadata", layout);
-    });
+    setPlaced(out);
+    setHeight(Math.max(0, ...heights) - gap);
+  }, [items]);
+
+  useEffect(() => {
     layout();
+    const ro = new ResizeObserver(layout);
+    if (rootRef.current) ro.observe(rootRef.current);
+    window.addEventListener("resize", layout);
+    return () => {
+      ro.disconnect();
+      window.removeEventListener("resize", layout);
+    };
+  }, [layout]);
+
+  useEffect(() => {
+    const root = rootRef.current;
+    if (!root || !placed.length) return;
+
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     // 떠오르는 등장 — 스크롤로 들어온 것만.
     const reveal = new IntersectionObserver(
@@ -63,7 +110,7 @@ export function GalleryMasonry({ items }: { items: GalleryItem[] }) {
       { rootMargin: "0px 0px -6% 0px" },
     );
 
-    // 영상 재생 — 보이는 것만.
+    // 영상은 보이는 것만 튼다. 스무 개를 한꺼번에 틀면 디코더가 밀린다.
     const play = new IntersectionObserver(
       (entries) => {
         for (const e of entries) {
@@ -94,54 +141,60 @@ export function GalleryMasonry({ items }: { items: GalleryItem[] }) {
     if (!reduce) root.querySelectorAll("video").forEach((v) => play.observe(v));
 
     return () => {
-      ro.disconnect();
       reveal.disconnect();
       play.disconnect();
     };
-  }, [items]);
+  }, [placed.length]);
 
   return (
     <div
       ref={rootRef}
-      className="gallery-masonry grid grid-cols-2 md:grid-cols-4 xl:grid-cols-6 gap-2 md:gap-3"
+      className="gallery-masonry relative w-full"
+      style={{ height: height || undefined }}
     >
-      {items.map((item, i) => (
-        <figure
-          key={item.src}
-          data-tile
-          style={{ transitionDelay: `${(i % 10) * 45}ms` }}
-          className={[
-            "overflow-hidden rounded-lg bg-[var(--line)]/30",
-            "opacity-0 translate-y-6 transition-[opacity,transform] duration-700 ease-out",
-            "data-[shown=1]:opacity-100 data-[shown=1]:translate-y-0",
-            item.span === 2 ? "col-span-2" : "",
-          ].join(" ")}
-        >
-          {item.kind === "video" ? (
-            <video
-              muted
-              loop
-              playsInline
-              preload="none"
-              poster={item.poster}
-              className="w-full h-auto block"
-            >
-              {item.webm ? <source data-src={item.webm} type="video/webm" /> : null}
-              <source data-src={item.src} type="video/mp4" />
-            </video>
-          ) : (
-            // next/image 가 unoptimized 라 이점이 없다. 원본 비율을 그대로 쓴다.
-            // eslint-disable-next-line @next/next/no-img-element
-            <img
-              src={item.src}
-              alt=""
-              loading="lazy"
-              decoding="async"
-              className="w-full h-auto block"
-            />
-          )}
-        </figure>
-      ))}
+      {items.map((item, i) => {
+        const pos = placed[i];
+        return (
+          <figure
+            key={item.src}
+            data-tile
+            style={{
+              position: "absolute",
+              left: pos?.left ?? 0,
+              top: pos?.top ?? 0,
+              width: pos?.width ?? 0,
+              height: pos?.height ?? 0,
+              transitionDelay: `${(i % 10) * 40}ms`,
+              visibility: pos ? "visible" : "hidden",
+            }}
+            className="group overflow-hidden rounded-xl bg-[var(--bg)] ring-1 ring-white/10 shadow-[0_2px_16px_rgba(0,0,0,0.45)] opacity-0 translate-y-5 transition-[opacity,transform,box-shadow] duration-700 ease-out data-[shown=1]:opacity-100 data-[shown=1]:translate-y-0 hover:ring-white/25 hover:shadow-[0_8px_32px_rgba(0,0,0,0.6)]"
+          >
+            {item.kind === "video" ? (
+              <video
+                muted
+                loop
+                playsInline
+                preload="none"
+                poster={item.poster}
+                className="w-full h-full object-cover block transition-transform duration-700 group-hover:scale-[1.03]"
+              >
+                {item.webm ? <source data-src={item.webm} type="video/webm" /> : null}
+                <source data-src={item.src} type="video/mp4" />
+              </video>
+            ) : (
+              // next/image 가 unoptimized 라 이점이 없다. 원본 비율을 그대로 쓴다.
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                src={item.src}
+                alt=""
+                loading="lazy"
+                decoding="async"
+                className="w-full h-full object-cover block transition-transform duration-700 group-hover:scale-[1.03]"
+              />
+            )}
+          </figure>
+        );
+      })}
     </div>
   );
 }

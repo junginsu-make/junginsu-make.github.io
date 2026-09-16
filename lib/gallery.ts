@@ -20,6 +20,8 @@ export type GalleryItem = {
   kind: "image" | "video";
   /** 격자에서 차지할 칸 수 — 가로로 긴 것은 2 */
   span: 1 | 2;
+  /** 가로÷세로. 받기 전에 자리를 잡아야 격자가 흔들리지 않는다 */
+  ratio: number;
   /** 영상일 때 같은 이름의 webm 이 있으면 그 경로 — 먼저 시도한다 */
   webm?: string;
   /** 영상일 때 같은 이름의 포스터가 있으면 그 경로 */
@@ -34,7 +36,13 @@ const DERIVED = /-poster\.(jpe?g|png|webp)$/i;
 
 /** `-w2` 가 붙어 있으면 두 칸. */
 function spanOf(name: string): 1 | 2 {
-  return /-w2(?=\.[a-z0-9]+$)/i.test(name) ? 2 : 1;
+  return /-w2(?=[-.])/i.test(name) ? 2 : 1;
+}
+
+/** `-r203` → 2.03. 없으면 정사각으로 본다. */
+function ratioOf(name: string): number {
+  const m = name.match(/-r(\d{2,4})(?=\.[a-z0-9]+$)/i);
+  return m ? Number(m[1]) / 100 : 1;
 }
 
 export function getGalleryItems(): GalleryItem[] {
@@ -68,6 +76,7 @@ export function getGalleryItems(): GalleryItem[] {
         src: `/gallery/${encodeURIComponent(f)}`,
         kind: "video",
         span: spanOf(f),
+        ratio: ratioOf(f),
         webm,
         poster: poster ? `/gallery/${encodeURIComponent(poster)}` : undefined,
       });
@@ -79,6 +88,7 @@ export function getGalleryItems(): GalleryItem[] {
         src: `/gallery/${encodeURIComponent(f)}`,
         kind: "image",
         span: spanOf(f),
+        ratio: ratioOf(f),
       });
     }
   }

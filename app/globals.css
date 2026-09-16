@@ -87,8 +87,11 @@
   background: color-mix(in oklab, var(--accent) 20%, transparent);
 }
 
-/* 갤러리 격자 — 행을 잘게 쪼개 타일이 제 높이만큼 먹게 한다 (masonry.tsx 가 계산) */
-.gallery-masonry { grid-auto-rows: 1px; align-items: start; }
+/*
+  갤러리 격자는 masonry.tsx 가 자리를 직접 계산한다.
+  CSS columns 는 칸 너비가 전부 같아 가로 결과물이 우표만 해지고,
+  grid 는 dense 를 켜도 구멍이 13% 남았다(실측).
+*/
 
 /* 히어로 배경 영상 — 크기와 바닥 여백 */
 .hero-video { --hv-scale: 0.7; --hv-gap: 6vh; --hv-pos: center; }

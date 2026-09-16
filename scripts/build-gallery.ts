@@ -157,7 +157,7 @@ async function main() {
       const span = w / h >= WIDE ? "-w2" : "";
       if (span) wide++;
 
-      const base = `${idx}-${job.tag}${span}`;
+      const base = `${idx}-${job.tag}${span}-r${Math.round((w / h) * 100)}`;
       const webm = path.join(OUT, `${base}.webm`);
       const poster = path.join(OUT, `${base}-poster.jpg`);
 
@@ -198,13 +198,16 @@ async function main() {
     const span = finalRatio >= WIDE ? "-w2" : "";
     if (span) wide++;
 
-    const out = path.join(OUT, `${idx}-${job.tag}${span}.webp`);
+    // 비율을 이름에 적는다 — 브라우저가 이미지를 받기 전에 자리를 잡아야
+    // 격자가 흔들리지 않는다(lib/gallery.ts 가 읽는다).
+    const base = `${idx}-${job.tag}${span}-r${Math.round(finalRatio * 100)}`;
+    const out = path.join(OUT, `${base}.webp`);
     await pipe.resize(1400, null, { fit: "inside", withoutEnlargement: true }).webp({ quality: 82 }).toFile(out);
 
     const after = statSync(out).size;
     bytes += after;
     console.log(
-      `${`${idx}-${job.tag}${span}`.padEnd(16)} ${String(meta.width).padStart(4)}x${String(meta.height).padEnd(5)} ${ratio.toFixed(2)}${ratio < TOO_TALL ? " ✂" : ""}  ${(after / 1024).toFixed(0)}KB  ${path.basename(job.src).slice(0, 34)}`,
+      `${base.padEnd(20)} ${String(meta.width).padStart(4)}x${String(meta.height).padEnd(5)} ${ratio.toFixed(2)}${ratio < TOO_TALL ? " ✂" : ""}  ${(after / 1024).toFixed(0)}KB  ${path.basename(job.src).slice(0, 30)}`,
     );
   }
 
