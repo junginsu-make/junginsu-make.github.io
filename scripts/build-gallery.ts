@@ -50,8 +50,20 @@ const TOO_TALL = 0.4;
 /** 잘라낼 때 맞출 비율 — 길쭉하되 한 열을 삼키지는 않는 정도. */
 const CROP_TO = 0.45;
 
-/** 걸지 않을 파일 — 비슷한 것이 이미 있다. */
-const EXCLUDE = new Set(["KakaoTalk_20260911_134543202.mp4"]);
+/** 걸지 않을 파일 — 비슷한 것이 이미 있거나 사용자가 뺀 것. */
+const EXCLUDE = new Set([
+  "KakaoTalk_20260911_134543202.mp4",
+  "KakaoTalk_20260908_175758056.mp4",
+  "KakaoTalk_20260902_134858474.mp4",
+]);
+
+/**
+ * 자리를 맞바꿀 짝. 모양이 같아야 격자가 흐트러지지 않는다.
+ * 순서는 자동으로 정해지지만, 눈으로 보고 바꾸고 싶은 자리가 생긴다.
+ */
+const SWAP: [string, string][] = [
+  ["KakaoTalk_20260828_110948849.mp4", "KakaoTalk_20260908_183040351.mp4"],
+];
 
 type Job = { src: string; tag: string };
 
@@ -132,19 +144,83 @@ async function main() {
   platform.push(...platformU);
 
   // 3) 섞는다 — 결과물 사이사이에 플랫폼 화면과 영상이 고르게 퍼지도록
-  const order: Job[] = [];
+  const mixed: Job[] = [];
   const pools = [
     { list: images, i: 0 },
     { list: videos, i: 0 },
     { list: platform, i: 0 },
   ];
   const total = pools.reduce((n, p) => n + p.list.length, 0);
-  while (order.length < total) {
+  while (mixed.length < total) {
     // 남은 비율이 가장 큰 쪽에서 하나씩 꺼낸다 — 한쪽이 뒤에 몰리지 않는다.
     const next = pools
       .filter((p) => p.i < p.list.length)
       .sort((a, b) => (b.list.length - b.i) / b.list.length - (a.list.length - a.i) / a.list.length)[0];
-    order.push(next.list[next.i++]);
+    mixed.push(next.list[next.i++]);
+  }
+
+  // 4) 모양이 번갈아 나오게 다시 늘어놓는다.
+  //
+  // 소스만 섞으면 모양이 몰린다 — 파일명 순으로 굽다 보니 같은 비율의 스크린샷이
+  // 줄줄이 붙어 격자가 "한 줄로 세운" 것처럼 보였다(실측: 같은 모양 6개 연속).
+  // 가로·세로·중간 세 갈래로 나눈 뒤 남은 개수에 비례해 번갈아 꺼낸다.
+  console.log("비율 조사 중…");
+  const withRatio = await Promise.all(
+    mixed.map(async (job) => {
+      let ratio = 1;
+      if (VIDEO.test(job.src)) {
+        if (!ffmpeg) return { job, ratio };
+        const probe = await run("ffprobe", [
+          "-v", "error", "-select_streams", "v:0",
+          "-show_entries", "stream=width,height", "-of", "csv=p=0", job.src,
+        ]);
+        const [w, h] = probe.stdout.trim().split(",").map(Number);
+        ratio = w / h;
+      } else {
+        const m = await sharp(job.src).metadata();
+        ratio = m.width! / m.height!;
+        if (ratio < TOO_TALL) ratio = CROP_TO; // 자른 뒤의 모양으로 본다
+      }
+      return { job, ratio };
+    }),
+  );
+
+  const buckets: Job[][] = [[], [], []]; // 0=가로 1=세로 2=중간
+  for (const { job, ratio } of withRatio) {
+    buckets[ratio >= WIDE ? 0 : ratio <= 0.7 ? 1 : 2].push(job);
+  }
+
+  const order: Job[] = [];
+  const taken = [0, 0, 0];
+  let lastShape = -1;
+  while (order.length < total) {
+    // 남은 비율이 가장 큰 갈래에서 꺼낸다 — 한 모양이 뒤에 몰리지 않는다.
+    let pick = -1;
+    let bestLeft = -1;
+    for (let k = 0; k < 3; k++) {
+      if (taken[k] >= buckets[k].length) continue;
+      const left = (buckets[k].length - taken[k]) / buckets[k].length;
+      // 바로 앞과 같은 모양이면 뒤로 미룬다.
+      const penalty = order.length && lastShape === k ? 0.55 : 1;
+      if (left * penalty > bestLeft) {
+        bestLeft = left * penalty;
+        pick = k;
+      }
+    }
+    order.push(buckets[pick][taken[pick]++]);
+    lastShape = pick;
+  }
+
+  // 지정한 짝의 자리를 맞바꾼다.
+  for (const [a, bName] of SWAP) {
+    const ia = order.findIndex((j) => path.basename(j.src) === a);
+    const ib = order.findIndex((j) => path.basename(j.src) === bName);
+    if (ia < 0 || ib < 0) {
+      console.log(`자리 바꾸기 건너뜀 — 못 찾음: ${ia < 0 ? a : bName}`);
+      continue;
+    }
+    [order[ia], order[ib]] = [order[ib], order[ia]];
+    console.log(`자리 바꿈: ${a} ↔ ${bName}`);
   }
 
   let n = 0;

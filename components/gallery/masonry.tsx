@@ -35,7 +35,8 @@ export function GalleryMasonry({ items }: { items: GalleryItem[] }) {
     if (!total) return;
 
     const cols = columnsFor(window.innerWidth);
-    const gap = window.innerWidth < 768 ? 8 : 12;
+    // 간격이 곧 구분선이다. 좁으면 어두운 결과물끼리 한 덩어리로 붙어 보인다.
+    const gap = window.innerWidth < 768 ? 10 : 18;
     const colW = (total - gap * (cols - 1)) / cols;
 
     const heights = new Array(cols).fill(0);
@@ -99,10 +100,9 @@ export function GalleryMasonry({ items }: { items: GalleryItem[] }) {
     }
 
     setPlaced(out);
-    // 가장 낮은 열에 맞춘다. 마지막 줄은 채울 타일이 없어 들쭉날쭉한데,
-    // 가장 높은 열에 맞추면 그 아래가 통째로 빈 칸으로 남는다.
-    // 튀어나온 부분은 아래쪽 페이드가 받아 준다.
-    setHeight(Math.max(0, Math.min(...heights) - gap));
+    // 전부 보여준다. 잘라내면 마지막 줄의 결과물이 깨진 것처럼 보인다.
+    // 바닥이 조금 들쭉날쭉한 것은 masonry 의 정상적인 끝맺음이다.
+    setHeight(Math.max(0, Math.max(...heights) - gap));
   }, [items]);
 
   useEffect(() => {
@@ -174,13 +174,9 @@ export function GalleryMasonry({ items }: { items: GalleryItem[] }) {
     <div
       ref={rootRef}
       className="gallery-masonry relative w-full"
-      style={{
-        height: height || undefined,
-        // 마지막 줄에서 튀어나온 타일을 배경색으로 서서히 덮는다.
-        // 잘라내면 결과물이 뭉텅 잘린 것처럼 보이고, 그대로 두면 바닥이 들쭉날쭉하다.
-        maskImage: "linear-gradient(to bottom, #000 calc(100% - 180px), transparent 100%)",
-        WebkitMaskImage: "linear-gradient(to bottom, #000 calc(100% - 180px), transparent 100%)",
-      }}
+      // 페이드를 걸지 않는다. 어떻게 잡아도 마지막 줄의 멀쩡한 결과물이
+      // 흐려져 깨진 것처럼 보였다. 바닥이 조금 들쭉날쭉한 편이 낫다.
+      style={{ height: height || undefined }}
     >
       {items.map((item, i) => {
         const pos = placed[i];
