@@ -12,7 +12,7 @@
     "capture": "tsx scripts/capture-urls.ts",
     "optimize": "tsx scripts/optimize-images.ts",
     "pdf": "tsx scripts/capture-portfolio-pdf.ts",
-    "gallery:optimize": "tsx scripts/optimize-gallery.ts"
+    "gallery": "tsx scripts/build-gallery.ts"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.15",

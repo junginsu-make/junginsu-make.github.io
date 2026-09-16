@@ -7,6 +7,10 @@ import path from "node:path";
  * **파일을 넣기만 하면 페이지에 뜬다.** 목록을 코드에 적어두면 결과물을 추가할
  * 때마다 코드를 고쳐야 한다. SaaS 상세 갤러리가 쓰는 방식과 같다.
  *
+ * **비율은 파일명에 적는다** — `03-app-w2.webp` 처럼. 가로로 긴 것은 격자에서
+ * 두 칸을 차지해야 제 크기로 보인다. 빌드 때 이미지를 하나하나 열어 재는 대신
+ * 이름에서 읽는다(scripts/optimize-gallery.ts 가 넣어 준다).
+ *
  * 빌드 시점에 한 번 읽는다(서버 컴포넌트). 파일을 넣은 뒤에는 배포해야 반영된다.
  */
 
@@ -14,6 +18,8 @@ export type GalleryItem = {
   /** public 기준 경로 */
   src: string;
   kind: "image" | "video";
+  /** 격자에서 차지할 칸 수 — 가로로 긴 것은 2 */
+  span: 1 | 2;
   /** 영상일 때 같은 이름의 webm 이 있으면 그 경로 — 먼저 시도한다 */
   webm?: string;
   /** 영상일 때 같은 이름의 포스터가 있으면 그 경로 */
@@ -25,6 +31,11 @@ const VIDEO = /\.(mp4|webm)$/i;
 
 /** 영상에 딸린 파생 파일 — 목록에 따로 세우지 않는다. */
 const DERIVED = /-poster\.(jpe?g|png|webp)$/i;
+
+/** `-w2` 가 붙어 있으면 두 칸. */
+function spanOf(name: string): 1 | 2 {
+  return /-w2(?=\.[a-z0-9]+$)/i.test(name) ? 2 : 1;
+}
 
 export function getGalleryItems(): GalleryItem[] {
   const dir = path.join(process.cwd(), "public", "gallery");
@@ -56,6 +67,7 @@ export function getGalleryItems(): GalleryItem[] {
       items.push({
         src: `/gallery/${encodeURIComponent(f)}`,
         kind: "video",
+        span: spanOf(f),
         webm,
         poster: poster ? `/gallery/${encodeURIComponent(poster)}` : undefined,
       });
@@ -63,7 +75,11 @@ export function getGalleryItems(): GalleryItem[] {
     }
 
     if (IMAGE.test(f)) {
-      items.push({ src: `/gallery/${encodeURIComponent(f)}`, kind: "image" });
+      items.push({
+        src: `/gallery/${encodeURIComponent(f)}`,
+        kind: "image",
+        span: spanOf(f),
+      });
     }
   }
 

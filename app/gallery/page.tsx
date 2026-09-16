@@ -9,7 +9,7 @@ import { getGalleryItems } from "@/lib/gallery";
 export const metadata: Metadata = {
   title: "Gallery — 만든 것들",
   description:
-    "MCS(Marketing Content Studio)로 만든 카드뉴스 · 광고 소재 · 포스터 · 상세페이지 · 영상. 목업 없이 결과물 그대로.",
+    "MCS로 만든 카드뉴스 · 광고 소재 · 포스터와 직접 만든 SaaS의 실제 화면. 목업 없이 결과물 그대로.",
 };
 
 export default function GalleryPage() {
@@ -34,9 +34,10 @@ export default function GalleryPage() {
             목업이 아니라 <WordHighlight delay={0.9}>결과물</WordHighlight>
           </h1>
           <p className="mt-8 text-body-lg opacity-70 leading-[1.7] max-w-[62ch]">
-            전부 MCS로 실제로 만든 것입니다. 틀에 끼워 넣거나 후보정하지 않고 나온
-            그대로 걸었습니다. 비율이 제각각인 것도 손대지 않았습니다 — 무엇을
-            만들 수 있는지는 그 들쭉날쭉함이 더 정직하게 보여줍니다.
+            MCS로 만든 카드뉴스·포스터·광고 소재와, 직접 만든 SaaS의 실제 화면을
+            함께 걸었습니다. 틀에 끼워 넣거나 후보정하지 않고 나온 그대로입니다.
+            비율이 제각각인 것도 손대지 않았습니다 — 무엇을 만들 수 있는지는 그
+            들쭉날쭉함이 더 정직하게 보여줍니다.
           </p>
         </ScrollReveal>
       </section>

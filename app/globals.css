@@ -87,6 +87,9 @@
   background: color-mix(in oklab, var(--accent) 20%, transparent);
 }
 
+/* 갤러리 격자 — 행을 잘게 쪼개 타일이 제 높이만큼 먹게 한다 (masonry.tsx 가 계산) */
+.gallery-masonry { grid-auto-rows: 1px; align-items: start; }
+
 /* 히어로 배경 영상 — 크기와 바닥 여백 */
 .hero-video { --hv-scale: 0.7; --hv-gap: 6vh; --hv-pos: center; }
 /* 모바일은 상자 자체가 화면 폭에 맞춘 가로 띠라 축소하지 않는다.
