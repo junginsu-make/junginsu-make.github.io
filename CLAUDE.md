@@ -37,6 +37,7 @@ The site runs on **Vercel with a Next.js server runtime** (`next.config.ts`: no 
 
 - Route Handlers (`app/api/*`), SSG (`generateStaticParams`), and normal server features **are available** — use them. (The old `output: "export"` + Cloudflare Pages + GitHub Pages split deploy is **retired**; `.github/workflows/deploy.yml` was deleted. Only `generate-pdf.yml`, a manual workflow, remains.)
 - The chat secret `GEMINI_API_KEY` is set in the **Vercel dashboard** (Environment Variables) — Claude can't set it; a redeploy applies it.
+- **Storage: Upstash for Redis** (Vercel Marketplace resource `portfolio-counter`, free plan) backs the footer visitor counter. Env vars are `KV_REST_API_URL` / `KV_REST_API_TOKEN` — **not** `UPSTASH_REDIS_REST_URL`; `Redis.fromEnv()` falls back to the `KV_*` names, so it works unchanged. Pull them locally with `vercel env pull .env.local`. Keys: `visits:total`, `visits:day:<KST date>`, `visits:uv:<KST date>` (48h TTL). See `lib/visits.ts`.
 - Custom domain: `isjung.mktinsight.kr` (Gabia DNS, CNAME → `cname.vercel-dns.com`) is attached to **this** Vercel project. If a domain returns `404 DEPLOYMENT_NOT_FOUND`, it's attached to the wrong Vercel project — add it to the portfolio project.
 
 ### App Router layout

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { SITE_LINKS } from "@/lib/data/site-nav";
+import { VisitorCounter } from "./visitor-counter";
 
 /**
  * 푸터 — 페이지 목록과 연락처를 둔다.
@@ -45,9 +46,13 @@ export function Footer() {
         </a>
       </div>
 
-      <p className="max-w-[1440px] mx-auto mt-4 text-[11px] font-mono opacity-40 tracking-wider">
-        작성일: 2026. 5. 5.
-      </p>
+      {/* 작성일과 방문자 수를 한 줄에 둔다 — 둘 다 「이 페이지의 기록」이다. */}
+      <div className="max-w-[1440px] mx-auto mt-4 flex flex-col md:flex-row md:items-baseline md:justify-between gap-2">
+        <p className="text-[11px] font-mono opacity-40 tracking-wider">
+          작성일: 2026. 5. 5.
+        </p>
+        <VisitorCounter />
+      </div>
     </footer>
   );
 }
