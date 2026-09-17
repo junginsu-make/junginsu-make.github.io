@@ -67,12 +67,22 @@
   }
 }
 
-/* 타이포 위계 8단계 */
+/*
+  타이포 위계 8단계
+
+  **디스플레이 글자는 화면 폭에 비례한다.** 예전에는 9vw 로 키우다 160px 에서
+  멈췄는데, 그 상한 때문에 화면마다 크기가 달라 보였다. 2560 모니터에서는
+  160px 가 화면의 6.4% 라 여유로웠지만, 1920 에서는 같은 160px 가 8.5% 를 차지해
+  화면을 꽉 채웠다 — 같은 페이지가 어디서 보느냐에 따라 다른 밀도로 읽혔다.
+
+  계수를 2560 화면의 비율(6.4vw)에 맞추고 상한을 그 위로 올렸다. 이제 어느
+  화면에서든 글자가 차지하는 비율이 같다. 아래 단계도 같은 비율(×0.71)로 줄였다.
+*/
 @layer utilities {
-  .text-display-mega { font-family: var(--font-display); font-size: clamp(56px, 14vw, 240px); line-height: 0.92; letter-spacing: -0.04em; font-weight: 500; }
-  .text-display-xl   { font-family: var(--font-display); font-size: clamp(44px, 9vw, 160px); line-height: 0.94; letter-spacing: -0.03em; font-weight: 500; }
-  .text-display-lg   { font-family: var(--font-display); font-size: clamp(36px, 5.5vw, 96px); line-height: 1.0; letter-spacing: -0.025em; font-weight: 500; }
-  .text-display-md   { font-family: var(--font-display); font-size: clamp(26px, 3.6vw, 56px); line-height: 1.1; letter-spacing: -0.02em; font-weight: 500; }
+  .text-display-mega { font-family: var(--font-display); font-size: clamp(56px, 9.9vw, 340px); line-height: 0.92; letter-spacing: -0.04em; font-weight: 500; }
+  .text-display-xl   { font-family: var(--font-display); font-size: clamp(44px, 6.4vw, 220px); line-height: 0.94; letter-spacing: -0.03em; font-weight: 500; }
+  .text-display-lg   { font-family: var(--font-display); font-size: clamp(36px, 3.9vw, 135px); line-height: 1.0; letter-spacing: -0.025em; font-weight: 500; }
+  .text-display-md   { font-family: var(--font-display); font-size: clamp(26px, 2.6vw, 78px); line-height: 1.1; letter-spacing: -0.02em; font-weight: 500; }
   .text-body-xl      { font-size: clamp(22px, 2.4vw, 28px); line-height: 1.5; }
   .text-body-lg      { font-size: 20px; line-height: 1.6; }
   .text-body         { font-size: 17px; line-height: 1.7; letter-spacing: -0.01em; }
